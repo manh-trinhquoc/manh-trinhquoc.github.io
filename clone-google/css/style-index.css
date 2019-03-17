@@ -1,0 +1,152 @@
+body {
+    font-family: "Google Sans",Arial,sans-serif;
+    font-weight: normal;
+    word-break: break-word;
+    word-wrap: break-word;
+    font-size: 1rem;
+    line-height: 1rem;
+    color: #3c4043;
+    margin: 0;
+    overflow-wrap: break-word;
+    padding: 0;
+}
+
+
+
+
+
+.chr-header {
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    transition: height .4s;
+    z-index: 100;
+}
+
+.chr-header__wrapper {
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    -moz-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    -o-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -ms-align-items: center;
+    align-items: center;
+    background: #fff;
+    -webkit-box-shadow: 0 2px 6px 0 rgba(0,0,0,0.12), inset 0 -1px 0 0 #dadce0;
+    box-shadow: 0 2px 6px 0 rgba(0,0,0,0.12), inset 0 -1px 0 0 #dadce0;
+}
+
+.chr-header__lockup {
+    position: relative;
+}
+
+.chr-header__logo {
+    height: 100%;
+}
+
+a {
+    background-color: transparent;
+    text-decoration: none;
+}
+
+.chr-header__logo-link {
+    display: flex;
+    -ms-align-items: center;
+    align-items: center;
+    font-size: 1.375rem;
+    line-height: 2rem;
+    color: #5f6368;
+    font-family: "Product Sans",Arial,Helvetica,sans-serif;
+    height: 100%;
+    padding-top: 1px;
+    vertical-align: middle;
+}
+
+.chr-header__logo-icon {
+    height: 24px;
+    margin-right: 6px;
+    margin-top: 2px;
+    width: 74px;
+}
+
+.chr-header__nav {
+
+}
+
+.chr-header__nav-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    -ms-align-items: center;
+    align-items: center;
+    margin: 0;
+}
+
+.chr-header__nav-li {
+
+}
+
+.chr-header__nav-li-link {
+    font-size: .875rem;
+    line-height: 1.5rem;
+    letter-spacing: .01562rem;
+    color: #5f6368;
+    cursor: pointer;
+    width: 100%;
+}
+
+@media (min-width: 600px) {
+    .chr-header__wrapper {
+        height: 64px;
+    }
+
+    .chr-header__nav-list {
+        height: 100%;
+    }
+
+    .chr-header__nav-li {
+        display: flex;
+        -ms-align-items: center;
+        align-items: center;
+        height: 100%;
+        position: relative;
+        width: auto;
+        margin-right: 0;
+    }
+
+    .chr-header__nav-li-link {
+        display: flex;
+        -ms-align-items: center;
+        align-items: center;
+        height: 100%;
+    }
+}
+
+@media (min-width: 850px) {
+    .chr-header__lockup {
+        margin-left: 24px;
+    }
+
+    .chr-header__nav {
+        display: block;
+        height: 100%;
+    }
+}
+
+@media (min-width: 1024px) {
+    .chr-header__nav{
+        margin-left: 48px;
+    }
+
+    .chr-header__nav-li-link {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+}
+
+
+
+
+
