@@ -373,3 +373,14 @@ img {
         padding-top: 60px;
     }
 }
+
+.chr-grid {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+@media (min-width: 600px) {
+    .chr-gird {
+        margin: 0 -1.03799%;
+    }
+}
