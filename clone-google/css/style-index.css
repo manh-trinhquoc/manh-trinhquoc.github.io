@@ -353,3 +353,23 @@ img {
         width: 14.5px;
     }
 }
+
+.two-col-split {
+
+}
+
+@media (min-width: 600px) {
+    .two-col-split {
+        text-align: left;
+    }
+}
+
+@media (min-width: 1440px) {
+    .two-col-split {
+        padding: 40px 0;
+    }
+
+    .two-col-split:first-child {
+        padding-top: 60px;
+    }
+}
