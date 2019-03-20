@@ -419,6 +419,12 @@ img {
     align-items: center;
 }
 
+@media (min-width: 600px) {
+    .chr-grid__col-img-wrapper {
+        
+    }
+}
+
 .two-col-split__header img {
     height: 72px;
     width: 72px;
