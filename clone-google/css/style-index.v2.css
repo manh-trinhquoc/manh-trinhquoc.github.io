@@ -318,7 +318,7 @@ select {
 }
 
 .chr-full-bleed-hero__title {
-    font-family: Arial,sans-serif;
+    font-family: "Google Sans",Arial,sans-serif;
     font-weight: normal;
     -webkit-font-smoothing: antialiased;
     color: #202124;
