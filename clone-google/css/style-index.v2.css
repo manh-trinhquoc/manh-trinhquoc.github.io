@@ -1122,8 +1122,9 @@ picture img {
     font-size: .875rem;
     line-height: 1.375rem;
     letter-spacing: .01562rem;
+    -webkit-appearance : none;
     background-color: #f8f9fa;
-    background-image: url(img/download.svg);
+    background-image: url(../img/download.svg);
     background-position: right 50%;
     background-repeat: no-repeat;
     border: none;
