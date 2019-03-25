@@ -3,26 +3,134 @@
 <head>
     <meta charset="UTF-8">
     <title>Giao diện 2 cột</title>
+    <link rel="stylesheet" href="css/style-index.css">
 </head>
 <body>
-    <div class="header">
-        <header><img src="img/logo.png" alt="techmaster logo"></header>
-        <nav>
-            <a href="">Trang chủ</a>
-            <a href="">Khóa học</a>
-            <a href="">Lịch khai giảng</a>
-            <a href="">Q &A</a>
-            <a href="">Blog</a>
-            <a href="">Việc làm</a>
-            <a href="">Phỏng vấn</a>
-            <a href="">Chúng tôi</a>
-        </nav>
-    </div>
-    <div class="main">
-        <div class="content">
-            
+    <header>
+        <div class="col">
+            <img src="img/logo.png" alt="techmaster logo" class="flt">
+            <nav class="flt">
+                <a href="">Trang chủ</a>
+                <a href="">Khóa học</a>
+                <a href="">Lịch khai giảng</a>
+                <a href="">Q &A</a>
+                <a href="">Blog</a>
+                <a href="">Việc làm</a>
+                <a href="">Phỏng vấn</a>
+                <a href="">Chúng tôi</a>
+            </nav>
         </div>
-        <div class="sidebar"></div>
-    </div>
+    </header>
+
+    <main class="col">
+        <div class="breadcrumb">
+            <ul>
+                <li><a href="">Trang chủ</a></li>
+                <li><a href=""> Khóa học</a></li>
+                <li>Web Frontend cho người mới học</li>
+            </ul>
+        </div>
+        <article class="flt">
+            <h1>Giới thiệu</h1>
+            <p>
+                Khóa học dài hạn dành cho những ai muốn trở thành một lập trình viên web, đặc biệt là Web Frontend. Đây là khóa học tổng hợp của nhiều khóa học nhỏ, được sắp xếp theo trình tự hợp lý từ dễ đến khó, bao gồm:
+                <ul>
+                    <li class="line">Phần cứng máy tính và mạng cơ bản.</li>
+                    <li class="line">Web cơ bản với HTML, CSS, Javascript, jQuery, Bootstrap.</li>
+                    <li class="line">Javascript nâng cao.</li>
+                    <li class="line">Thiết kế UI/UX cho website.</li>
+                    <li class="line">Xây dựng Website nhanh với WordPress, lập trình theme WordPress.</li>
+                    <li class="line">Lập trình Web Frontend nâng cao với <a href="">VueJS</a> + <a href="">NuxtJS.</a></li>
+                </ul>
+                <img src="img/frontend web.jpg" alt="Frontend Web">
+                <h2>Đối tượng</h2>
+                <ul>
+                    <li class="line">
+                        Bất cứ ai mong muốn xây dựng sự nghiệp của mình với lĩnh vực lập trình CNTT về mảng Web Frontend. Không yêu cầu kiểm tra đầu vào.</li>
+                    <li class="line">
+                        Các lập trình viên, kỹ thuật viên và nhân viên của các công ty, văn phòng muốn chuẩn hóa hoặc nâng cao kỹ năng lập trình Web Frontend.
+                    </li>
+                </ul>
+                <h2>Hình thức học</h2>
+                <h2>Học phí</h2>
+                <h2>Cơ hội nghề nghiệp</h2>
+                <h2>Một số bài tập của học viên</h2>
+            </p>
+
+        </article>
+        <aside class="flt">
+            <h1>Học phí</h1>
+            <p class="cost">12,000,000 VND</p>
+            <a class="arrow-link" href="">Xem chi tiết</a>
+        </aside>
+        <aside class="flt">
+            <h1>Giảng viên</h1>
+            <h2>Đặng Quang Huy</h2>
+            <a href=""><img src="" alt="icon" class="icon">Blog</a>
+            <img src="img/dang-quang-huy.png" alt="" class="portrait">
+            <p>
+                Web developer tại Techmaster, có kinh nghiệm làm việc trong các dự án nước ngoài, dự án start up và các dự án mã nguồn mở. Sở thích ngoài lập trình: Đọc sách, bơi lội, nghe nhạc và du lịch
+            </p>
+        </aside>
+    </main>
+    <footer>
+        <div>
+            <h1>Chủ sở hữu website</h1>
+            <ul>
+                <li>Công ty TNHH TechMaster Vietnam Ltd</li>
+                <li>Số ĐKDN: 0105392153</li>
+                <li>Ngày cấp: 4-7-2011</li>
+                <li>Nơi cấp: Sở kế hoạch - đầu tư Hà nội</li>
+                <li>Người đại diện pháp luật: Lê Minh Thu</li>
+                <li>Chịu trách nhiệm nội dung: Trịnh Minh Cường</li>
+            </ul>
+        </div>
+        <div>
+            <h1>Thông tin chung</h1>
+            <ul>
+                <li>Thông tin trung tâm</li>
+                <li>Giảng viên</li>
+                <li>Quy định</li>
+                <li>Hướng dẫn mua khóa học</li>
+                <li>Hoàn trả - Ưu đãi học phí</li>
+                <li>Chính sách bảo vệ thông tin khách hàng</li>
+            </ul>
+        </div>
+        <div>
+            <h1>Contact</h1>
+            <ul>
+                <li>Ms. Huyền (Zalo): 038 309 7229</li>
+                <li>huyen@techmaster.vn</li>
+                <li>Mr. Cường (Zalo): 090 220 9011</li>
+                <li>cuong@techmaster.vn</li>
+            </ul>
+        </div>
+        <div>
+            <h1>Địa chỉ</h1>
+            <ul>
+                <li>
+                    <p>
+                        Tầng 12A Viwaseen Tower (khu văn phòng), 48 Tố Hữu, Trung Văn, Nam Từ Liêm, Hà Nội
+                    </p>
+                    <p>
+                        Giờ mở cửa: từ 8:00 - 18:00
+                    </p>
+                </li>
+                <li>
+                    <p>Số 14, ngõ 4, Nguyễn Đình Chiểu, Hai Bà Trưng, Hà Nội</p>
+                    <p>Giờ mở cửa: từ 9:30 - 18:00</p>
+                </li>
+                <li>
+                    <p>TTTM V+ Hòa Bình, 505 Minh Khai, quận Hai Bà Trưng, Hà Nội (Y-NEST CO-WORKING SPACE )</p>
+                    <p>Giờ mở cửa: từ 9:30 - 18:00</p>
+                </li>
+            </ul>
+            <ul>
+                <li><img src="img/" alt="facebook icon"></li>
+                <li><img src="img/" alt="youtube icon"></li>
+                <li><img src="img/" alt="github icon"></li>
+            </ul>
+        </div>
+    </footer>
 </body>
 </html>
