@@ -1,0 +1,154 @@
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 15px;
+}
+
+body {
+    font-family: "Source Sans Pro", "Helvetica Neue", Arial, sans-serif;
+}
+
+header {
+    position: fixed;
+    background-color: transparent;
+}
+
+
+header img {
+    width: 40px;
+    height: 40px;
+}
+
+.flt {
+    display: block;
+    float: left;
+}
+
+.wrapper-flt::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+header {
+    width: 100%;
+    height: 65px;
+    border-bottom: solid 1px grey;
+}
+
+.flt img {
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    padding: 10px;
+    display: inline-block;
+}
+
+.flt span {
+    padding-top: 20px;
+    display: inline-block;
+}
+
+.flt-r {
+    display: block;
+    float: right;
+    padding-top: 20px;
+    padding-right: 50px;
+}
+
+.flt-r select {
+    border: none;
+    padding: 0px 5px;
+}
+
+.wrapper-all {
+    position: relative;
+    top: 66px;
+}
+
+.col-1 {
+    display: block;
+    position: fixed;
+    width: 22%;
+    overflow-y: scroll;
+    padding-left: 4%;
+}
+
+img {
+    width: 125px;
+    display: block;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+/*.wrapper-center {
+    width: 80%;
+    margin: 0 auto;
+}*/
+
+.sponsor-lst {
+    padding-top: 30px;
+    font-size: 0.8rem;
+    color: grey;
+}
+
+.col-1 h1 {
+    font-size: 1.4rem;
+}
+
+.col-1 h2 {
+    font-size: 1.2rem;
+}
+
+.col-1 h3 {
+    font-size: 1rem;
+    color: green;
+}
+
+.col-1 h4 {
+    font-size: 0.8rem;
+    padding-left: 20px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.col-2 {
+    display: block;
+    float: left;
+    margin-left: 32%;
+    width: 40%;
+}
+
+.col-2 h3 {
+    font-size: 2rem;
+}
+
+.col-2 h4 {
+    font-size: 1.5rem;
+    border-bottom: 1px solid grey;
+    padding-bottom: 15px;
+}
+
+.col-3 {
+    display: block;
+    float: right;
+    max-width: 20%;
+    padding-right: 1%;
+}
+
+.col-3 a {
+    font-size: 0.8rem;
+    color: green;
+    border: 1px solid green;
+    padding: 5px;
+    border-radius: 30px;
+    margin-top: 15px;
+    display: block;
+}
