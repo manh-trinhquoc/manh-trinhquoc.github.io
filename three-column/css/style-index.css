@@ -180,3 +180,27 @@ footer ul {
 footer ul li {
     padding: 5px 0 5px 0;
 }
+
+.icon-list {
+    display: inline-block;
+}
+
+.icon-phone {
+    transform: rotate(90deg);
+}
+
+.icon-facebook {
+    color: blue;
+}
+
+.wrapper-icon {
+    font-size: 3rem;
+}
+
+.icon-youtube {
+    color: red;
+}
+
+.icon-github {
+    color: white;
+}

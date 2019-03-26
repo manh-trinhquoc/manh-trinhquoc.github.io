@@ -223,3 +223,23 @@ footer h1 {
 .icon-list {
     display: inline-block;
 }
+
+.icon-phone {
+    transform: rotate(90deg);
+}
+
+.icon-facebook {
+    color: blue;
+}
+
+.wrapper-icon {
+    font-size: 3rem;
+}
+
+.icon-youtube {
+    color: red;
+}
+
+.icon-github {
+    color: white;
+}
