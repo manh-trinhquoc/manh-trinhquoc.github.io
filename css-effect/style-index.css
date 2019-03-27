@@ -1,0 +1,206 @@
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 15px;
+}
+
+.col-4 {
+    width: 25%;
+    float: left;
+    border: solid 1px black;
+    position: relative;
+}
+
+.height-100 {
+    height: 100px;
+}
+
+.col-4 button {
+    display: block;
+    transform: translate(-50%,-50%);
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    background-color: #4183b2;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    padding: 0;
+    transition: border-radius 1s linear, background-color 1s linear;
+}
+
+.col-4 button:hover {
+    background-color: rgb(34,162,132);
+    border-radius: 50px;
+    transition: border-radius 1s linear, background-color 0.5s linear 0.5s;
+}
+
+.col-3 {
+    width: 33.33%;
+    position: relative;
+    float: left;
+    padding: 1%;
+}
+
+.square::after {
+    content: '';
+    display: block;
+    padding-bottom: 100%;
+}
+
+
+img {
+    display: block;
+    transform: translate(-50%,-50%);
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    width: 90%;
+}
+
+.wrapper-img:hover {
+    transform: scale(1.5);
+    z-index: 2;
+    transition: transform 0.1s linear;
+}
+
+.wrapper-img {
+    width: 94%;
+    height: 94%;
+    position: absolute;
+    transition: transform 1s linear;
+    border: 1px solid grey;
+}
+
+.heart-shape {
+    all:unset;
+    width: 100%;
+}
+
+.wrapper-img-heart {
+    transform: translate(-50%,-50%);
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    width: 50%;
+    height: 50%;
+}
+
+@keyframes beating {
+    10% {
+        transform: scale(1);
+    }
+    20% {
+        transform: scale(1.3);
+    }
+    30% {
+        transform: scale(1.1);
+    }
+    40% {
+        transform: scale(1.5);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.beating {
+    animation: beating 1.6s linear infinite;
+}
+
+.text-center {
+    text-align: center;
+}
+
+p {
+    font-size: 3rem;
+    margin: 0;
+}
+
+@keyframes word-1 {
+    0% {
+        top: -500px;
+    }
+    15% {
+        top: 0px;
+    }
+    100% {
+        top: 0px;
+    }
+}
+
+@keyframes word-2 {
+    0% {
+        top: 500px;
+    }
+    30% {
+        top: 500px;
+    }
+    45% {
+        top: 0px;
+    }
+    100% {
+        top: 0px;
+    }
+}
+
+@keyframes word-3 {
+    0% {
+        opacity: 0;
+    }
+    60% {
+        opacity: 0;
+    }
+    75% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+
+.wrapper-text {
+    overflow: hidden;
+    position: relative;
+}
+
+.word-1 {
+    color: white;
+    background-color: orange;
+    position: relative;
+    top: -500px;
+    animation: word-1 3s linear infinite;
+}
+
+.word-2 {
+    color: white;
+    background-color: blue;
+    position: absolute;
+    z-index: 1;
+    top: 500px;
+    animation: word-2 3s linear infinite;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+
+.word-3 {
+    color: white;
+    background-color: green;
+    position: absolute;
+    z-index: 2;
+    opacity: 0;
+    animation: word-3 3s linear infinite;
+    top: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+
