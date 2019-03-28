@@ -176,7 +176,7 @@ p {
     background-color: orange;
     position: relative;
     top: -500px;
-    animation: word-1 3s linear infinite;
+    animation: word-1 4s linear infinite;
 }
 
 .word-2 {
@@ -185,7 +185,7 @@ p {
     position: absolute;
     z-index: 1;
     top: 500px;
-    animation: word-2 3s linear infinite;
+    animation: word-2 4s linear infinite;
     margin-left: auto;
     margin-right: auto;
     width: 100%;
@@ -197,10 +197,87 @@ p {
     position: absolute;
     z-index: 2;
     opacity: 0;
-    animation: word-3 3s linear infinite;
+    animation: word-3 4s linear infinite;
     top: 0px;
     margin-left: auto;
     margin-right: auto;
     width: 100%;
 }
 
+.wrapper-all-row::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.fade-in {
+    background-color: yellow;
+    color: white;
+    animation: fade-in 3s linear infinite;
+
+}
+
+@keyframes fade-out {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.fade-out {
+    background-color: grey;
+    color: white;
+    animation: fade-out 3s linear infinite;
+    position: absolute;
+    width: 100%;
+}
+
+.col-4-3 {
+    width: 75%;
+    float: left;
+    border: solid 1px black;
+    position: relative;
+    overflow: hidden;
+}
+
+@keyframes slide {
+    0% {
+        opacity: 0;
+        left: 50%;
+    }
+    25% {
+        opacity: 1;
+        left:0;
+    }
+    50% {
+        opacity: 1;
+        left:0;
+    }
+    100% {
+        opacity: 0;
+        left: -50%;
+    }
+}
+
+.slide {
+    position: relative;;
+    animation: slide 5s linear infinite;
+    float: right;
+}
