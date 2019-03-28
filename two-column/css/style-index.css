@@ -29,7 +29,7 @@ ul {
 
 li {
     list-style: none;
-    margin: 1rem auto;
+    margin: 1rem 0;
 }
 
 
@@ -39,6 +39,7 @@ li {
 .col {
     width:80%;
     margin: 0 auto;
+    padding-bottom: 20px;
 }
 
 .flt {
@@ -102,12 +103,16 @@ main::after {
     clear: both;
 }
 
-article {
-    font-size: 0.9rem;
+.wrapper-content {
+    width: 100%;
     background-color: #fff;
     padding: 10px;
-    width: 67%;
-    margin: 10px;
+}
+
+article {
+    font-size: 0.9rem;
+    padding-right: 10px;
+    width: 66.66%;
 }
 
 article li.line::before {
@@ -117,11 +122,10 @@ article li.line::before {
 }
 
 aside {
-    background-color: #fff;
     font-size: 0.9rem;
-    width: 30%;
-    padding: 10px;
-    margin: 10px 0 10px 10px;
+    width: 33.33%;
+    padding-left: 10px;
+    margin: 0 0 20px;
 }
 
 .center {
