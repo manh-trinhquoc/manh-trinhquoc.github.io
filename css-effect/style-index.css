@@ -97,6 +97,19 @@ img {
     height: 50%;
 }
 
+.block{
+    width: 10px;
+    height: 10px;
+    /*background-color: green;*/
+    box-shadow: 10px 0 red, 20px 0 red, 40px 0 red, 50px 0 red,
+                0 10px red, 30px 10px red, 60px 10px red,
+                0 20px red, 60px 20px red,
+                10px 30px red, 50px 30px red,
+                20px 40px red, 40px 40px red,
+                30px 50px red;
+  /*transform: scale(10);*/
+}
+
 @keyframes beating {
     10% {
         transform: scale(1);
