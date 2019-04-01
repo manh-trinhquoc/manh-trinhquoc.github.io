@@ -173,7 +173,7 @@ li:hover {
     background-color: white;
     color: black;
     position: absolute;
-    top: 25px;
+    top: 20px;
     left: -1px;
     display: none;
     border-radius: 5px;
@@ -188,8 +188,8 @@ li:hover {
 }
 
 .group1 .point-up {
-    top: -5px;
-    left: 89px;
+    top: -3px;
+    left: 87px;
 }
 
 .menu-2-wrapper li {
@@ -212,8 +212,8 @@ li:hover {
 }
 
 .lang .point-up {
-    top: -5px;
-    left: 24px;
+    top: -6px;
+    left: 22px;
 }
 
 .menu-sign-in  .menu-2-wrapper {
@@ -223,8 +223,8 @@ li:hover {
 }
 
 .menu-sign-in  .point-up {
-    top: -5px;
-    left: 260px;
+    top: -3px;
+    left: 258px;
 }
 
 .menu-2 .un-hover:hover {
