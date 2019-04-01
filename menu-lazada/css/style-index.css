@@ -42,7 +42,20 @@ ul {
 a {
     text-decoration: none;
     color: inherit;
+    max-width: 170px;
+
+    /**/
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
+
+/*li {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}*/
 
 .menu-1>li:hover {
     background-color: hsl(204, 15%, 94%);
@@ -71,3 +84,36 @@ a {
     top: -1px;
     bottom: -1px;
 }
+
+.menu-sub-menu-wrapper::after {
+    content: '';
+    width: 7px;
+    height: 7px;
+    border-top: 2px solid hsl(0,0%,46%);
+    border-right: 2px solid hsl(0,0%,46%);
+    transform: rotate(45deg) translate(0,5px);
+    float: right;
+    display: none;
+}
+
+.menu-sub-menu-wrapper:hover::after {
+    display: block;
+}
+
+/**/
+/*.menu-sub-menu-wrapper>.menu-2 {
+    display: block;
+    position: absolute;
+    left: 200px;
+    top: 0px;
+    bottom: 0px;
+}
+
+.menu-sub-menu-wrapper>.menu-3 {
+    display: block;
+    position: absolute;
+    left: 199px;
+    top: -1px;
+    bottom: -1px;
+}*/
+/**/
