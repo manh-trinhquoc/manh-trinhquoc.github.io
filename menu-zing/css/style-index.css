@@ -30,7 +30,7 @@ a {
 }
 
 .wrapper-menu {
-    width: 70%;
+    width: 1024px;
     margin: 0 auto;
 }
 
@@ -48,7 +48,7 @@ ul {
 
 .menu-1__link {
     display: inline-block;
-    padding: 10px 20px 20px;
+    padding: 15px;
     font-weight: bold;
     color: #92929d;
     border-bottom: 2px solid #f7f7f7;
@@ -69,7 +69,7 @@ ul {
 
 .menu-2 {
     display: none;
-    width: 45vw;
+    width: 600px;
     background-color: white;
 }
 
