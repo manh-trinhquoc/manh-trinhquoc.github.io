@@ -59,8 +59,7 @@ ul {
     border-bottom: 2px solid #65509e;
 }
 
-#menu-1--id1:hover>a, #menu-1--id2:hover>a, #menu-1--id3:hover>a, #menu-1--id4:hover>a, #menu-1--id5:hover>a,
-#menu-1--id6:hover>a, #menu-1--id7:hover>a, #menu-1--id8:hover>a, #menu-1--id9:hover>a {
+.menu-sub-menu-wrapper:hover>a {
     color: #65509e;
     border-bottom: 2px solid #65509e;
 }
@@ -73,16 +72,7 @@ ul {
     background-color: white;
 }
 
-/**/
-/*#menu-1--id2 .menu-2 {
-    display: block;
-    position: absolute;
-    top: 100%;
-}*/
-/**/
-
-#menu-1--id2:hover .menu-2, #menu-1--id3:hover .menu-2, #menu-1--id4:hover .menu-2, #menu-1--id5:hover .menu-2, 
-#menu-1--id6:hover .menu-2, #menu-1--id7:hover .menu-2 {
+.menu-sub-menu-wrapper:hover .menu-2 {
     display: block;
     position: absolute;
     top: 100%;
