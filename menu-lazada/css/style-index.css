@@ -4,12 +4,59 @@
     box-sizing: border-box;
 }
 
+html {
+    font-size: 13px;
+    font-family: Roboto-Regular, sans-serif;
+}
+
+body {
+    color: hsl(0,0%,46%);
+}
+
 .wrapper-all {
     background-color: blue;
     width: 100%;
 }
 
 .wrapper-menu {
-    width: 200px;
+    width: 75%;
     margin: 0 auto;
+    position: relative;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.menu-1 {
+    width: 200px;
+    background-color: white;
+    padding: 0px 0px 12px 0px;
+    border: 1px solid #c4c4c4;
+}
+
+.menu-1>li {
+    padding: 4px 8px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.menu-1>li:hover {
+    background-color: hsl(204, 15%, 94%);
+    color: #1b6492;
+}
+
+.menu-2 {
+    display: none;
+}
+
+#menu-1--id1:hover .menu-2{
+    display: block;
+    position: absolute;
+    left: 200px;
+    top: 0px;
+    bottom: 0px;
 }
