@@ -35,8 +35,8 @@ document.getElementById("start-btn").onclick = function() {
         let canvasElements = document.getElementsByClassName("dust");
         for (let i = 0; i < canvasElements.length; i++) {
             let elem = canvasElements[i];
-            // animateBlur(elem, 1.8, 800);
-            animateTransform(elem, 200, -200, chance.integer({ min: -15, max: 15 }), 1000 + (100 * i));
+            animateBlur(elem, 0.9, 1000);
+            animateTransform(elem, 150, -150, chance.integer({ min: -15, max: 15 }), 1000 + (100 * i));
         }
     });
 }
@@ -53,7 +53,7 @@ function weightedRandomDistrib(peak) {
 }
 
 function animateBlur(elem, radius, duration) {
-    elem.style.transition = "filter " + duration + "s";
+    elem.style.transition = "filter " + duration + "ms linear";
     elem.style.filter = "blur(" + radius + "px)";
 }
 
@@ -62,7 +62,7 @@ function animateTransform(elem, sx, sy, angle, duration) {
     // sy = -200;
     // angle = 30;
     // duration = 2000;
-    elem.style.transition = "transform " + duration + "ms, opacity " + (duration - 2) + "ms";
+    elem.style.transition += ", transform " + duration + "ms linear , opacity " + (duration - 500) + "ms linear";
     elem.style.transform = "translate(" + sx + "px, " + sy + "px) rotate(" + angle + "deg)";
     elem.style.opacity = "0";
 }
