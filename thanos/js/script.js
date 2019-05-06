@@ -32,15 +32,11 @@ document.getElementById("start-btn").onclick = function() {
         let orginElements = document.querySelectorAll("body>:not(.dust)");
         document.getElementsByTagName("body")[0].removeChild(...orginElements);
         //apply animation
-        let canvasElements = document.getElementsByTagName(".dust");
+        let canvasElements = document.getElementsByClassName("dust");
         for (let i = 0; i < canvasElements.length; i++) {
             let elem = canvasElements[i];
-            animateBlur(elem, 0.8, 800);
-            setTimeout(() => {
-                animateTransform(elem, 100, -100, chance.integer({ min: -15, max: 15 }), 800 + (110 * index));
-            }, 70 * index);
-            //remove the canvas from DOM tree when faded
-            elem.delay(70 * index).fadeOut((110 * index) + 800, "easeInQuint", () => { elem.remove(); });
+            // animateBlur(elem, 1.8, 800);
+            animateTransform(elem, 200, -200, chance.integer({ min: -15, max: 15 }), 1000 + (100 * i));
         }
     });
 }
@@ -57,27 +53,18 @@ function weightedRandomDistrib(peak) {
 }
 
 function animateBlur(elem, radius, duration) {
-    elem.style.transition = "filter " + duration;
+    elem.style.transition = "filter " + duration + "s";
     elem.style.filter = "blur(" + radius + "px)";
 }
 
 function animateTransform(elem, sx, sy, angle, duration) {
-    var td = tx = ty = 0;
-    $({ x: 0, y: 0, deg: 0 }).animate({ x: sx, y: sy, deg: angle }, {
-        duration: duration,
-        easing: "easeInQuad",
-        step: function(now, fx) {
-            if (fx.prop == "x")
-                tx = now;
-            else if (fx.prop == "y")
-                ty = now;
-            else if (fx.prop == "deg")
-                td = now;
-            elem.css({
-                transform: 'rotate(' + td + 'deg)' + 'translate(' + tx + 'px,' + ty + 'px)'
-            });
-        }
-    });
+    // sx = 200;
+    // sy = -200;
+    // angle = 30;
+    // duration = 2000;
+    elem.style.transition = "transform " + duration + "ms, opacity " + (duration - 2) + "ms";
+    elem.style.transform = "translate(" + sx + "px, " + sy + "px) rotate(" + angle + "deg)";
+    elem.style.opacity = "0";
 }
 
 function createBlankImageData(imageData) {
