@@ -31,7 +31,6 @@ document.getElementsByClassName("aside__ok")[0].onclick = function() {
         for (let i = 0; i < canvasCount; i++) {
             let c = newCanvasFromImageData(imageDataArray[i], canvas.width, canvas.height);
             c.classList.add("dust");
-            // c.classList.add("fade");
 
 
             let cardImg = document.getElementsByClassName("card__img-" + userInput)[0];
@@ -45,10 +44,8 @@ document.getElementsByClassName("aside__ok")[0].onclick = function() {
         let canvasElements = document.getElementsByClassName("dust");
         for (let i = 0; i < canvasElements.length; i++) {
             let elem = canvasElements[i];
-            animateBlur(elem, 0.9, 5000);
+            animateBlur(elem, 0.9, 2000);
             animateTransform(elem, 150, -150, chance.integer({ min: -15, max: 15 }), 1000 + (100 * i));
-
-            // elem.classList.add("fade-out"); // document.getElementsByClassName("card__cover-4")[0].classList.add("fade");
         }
 
     });
@@ -76,8 +73,8 @@ function animateTransform(elem, sx, sy, angle, duration) {
     // angle = 30;
     // duration = 2000;
     elem.style.transition += ", transform " + duration + "ms linear , opacity " + (duration - 500) + "ms linear";
-    elem.style.transform = "translate(" + sx + "px, " + sy + "px) rotate(" + angle + "deg)";
-    elem.style.opacity = "0";
+    elem.style.transform = "translate(" + sx + "px, " + sy + "px) rotate(" + angle + "deg) translate3d(0,0,0) translateZ(0.0001px)";
+    elem.style.opacity = "1";
 }
 
 function createBlankImageData(imageData) {

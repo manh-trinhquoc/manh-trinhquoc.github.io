@@ -70,7 +70,10 @@ img {
   .fade-in {
     opacity: 1; }
   .fade-out {
-    opacity: 0;
-    }
+    opacity: 0; }
+
+.card-1 {
+  width: 300px;
+  height: 300px; }
 
 /*# sourceMappingURL=style.css.map */
