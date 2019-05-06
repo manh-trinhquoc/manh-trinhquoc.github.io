@@ -1,16 +1,11 @@
 var imageDataArray = [];
 var canvasCount = 35;
 
-document.getElementsByClassName("aside__ok")[0].onclick = function() {
-    let userInput = document.getElementsByClassName("aside__user-input")[0].value;
-    let asideDialogue = document.getElementsByClassName("aside__dialogue")[0];
+document.getElementById("start-btn").onclick = function() {
+    let startBtn = document.getElementById("start-btn");
+    startBtn.style.backgroundColor = "blue";
 
-    userInput = parseInt(userInput);
-    if (isNaN(userInput)) {
-        asideDialogue.innerHTML = "Số bạn vừa nhập không hợp lệ. Hãy nhập số từ 1-10";
-        return;
-    }
-    let contents = document.getElementsByClassName("card__cover-" + userInput);
+    let contents = document.getElementsByClassName("content");
     html2canvas(contents[0]).then(canvas => {
         //capture all div data as image
         ctx = canvas.getContext("2d");
@@ -31,26 +26,18 @@ document.getElementsByClassName("aside__ok")[0].onclick = function() {
         for (let i = 0; i < canvasCount; i++) {
             let c = newCanvasFromImageData(imageDataArray[i], canvas.width, canvas.height);
             c.classList.add("dust");
-            // c.classList.add("fade");
-
-
-            let cardImg = document.getElementsByClassName("card__img-" + userInput)[0];
-            document.getElementsByClassName("card-" + userInput)[0].insertBefore(c, cardImg);
-
-            // document.getElementsByTagName("body")[0].append(c);
+            document.getElementsByTagName("body")[0].append(c);
         }
         //clear all children except the canvas
-        document.getElementsByClassName("card-" + userInput)[0].removeChild(contents[0]);
+        let orginElements = document.querySelectorAll("body>:not(.dust)");
+        document.getElementsByTagName("body")[0].removeChild(...orginElements);
         //apply animation
         let canvasElements = document.getElementsByClassName("dust");
         for (let i = 0; i < canvasElements.length; i++) {
             let elem = canvasElements[i];
-            animateBlur(elem, 0.9, 5000);
+            animateBlur(elem, 0.9, 2000);
             animateTransform(elem, 150, -150, chance.integer({ min: -15, max: 15 }), 1000 + (100 * i));
-
-            // elem.classList.add("fade-out"); // document.getElementsByClassName("card__cover-4")[0].classList.add("fade");
         }
-
     });
 }
 

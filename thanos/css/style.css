@@ -1,32 +1,76 @@
 * {
   box-sizing: border-box; }
 
-body {
-  margin: 0;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #ddd; }
-
-.content {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  background: #ddd; }
-
-#start-btn {
-  font-size: 36px;
-  padding: 20px 40px 20px 80px;
-  margin-top: 30px;
-  border-radius: 10px;
-  /*background: url("thanos-logo.png") white 15px no-repeat;*/
-  background-size: 50px; }
-
 .dust {
   position: absolute; }
 
-.content :not(.dust) {
+img {
+  max-width: 250px;
+  max-height: 250px; }
+
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start; }
+.flex_direction_down {
+  flex-direction: column;
+  align-items: center; }
+
+.size-300px {
+  width: 300px; }
+.size-300px-remain {
+  width: calc(99% - 300px); }
+
+.test {
   background-color: green; }
+  .test2 {
+    background-color: blue; }
+  .test3 {
+    background-color: red; }
+
+.wrapper {
+  padding: 10px; }
+  .wrapper__img {
+    width: 250px;
+    height: 300px; }
+
+.title {
+  text-align: center;
+  font-weight: bold;
+  font-size: 30px; }
+
+.cover {
+  text-align: center;
+  font-weight: bold;
+  font-size: 30px;
+  font-size: 200px;
+  position: absolute;
+  color: white;
+  width: 250px;
+  height: 300px;
+  background: #cff905;
+  background: linear-gradient(153deg, #cff905 0%, #0060ff 26%, red 100%); }
+
+.aside {
+  text-align: center;
+  font-weight: bold;
+  font-size: 30px;
+  font-size: 15px;
+  margin: 10px;
+  width: 200px;
+  height: 30px;
+  display: block; }
+  .aside__img {
+    height: auto;
+    width: 300px; }
+
+.fade {
+  transition: 2s;
+  opacity: 1; }
+  .fade-in {
+    opacity: 1; }
+  .fade-out {
+    opacity: 0;
+    }
 
 /*# sourceMappingURL=style.css.map */
