@@ -1,0 +1,43 @@
+* {
+  box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #ddd; }
+
+.content {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background: #ddd; }
+
+#start-btn {
+  font-size: 36px;
+  color: blue;
+  padding: 20px 40px 20px 60px;
+  margin-top: 30px;
+  border-radius: 10px;
+  background: url(../img/gaulet-icon.png) white 15px no-repeat;
+  background-size: 30px;
+  /*background: linear-gradient(153deg, rgba(207, 249, 5, 1) 0%, rgba(0, 96, 255, 1) 26%, rgba(255, 0, 0, 1) 100%);*/ }
+
+.dust {
+  position: absolute; }
+
+.content :not(.dust) {
+  /*background-color: green;*/ }
+
+.cover {
+  text-align: center;
+  font-weight: bold;
+  font-size: 30px;
+  font-size: 200px;
+  color: white;
+  background: #cff905;
+  background: linear-gradient(153deg, #cff905 0%, #0060ff 26%, red 100%); }
+
+/*# sourceMappingURL=style.css.map */
