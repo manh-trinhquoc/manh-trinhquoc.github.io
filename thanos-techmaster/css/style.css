@@ -38,6 +38,7 @@ body {
   font-size: 200px;
   color: white;
   background: #cff905;
-  background: linear-gradient(153deg, #cff905 0%, #0060ff 26%, red 100%); }
+  background: radial-gradient(circle, #cff905 0%, #0060ff 26%, red 70%, rgba(255, 0, 0, 0) 100%);
+  /*background: radial-gradient(circle, rgba(207, 249, 5, 1) 0%, rgba(0, 96, 255, 1) 26%, rgba(255, 0, 0, 1) 100%);*/ }
 
 /*# sourceMappingURL=style.css.map */

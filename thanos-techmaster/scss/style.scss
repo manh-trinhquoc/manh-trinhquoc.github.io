@@ -48,5 +48,6 @@ body {
     font-size: 200px;
     color: white;
     background: rgb(207, 249, 5);
-    background: linear-gradient(153deg, rgba(207, 249, 5, 1) 0%, rgba(0, 96, 255, 1) 26%, rgba(255, 0, 0, 1) 100%);
+    background: radial-gradient(circle, rgba(207, 249, 5, 1) 0%, rgba(0, 96, 255, 1) 26%, rgba(255, 0, 0, 1) 70%, rgba(255, 0, 0, 0) 100%);
+    /*background: radial-gradient(circle, rgba(207, 249, 5, 1) 0%, rgba(0, 96, 255, 1) 26%, rgba(255, 0, 0, 1) 100%);*/
 }
