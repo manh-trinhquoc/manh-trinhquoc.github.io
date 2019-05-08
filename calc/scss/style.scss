@@ -1,0 +1,95 @@
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+
+$btn-size: 40px;
+$btn-gap: 20px;
+$cell-size: $btn-size+$btn-gap/2;
+$input-area__advance_width: $btn-size * 2+$btn-gap*1.5;
+$total-width: $btn-size * 9+$btn-gap*7;
+
+@mixin flex-container {
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    -ms-align-items: center;
+    align-items: center;
+    align-content: center;
+    -webkit-flex-wrap: wrap;
+    -moz-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    -o-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+@mixin flex-item {
+    margin: auto;
+}
+
+.calculator {
+    @include flex-item;
+    border: 2px solid blue;
+    height: 400px;
+    padding: 25px;
+
+    &__wrapper {
+        @include flex-container;
+        height: 100vh;
+    }
+}
+
+
+
+.show {
+    border: 2px solid grey;
+
+    &__user-formular {
+        width: $total-width;
+        height: 40px;
+        border-bottom: 1px solid lightgrey;
+    }
+
+    &__result {
+        height: 30px;
+        position: relative;
+        left: 45px;
+    }
+}
+
+
+
+
+@mixin grid-container {
+    display: grid;
+
+    grid-template-columns: $cell-size $cell-size $cell-size $cell-size $cell-size $cell-size;
+    grid-template-rows: $cell-size $cell-size $cell-size $cell-size;
+    grid-gap: $btn-gap/2;
+    justify-content: end;
+
+}
+
+.input-area {
+    @include grid-container;
+    margin-top: 25px;
+
+
+    &__advance {
+        width: $input-area__advance_width;
+        grid-template-columns: $cell-size $cell-size;
+    }
+
+    &__basic {
+        width: $total-width - $input-area__advance_width;
+        justify-content: end;
+    }
+
+    &__wrapper {
+        display: inline-block;
+    }
+}
