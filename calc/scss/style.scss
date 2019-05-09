@@ -61,12 +61,20 @@ $total-height: $btn-size * 5+$btn-gap * 4+100px;
         width: $total-width;
         height: 40px;
         border-bottom: 1px solid lightgrey;
+        padding-top: 20px;
+        padding-right: 5px;
+        text-align: right;
+        overflow: hidden;
+        
     }
 
     &__result {
         height: 30px;
         position: relative;
-        left: 45px;
+        padding-right:5px;
+     text-align: right;
+     padding-top: 10px;
+color:darkgray;
     }
 }
 
@@ -95,7 +103,6 @@ $total-height: $btn-size * 5+$btn-gap * 4+100px;
 
     &__basic {
         width: $total-width - $input-area__advance_width;
-        justify-content: end;
     }
 
     &__wrapper {

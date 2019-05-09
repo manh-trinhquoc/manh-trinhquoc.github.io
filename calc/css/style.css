@@ -31,11 +31,18 @@
   .show__user-formular {
     width: 590px;
     height: 40px;
-    border-bottom: 1px solid lightgrey; }
+    border-bottom: 1px solid lightgrey;
+    padding-top: 20px;
+    padding-right: 5px;
+    text-align: right;
+    overflow: hidden; }
   .show__result {
     height: 30px;
     position: relative;
-    left: 45px; }
+    padding-right: 5px;
+    text-align: right;
+    padding-top: 10px;
+    color: darkgray; }
 
 .input-area {
   display: grid;
@@ -48,8 +55,7 @@
     width: 130px;
     grid-template-columns: 60px 60px; }
   .input-area__basic {
-    width: 460px;
-    justify-content: end; }
+    width: 460px; }
   .input-area__wrapper {
     display: inline-block; }
 

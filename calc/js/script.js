@@ -14,38 +14,58 @@ let arrDeleted = [];
 
 function calcResult() {
     let result = '';
-    userFormularToCalculate = userFormular.replace(/random/g, "Math.random()");
+    userFormularToCalculate = userFormular.replace(/random/g, "Number(Math.random().toFixed(3))");
+    userFormularToCalculate = userFormularToCalculate.replace(/<sup>2<\/sup>/g, "**2");
+    userFormularToCalculate = userFormularToCalculate.replace(/PI/g, "Math.PI");
+    userFormularToCalculate = userFormularToCalculate.replace(/sqrt\(/g, "Math.sqrt(");
+    userFormularToCalculate = userFormularToCalculate.replace(/abs\(/g, "Math.abs(");
+    userFormularToCalculate = userFormularToCalculate.replace(/sin\(/g, "Math.sin(");
+    userFormularToCalculate = userFormularToCalculate.replace(/cos\(/g, "Math.cos(");
     try {
         result = eval(userFormularToCalculate);
     } catch {
-        result = "Công thức chưa hoàn thiện";
+        result = "Công thức toán chưa hoàn thiện";
+        console.log(userFormularToCalculate);
     }
+
+    let resultDirect = Number(userFormular);
     if (result == undefined) result = "";
+    else if (!Number.isNaN(resultDirect) && userFormular != result.toString()) {
+        result = "Giá trị nằm ngoài phạm vi chuyển đổi và tính toán chính xác";
+        console.log("Giá trị nằm ngoài phạm vi chuyển đổi và tính toán chính xác")
+    }
     eShowResult.innerHTML = result;
+    console.group("Result:");
+    console.log(userFormular);
+    console.log(result);
+    console.groupEnd();
 }
 
 function addToFormular() {
     let arrElemClassName = this.className.split(" ");
-    if (arrElemClassName.indexOf("js-btn-pure") >= 0) {
+    if (userFormular.length > 70) {
+        console.log(userFormular.length);
+        return;
+    } else if (arrElemClassName.indexOf("js-btn-pure") >= 0) {
         let lastDigit = userFormular.slice(-1);
-        if (lastDigit.search(/[a-z)]+/) != 0) userFormular += this.textContent;
+        if (lastDigit.search(/[a-zA-Z)>]+/) != 0) userFormular += this.textContent;
     } else if (arrElemClassName.indexOf("js-btn-pure-operator") >= 0) {
         let lastDigit = userFormular.slice(-1);
         if (["+", "-", "*", "/", "%"].indexOf(lastDigit) < 0) userFormular += this.textContent;
     } else if (arrElemClassName.indexOf("js-btn-dot") >= 0) {
-        let lastStr = userFormular.slice(userFormular.search(/[0-9\.)]+$/));
+        let lastStr = userFormular.slice(userFormular.search(/[0-9\.]+$/));
         if (lastStr.indexOf(".") < 0) userFormular += this.textContent;
     } else if (arrElemClassName.indexOf("js-btn-negative") >= 0) {
         let lastDigit = userFormular.slice(-1);
-        if (lastDigit.search(/[0-9a-z)]+/) != 0) {
+        if (lastDigit.search(/[0-9a-zA-Z)>]+/) != 0) {
             userFormular += "(-";
         }
     } else if (arrElemClassName.indexOf("js-btn-rand") >= 0) {
         let lastDigit = userFormular.slice(-1);
-        if (lastDigit.search(/[0-9a-z)]+/) != 0) userFormular += "random";
+        if (lastDigit.search(/[0-9a-zA-Z)>]+/) != 0) userFormular += "random";
     } else if (arrElemClassName.indexOf("js-btn-open") >= 0) {
         let lastDigit = userFormular.slice(-1);
-        if (lastDigit.search(/[0-9a-z)]+/) != 0) {
+        if (lastDigit.search(/[0-9a-zA-Z)>]+/) != 0) {
             userFormular += "(";
         }
     } else if (arrElemClassName.indexOf("js-btn-close") >= 0) {
@@ -58,10 +78,44 @@ function addToFormular() {
         if (numberOfOpen > 0) {
             userFormular += ")";
         }
+    } else if (arrElemClassName.indexOf("js-btn-pow2") >= 0) {
+        let numberOfOpen = 0;
+        let arrUserFormular = userFormular.split("");
+        for (value of arrUserFormular) {
+            if (value == "(") numberOfOpen++;
+            if (value == ")") numberOfOpen--;
+        }
+        if (numberOfOpen > 0) {
+            userFormular += ")<sup>2</sup>";
+        }
+    } else if (arrElemClassName.indexOf("js-btn-pi") >= 0) {
+        let lastDigit = userFormular.slice(-1);
+        if (lastDigit.search(/[0-9a-zA-Z)>]+/) != 0) userFormular += "PI";
+    } else if (arrElemClassName.indexOf("js-btn-sqrt") >= 0) {
+        let lastDigit = userFormular.slice(-1);
+        if (lastDigit.search(/[0-9a-zA-Z)>]+/) != 0) {
+            userFormular += "sqrt(";
+        }
+    } else if (arrElemClassName.indexOf("js-btn-abs") >= 0) {
+        let lastDigit = userFormular.slice(-1);
+        if (lastDigit.search(/[0-9a-zA-Z)>]+/) != 0) {
+            userFormular += "abs(";
+        }
+    } else if (arrElemClassName.indexOf("js-btn-sin") >= 0) {
+        let lastDigit = userFormular.slice(-1);
+        if (lastDigit.search(/[0-9a-zA-Z)>]+/) != 0) {
+            userFormular += "sin(";
+        }
+    } else if (arrElemClassName.indexOf("js-btn-cos") >= 0) {
+        let lastDigit = userFormular.slice(-1);
+        if (lastDigit.search(/[0-9a-zA-Z)>]+/) != 0) {
+            userFormular += "cos(";
+        }
     }
 
     eShowUserFormular.innerHTML = userFormular;
     calcResult();
+    arrDeleted = [];
 }
 
 function addOnlickEventHandle(arrClassName, functionDefinition) {
@@ -86,6 +140,24 @@ function deletion() {
     if (userFormular.endsWith("random")) {
         arrDeleted.push("random");
         userFormular = userFormular.slice(0, -"random".length);
+    } else if (userFormular.endsWith(")<sup>2</sup>")) {
+        arrDeleted.push(")<sup>2</sup>");
+        userFormular = userFormular.slice(0, -")<sup>2</sup>".length);
+    } else if (userFormular.endsWith("PI")) {
+        arrDeleted.push("PI");
+        userFormular = userFormular.slice(0, -"PI".length);
+    } else if (userFormular.endsWith("sqrt(")) {
+        arrDeleted.push("sqrt(");
+        userFormular = userFormular.slice(0, -"sqrt(".length);
+    } else if (userFormular.endsWith("abs(")) {
+        arrDeleted.push("abs(");
+        userFormular = userFormular.slice(0, -"abs(".length);
+    } else if (userFormular.endsWith("sin(")) {
+        arrDeleted.push("sin(");
+        userFormular = userFormular.slice(0, -"sin(".length);
+    } else if (userFormular.endsWith("cos(")) {
+        arrDeleted.push("cos(");
+        userFormular = userFormular.slice(0, -"cos(".length);
     } else if (arrUserFormular.length > 0) {
         arrDeleted.push(arrUserFormular.pop());
         userFormular = arrUserFormular.join("");
@@ -102,7 +174,8 @@ function undel() {
 }
 
 addOnlickEventHandle(["js-btn-pure", "js-btn-pure-operator", "js-btn-dot", "js-btn-negative",
-    "js-btn-rand", "js-btn-close", "js-btn-open"
+    "js-btn-rand", "js-btn-close", "js-btn-open", "js-btn-pow2", "js-btn-pi", "js-btn-sqrt",
+    "js-btn-abs", "js-btn-sin", "js-btn-cos"
 ], addToFormular)
 
 
