@@ -5,11 +5,12 @@
 }
 
 
-$btn-size: 40px;
+$btn-size: 50px;
 $btn-gap: 20px;
 $cell-size: $btn-size+$btn-gap/2;
 $input-area__advance_width: $btn-size * 2+$btn-gap*1.5;
 $total-width: $btn-size * 9+$btn-gap*7;
+$total-height: $btn-size * 5+$btn-gap * 4+100px;
 
 @mixin flex-container {
     display: -webkit-flex;
@@ -31,10 +32,16 @@ $total-width: $btn-size * 9+$btn-gap*7;
     margin: auto;
 }
 
+@mixin round-corner {
+    border-radius: 10px;
+}
+
 .calculator {
     @include flex-item;
+    @include round-corner;
+
     border: 2px solid blue;
-    height: 400px;
+    height: $total-height;
     padding: 25px;
 
     &__wrapper {
@@ -46,6 +53,8 @@ $total-width: $btn-size * 9+$btn-gap*7;
 
 
 .show {
+    @include round-corner;
+
     border: 2px solid grey;
 
     &__user-formular {
@@ -66,7 +75,6 @@ $total-width: $btn-size * 9+$btn-gap*7;
 
 @mixin grid-container {
     display: grid;
-
     grid-template-columns: $cell-size $cell-size $cell-size $cell-size $cell-size $cell-size;
     grid-template-rows: $cell-size $cell-size $cell-size $cell-size;
     grid-gap: $btn-gap/2;
@@ -76,6 +84,7 @@ $total-width: $btn-size * 9+$btn-gap*7;
 
 .input-area {
     @include grid-container;
+
     margin-top: 25px;
 
 
@@ -92,4 +101,8 @@ $total-width: $btn-size * 9+$btn-gap*7;
     &__wrapper {
         display: inline-block;
     }
+}
+
+.btn {
+    @include round-corner;
 }
