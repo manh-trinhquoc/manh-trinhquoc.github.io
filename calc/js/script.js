@@ -48,7 +48,8 @@ function addToFormular() {
         return;
     } else if (arrElemClassName.indexOf("js-btn-pure") >= 0) {
         let lastDigit = userFormular.slice(-1);
-        if (lastDigit.search(/[a-zA-Z)>]+/) != 0) userFormular += this.textContent;
+        // không cho người dùng nhập kiểu "random2" hoặc "sqrt(2)2"
+        if (lastDigit.search(/[m)>]+/) != 0) userFormular += this.textContent;
         else {
             eShowResult.innerHTML = "Phím '" + this.textContent +
                 "' không phù hợp ngữ cảnh. Bạn hãy chọn phím khác";
@@ -56,7 +57,8 @@ function addToFormular() {
         }
     } else if (arrElemClassName.indexOf("js-btn-pure-operator") >= 0) {
         let lastDigit = userFormular.slice(-1);
-        if (["+", "-", "*", "/", "%"].indexOf(lastDigit) < 0) userFormular += this.textContent;
+        // Không cho người dùng nhập kiểu "2x/%2"
+        if (["+", "-", "x", "/", "%"].indexOf(lastDigit) < 0) userFormular += this.textContent;
         else {
             eShowResult.innerHTML = "Phím '" + this.textContent +
                 "' không phù hợp ngữ cảnh. Bạn hãy chọn phím khác";
@@ -64,6 +66,7 @@ function addToFormular() {
         }
     } else if (arrElemClassName.indexOf("js-btn-dot") >= 0) {
         let lastStr = userFormular.slice(userFormular.search(/[0-9\.]+$/));
+        // Không cho người dùng nhập kiểu "2.3.3"
         if (lastStr.indexOf(".") < 0) userFormular += this.textContent;
         else {
             eShowResult.innerHTML = "Phím '" + this.textContent +
@@ -72,7 +75,8 @@ function addToFormular() {
         }
     } else if (arrElemClassName.indexOf("js-btn-negative") >= 0) {
         let lastDigit = userFormular.slice(-1);
-        if (lastDigit.search(/[0-9a-zA-Z)>]+/) != 0) {
+        // Không cho người dùng nhập kiểu "9(-" hoặc "random(-"
+        if (lastDigit.search(/[0-9m)>]+/) != 0) {
             userFormular += "(-";
         } else {
             eShowResult.innerHTML = "Phím '" + this.textContent +
@@ -81,7 +85,8 @@ function addToFormular() {
         }
     } else if (arrElemClassName.indexOf("js-btn-rand") >= 0) {
         let lastDigit = userFormular.slice(-1);
-        if (lastDigit.search(/[0-9a-zA-Z)>]+/) != 0) userFormular += "random";
+        // Không cho người dùng nhập kiểu "random"
+        if (lastDigit.search(/[0-9m)>]+/) != 0) userFormular += "random";
         else {
             eShowResult.innerHTML = "Phím '" + this.textContent +
                 "' không phù hợp ngữ cảnh. Bạn hãy chọn phím khác";

@@ -112,4 +112,16 @@ $total-height: $btn-size * 5+$btn-gap * 4+100px;
 
 .btn {
     @include round-corner;
+
+    &__pure-operator,
+    &__dot,
+    &__open,
+    &__close,
+    &__negative {
+        font-size: 1.2rem;
+    }
+
+    &__sqrt {
+        font-size: 1.5rem;
+    }
 }
