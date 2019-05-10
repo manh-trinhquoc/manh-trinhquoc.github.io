@@ -43,30 +43,58 @@ function calcResult() {
 
 function addToFormular() {
     let arrElemClassName = this.className.split(" ");
-    if (userFormular.length > 70) {
-        console.log(userFormular.length);
+    if (userFormular.length > 100) {
+        eShowResult.innerHTML = "Công thức đã quá dài, bạn không thể viết thêm."
         return;
     } else if (arrElemClassName.indexOf("js-btn-pure") >= 0) {
         let lastDigit = userFormular.slice(-1);
         if (lastDigit.search(/[a-zA-Z)>]+/) != 0) userFormular += this.textContent;
+        else {
+            eShowResult.innerHTML = "Phím '" + this.textContent +
+                "' không phù hợp ngữ cảnh. Bạn hãy chọn phím khác";
+            return;
+        }
     } else if (arrElemClassName.indexOf("js-btn-pure-operator") >= 0) {
         let lastDigit = userFormular.slice(-1);
         if (["+", "-", "*", "/", "%"].indexOf(lastDigit) < 0) userFormular += this.textContent;
+        else {
+            eShowResult.innerHTML = "Phím '" + this.textContent +
+                "' không phù hợp ngữ cảnh. Bạn hãy chọn phím khác";
+            return;
+        }
     } else if (arrElemClassName.indexOf("js-btn-dot") >= 0) {
         let lastStr = userFormular.slice(userFormular.search(/[0-9\.]+$/));
         if (lastStr.indexOf(".") < 0) userFormular += this.textContent;
+        else {
+            eShowResult.innerHTML = "Phím '" + this.textContent +
+                "' không phù hợp ngữ cảnh. Bạn hãy chọn phím khác";
+            return;
+        }
     } else if (arrElemClassName.indexOf("js-btn-negative") >= 0) {
         let lastDigit = userFormular.slice(-1);
         if (lastDigit.search(/[0-9a-zA-Z)>]+/) != 0) {
             userFormular += "(-";
+        } else {
+            eShowResult.innerHTML = "Phím '" + this.textContent +
+                "' không phù hợp ngữ cảnh. Bạn hãy chọn phím khác";
+            return;
         }
     } else if (arrElemClassName.indexOf("js-btn-rand") >= 0) {
         let lastDigit = userFormular.slice(-1);
         if (lastDigit.search(/[0-9a-zA-Z)>]+/) != 0) userFormular += "random";
+        else {
+            eShowResult.innerHTML = "Phím '" + this.textContent +
+                "' không phù hợp ngữ cảnh. Bạn hãy chọn phím khác";
+            return;
+        }
     } else if (arrElemClassName.indexOf("js-btn-open") >= 0) {
         let lastDigit = userFormular.slice(-1);
         if (lastDigit.search(/[0-9a-zA-Z)>]+/) != 0) {
             userFormular += "(";
+        } else {
+            eShowResult.innerHTML = "Phím '" + this.textContent +
+                "' không phù hợp ngữ cảnh. Bạn hãy chọn phím khác";
+            return;
         }
     } else if (arrElemClassName.indexOf("js-btn-close") >= 0) {
         let numberOfOpen = 0;
@@ -77,6 +105,10 @@ function addToFormular() {
         }
         if (numberOfOpen > 0) {
             userFormular += ")";
+        } else {
+            eShowResult.innerHTML = "Phím '" + this.textContent +
+                "' không phù hợp ngữ cảnh. Bạn hãy chọn phím khác";
+            return;
         }
     } else if (arrElemClassName.indexOf("js-btn-pow2") >= 0) {
         let numberOfOpen = 0;
@@ -87,29 +119,54 @@ function addToFormular() {
         }
         if (numberOfOpen > 0) {
             userFormular += ")<sup>2</sup>";
+        } else {
+            eShowResult.innerHTML = "Phím '" + ")<sup>2</sup>" +
+                "' không phù hợp ngữ cảnh. Bạn hãy chọn phím khác";
+            return;
         }
     } else if (arrElemClassName.indexOf("js-btn-pi") >= 0) {
         let lastDigit = userFormular.slice(-1);
         if (lastDigit.search(/[0-9a-zA-Z)>]+/) != 0) userFormular += "PI";
+        else {
+            eShowResult.innerHTML = "Phím '" + this.textContent +
+                "' không phù hợp ngữ cảnh. Bạn hãy chọn phím khác";
+            return;
+        }
     } else if (arrElemClassName.indexOf("js-btn-sqrt") >= 0) {
         let lastDigit = userFormular.slice(-1);
         if (lastDigit.search(/[0-9a-zA-Z)>]+/) != 0) {
             userFormular += "sqrt(";
+        } else {
+            eShowResult.innerHTML = "Phím '" + this.textContent +
+                "' không phù hợp ngữ cảnh. Bạn hãy chọn phím khác";
+            return;
         }
     } else if (arrElemClassName.indexOf("js-btn-abs") >= 0) {
         let lastDigit = userFormular.slice(-1);
         if (lastDigit.search(/[0-9a-zA-Z)>]+/) != 0) {
             userFormular += "abs(";
+        } else {
+            eShowResult.innerHTML = "Phím '" + this.textContent +
+                "' không phù hợp ngữ cảnh. Bạn hãy chọn phím khác";
+            return;
         }
     } else if (arrElemClassName.indexOf("js-btn-sin") >= 0) {
         let lastDigit = userFormular.slice(-1);
         if (lastDigit.search(/[0-9a-zA-Z)>]+/) != 0) {
             userFormular += "sin(";
+        } else {
+            eShowResult.innerHTML = "Phím '" + this.textContent +
+                "' không phù hợp ngữ cảnh. Bạn hãy chọn phím khác";
+            return;
         }
     } else if (arrElemClassName.indexOf("js-btn-cos") >= 0) {
         let lastDigit = userFormular.slice(-1);
         if (lastDigit.search(/[0-9a-zA-Z)>]+/) != 0) {
             userFormular += "cos(";
+        } else {
+            eShowResult.innerHTML = "Phím '" + this.textContent +
+                "' không phù hợp ngữ cảnh. Bạn hãy chọn phím khác";
+            return;
         }
     }
 
