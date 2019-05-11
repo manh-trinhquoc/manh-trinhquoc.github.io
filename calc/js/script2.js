@@ -309,13 +309,21 @@ console.groupEnd();
 // Bước 4: add thêm các điều kiện đặc hạn chế người dùng bấm sai nút 
 function passAllRequirement(inputStr, conditionArr = []) {
 
-    var requirementName = "testTrue";
-    this[requirementName] = function() {
+    this["cannot start width"] = function() {
+        // không cho người dùng nhập nút này đầu tiên
+        if (inputStr.length <= 0) return false;
         return true;
     }
-    var requirementName = "testFalse";
-    this[requirementName] = function() {
-        return false;
+    this["cannot after random PI ) pow2"] = function() {
+        let lastDigit = inputStr.slice(-1);
+        if (lastDigit.search(/[m)>I]+/) != -1) return false;
+        return true;
+    }
+    this["cannot duplicate +-*/"] = function() {
+        let lastDigit = inputStr.slice(-1);
+        // Không cho người dùng nhập kiểu "2x/%2"
+        if (["+", "-", "×", "÷", "%"].indexOf(lastDigit) != -1) return false;
+        return true;
     }
 
     for (condition of conditionArr) {
@@ -324,12 +332,28 @@ function passAllRequirement(inputStr, conditionArr = []) {
     return true;
 }
 
-console.log(passAllRequirement("test string", ["testTrue", "testFalse"]));
 
 for (btn of btnPureNumberArr) {
     btn.onclick = function() {
-
+        let requirements = ["cannot after random PI ) pow2"];
+        if (!passAllRequirement(calc.userFormularArr.join(''), requirements)) {
+            calc.eShowResult.innerHTML = "Phím '" + this.userFormular +
+                "' không phù hợp ngữ cảnh. Bạn hãy chọn phím khác";
+            return;
+        }
         calc.addToFormular.call(calc, this);
+    };
+}
+for (btn of btnPureOperatorArr) {
+    btn.onclick = function() {
+        let requirements = ["cannot start width", "cannot duplicate +-*/"];
+        if (!passAllRequirement(calc.userFormularArr.join(''), requirements)) {
+            calc.eShowResult.innerHTML = "Phím '" + this.userFormular +
+                "' không phù hợp ngữ cảnh. Bạn hãy chọn phím khác";
+            return;
+        }
+        calc.addToFormular.call(calc, this);
+
     };
 }
 
@@ -338,21 +362,8 @@ function addToFormular() {
     let arrElemClassName = this.className.split(" ");
     if (arrElemClassName.indexOf("js-btn-pure-number") >= 0) {
         // xác định nút bấm thông qua class
-        let lastDigit = userFormular.slice(-1);
-        // không cho người dùng nhập kiểu "random2" hoặc "sqrt(2)2"
-        if (lastDigit.search(/[m)>I]+/) != 0) userFormular += this.textContent;
-        else {
-            eShowResult.innerHTML = "Phím '" + this.textContent +
-                "' không phù hợp ngữ cảnh. Bạn hãy chọn phím khác";
-            return;
-        }
+
     } else if (arrElemClassName.indexOf("js-btn-pure-operator") >= 0) {
-        // Không cho người dùng nhập kiểu "%3"
-        if (userFormular.length == 0) {
-            eShowResult.innerHTML = "Phím '" + this.textContent +
-                "' không phù hợp ngữ cảnh. Bạn hãy chọn phím khác";
-            return;
-        }
         let index = userFormular.search(/[(+\-*÷%\.]+$/);
         // Nếu cuối chuỗi là "(-" thì không ")"
         if (index >= 0) {
@@ -360,15 +371,7 @@ function addToFormular() {
                 "' không phù hợp ngữ cảnh. Bạn hãy chọn phím khác";
             return;
         }
-        let lastDigit = userFormular.slice(-1);
-        // Không cho người dùng nhập kiểu "2x/%2"
-        if (["+", "-", "*", "÷", "%"].indexOf(lastDigit) > 0) {
-            eShowResult.innerHTML = "Phím '" + this.textContent +
-                "' không phù hợp ngữ cảnh. Bạn hãy chọn phím khác";
-            return;
-        }
 
-        userFormular += this.textContent;
     } else if (arrElemClassName.indexOf("js-btn-multi") >= 0) {
         let index = userFormular.search(/[(+\-*÷%\.]+$/);
         // Nếu cuối chuỗi là "(-" thì không "*"
