@@ -72,7 +72,7 @@ let calc = {
     reset: function() {
         // Hàm reset calculator
         this.userFormularArr = [];
-        this.eShowUserFormular.innerHTML = userFormularArr.join("");
+        this.eShowUserFormular.innerHTML = this.userFormularArr.join("");
         this.userFormularToCalculateArr = [];
         this.arrDeleted = [];
         this.calcResult();
@@ -173,6 +173,36 @@ let btnUndel = new ObjButton('', '');
 btnUndel.onclick = function() {
     calc.undel();
 };
+// Nút all clear
+let btnAc = new ObjButton('', '');
+btnAc.onclick = function() {
+    calc.reset();
+};
+// Số 'PI'
+let btnPI = new ObjButton('PI', 'Math.PI');
+btnPI.onclick = function() {
+    calc.addToFormular.call(calc, this);
+};
+// Hàm pow 2
+let btnPow2 = new ObjButton('<sup>2</sup>', '**2');
+btnPow2.onclick = function() {
+    calc.addToFormular.call(calc, this);
+};
+// Hàm sqrt()
+let btnSqrt = new ObjButton('√(', 'Math.sqrt(');
+btnSqrt.onclick = function() {
+    calc.addToFormular.call(calc, this);
+};
+// Hàm Abs()
+let btnAbs = new ObjButton('abs(', 'Math.abs(');
+btnAbs.onclick = function() {
+    calc.addToFormular.call(calc, this);
+};
+// Hàm Sin()
+let btnSin = new ObjButton('sin(', 'Math.sin(');
+btnSin.onclick = function() {
+    calc.addToFormular.call(calc, this);
+};
 
 // Test bước 2
 console.group("Test bước 2");
@@ -191,8 +221,16 @@ btnMulti.onclick();
 // btnOpen.onclick();
 // btnClose.onclick();
 btnRand.onclick();
-btnDel.onclick();
+
 btnUndel.onclick();
+btnAc.onclick();
+btnSqrt.onclick();
+btnDel.onclick();
+// btnAbs.onclick();
+btnSin.onclick();
+btnPI.onclick();
+btnClose.onclick();
+// btnPow2.onclick();
 
 console.log('Hoàn thành test bước 2');
 console.groupEnd();
