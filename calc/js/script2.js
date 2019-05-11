@@ -42,14 +42,12 @@ let calc = {
         }
         let resultDirect = Number(userFormular);
         if (result == undefined) result = "";
-        else if (!Number.isNaN(resultDirect) && userFormular != result.toString()) {
+        else if (!Number.isNaN(resultDirect) && result.toString().length > 10) {
             // Trường hợp người dùng nhập vào 1 số rất dài dẫn đến lỗi khi chuyển đổi giữa string và number
             result = "Giá trị nằm ngoài phạm vi chuyển đổi và tính toán chính xác";
             console.log("Giá trị nằm ngoài phạm vi chuyển đổi và tính toán chính xác")
-        } else if (typeof result == "number" && result.toString().length > 10) {
-            // Trường hợp kết quả là số thực quá dài dẫn đến lỗi khi chuyển đổi giữa string và number
-            result = result.toString().slice(0, 10);
-        }
+        } //else if (typeof result == 'number') result = result.toFixed(10);
+
         this.eShowResult.innerHTML = result;
         console.group("Test hàm calcResult()");
         console.log(userFormular);
@@ -83,7 +81,8 @@ let calc = {
         if (this.userFormularArr.length > 0) {
             let objButtonToDel = new ObjButton(this.userFormularArr.pop(), this.userFormularToCalculateArr.pop());
             this.arrDeleted.push(objButtonToDel);
-            this.addToFormular(new ObjButton('', ''))
+            this.eShowUserFormular.innerHTML = this.userFormularArr.join('');
+            this.calcResult();
         }
     },
     undel: function() {
@@ -203,40 +202,111 @@ let btnSin = new ObjButton('sin(', 'Math.sin(');
 btnSin.onclick = function() {
     calc.addToFormular.call(calc, this);
 };
+// Hàm Cos()
+let btnCos = new ObjButton('cos(', 'Math.cos(');
+btnCos.onclick = function() {
+    calc.addToFormular.call(calc, this);
+};
 
 // Test bước 2
-console.group("Test bước 2");
+// console.group("Test bước 2");
 
-for (btn of btnPureNumberArr) {
-    btn.onclick();
-}
-
-// for (btn of btnPureOperatorArr) {
+// for (btn of btnPureNumberArr) {
 //     btn.onclick();
 // }
-btnMulti.onclick();
-// btnDevide.onclick();
-// btnDot.onclick();
-// btnNegative.onclick();
-// btnOpen.onclick();
+
+// // for (btn of btnPureOperatorArr) {
+// //     btn.onclick();
+// // }
+// btnMulti.onclick();
+// // btnDevide.onclick();
+// // btnDot.onclick();
+// // btnNegative.onclick();
+// // btnOpen.onclick();
+// // btnClose.onclick();
+// btnRand.onclick();
+
+// btnUndel.onclick();
+// btnAc.onclick();
+// btnSqrt.onclick();
+// btnDel.onclick();
+// // btnAbs.onclick();
+// // btnSin.onclick();
+// btnCos.onclick();
+// btnPI.onclick();
 // btnClose.onclick();
-btnRand.onclick();
+// // btnPow2.onclick();
 
-btnUndel.onclick();
-btnAc.onclick();
-btnSqrt.onclick();
-btnDel.onclick();
-// btnAbs.onclick();
-btnSin.onclick();
-btnPI.onclick();
-btnClose.onclick();
-// btnPow2.onclick();
+// console.log('Hoàn thành test bước 2');
+// console.groupEnd();
 
-console.log('Hoàn thành test bước 2');
+// Bước 3: Add sự kiện onclick vào các element tương ứng
+console.group("Test bước 3: Add sự kiện onclick")
+
+// các số 0-9, 00
+var elems = document.getElementsByClassName("js-btn-pure-number");
+for (elem of elems) {
+    for (i in btnPureNumberArr) {
+        let btn = btnPureNumberArr[i];
+        if (elem.innerHTML == btn.userFormular) {
+            elem.onclick = () => {
+                btn.onclick();
+            }
+        }
+    }
+}
+// phép toán +, -, %
+elems = document.getElementsByClassName("js-btn-pure-operator");
+for (elem of elems) {
+    for (i in btnPureOperatorArr) {
+        let btn = btnPureOperatorArr[i];
+        if (elem.innerHTML == btn.userFormular) {
+            elem.onclick = () => {
+                btn.onclick();
+            }
+        }
+    }
+}
+// phép toán *, /
+var elem = document.getElementsByClassName("js-btn-multi")[0];
+elem.onclick = () => { btnMulti.onclick(); }
+var elem = document.getElementsByClassName("js-btn-divide")[0];
+elem.onclick = () => { btnDevide.onclick(); }
+
+var elem = document.getElementsByClassName("js-btn-dot")[0];
+elem.onclick = () => { btnDot.onclick(); }
+var elem = document.getElementsByClassName("js-btn-negative")[0];
+elem.onclick = () => { btnNegative.onclick(); }
+var elem = document.getElementsByClassName("js-btn-open")[0];
+elem.onclick = () => { btnOpen.onclick(); }
+var elem = document.getElementsByClassName("js-btn-close")[0];
+elem.onclick = () => { btnClose.onclick(); }
+var elem = document.getElementsByClassName("js-btn-rand")[0];
+elem.onclick = () => { btnRand.onclick(); }
+var elem = document.getElementsByClassName("js-btn-undel")[0];
+elem.onclick = () => { btnUndel.onclick(); }
+var elem = document.getElementsByClassName("js-btn-del")[0];
+elem.onclick = () => { btnDel.onclick(); }
+var elem = document.getElementsByClassName("js-btn-ac")[0];
+elem.onclick = () => { btnAc.onclick(); }
+var elem = document.getElementsByClassName("js-btn-pow2")[0];
+elem.onclick = () => { btnPow2.onclick(); }
+var elem = document.getElementsByClassName("js-btn-pi")[0];
+elem.onclick = () => { btnPI.onclick(); }
+var elem = document.getElementsByClassName("js-btn-sqrt")[0];
+elem.onclick = () => { btnSqrt.onclick(); }
+var elem = document.getElementsByClassName("js-btn-abs")[0];
+elem.onclick = () => { btnAbs.onclick(); }
+var elem = document.getElementsByClassName("js-btn-sin")[0];
+elem.onclick = () => { btnSin.onclick(); }
+var elem = document.getElementsByClassName("js-btn-cos")[0];
+elem.onclick = () => { btnCos.onclick(); }
+
+console.log("Kết thúc test bước 3");
 console.groupEnd();
 
 
-// 
+// Bước 4: add thêm các điều kiện đặc hạn chế người dùng bấm sai nút 
 function addToFormular() {
     // Hàm xác định nút người dùng bấm và add vào biểu thức toán học
     let arrElemClassName = this.className.split(" ");
@@ -440,26 +510,4 @@ function addToFormular() {
 
 }
 
-function addOnlickEventHandle(arrClassName, functionDefinition) {
-    // Hàm add sự kiện bấm nút vào element tương ứng
-    for (className of arrClassName) {
-        let elems = document.getElementsByClassName(className);
-        for (let i = 0; i < elems.length; i++) {
-            elems[i].onclick = functionDefinition;
-        }
-    }
-}
-
-
-
-
-
-// Thêm sự kiện vào các element tương ứng
-addOnlickEventHandle(["js-btn-pure-number", "js-btn-pure-operator", "js-btn-multi",
-    "js-btn-dot", "js-btn-negative",
-    "js-btn-rand", "js-btn-close", "js-btn-open", "js-btn-pow2", "js-btn-pi", "js-btn-sqrt",
-    "js-btn-abs", "js-btn-sin", "js-btn-cos"
-], addToFormular)
-// addOnlickEventHandle(["js-btn-ac"], allClear);
-// addOnlickEventHandle(["js-btn-del"], deletion);
-// addOnlickEventHandle(["js-btn-undel"], undel);
+// console.log(eval('0111'));
