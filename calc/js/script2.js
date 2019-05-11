@@ -307,6 +307,32 @@ console.groupEnd();
 
 
 // Bước 4: add thêm các điều kiện đặc hạn chế người dùng bấm sai nút 
+function passAllRequirement(inputStr, conditionArr = []) {
+
+    var requirementName = "testTrue";
+    this[requirementName] = function() {
+        return true;
+    }
+    var requirementName = "testFalse";
+    this[requirementName] = function() {
+        return false;
+    }
+
+    for (condition of conditionArr) {
+        if (this[condition]() == false) return false;
+    }
+    return true;
+}
+
+console.log(passAllRequirement("test string", ["testTrue", "testFalse"]));
+
+for (btn of btnPureNumberArr) {
+    btn.onclick = function() {
+
+        calc.addToFormular.call(calc, this);
+    };
+}
+
 function addToFormular() {
     // Hàm xác định nút người dùng bấm và add vào biểu thức toán học
     let arrElemClassName = this.className.split(" ");
