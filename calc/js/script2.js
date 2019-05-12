@@ -42,10 +42,9 @@ let calc = {
         }
         let resultDirect = Number(userFormular);
         if (result == undefined) result = "";
-        else if (!Number.isNaN(resultDirect) && result.toString().length > 10) {
+        else if (!Number.isNaN(resultDirect) && result.toString().length > 16) {
             // Trường hợp người dùng nhập vào 1 số rất dài dẫn đến lỗi khi chuyển đổi giữa string và number
             result = "Giá trị nằm ngoài phạm vi chuyển đổi và tính toán chính xác";
-            console.log("Giá trị nằm ngoài phạm vi chuyển đổi và tính toán chính xác")
         } //else if (typeof result == 'number') result = result.toFixed(10);
 
         this.eShowResult.innerHTML = result;
@@ -112,12 +111,7 @@ for (let i = 0; i < 10; i++) {
     }
     btnPureNumberArr.push(objBtn);
 }
-// Số 00
-let objBtn = new ObjButton('00', '00');
-objBtn.onclick = function() {
-    calc.addToFormular.call(calc, this);
-}
-btnPureNumberArr.push(objBtn);
+
 // Các phép toán +,-,&
 let btnPureOperatorArr = []
 for (btn of ['+', '-', '%']) {
@@ -133,8 +127,8 @@ btnMulti.onclick = function() {
     calc.addToFormular.call(calc, this);
 };
 // Phép toán /
-let btnDevide = new ObjButton('÷', '/');
-btnDevide.onclick = function() {
+let btnDivide = new ObjButton('÷', '/');
+btnDivide.onclick = function() {
     calc.addToFormular.call(calc, this);
 };
 // Dấu '.'
@@ -219,7 +213,7 @@ btnCos.onclick = function() {
 // //     btn.onclick();
 // // }
 // btnMulti.onclick();
-// // btnDevide.onclick();
+// // btnDivide.onclick();
 // // btnDot.onclick();
 // // btnNegative.onclick();
 // // btnOpen.onclick();
@@ -243,7 +237,7 @@ btnCos.onclick = function() {
 // Bước 3: Add sự kiện onclick vào các element tương ứng
 console.group("Test bước 3: Add sự kiện onclick")
 
-// các số 0-9, 00
+// các số 0-9
 var elems = document.getElementsByClassName("js-btn-pure-number");
 for (elem of elems) {
     for (i in btnPureNumberArr) {
@@ -255,6 +249,13 @@ for (elem of elems) {
         }
     }
 }
+
+// số 00
+document.getElementsByClassName("js-btn-pure-number__00")[0].onclick = () => {
+    btnPureNumberArr[0].onclick();
+    btnPureNumberArr[0].onclick();
+}
+
 // phép toán +, -, %
 elems = document.getElementsByClassName("js-btn-pure-operator");
 for (elem of elems) {
@@ -271,7 +272,7 @@ for (elem of elems) {
 var elem = document.getElementsByClassName("js-btn-multi")[0];
 elem.onclick = () => { btnMulti.onclick(); }
 var elem = document.getElementsByClassName("js-btn-divide")[0];
-elem.onclick = () => { btnDevide.onclick(); }
+elem.onclick = () => { btnDivide.onclick(); }
 
 var elem = document.getElementsByClassName("js-btn-dot")[0];
 elem.onclick = () => { btnDot.onclick(); }
@@ -319,37 +320,97 @@ function passAllRequirement(inputStr, conditionArr = []) {
         if (lastDigit.search(/[m)>I]+/) != -1) return false;
         return true;
     }
-    this["cannot duplicate +-*/"] = function() {
+    this["cannot after +-*/"] = function() {
         let lastDigit = inputStr.slice(-1);
         // Không cho người dùng nhập kiểu "2x/%2"
         if (["+", "-", "×", "÷", "%"].indexOf(lastDigit) != -1) return false;
         return true;
     }
+    this["cannot duplicate in a number"] = function() {
+        // Không cho người dùng nhập kiểu "2.3.3"
+        let index = inputStr.search(/[0-9\.]+$/);
+        let lastStr = inputStr.slice(index);
+        if (lastStr.indexOf(".") != -1) return false;
+        return true;
 
+    }
+    this["must after a number"] = function() {
+        // cuối chuỗi phải là số
+        let lastDigit = inputStr.slice(-1);
+        if (lastDigit.search(/[0-9]+/) == -1) return false;
+        return true;
+    }
+    this["cannot after a number"] = function() {
+        // Cuối chuỗi không phải là số 
+        let lastDigit = inputStr.slice(-1);
+        if (lastDigit.search(/[0-9]+/) != -1) return false;
+        return true;
+    }
+    this["no more than ("] = function() {
+        // số lượng không nhiều hơn dấu (
+        let numberOfOpen = 0;
+        let arrUserFormular = inputStr.split("");
+        // Số lượng dấu ")" không được nhiều hơn dấu "("
+        for (value of arrUserFormular) {
+            if (value == "(") numberOfOpen++;
+            if (value == ")") numberOfOpen--;
+        }
+        if (numberOfOpen <= 0) return false;
+        return true;
+    }
+    this["cannot after ("] = function() {
+        // Cuối chuỗi không phải là (
+        let lastDigit = inputStr.slice(-1);
+        if (lastDigit.search(/[(]+/) != -1) return false;
+        return true;
+    }
+    this["cannot after ."] = function() {
+        // Cuối chuỗi không phải là .
+        let lastDigit = inputStr.slice(-1);
+        if (lastDigit.search(/[\.]+/) != -1) return false;
+        return true;
+    }
     for (condition of conditionArr) {
         if (this[condition]() == false) return false;
     }
     return true;
 }
 
+function alertUser(str) {
+    calc.eShowResult.innerHTML = "Phím '" + str +
+        "' không phù hợp ngữ cảnh. Bạn hãy chọn phím khác";
+}
 
-for (btn of btnPureNumberArr) {
+
+btnPureNumberArr[0].onclick = function() {
+    let requirements = ["cannot after random PI ) pow2"];
+    if (!passAllRequirement(calc.userFormularArr.join(''), requirements)) {
+        alertUser(this.userFormular);
+        return;
+    }
+    let userFormular = calc.userFormularArr.join('');
+    calc.addToFormular.call(calc, this);
+
+    if (passAllRequirement(userFormular, ["must after a number"])) return;
+    if (!passAllRequirement(userFormular, ["cannot after ."])) return;
+    calc.addToFormular.call(calc, btnDot);
+};
+
+for (btn of btnPureNumberArr.slice(1)) {
     btn.onclick = function() {
         let requirements = ["cannot after random PI ) pow2"];
         if (!passAllRequirement(calc.userFormularArr.join(''), requirements)) {
-            calc.eShowResult.innerHTML = "Phím '" + this.userFormular +
-                "' không phù hợp ngữ cảnh. Bạn hãy chọn phím khác";
+            alertUser(this.userFormular);
             return;
         }
         calc.addToFormular.call(calc, this);
     };
 }
-for (btn of btnPureOperatorArr) {
+for (btn of [...btnPureOperatorArr, btnMulti, btnDivide, btnPow2]) {
     btn.onclick = function() {
-        let requirements = ["cannot start width", "cannot duplicate +-*/"];
+        let requirements = ["cannot start width", "cannot after +-*/", "cannot after (", "cannot after ."];
         if (!passAllRequirement(calc.userFormularArr.join(''), requirements)) {
-            calc.eShowResult.innerHTML = "Phím '" + this.userFormular +
-                "' không phù hợp ngữ cảnh. Bạn hãy chọn phím khác";
+            alertUser(this.userFormular);
             return;
         }
         calc.addToFormular.call(calc, this);
@@ -357,186 +418,35 @@ for (btn of btnPureOperatorArr) {
     };
 }
 
-function addToFormular() {
-    // Hàm xác định nút người dùng bấm và add vào biểu thức toán học
-    let arrElemClassName = this.className.split(" ");
-    if (arrElemClassName.indexOf("js-btn-pure-number") >= 0) {
-        // xác định nút bấm thông qua class
-
-    } else if (arrElemClassName.indexOf("js-btn-pure-operator") >= 0) {
-        let index = userFormular.search(/[(+\-*÷%\.]+$/);
-        // Nếu cuối chuỗi là "(-" thì không ")"
-        if (index >= 0) {
-            eShowResult.innerHTML = "Phím '" + this.textContent +
-                "' không phù hợp ngữ cảnh. Bạn hãy chọn phím khác";
-            return;
-        }
-
-    } else if (arrElemClassName.indexOf("js-btn-multi") >= 0) {
-        let index = userFormular.search(/[(+\-*÷%\.]+$/);
-        // Nếu cuối chuỗi là "(-" thì không "*"
-        if (index >= 0) {
-            eShowResult.innerHTML = "Phím '" + this.textContent +
-                "' không phù hợp ngữ cảnh. Bạn hãy chọn phím khác";
-            return;
-        }
-        // Không cho người dùng nhập kiểu "*3"
-        if (userFormular.length == 0) {
-            eShowResult.innerHTML = "Phím '" + this.textContent +
-                "' không phù hợp ngữ cảnh. Bạn hãy chọn phím khác";
-            return;
-        }
-        let lastDigit = userFormular.slice(-1);
-        // Không cho người dùng nhập kiểu "2x/%2"
-        if (["+", "-", "*", "÷", "%"].indexOf(lastDigit) < 0) userFormular += this.textContent;
-        else {
-            eShowResult.innerHTML = "Phím '" + this.textContent +
-                "' không phù hợp ngữ cảnh. Bạn hãy chọn phím khác";
-            return;
-        }
-    } else if (arrElemClassName.indexOf("js-btn-dot") >= 0) {
-        let index = userFormular.search(/[0-9\.]+$/);
-        let lastStr = userFormular.slice(index);
-        // Nếu cuối chuỗi không phải là số thì không nhập dâu "."
-        if (index < 0) {
-            eShowResult.innerHTML = "Phím '" + this.textContent +
-                "' không phù hợp ngữ cảnh. Bạn hãy chọn phím khác";
-            return;
-        }
-        // Không cho người dùng nhập kiểu "2.3.3"
-        if (lastStr.indexOf(".") >= 0) {
-            eShowResult.innerHTML = "Phím '" + this.textContent +
-                "' không phù hợp ngữ cảnh. Bạn hãy chọn phím khác";
-            return;
-        }
-        let lastDigit = userFormular.slice(-1);
-
-        userFormular += this.textContent;
-    } else if (arrElemClassName.indexOf("js-btn-negative") >= 0) {
-        let lastDigit = userFormular.slice(-1);
-        // Không cho người dùng nhập kiểu "9(-" hoặc "random(-"
-        if (lastDigit.search(/[0-9m)>I]+/) != 0) {
-            userFormular += "(-";
-        } else {
-            eShowResult.innerHTML = "Phím '" + this.textContent +
-                "' không phù hợp ngữ cảnh. Bạn hãy chọn phím khác";
-            return;
-        }
-    } else if (arrElemClassName.indexOf("js-btn-rand") >= 0) {
-        let lastDigit = userFormular.slice(-1);
-        // Không cho người dùng nhập kiểu "randomrandom" hoặc "9random"
-        if (lastDigit.search(/[0-9m)>I]+/) != 0) userFormular += "random";
-        else {
-            eShowResult.innerHTML = "Phím '" + this.textContent +
-                "' không phù hợp ngữ cảnh. Bạn hãy chọn phím khác";
-            return;
-        }
-    } else if (arrElemClassName.indexOf("js-btn-open") >= 0) {
-        let lastDigit = userFormular.slice(-1);
-        // Không cho người dùng nhập kiểu "9(" hoặc "random("..
-        if (lastDigit.search(/[0-9m)>I]+/) != 0) {
-            userFormular += "(";
-        } else {
-            eShowResult.innerHTML = "Phím '" + this.textContent +
-                "' không phù hợp ngữ cảnh. Bạn hãy chọn phím khác";
-            return;
-        }
-    } else if (arrElemClassName.indexOf("js-btn-close") >= 0) {
-        let index = userFormular.search(/[(+\-*÷%\.]+$/);
-        // Nếu cuối chuỗi là "(-" thì không ")"
-        if (index >= 0) {
-            eShowResult.innerHTML = "Phím '" + this.textContent +
-                "' không phù hợp ngữ cảnh. Bạn hãy chọn phím khác";
-            return;
-        }
-        let numberOfOpen = 0;
-        let arrUserFormular = userFormular.split("");
-        // Số lượng dấu ")" không được nhiều hơn dấu "("
-        for (value of arrUserFormular) {
-            if (value == "(") numberOfOpen++;
-            if (value == ")") numberOfOpen--;
-        }
-        if (numberOfOpen > 0) {
-            userFormular += ")";
-        } else {
-            eShowResult.innerHTML = "Phím '" + this.textContent +
-                "' không phù hợp ngữ cảnh. Bạn hãy chọn phím khác";
-            return;
-        }
-    } else if (arrElemClassName.indexOf("js-btn-pow2") >= 0) {
-        let index = userFormular.search(/[(+\-*÷%\.]+$/);
-        // Nếu cuối chuỗi là "(-" thì không ")**2"
-        if (index >= 0) {
-            eShowResult.innerHTML = "Phím '" + this.textContent +
-                "' không phù hợp ngữ cảnh. Bạn hãy chọn phím khác";
-            return;
-        }
-        let numberOfOpen = 0;
-        let arrUserFormular = userFormular.split("");
-        // Số lượng dấu ")**2" không được nhiều hơn dấu "("
-        for (value of arrUserFormular) {
-            if (value == "(") numberOfOpen++;
-            if (value == ")") numberOfOpen--;
-        }
-        if (numberOfOpen > 0) {
-            userFormular += ")<sup>2</sup>";
-        } else {
-            eShowResult.innerHTML = "Phím '" + ")<sup>2</sup>" +
-                "' không phù hợp ngữ cảnh. Bạn hãy chọn phím khác";
-            return;
-        }
-    } else if (arrElemClassName.indexOf("js-btn-pi") >= 0) {
-        let lastDigit = userFormular.slice(-1);
-        // Không cho người dùng nhập kiểu "9PI" hoặc "randomPI"
-        if (lastDigit.search(/[0-9m)>I]+/) != 0) userFormular += "PI";
-        else {
-            eShowResult.innerHTML = "Phím '" + this.textContent +
-                "' không phù hợp ngữ cảnh. Bạn hãy chọn phím khác";
-            return;
-        }
-    } else if (arrElemClassName.indexOf("js-btn-sqrt") >= 0) {
-        let lastDigit = userFormular.slice(-1);
-        // Không cho người dùng nhập kiểu "9sqrt(" hoặc "randomsqrt("
-        if (lastDigit.search(/[0-9m)>I]+/) != 0) {
-            userFormular += "sqrt(";
-        } else {
-            eShowResult.innerHTML = "Phím '" + this.textContent +
-                "' không phù hợp ngữ cảnh. Bạn hãy chọn phím khác";
-            return;
-        }
-    } else if (arrElemClassName.indexOf("js-btn-abs") >= 0) {
-        let lastDigit = userFormular.slice(-1);
-        // Không cho người dùng nhập kiểu "9abs(" hoặc "randomabs("
-        if (lastDigit.search(/[0-9m)>I]+/) != 0) {
-            userFormular += "abs(";
-        } else {
-            eShowResult.innerHTML = "Phím '" + this.textContent +
-                "' không phù hợp ngữ cảnh. Bạn hãy chọn phím khác";
-            return;
-        }
-    } else if (arrElemClassName.indexOf("js-btn-sin") >= 0) {
-        let lastDigit = userFormular.slice(-1);
-        // Không cho người dùng nhập kiểu "9sin(" hoặc "randomsin("
-        if (lastDigit.search(/[0-9m)>I]+/) != 0) {
-            userFormular += "sin(";
-        } else {
-            eShowResult.innerHTML = "Phím '" + this.textContent +
-                "' không phù hợp ngữ cảnh. Bạn hãy chọn phím khác";
-            return;
-        }
-    } else if (arrElemClassName.indexOf("js-btn-cos") >= 0) {
-        let lastDigit = userFormular.slice(-1);
-        // Không cho người dùng nhập kiểu "9cos(" hoặc "randomcos("
-        if (lastDigit.search(/[0-9m)>I]+/) != 0) {
-            userFormular += "cos(";
-        } else {
-            eShowResult.innerHTML = "Phím '" + this.textContent +
-                "' không phù hợp ngữ cảnh. Bạn hãy chọn phím khác";
-            return;
-        }
+btnDot.onclick = function() {
+    let requirements = ["cannot duplicate in a number", "must after a number"];
+    if (!passAllRequirement(calc.userFormularArr.join(''), requirements)) {
+        alertUser(this.userFormular);
+        return;
     }
-
-
+    calc.addToFormular.call(calc, this);
 }
+
+for (btn of [btnAbs, btnNegative, btnRand, btnPI, btnOpen, btnSqrt, btnSin, btnCos, btnSin]) {
+    btn.onclick = function() {
+        let requirements = ["cannot after random PI ) pow2", "cannot after a number", "cannot after ."];
+        if (!passAllRequirement(calc.userFormularArr.join(''), requirements)) {
+            alertUser(this.userFormular);
+            return;
+        }
+        calc.addToFormular.call(calc, this);
+    }
+}
+
+btnClose.onclick = function() {
+    let requirements = ["cannot after +-*/", "no more than (", "cannot after (", "cannot after ."];
+    if (!passAllRequirement(calc.userFormularArr.join(''), requirements)) {
+        alertUser(this.userFormular);
+        return;
+    }
+    calc.addToFormular.call(calc, this);
+}
+
+
 
 // console.log(eval('0111'));
