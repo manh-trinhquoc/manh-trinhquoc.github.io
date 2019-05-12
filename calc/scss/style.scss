@@ -11,6 +11,8 @@ $cell-size: $btn-size+$btn-gap/2;
 $input-area__advance_width: $btn-size * 2+$btn-gap*1.5;
 $total-width: $btn-size * 9+$btn-gap*7;
 $total-height: $btn-size * 5+$btn-gap * 4+100px;
+$pure-number-bgc-color: pink;
+$pure-operator-bgc-color: lightgreen;
 
 @mixin flex-container {
     display: -webkit-flex;
@@ -64,17 +66,19 @@ $total-height: $btn-size * 5+$btn-gap * 4+100px;
         padding-top: 15px;
         padding-right: 5px;
         text-align: right;
-        overflow: hidden;
+        overflow: auto;
+        color: darkgray;
 
     }
 
     &__result {
-        height: 30px;
+        height: 40px;
         position: relative;
         padding-right: 5px;
         text-align: right;
         padding-top: 10px;
-        color: darkgray;
+        font-size: 1.1rem;
+        overflow: auto;
     }
 }
 
@@ -123,5 +127,13 @@ $total-height: $btn-size * 5+$btn-gap * 4+100px;
 
     &__sqrt {
         font-size: 1.5rem;
+    }
+
+    &__pure-operator {
+        background-color: $pure-operator-bgc-color;
+    }
+
+    &__pure-number {
+        background-color: $pure-number-bgc-color;
     }
 }

@@ -29,11 +29,13 @@ let calc = {
     eShowResult: document.getElementsByClassName("js-show-result")[0],
     // Biến lưu lịch sử delete của người dùng
     arrDeleted: [],
-    calcResult: function() {
+    calcResult2: function() {
+        // Hàm cũ lưu để dùng lại nếu hàm mới bị lỗi
         // hàm tính toán kết quả dựa vào biểu thức toán học người dùng nhập vào và hiển thị ra element
         let result = '';
         let userFormular = this.userFormularArr.join('');
         let userFormularToCalculate = this.userFormularToCalculateArr.join('');
+
         try {
             result = eval(userFormularToCalculate);
         } catch {
@@ -55,10 +57,46 @@ let calc = {
         console.log("Hoàn thành test hàm calcResult()");
         console.groupEnd();
     },
+    calcResult: function() {
+        // hàm tính toán kết quả dựa vào biểu thức toán học người dùng nhập vào và hiển thị ra element
+        console.group("Test hàm calcResult()");
+        let result = '';
+        let userFormular = this.userFormularArr.join('');
+        let userFormularToCalculate = this.userFormularToCalculateArr.join('');
+
+        try {
+            result = eval(userFormularToCalculate);
+        } catch {
+            result = "Công thức toán chưa hoàn thiện";
+
+        }
+        let resultDirect = Number(userFormular);
+        if (result == undefined) result = "";
+        else if (!Number.isNaN(resultDirect) && result.toString().length > 15) {
+            // Trường hợp người dùng nhập vào 1 số rất dài dẫn đến lỗi khi chuyển đổi giữa string và number
+            this.delete();
+            result = "Giá trị nằm ngoài phạm vi chuyển đổi và tính toán chính xác";
+        }
+
+        // Xử lý 0.1+0.2 = 0.3 và 0.1+0.2-0.3 = 0;
+        if (typeof result == 'number' && result.toString().length > 15) {
+            // console.log(result.toString());
+            // console.log(result.toString().slice(0, 16));
+            result = Number(result.toFixed(15).toString());
+        }
+
+        this.eShowResult.innerHTML = result;
+
+        // console.log(userFormular);
+        // console.log(userFormularToCalculate);
+        // console.log(result);
+        // console.log("Hoàn thành test hàm calcResult()");
+        console.groupEnd();
+    },
     addToFormular: function(objButton) {
         // method add thêm ký tự vào biểu thức toán học
-        if (this.userFormularArr.length > 100) {
-            eShowResult.innerHTML = "Công thức đã quá dài, bạn không thể viết thêm."
+        if (this.userFormularArr.length > 25) {
+            this.eShowResult.innerHTML = "Công thức đã quá dài, bạn không thể viết thêm."
             return;
         }
         this.userFormularArr.push(objButton.userFormular);
@@ -75,7 +113,7 @@ let calc = {
         this.calcResult();
     },
 
-    deletion: function() {
+    delete: function() {
         // Hàm xóa dần biểu thức toán học từ cuối
         if (this.userFormularArr.length > 0) {
             let objButtonToDel = new ObjButton(this.userFormularArr.pop(), this.userFormularToCalculateArr.pop());
@@ -159,7 +197,7 @@ btnRand.onclick = function() {
 // Nút del
 let btnDel = new ObjButton('', '');
 btnDel.onclick = function() {
-    calc.deletion();
+    calc.delete();
 };
 // Nút undel
 let btnUndel = new ObjButton('', '');
@@ -251,7 +289,8 @@ for (elem of elems) {
 }
 
 // số 00
-document.getElementsByClassName("js-btn-pure-number__00")[0].onclick = () => {
+document.getElementsByClassName("js-btn-pure-number__000")[0].onclick = () => {
+    btnPureNumberArr[0].onclick();
     btnPureNumberArr[0].onclick();
     btnPureNumberArr[0].onclick();
 }
@@ -303,14 +342,14 @@ elem.onclick = () => { btnSin.onclick(); }
 var elem = document.getElementsByClassName("js-btn-cos")[0];
 elem.onclick = () => { btnCos.onclick(); }
 
-console.log("Kết thúc test bước 3");
+// console.log("Kết thúc test bước 3");
 console.groupEnd();
 
 
 // Bước 4: add thêm các điều kiện đặc hạn chế người dùng bấm sai nút 
 function passAllRequirement(inputStr, conditionArr = []) {
 
-    this["cannot start width"] = function() {
+    this["cannot start with"] = function() {
         // không cho người dùng nhập nút này đầu tiên
         if (inputStr.length <= 0) return false;
         return true;
@@ -370,6 +409,18 @@ function passAllRequirement(inputStr, conditionArr = []) {
         if (lastDigit.search(/[\.]+/) != -1) return false;
         return true;
     }
+    this["cannot after pow2"] = function() {
+        // Cuối chuỗi không phải là .
+        let lastDigit = inputStr.slice(-1);
+        if (lastDigit.search(/[>]+/) != -1) return false;
+        return true;
+    }
+    this["cannot after [+-*/%]("] = function() {
+        // Cuối chuỗi không phải là .
+        let lastDigit = inputStr.slice(-2);
+        if (lastDigit.search(/[+\-*\/%]\(/) != -1) return false;
+        return true;
+    }
     for (condition of conditionArr) {
         if (this[condition]() == false) return false;
     }
@@ -406,16 +457,29 @@ for (btn of btnPureNumberArr.slice(1)) {
         calc.addToFormular.call(calc, this);
     };
 }
-for (btn of [...btnPureOperatorArr, btnMulti, btnDivide, btnPow2]) {
+for (btn of [...btnPureOperatorArr, btnMulti, btnDivide]) {
     btn.onclick = function() {
-        let requirements = ["cannot start width", "cannot after +-*/", "cannot after (", "cannot after ."];
-        if (!passAllRequirement(calc.userFormularArr.join(''), requirements)) {
-            alertUser(this.userFormular);
-            return;
+        let requirements = ["cannot start with", "cannot after (", "cannot after .",
+            "cannot after +-*/"
+        ];
+
+        while (!passAllRequirement(calc.userFormularArr.join(''), requirements)) {
+            // Thay operator cũ bằng operator mới
+            btnDel.onclick();
         }
+
         calc.addToFormular.call(calc, this);
 
     };
+}
+
+btnPow2.onclick = function() {
+    let requirements = ["cannot start with", "cannot after (", "cannot after .", "cannot after +-*/", "cannot after pow2"];
+    if (!passAllRequirement(calc.userFormularArr.join(''), requirements)) {
+        alertUser(this.userFormular);
+        return;
+    }
+    calc.addToFormular.call(calc, this);
 }
 
 btnDot.onclick = function() {
@@ -449,4 +513,8 @@ btnClose.onclick = function() {
 
 
 
-// console.log(eval('0111'));
+// btnPureNumberArr[0].onclick();
+// btnPureNumberArr[1].onclick();
+// btnPureOperatorArr[0].onclick();
+// btnPureNumberArr[0].onclick();
+// btnPureNumberArr[2].onclick();

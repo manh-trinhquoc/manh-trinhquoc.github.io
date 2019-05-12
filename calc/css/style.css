@@ -35,14 +35,16 @@
     padding-top: 15px;
     padding-right: 5px;
     text-align: right;
-    overflow: hidden; }
+    overflow: auto;
+    color: darkgray; }
   .show__result {
-    height: 30px;
+    height: 40px;
     position: relative;
     padding-right: 5px;
     text-align: right;
     padding-top: 10px;
-    color: darkgray; }
+    font-size: 1.1rem;
+    overflow: auto; }
 
 .input-area {
   display: grid;
@@ -65,5 +67,9 @@
     font-size: 1.2rem; }
   .btn__sqrt {
     font-size: 1.5rem; }
+  .btn__pure-operator {
+    background-color: lightgreen; }
+  .btn__pure-number {
+    background-color: pink; }
 
 /*# sourceMappingURL=style.css.map */
