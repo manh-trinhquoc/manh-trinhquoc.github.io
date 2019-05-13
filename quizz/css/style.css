@@ -34,6 +34,20 @@ body {
   background-color: green;
   width: 40rem; }
 
+.quizz-in-progress__wrapper {
+  margin: auto;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -moz-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  -o-flex-wrap: wrap;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: blue;
+  width: 100%;
+  }
+
 .question__wrapper {
   padding: 2rem;
   margin: 2rem;

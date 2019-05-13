@@ -1,2 +1,2 @@
-cd F:\manh-trinhquoc.github.io\calc
+cd F:\manh-trinhquoc.github.io\quizz
 sass --watch scss:css

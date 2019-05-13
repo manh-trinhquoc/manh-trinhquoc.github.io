@@ -44,6 +44,13 @@ body {
     width: $total-width;
 }
 
+.quizz-in-progress__wrapper {
+    @include flex-item;
+    @include flex-container;
+    background-color: blue;
+    width: 100%;
+}
+
 .question__wrapper {
     padding: $font-size * 2;
     margin: $font-size * 2;

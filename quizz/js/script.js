@@ -8,7 +8,7 @@ Yêu cầu
 - Trình bày đẹp cả trang Quiz lẫn trang chúc mừng
 - Nộp bài tập lên github dưới dạng static page.
 */
-
+// Bước 1. Tạo đối tượng quizz để lưu câu hỏi
 function Quizz(question, a, b, c, d, answerTrue) {
     this.q = question;
     this.a = a;
@@ -30,19 +30,9 @@ let q5 = new Quizz("Thẻ <input type=”Password” …> dùng để làm gì?"
     "Tạo một ô text để nhập dữ liệu 1 dòng", " Tạo một ô nhập mật khẩu", "Tất cả các ý trên", "c");
 
 
-let appStage = {
-    currentStage: "quizz in progress",
-    stageList: ["welcome", "quizz in progress", "view result", "review answer", "trophy page"],
-    getNextStage: function() {
-        let currentIndex = this.stageList.indexOf(currentStage);
-        if (currentIndex < this.stageList.length - 1) {
-            this.currentStage = this.stageList[currentIndex + 1];
-        }
-        return this.currentStage
-    }
-};
 
 function randomSuffleArr(arr) {
+    // Hàm đảo thứ tự ngẫu nhiên 1 chuỗi.
     console.group("randomSuffleArr");
     let nArr = arr.slice();
     let result = [];
@@ -56,17 +46,72 @@ function randomSuffleArr(arr) {
     return result;
 }
 
-function quizzInProgress() {
+// Bước 2: Tạo đối tượng là các nút bấm
+function Btn(value, onclick = function() {
+    // console.log(this.value);
+    quizzInProgress(this.value);
+}) {
+
+    this.value = value;
+    this.onclick = onclick;
+}
+
+let btnA = new Btn("a");
+let btnB = new Btn("b");
+let btnC = new Btn("c");
+let btnD = new Btn("d");
+
+
+document.getElementsByClassName("js-answer__a")[0].onclick = function() {
+    btnA.onclick();
+
+}
+document.getElementsByClassName("js-answer__b")[0].onclick = function() {
+    btnB.onclick();
+}
+document.getElementsByClassName("js-answer__c")[0].onclick = function() {
+    btnC.onclick();
+}
+document.getElementsByClassName("js-answer__d")[0].onclick = function() {
+    btnD.onclick();
+}
+
+// Bước 3: xử lý các trạng thái của chương trình
+// Các trạng thái của chương trình: welcome, quizzInProgress, finish, review, trophy
+let programStage = {
+    allStages: ["welcome", "quizzInProgress", "finish", "review", "trophy"],
+    currentStage: "quizzInProgress"
+}
+let quizzInProgress = (function() {
+    // this[programStage.currentStage] = (function() {
+    // Hàm thực hiện các thao tác khi đang trong trạng thái làm quizz 
     console.group("quizzInProgress");
-    let qArr = [q1, q2, q3, q4, q5];
+    qArr = [q1, q2, q3, q4, q5];
     qArr = randomSuffleArr(qArr);
     let qAnswer = [];
-    while (qArr.length) {
-        let question = qArr.pop();
+    let userAnswerArr = [];
+    let question = qArr.pop();
+    showQuizz(question);
+    return function(btn) {
+        console.log(qArr.length);
+        if (programStage.currentStage == "quizzInProgress") {
+            userAnswerArr.push({ question, btn })
+            question = qArr.pop();
+        }
+        if (question != undefined)
+            showQuizz(question);
+        else {
+            programStage.currentStage = "finish";
+            finish(userAnswerArr);
+        }
+        console.log({ userAnswerArr });
+    }
+
+    function showQuizz(question) {
         let qAnswer = [question.a, question.b, question.c, question.d];
-        console.log(qAnswer);
+        // console.log(qAnswer);
         qAnswer = randomSuffleArr(qAnswer);
-        console.log(qAnswer);
+        console.log({ qAnswer });
         document.getElementsByClassName("js-question")[0].textContent = question.q;
         document.getElementsByClassName("js-answer__a")[0].textContent = qAnswer[0];
         document.getElementsByClassName("js-answer__b")[0].textContent = qAnswer[1];
@@ -74,6 +119,14 @@ function quizzInProgress() {
         document.getElementsByClassName("js-answer__d")[0].textContent = qAnswer[3];
     }
     console.groupEnd();
+})();
+
+function finish(userAnswerArr, btn) {
+    document.getElementsByClassName("js-quizz-in-progress")[0].style.display = "none";
 }
 
-quizzInProgress();
+btnA.onclick();
+btnA.onclick();
+btnA.onclick();
+btnA.onclick();
+btnA.onclick();
