@@ -35,7 +35,8 @@ body {
   width: 30rem; }
 
 .quizz-in-progress__wrapper,
-.finished__wrapper {
+.finished__wrapper,
+.trophy__wrapper {
   margin: auto;
   display: flex;
   -webkit-flex-wrap: wrap;
@@ -49,7 +50,8 @@ body {
   width: 100%; }
 
 .question__wrapper,
-.result__wrapper {
+.result__wrapper,
+.trophy-result__wrapper {
   padding: 2rem;
   margin: 2rem;
   text-align: center;
@@ -63,9 +65,14 @@ body {
   text-align: center;
   padding: 1rem;
   margin: 1rem;
-  height: 3rem; }
+  height: 3rem;
+  background-color: white; }
+  .answer__wrapper_display_none {
+    display: none; }
 
-.result__button {
+.result__button,
+.reviewing__button,
+.trophy__button {
   background-color: white;
   width: 30rem;
   text-align: center;
@@ -73,5 +80,10 @@ body {
   margin: 1rem;
   height: 3rem;
   width: 12rem; }
+
+.reviewing__button_wrong {
+  background-color: red; }
+.reviewing__button_right {
+  background-color: green; }
 
 /*# sourceMappingURL=style.css.map */

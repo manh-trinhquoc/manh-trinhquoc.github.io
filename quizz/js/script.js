@@ -56,8 +56,6 @@ let btnD = new Btn("d");
 
 let btnReview = new Btn("review");
 btnReview.onclick = function() {
-    // console.log(this.value);
-    console.trace();
     finished(undefined, this);
 }
 // Test
@@ -65,10 +63,17 @@ btnReview.onclick = function() {
 
 let btnReplay = new Btn("replay");
 btnReplay.onclick = function() {
-    quizzInProgress(this);
+    btnReview.onclick.call(this);
 }
-// Test
-// btnReplay.onclick();
+
+let btnPrev = new Btn("prev");
+btnPrev.onclick = function() {
+    reviewing(undefined, this);
+}
+let btnNext = new Btn("next");
+btnNext.onclick = function() {
+    reviewing(undefined, this);
+}
 
 
 document.getElementsByClassName("js-answer__a")[0].onclick = function() {
@@ -90,6 +95,14 @@ document.getElementsByClassName("js-review")[0].onclick = function() {
 document.getElementsByClassName("js-replay")[0].onclick = function() {
     btnReplay.onclick();
 }
+document.getElementsByClassName("js-reviewing__prev")[0].onclick = function() {
+    btnPrev.onclick();
+}
+document.getElementsByClassName("js-reviewing__next")[0].onclick = function() {
+    btnNext.onclick();
+}
+
+
 
 // Bước 3: xử lý các trạng thái của chương trình
 // Các trạng thái của chương trình: welcome, quizzInProgress, finish, review, trophy
@@ -97,47 +110,72 @@ let viewManager = {
     allStages: ["welcome", "quizzInProgress", "finished", "reviewing", "trophy"],
     currentStage: "quizzInProgress",
     manageView: function(currentStage) {
-        this.currentStage = currentStage;
-        switch (this.currentStage) {
-            case "quizzInProgress":
-                document.getElementsByClassName("js-quizz-in-progress")[0].style.height = "auto";
-                document.getElementsByClassName("finished__wrapper")[0].style.height = 0;
-                break;
-            default:
-                document.getElementsByClassName("js-quizz-in-progress")[0].style.height = "auto";
-                document.getElementsByClassName("finished__wrapper")[0].style.height = "auto";
+
+        this["quizzInProgress"] = function() {
+            document.getElementsByClassName("js-quizz-in-progress")[0].style.height = "auto";
+            document.getElementsByClassName("js-finished")[0].style.height = 0;
+            let elem = document.getElementsByClassName("js-reviewing__prev")[0];
+            elem.classList.add("answer__wrapper_display_none");
+            elem.classList.remove("reviewing__button");
+            elem = document.getElementsByClassName("js-reviewing__next")[0];
+            elem.classList.add("answer__wrapper_display_none");
+            elem.classList.remove("reviewing__button");
+            document.getElementsByClassName("js-answer__a")[0].classList.remove("reviewing__button_wrong");
+            document.getElementsByClassName("js-answer__b")[0].classList.remove("reviewing__button_wrong");
+            document.getElementsByClassName("js-answer__c")[0].classList.remove("reviewing__button_wrong");
+            document.getElementsByClassName("js-answer__d")[0].classList.remove("reviewing__button_wrong");
+            document.getElementsByClassName("js-answer__a")[0].classList.remove("reviewing__button_right");
+            document.getElementsByClassName("js-answer__b")[0].classList.remove("reviewing__button_right");
+            document.getElementsByClassName("js-answer__c")[0].classList.remove("reviewing__button_right");
+            document.getElementsByClassName("js-answer__d")[0].classList.remove("reviewing__button_right");
         }
+        this["reviewing"] = function() {
+            document.getElementsByClassName("js-quizz-in-progress")[0].style.height = "auto";
+            document.getElementsByClassName("js-finished")[0].style.height = 0;
+            let elem = document.getElementsByClassName("js-reviewing__prev")[0];
+            elem.classList.remove("answer__wrapper_display_none");
+            elem.classList.add("reviewing__button");
+            elem = document.getElementsByClassName("js-reviewing__next")[0];
+            elem.classList.remove("answer__wrapper_display_none");
+            elem.classList.add("reviewing__button");
+        }
+        this["finished"] = function() {
+            document.getElementsByClassName("js-quizz-in-progress")[0].style.height = 0;
+            document.getElementsByClassName("js-finished")[0].style.height = "auto";
+        }
+        this["trophy"] = function() {
+
+        }
+        this.currentStage = currentStage;
+        this[currentStage]();
     }
 }
 let quizzInProgress = (function() {
     // Hàm thực hiện các thao tác khi đang trong trạng thái làm quizz 
+    // console.group("quizzInProgress");
     let qAnswer = [];
     let userAnswerArr = [];
     let question = [];
     initial();
     return function(btn) {
-
-        console.log(btn.value);
-        if (btn.value == "replay") {
+        if (viewManager.currentStage == "reviewing") return;
+        if (viewManager.currentStage != "quizzInProgress") {
             initial();
             return;
         }
-        console.log(qArr.length);
-        if (viewManager.currentStage == "quizzInProgress") {
-            let value = btn.value
-            userAnswerArr.push({ question, qAnswer, userAnser: btn.value })
-            // userAnswerArr.push({ question: question, qAnswer: qAnswer, value: value })
-            question = qArr.pop();
-        }
-        if (question != undefined) {
-            qAnswer = [question.a, question.b, question.c, question.d];
-            // console.log(qAnswer);
-            qAnswer = randomSuffleArr(qAnswer);
-            showQuizz(question, qAnswer);
-        } else {
-            // viewManager.currentStage = "finish";
+
+        let value = btn.value
+        userAnswerArr.push({ question, qAnswer, userAnswer: btn.value })
+        question = qArr.pop();
+
+        if (question == undefined) {
             finished(userAnswerArr);
+            return;
         }
+        qAnswer = [question.a, question.b, question.c, question.d];
+        qAnswer = randomSuffleArr(qAnswer);
+        showQuizz(question, qAnswer);
+
         console.log({ userAnswerArr });
 
 
@@ -155,9 +193,9 @@ let quizzInProgress = (function() {
     function initial() {
 
         viewManager.manageView("quizzInProgress");
-        console.group("quizzInProgress");
+
         qArr = [q1, q2, q3, q4, q5];
-        qArr = [q1];
+        //qArr = [q1, q2];
         qArr = randomSuffleArr(qArr);
         qAnswer = [];
         userAnswerArr = [];
@@ -182,41 +220,40 @@ let quizzInProgress = (function() {
         console.groupEnd();
         return result;
     }
-    console.groupEnd();
+    // console.groupEnd();
 })();
 
-function finished(userAnswerArr, btn = undefined) {
+let finished = function(userAnswerArr, btn = undefined) {
     this["replay"] = function() {
-
+        if (viewManager.currentStage != "finished") return;
+        quizzInProgress();
     }
     this["review"] = function() {
-
+        if (viewManager.currentStage != "finished") return;
+        reviewing(this.userAnswerArr);
     }
     if (btn == undefined) {
         viewManager.manageView("finished");
         this.userAnswerArr = userAnswerArr;
         let countRightAnswer = 0;
         for (each of this.userAnswerArr) {
-            // console.log(each.question);
-            // console.log(each.qAnswer);
-            // console.log(each.userAnser);
-            let userAnser = convertUserAnswer(each.qAnswer, each.userAnser);
+            let userAnswer = convertUserAnswer(each.qAnswer, each.userAnswer);
             let answerTrue = each.question[each.question.answer]
-            console.log({ userAnser, answerTrue })
-            if (userAnser == answerTrue) {
+            console.log({ userAnswer, answerTrue })
+            if (userAnswer == answerTrue) {
                 countRightAnswer++;
             }
 
         }
         if (countRightAnswer == this.userAnswerArr.length) {
-            console.log("Go to trophy page")
+            trophy();
         }
         document.getElementsByClassName("js-result")[0].textContent = `Bạn đã trả lời đúng ${countRightAnswer}
         trên ${userAnswerArr.length} câu hỏi`
     } else this[btn.value]();
 
-    function convertUserAnswer(qAnswer, userAnser) {
-        switch (userAnser) {
+    function convertUserAnswer(qAnswer, userAnswer) {
+        switch (userAnswer) {
             case "a":
                 return qAnswer[0];
             case "b":
@@ -229,4 +266,86 @@ function finished(userAnswerArr, btn = undefined) {
                 return undefined;
         }
     }
+}
+
+function reviewing(userAnswerArr, btn) {
+    this["next"] = function() {
+        if (viewManager.currentStage != "reviewing") return;
+        this.currentQuestion++;
+        if (this.currentQuestion >= this.userAnswerArr.length) {
+            finished(this.userAnswerArr);
+            this.currentQuestion--;
+            return
+        }
+    }
+    this["prev"] = function() {
+        if (viewManager.currentStage != "reviewing") return;
+        if (this.currentQuestion > 0) this.currentQuestion--;
+    }
+
+    if (btn == undefined) {
+        viewManager.manageView("reviewing");
+        this.userAnswerArr = userAnswerArr;
+        this.currentQuestion = 0;
+
+    } else this[btn.value]();
+    showQuizz();
+
+
+
+    function showQuizz() {
+        let userAnswerResult = this.userAnswerArr[this.currentQuestion];
+        let question = userAnswerResult.question;
+        let qAnswer = userAnswerResult.qAnswer;
+        let userAnswer = userAnswerResult.userAnswer;
+        document.getElementsByClassName("js-question")[0].textContent = question.q;
+        document.getElementsByClassName("js-answer__a")[0].textContent = qAnswer[0];
+        document.getElementsByClassName("js-answer__b")[0].textContent = qAnswer[1];
+        document.getElementsByClassName("js-answer__c")[0].textContent = qAnswer[2];
+        document.getElementsByClassName("js-answer__d")[0].textContent = qAnswer[3];
+        for (each of ["a", "b", "c", "d"]) {
+            colorButton(each, "remove", "red");
+            colorButton(each, "remove", "green")
+        }
+        colorButton(userAnswer, "add", "red");
+        colorButton(convertTrueAnswer(question, qAnswer), "add", "green");
+
+    }
+
+    function colorButton(button, action, color) {
+        this["add"] = function() {
+            if (color == "red")
+                document.getElementsByClassName("js-answer__" + button)[0].classList.add("reviewing__button_wrong");
+            else if (color == "green")
+                document.getElementsByClassName("js-answer__" + button)[0].classList.add("reviewing__button_right");
+        }
+        this["remove"] = function() {
+            if (color == "red")
+                document.getElementsByClassName("js-answer__" + button)[0].classList.remove("reviewing__button_wrong");
+            else if (color == "green")
+                document.getElementsByClassName("js-answer__" + button)[0].classList.remove("reviewing__button_right");
+        }
+        this[action]();
+    }
+
+    function convertTrueAnswer(question, qAnswer) {
+        let answerTrue = question[question.answer];
+        switch (answerTrue) {
+            case qAnswer[0]:
+                return "a";
+            case qAnswer[1]:
+                return "b";
+            case qAnswer[2]:
+                return "c";
+            case qAnswer[3]:
+                return "d";
+            default:
+                return undefined;
+        }
+    }
+
+}
+
+function trophy() {
+    location.href = "trophy.html";
 }
