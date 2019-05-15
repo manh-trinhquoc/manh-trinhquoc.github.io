@@ -1,2 +1,2 @@
-cd F:\manh-trinhquoc.github.io\quizz
+cd F:\manh-trinhquoc.github.io\form
 sass --watch scss:css

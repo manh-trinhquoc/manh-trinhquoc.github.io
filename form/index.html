@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Bài tập Form</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script type="text/javascript" src="js/live.js"></script>
+    <!-- <script type="text/javascript" src="http://livejs.com/live.js"></script> -->
+</head>
+
+<body>
+    <div class="page__wrapper">
+        <div class="content__wrapper">
+            <h1>Đăng ký</h1>
+            <form action="success.html" id="signup" onsubmit="return validateForm()">
+                <div class="input input__wrapper">
+                    <input type="text" placeholder="Họ" name="lastname" id="lastname" class="input input__lastname " required />
+                    <input type="text" placeholder="Tên" name="firstname" id="firstname" class="input input__firstname" required />
+                    <div id="name-invalid" class="input input-invalid" hidden> Tes hiddent Tes hiddent Tes hiddent Tes hiddent Test</div>
+                </div>
+                <br />
+                <div class="input input__wrapper">
+                    <input type="text" placeholder="Số điện thoại" name="phonenumber" id="phonenumber" class="input input__information" required />
+                    <div id="phonenumber-invalid" class="input input-invalid" hidden> Test</div>
+                </div>
+                <br />
+                <div class="input input__wrapper">
+                    <input type="email" placeholder="Email" name="email" id="email" class="input input__information" required />
+                    <div id="email-invalid" class="input input-invalid" hidden> Test</div>
+                </div>
+                <br />
+                <div class="input input__wrapper">
+                    <input type="text" placeholder="Facebook" name="facebook" id="facebook" class="input input__information" />
+                    <div id="facebook-invalid" class="input input-invalid" hidden> Test</div>
+                </div>
+                <br />
+                <div class="input input__wrapper">
+                    <input type="password" placeholder="Mật khẩu" name="password" id="password" class="input input__information" required />
+                    <div id="password-invalid" class="input input-invalid" hidden> Test</div>
+                </div>
+                <br />
+                <div class="input input__wrapper">
+                    <input type="text" placeholder="Địa chỉ" name="address" class="input input__information" />
+                    <div id="address-invalid" class="input input-invalid" hidden> Test</div>
+                </div>
+                <br />
+                <div class="input input__wrapper">
+                    <select name="date" id="date" class="input input__date-of-birth"></select>
+                    <select name="month" id="month" class="input input__date-of-birth"></select>
+                    <select name="year" id="year" class="input input__date-of-birth"></select>
+                    <div id="date-of-birth-invalid" class="input input-invalid" hidden> Test</div>
+                </div>
+                <br />
+                <div class="input input__wrapper">
+                    <div class="input input__gender">
+                        <input type="radio" name="gender" value="male" id="male" /> <label for="male">Nam</label>
+                        <input type="radio" name="gender" value="female" id="female" /> <label for="female">Nữ</label>
+                        <input type="radio" name="gender" value="other" id="other" /> <label for="other">Khác</label>
+                    </div>
+                    <div id="gender-invalid" class="input input-invalid input-invalid__gender" hidden> Test</div>
+                </div>
+                <br />
+                <button type="submit" class="input input__button">Đăng ký</button>
+            </form>
+        </div>
+    </div>
+    <script type="text/javascript" src="js/script.js">
+    </script>
+</body>
+
+</html>
