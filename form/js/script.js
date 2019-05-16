@@ -137,10 +137,47 @@ elemInputPassword.validate = function() {
     return true
 }
 
+function ElemInputGroup(...elemNames) {
+    this.elemNames = elemNames;
+    for (name of elemNames) {
+        this[name] = name;
+        console.assert(this[name], `fail to create property ${name}`);
+    }
+    this.bind = function(...elementIDs) {
+        for (elementID of elementIDs) {
+            this[elementID] = document.getElementById(elementID);
+            console.assert([this.elementID], `fail to bind element width ID "${elementID}"`);
+        }
+
+    }
+}
+
+let elemInputDateOfBirth = new ElemInputGroup('date', 'month', 'year');
+elemInputDateOfBirth.bind('date', 'month', 'year');
+elemInputDateOfBirth.validate = function() {
+    for (name of this.elemNames) {
+        let value = Number(this[name].value);
+        if (Number.isNaN(value) == true) {
+            elemInvalidDateOfBirth.show(`please choose ${name } in your date of birth`);
+            return false;
+        }
+
+    }
+    let date = Number(this['date'].value);
+    let month = Number(this['month'].value);
+    let year = Number(this['year'].value);
+    let validateDate = new Date(year, month - 1, date);
+    if (validateDate.getMonth() != month - 1) {
+        elemInvalidDateOfBirth.show(`tháng ${month} không có ngày ${date}.`);
+        return false;
+    }
+    return true;
+}
 
 function validateForm() {
     if (!elemInputPhoneNumber.validate()) return false;
     if (!elemInputEmail.validate()) return false;
     if (!elemInputPassword.validate()) return false;
+    if (!elemInputDateOfBirth.validate()) return false;
     return true;
 }

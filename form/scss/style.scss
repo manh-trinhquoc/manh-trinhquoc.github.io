@@ -19,6 +19,10 @@ body {
     margin: 0;
 }
 
+h1 {
+    text-align: center;
+}
+
 @mixin flex-container {
     display: flex;
     align-content: center;

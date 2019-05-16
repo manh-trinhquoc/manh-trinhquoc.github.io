@@ -9,6 +9,9 @@ html {
 body {
   margin: 0; }
 
+h1 {
+  text-align: center; }
+
 .page__wrapper {
   display: flex;
   align-content: center;
