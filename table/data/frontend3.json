@@ -1,0 +1,9 @@
+{
+    "head": ["Ảnh chân dung", "tên học viên", "giới tính", "email", "số điện thoại"],
+    "body": [
+        ["../../thanos-techmaster/img/gaulet-icon.png", "Mạnh", "Nam", "manh@gmail.com", "0123456789"],
+        ["../../thanos-techmaster/img/gaulet-icon.png", "Quý", "Nam", "quy@gmail.com", "0123456788"],
+        ["../../thanos-techmaster/img/gaulet-icon.png", "Hậu", "Nam", "hau@gmail.com", "0123456787"],
+        ["../../thanos-techmaster/img/gaulet-icon.png", "Hương", "Nữ", "huong@gmail.com", "0123456786"]
+    ]
+}
