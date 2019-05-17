@@ -86,7 +86,11 @@ for (let index = 1; index < tableHeadElems.length - 1; index++) {
 
         return function() {
             checkStatus++;
-            if (checkStatus == 1) sortTableAscending(index);
+            manageView(checkStatus, index - 1);
+            if (checkStatus == 1) {
+                sortTableAscending(index);
+
+            }
             if (checkStatus == 2) {
                 sortTableDecending(index);
                 checkStatus = 0;
@@ -96,3 +100,26 @@ for (let index = 1; index < tableHeadElems.length - 1; index++) {
         }
     })();
 }
+
+// Thêm icon sắp xếp vào header
+let manageView = (function() {
+    let iconElementArr = document.getElementsByTagName('i');
+
+    function stageUp(col) {
+        for (index in iconElementArr) {
+            iconElementArr[index].className = index == col ? "fas fa-sort-up" : "fas fa-sort";
+        }
+    }
+
+    function stageDown(col) {
+        for (index in iconElementArr) {
+            iconElementArr[index].className = index == col ? "fas fa-sort-down" : "fas fa-sort";
+        }
+    }
+
+    return function(status, col) {
+        if (status == 1) stageUp(col);
+        if (status == 2) stageDown(col);
+    }
+
+})();

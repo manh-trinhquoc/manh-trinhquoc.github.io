@@ -6,9 +6,16 @@ td {
 
 th,
 td {
-  padding: 15px; }
+  padding: 15px 30px;
+  position: relative; }
 
 tbody tr:hover {
   background-color: yellow; }
+
+i {
+  position: absolute;
+  right: 5px;
+  top: 15px;
+  font-size: 1.3rem; }
 
 /*# sourceMappingURL=style.css.map */
