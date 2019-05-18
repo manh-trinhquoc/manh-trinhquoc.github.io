@@ -65,11 +65,10 @@ h1 {
     .input-invalid::before {
       display: inline-block;
       content: '';
-      width: 0.5vh;
-      height: 0.5vh;
-      border-left: 0.5vh solid red;
-      border-bottom: 0.5vh solid red;
-      transform: rotate(45deg); }
+      border: solid;
+      border-width: 1vh 1vh 1vh 0;
+      border-color: transparent red transparent transparent;
+      margin-right: 2vh; }
     .input-invalid__gender {
       top: auto; }
 

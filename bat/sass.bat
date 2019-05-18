@@ -1,2 +1,2 @@
-cd F:\manh-trinhquoc.github.io\table
+cd F:\manh-trinhquoc.github.io\form
 sass --watch scss:css
