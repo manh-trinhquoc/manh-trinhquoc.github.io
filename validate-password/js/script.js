@@ -44,9 +44,18 @@ elemInputPassword.validate = function(testCase) {
         return false;
     }
     // var patt = new RegExp("[A-Z]+");
-    if (!/[A-Z]+/.test(password)) return false;
-    if (!/[0-9]+/.test(password)) return false;
-    if (/[^a-zA-Z0-9]+/.test(password)) return false;
+    if (!/[A-Z]+/.test(password)) {
+        elemInvalidPassword.show("password should have Capiatal character");
+        return false;
+    }
+    if (!/[0-9]+/.test(password)) {
+        elemInvalidPassword.show("password should have number character");
+        return false;
+    }
+    if (/[^a-zA-Z0-9]+/.test(password)) {
+        elemInvalidPassword.show("password should not have special character");
+        return false;
+    };
 
     elemInvalidPassword.hide();
     return true
@@ -64,13 +73,13 @@ password2 -- noPass
 Password -- noPass
 あPassword1 -- noPass*/
 
-console.log(elemInputPassword.validate('Password1'));
+/*console.log(elemInputPassword.validate('Password1'));
 
 console.log(elemInputPassword.validate("Password1'"));
 console.log(elemInputPassword.validate(`Password2!@#$%^O(*&^`));
 console.log(elemInputPassword.validate(`password`));
 console.log(elemInputPassword.validate(`password2`));
-console.log(elemInputPassword.validate(`あPassword1`));
+console.log(elemInputPassword.validate(`あPassword1`));*/
 
 function validateForm() {
     if (!elemInputPassword.validate()) return false;
