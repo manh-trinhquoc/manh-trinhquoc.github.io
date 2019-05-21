@@ -10,7 +10,7 @@ function InvalidElement() {
     }
     this.show = function(str) {
         this.element.removeAttribute("hidden");
-        this.element.textContent = str;
+        this.element.innerHTML = str;
     }
     this.hide = function() {
         this.element.setAttribute("hidden", "")
@@ -37,26 +37,31 @@ let elemInputPassword = new InputElement();
 elemInputPassword.bind('password');
 elemInputPassword.validate = function(testCase) {
     let password;
+    let errorMessage = '';
+    let pass = true;
     if (typeof testCase == 'string') password = testCase;
     else password = this.element.value;
     if (password.length < 8) {
-        elemInvalidPassword.show("password should not shorter than 8 character");
-        return false;
+        errorMessage += "password should not shorter than 8 character<br >"
+        pass = false;
     }
     // var patt = new RegExp("[A-Z]+");
     if (!/[A-Z]+/.test(password)) {
-        elemInvalidPassword.show("password should have Capiatal character");
-        return false;
+        errorMessage += "Password should have Capiatal character<br >"
+        pass = false;
     }
     if (!/[0-9]+/.test(password)) {
-        elemInvalidPassword.show("password should have number character");
-        return false;
+        errorMessage += "Password should have number character<br >"
+        pass = false;
     }
     if (/[^a-zA-Z0-9]+/.test(password)) {
-        elemInvalidPassword.show("password should not have special character");
-        return false;
+        errorMessage += "Password should not have special character"
+        pass = false;
     };
-
+    if (!pass) {
+        elemInvalidPassword.show(errorMessage);
+        return false;
+    }
     elemInvalidPassword.hide();
     return true
 }
