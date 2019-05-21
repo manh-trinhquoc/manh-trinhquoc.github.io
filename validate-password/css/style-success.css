@@ -1,0 +1,30 @@
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+html {
+  font-size: 3vh; }
+
+body {
+  margin: 0; }
+
+h1 {
+  text-align: center; }
+
+.content-wrapper::after {
+  content: '';
+  clear: both;
+  display: block; }
+
+.col {
+  display: inline-block;
+  float: left; }
+  .col-1 {
+    width: 10%;
+    height: 6vh; }
+  .col-2 {
+    width: 85%;
+    height: 6vh; }
+
+/*# sourceMappingURL=style-success.css.map */
