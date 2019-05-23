@@ -1,4 +1,4 @@
 cd F:\manh-trinhquoc.github.io
 git add .
-git commit -m "BT buổi 18: làm lại bài image gallery yêu cầu responsive"
+git commit -m "minimo: cắt html, css từ file psd"
 git push
