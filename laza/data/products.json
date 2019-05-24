@@ -1,0 +1,41 @@
+{
+    "id001":
+    {
+        "name": "nước hoa",
+        "price": "999,000",
+        "category": "mỹ phẩm",
+        "img": ["/laza/img/product-1.webp", "/laza/img/product-1-1.webp",
+            "/laza/img/product-1-2.webp", "/laza/img/product-1-3.webp", "/laza/img/product-1-4.webp"
+        ],
+        "link": "/laza/html/product001.html"
+    },
+    "id002":
+    {
+        "name": "đồng hồ kim",
+        "price": "1,999,000",
+        "category": "thời trang nam",
+        "img": ["/laza/img/product-2.webp", "/laza/img/product-2-1.webp", "/laza/img/product-2-2.webp",
+            "/laza/img/product-2-3.webp"
+        ],
+        "link": "/laza/html/product002.html"
+    },
+    "id003":
+    {
+        "name": "khăn tắm",
+        "price": "20,000",
+        "category": "mỹ phẩm",
+        "img": ["/laza/img/product-3.webp", "/laza/img/product-3-1.webp", "/laza/img/product-3-2.webp"],
+        "link": "/laza/html/product003.html"
+    },
+    "id004":
+    {
+        "name": "đồng hồ điện tử",
+        "price": "2,999,000",
+        "category": "thời trang nam",
+        "img": ["/laza/img/product-4.jpg", "/laza/img/product-4-1.webp", "/laza/img/product-4-2.webp",
+            "/laza/img/product-4-3.webp"
+        ],
+        "link": "/laza/html/product004.html"
+    }
+
+}
