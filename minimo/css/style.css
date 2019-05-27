@@ -1,18 +1,163 @@
+@font-face {
+  font-family: Iconsolata;
+  src: url(../font/Iconsolata-Regular.ttf); }
+@font-face {
+  font-family: Iconsolata;
+  src: url(../font/Iconsolata-Bold.ttf);
+  font-weight: bold; }
+@font-face {
+  font-family: "Playfair Display";
+  src: url(../font/PlayfairDisplay-Regular.ttf); }
+@font-face {
+  font-family: "Ubuntu";
+  src: url(../font/Ubuntu-Light.ttf);
+  font-weight: lighter; }
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
 html {
   font-size: 14px; }
+
+.header {
+  height: 165px; }
+  .header__nav {
+    top: 50%;
+    transform: translateY(-50%);
+    padding-right: 0; }
 
 @media (min-width: 992px) {
   .container {
     max-width: 1062px; } }
 
-.newsletter {
-  background-color: #f0f0f0; }
+.card {
+  border: none; }
+
+.row-2 {
+  padding-left: 7.5%;
+  padding-right: 7.5%;
+  padding-top: 12.8%; }
 
 .footer {
   background-color: #f0f0f0;
   font-weight: bold; }
 
-.text-black {
-  color: black; }
+.navbar-brand-2 {
+  font-family: Inconsolata, "Times New Roman";
+  font-size: 2.1428571429rem;
+  letter-spacing: 0.7rem; }
+
+.nav-link-2 {
+  font-family: "Playfair Display", "Times New Roman";
+  font-size: 1rem; }
+
+.nav-item-2 {
+  padding-left: 6%;
+  padding-right: 6%; }
+  .nav-item-2:last-child {
+    padding-right: 0; }
+
+.card-header-2 {
+  font-family: Ubuntu, "Times New Roman";
+  font-weight: lighter;
+  color: #cccccc; }
+
+.card-title-2 {
+  font-size: 2.1428571429rem;
+  color: #626262;
+  font-family: "Playfair Display", "Times New Roman";
+  font-weight: normal; }
+
+.card-text-2 {
+  font-size: 1rem;
+  color: #626262;
+  font-family: "Playfair Display", "Times New Roman";
+  font-weight: normal; }
+
+.newsletter {
+  background-color: #f0f0f0;
+  margin-top: 7.8%; }
+  .newsletter__row {
+    padding-top: 4.6%;
+    padding-bottom: 4.6%; }
+  .newsletter__header {
+    color: #333333;
+    font-family: "Playfair Display", "Times New Roman";
+    font-weight: normal;
+    font-size: 2.1428571429rem;
+    margin: 0; }
+  .newsletter__input {
+    color: #626262;
+    font-family: "Playfair Display", "Times New Roman";
+    font-weight: normal;
+    font-size: 1rem;
+    border: none;
+    background-color: transparent; }
+    .newsletter__input-wrapper {
+      background-color: transparent;
+      border-bottom: 2px solid black;
+      border-radius: 0;
+      margin: 0;
+      padding: 0;
+      padding-top: 20%; }
+  .newsletter__prepend {
+    border: none;
+    background-color: transparent; }
+
+.load-more {
+  padding-top: 16.2%;
+  padding-bottom: 133%; }
+  .load-more__btn {
+    background-color: white;
+    color: #626262;
+    border: 1px solid #626262;
+    border-radius: 0;
+    font-family: "Playfair Display", "Times New Roman";
+    font-weight: normal;
+    font-size: 1.4285714286rem;
+    padding-top: 1.2%;
+    padding-bottom: 1.2%;
+    padding-left: 3%;
+    padding-right: 3%; }
+
+.footer {
+  padding-top: 2.5%;
+  padding-bottom: 2.5%; }
+  .footer__link {
+    font-family: "Playfair Display", "Times New Roman";
+    font-weight: normal;
+    font-size: 1rem;
+    color: #626262;
+    color: black; }
+
+.first-post {
+  padding-bottom: 13%; }
+  .first-post__header {
+    padding-top: 9.5%; }
+    .first-post__header-2 {
+      padding-top: 6%; }
+  .first-post__title {
+    padding-top: 3.5%; }
+  .first-post__text {
+    padding-top: 4.5%; }
+
+h5,
+h6 {
+  margin: 0; }
+
+.card-body-2 {
+  padding-top: 0;
+  padding-bottom: 0; }
+
+.latter-post__header {
+  padding-top: 7.5%; }
+.latter-post__title {
+  padding-top: 7.5%; }
+.latter-post__text {
+  padding-top: 9%; }
+
+.icon {
+  color: #626262; }
 
 /*# sourceMappingURL=style.css.map */
