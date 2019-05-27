@@ -1,0 +1,24 @@
+html {
+    font-size: 14px;
+}
+
+$white-shade-1: #f0f0f0;
+
+.container {
+    @media (min-width: 992px) {
+        max-width: 1062px;
+    }
+}
+
+.newsletter {
+    background-color: $white-shade-1;
+}
+
+.footer {
+    background-color: $white-shade-1;
+    font-weight: bold;
+}
+
+.text-black {
+    color: black;
+}

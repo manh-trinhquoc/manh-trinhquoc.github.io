@@ -1,3 +1,18 @@
+html {
+  font-size: 14px; }
 
+@media (min-width: 992px) {
+  .container {
+    max-width: 1062px; } }
+
+.newsletter {
+  background-color: #f0f0f0; }
+
+.footer {
+  background-color: #f0f0f0;
+  font-weight: bold; }
+
+.text-black {
+  color: black; }
 
 /*# sourceMappingURL=style.css.map */
