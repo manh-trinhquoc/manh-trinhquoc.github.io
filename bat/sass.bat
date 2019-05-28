@@ -1,2 +1,2 @@
-cd F:\manh-trinhquoc.github.io\img-gallery-card
+cd F:\manh-trinhquoc.github.io\minimo
 sass --watch scss:css

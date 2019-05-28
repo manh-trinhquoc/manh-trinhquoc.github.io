@@ -21,11 +21,14 @@ html {
   font-size: 14px; }
 
 .header {
-  height: 165px; }
+  /*height: 165px;*/ }
   .header__nav {
-    top: 50%;
-    transform: translateY(-50%);
-    padding-right: 0; }
+    padding-right: 0;
+    padding-top: 6.9%;
+    padding-bottom: 0; }
+
+.main {
+  padding-top: 7.4%; }
 
 @media (min-width: 992px) {
   .container {
@@ -134,7 +137,7 @@ html {
 .first-post {
   padding-bottom: 13%; }
   .first-post__header {
-    padding-top: 9.5%; }
+    padding-top: 11.1%; }
     .first-post__header-2 {
       padding-top: 6%; }
   .first-post__title {

@@ -37,13 +37,17 @@ $text-grey-darker: #626262;
 $text-grey-darker-2: #333333;
 
 .header {
-    height: 165px;
+    /*height: 165px;*/
 
     &__nav {
-        top: 50%;
-        transform: translateY(-50%);
         padding-right: 0;
+        padding-top: 6.9%;
+        padding-bottom: 0;
     }
+}
+
+.main {
+    padding-top: 7.4%;
 }
 
 .container {
@@ -194,7 +198,7 @@ $text-grey-darker-2: #333333;
 .first-post {
 
     &__header {
-        padding-top: 9.5%;
+        padding-top: 11.1%;
 
         &-2 {
             padding-top: 6%;
