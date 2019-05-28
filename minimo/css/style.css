@@ -3,14 +3,14 @@
   src: url("../font/iconsolata-regular.woff2") format("woff2"), url("../font/iconsolata-regular.woff") format("woff"), url("../font/Iconsolata-Regular.ttf") format("truetype"); }
 @font-face {
   font-family: Iconsolata;
-  src: url(../font/iconsolata-bold.woff2) format("woff2"), url(../font/iconsolata-bold.woff) format("woff"), url(../font/Iconsolata-Bold.ttf) format("truetype");
+  src: url("../font/iconsolata-bold.woff2") format("woff2"), url("../font/iconsolata-bold.woff") format("woff"), url("../font/Iconsolata-Bold.ttf") format("truetype");
   font-weight: bold; }
 @font-face {
   font-family: "Playfair Display";
-  src: url(../font/playfairdisplay-regular.woff2) format("woff2"), url(../font/playfairdisplay-regular.woff) format("woff"), url(../font/PlayfairDisplay-Regular.ttf) format("truetype"); }
+  src: url("../font/playfairdisplay-regular.woff2") format("woff2"), url("../font/playfairdisplay-regular.woff") format("woff"), url("../font/PlayfairDisplay-Regular.ttf") format("truetype"); }
 @font-face {
   font-family: "Ubuntu";
-  src: url(../font/ubuntu-light.woff2) format("woff2"), url(../font/ubuntu-light.woff) format("woff"), url(../font/Ubuntu-Light.ttf) format("truetype");
+  src: url("../font/ubuntu-light.woff2") format("woff2"), url("../font/ubuntu-light.woff") format("woff"), url("../font/Ubuntu-Light.ttf") format("truetype");
   font-weight: lighter; }
 * {
   -webkit-box-sizing: border-box;
