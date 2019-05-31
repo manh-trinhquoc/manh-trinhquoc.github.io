@@ -3,6 +3,7 @@
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
 
+/*$background-color: #fafafc;*/
 html {
   font-size: 2vh; }
 
@@ -20,7 +21,7 @@ h1 {
   -ms-flex-wrap: wrap;
   -o-flex-wrap: wrap;
   flex-wrap: wrap;
-  background: #fafafc;
+  background: lightblue;
   height: 100vh; }
 
 .content__wrapper {
