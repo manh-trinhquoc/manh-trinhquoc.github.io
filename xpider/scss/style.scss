@@ -4,22 +4,102 @@
     box-sizing: border-box;
 }
 
-@mixin container {
+.row {
+    margin: 0;
+
+    &-2 {
+        justify-content: center;
+    }
+
+}
+
+
+.container {
     position: relative;
     max-width: 1920px;
-    /*height: 6976px;*/
-}
+    margin: 0;
+    padding: 0;
 
-.container-2 {
-    @include container;
-    padding-left: 25.4%;
-    padding-right: 25.27%;
-}
+    &-2 {
 
-.container-3 {
-    @include container;
-    padding-left: 14.84%;
-    padding-right: 23.18%;
+        padding-left: 21.15%;
+        padding-right: 21.04%;
+        top: 32px;
+    }
+
+    &-3 {
+        padding-left: 12.24%;
+        padding-right: 19.12%;
+        padding-top: 129px;
+    }
+
+    &-4 {
+        padding-left: 19.16%;
+        padding-right: 21.4%;
+        padding-top: 191px;
+        text-align: center;
+    }
+
+    &-5 {
+        padding-top: 144px;
+        padding-left: 28.23%;
+        padding-right: 27.86%;
+
+    }
+
+    &-6 {
+        padding-top: 67px;
+        padding-left: 23.23%;
+        padding-right: 23.23%;
+    }
+
+    &-7 {
+        padding-top: 122px;
+        padding-left: 14.68%;
+        padding-right: 20.16%;
+    }
+
+    &-8 {
+        padding-top: 122px;
+        padding-left: 20.99%;
+        padding-right: 21.09%;
+    }
+
+    &-8 {
+        padding-top: 122px;
+        padding-left: 20.99%;
+        padding-right: 21.09%;
+    }
+
+    &-9 {
+        padding-top: 122px;
+        text-align: center;
+    }
+
+    &-10 {
+        padding-top: 140px;
+        padding-bottom: 145px;
+
+        &__list {
+            flex-basis: 258px;
+
+            &:first-child {
+                margin-left: 20%;
+
+            }
+        }
+    }
+
+    &-11 {
+        padding-left: 21.09%;
+        padding-right: 21.09%;
+        display: flex;
+
+        &-nav {
+            flex-grow: 1;
+        }
+    }
+
 }
 
 .navbar {
@@ -50,3 +130,54 @@
     }
 
 }
+
+.jumbotron {
+    margin: 0;
+    padding: 0;
+
+    &-1 {
+        margin-top: 160px;
+        padding-bottom: 167px;
+    }
+
+    &-2 {
+        margin-top: 134px;
+        padding-bottom: 126px;
+    }
+
+    &-3 {
+        padding-top: 111px;
+        padding-bottom: 133px;
+        background-color: blue;
+        color: white;
+        text-align: center;
+    }
+}
+
+.testimonial__title {
+    padding-top: 170px;
+}
+
+.price {
+    &__title {
+        width: 28.96%;
+        margin: 0 auto;
+    }
+
+    &__billed {
+        max-width: 382px;
+        padding-top: 62px;
+
+        &-1 {
+            margin-right: 27px;
+        }
+    }
+
+    &__bottom {
+        padding-top: 45px;
+        margin: 0 auto;
+    }
+
+}
+
+.footer {}

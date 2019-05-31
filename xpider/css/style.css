@@ -3,19 +3,65 @@
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
 
-.container-2 {
-  position: relative;
-  max-width: 1920px;
-  /*height: 6976px;*/
-  padding-left: 25.4%;
-  padding-right: 25.27%; }
+.row {
+  margin: 0; }
+  .row-2 {
+    justify-content: center; }
 
-.container-3 {
+.container {
   position: relative;
   max-width: 1920px;
-  /*height: 6976px;*/
-  padding-left: 14.84%;
-  padding-right: 23.18%; }
+  margin: 0;
+  padding: 0; }
+  .container-2 {
+    padding-left: 21.15%;
+    padding-right: 21.04%;
+    top: 32px; }
+  .container-3 {
+    padding-left: 12.24%;
+    padding-right: 19.12%;
+    padding-top: 129px; }
+  .container-4 {
+    padding-left: 19.16%;
+    padding-right: 21.4%;
+    padding-top: 191px;
+    text-align: center; }
+  .container-5 {
+    padding-top: 144px;
+    padding-left: 28.23%;
+    padding-right: 27.86%; }
+  .container-6 {
+    padding-top: 67px;
+    padding-left: 23.23%;
+    padding-right: 23.23%; }
+  .container-7 {
+    padding-top: 122px;
+    padding-left: 14.68%;
+    padding-right: 20.16%; }
+  .container-8 {
+    padding-top: 122px;
+    padding-left: 20.99%;
+    padding-right: 21.09%; }
+  .container-8 {
+    padding-top: 122px;
+    padding-left: 20.99%;
+    padding-right: 21.09%; }
+  .container-9 {
+    padding-top: 122px;
+    text-align: center; }
+  .container-10 {
+    padding-top: 140px;
+    padding-bottom: 145px; }
+    .container-10__list {
+      flex-basis: 258px; }
+      .container-10__list:first-child {
+        margin-left: 20%; }
+  .container-11 {
+    padding-left: 21.09%;
+    padding-right: 21.09%;
+    display: flex; }
+    .container-11-nav {
+      flex-grow: 1; }
 
 .navbar {
   padding: 0; }
@@ -33,5 +79,36 @@
     font-size: 26px;
     line-height: 31px;
     color: #2C2E30; }
+
+.jumbotron {
+  margin: 0;
+  padding: 0; }
+  .jumbotron-1 {
+    margin-top: 160px;
+    padding-bottom: 167px; }
+  .jumbotron-2 {
+    margin-top: 134px;
+    padding-bottom: 126px; }
+  .jumbotron-3 {
+    padding-top: 111px;
+    padding-bottom: 133px;
+    background-color: blue;
+    color: white;
+    text-align: center; }
+
+.testimonial__title {
+  padding-top: 170px; }
+
+.price__title {
+  width: 28.96%;
+  margin: 0 auto; }
+.price__billed {
+  max-width: 382px;
+  padding-top: 62px; }
+  .price__billed-1 {
+    margin-right: 27px; }
+.price__bottom {
+  padding-top: 45px;
+  margin: 0 auto; }
 
 /*# sourceMappingURL=style.css.map */
