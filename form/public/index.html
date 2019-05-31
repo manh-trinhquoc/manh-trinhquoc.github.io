@@ -6,14 +6,14 @@
     <title>Bài tập Form</title>
     <link rel="stylesheet" href="css/style.css">
     <!-- <script type="text/javascript" src="js/live.js"></script> -->
-    <script type="text/javascript" src="http://livejs.com/live.js"></script>
+    <!-- <script type="text/javascript" src="http://livejs.com/live.js"></script> -->
 </head>
 
 <body>
     <div class="page__wrapper">
         <div class="content__wrapper">
             <h1>Đăng ký</h1>
-            <form action="success.html" id="signup" onsubmit="return validateForm()">
+            <form action="success.html" id="signup" onsubmit="true">
                 <div class="input input__wrapper">
                     <input type="text" placeholder="Họ" name="lastname" id="lastname" class="input input__lastname " required />
                     <input type="text" placeholder="Tên" name="firstname" id="firstname" class="input input__firstname" required />
@@ -63,8 +63,17 @@
                 <br />
                 <button type="submit" class="input input__button">Đăng ký</button>
             </form>
+            <button onclick="validateForm()" class="input input__button">Đăng ký</button>
         </div>
     </div>
+    <script type="text/javascript" src="js/initial.js"> </script>
+    <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase-app.js"></script>
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase-firestore.js"></script>
+    <!--  -->
     <script type="text/javascript" src="js/script.js">
     </script>
 </body>

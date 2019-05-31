@@ -1,53 +1,5 @@
-/*
-Bài tập
+console.group("script.js");
 
-Tạo trang Đăng ký tài khoản cho phép người dùng tạo tài khoản với các thông tin sau: 
-Họ tên, ngày sinh, giới tính, địa chỉ, điện thoại, email, mật khẩu.
-
-Yêu cầu
-
-- Giao diện đẹp, rõ ràng.
-
-- Khi người dùng bấm vào nút đăng ký thì chuyển qua trang thông báo đăng ký thành công, 
-đồng thời hiển thị lại thông tin tài khoản người dùng (trường nào rỗng thì để trống).
-
-Gợi ý
-
-Khi truyền thông tin qua URL, sẽ có những giá trị đặc biệt bị encode cho hợp lệ 
-ví dụ như dấu cách (khoảng trắng) sẽ bị convert thành %20. Để lấy được giá trị ban đầu 
-ta sử dụng function decodeURIComponent(), ngược lại với nó là function encodeURIComponent()
-*/
-
-/*
-Bài tập
-
-Bổ sung thêm thông tin và validate cho trang Đăng ký tài khoản
-
-Yêu cầu
-
-Bổ sung thêm các trường: Số điện thoại, địa chỉ Facebook và kiểm tra tính hợp lệ 
-của tất cả các trường trước khi người dùng đăng ký.
-Khi người dùng bấm vào nút đăng ký nếu hợp lệ thì chuyển qua trang thông báo đăng ký thành công, 
-đồng thời hiển thị lại thông tin tài khoản người dùng. Nếu người dùng nhập thông tin không hợp lệ 
-thì thông báo những trường họ nhập sai và gợi ý thông tin cần nhập.
-Giao diện đẹp, rõ ràng.
-*/
-
-let date = '<option value="date">Ngày </option>';
-for (let i = 1; i <= 31; i++) {
-    date += `<option value="${i}">${i}</option>`;
-}
-let month = '<option value="month">Tháng</option>';
-for (let i = 1; i <= 12; i++) {
-    month += `<option value="${i}">Tháng: ${i}</option>`;
-}
-let year = '<option value="year">Năm</option>';
-for (let i = 2019; i >= 1905; i--) {
-    year += `<option value="${i}">${i}</option>`;
-}
-document.getElementById('date').innerHTML = date;
-document.getElementById('month').innerHTML = month;
-document.getElementById('year').innerHTML = year;
 
 // Khai báo các đối tượng đại diện cho element thông báo invalid
 function InvalidElement() {
@@ -120,7 +72,7 @@ elemInputEmail.validate = function(testStr) {
         return false;
     }
     elemInvalidEmail.hide();
-    return true
+    return email;
 }
 
 // elemInputEmail.validate("ass@a");
@@ -134,7 +86,7 @@ elemInputPassword.validate = function() {
         return false;
     }
     elemInvalidPassword.hide();
-    return true
+    return password;
 }
 
 function ElemInputGroup(...elemNames) {
@@ -176,8 +128,65 @@ elemInputDateOfBirth.validate = function() {
 
 function validateForm() {
     if (!elemInputPhoneNumber.validate()) return false;
-    if (!elemInputEmail.validate()) return false;
-    if (!elemInputPassword.validate()) return false;
+    // if (!elemInputEmail.validate()) return false;
+    // if (!elemInputPassword.validate()) return false;
     if (!elemInputDateOfBirth.validate()) return false;
-    return true;
+    let email = elemInputEmail.validate()
+    let password = elemInputPassword.validate();
+    // firebase
+    createAccount(email, password);
+    // go to success.html
+    return false;
+    // return true;
 }
+
+
+// Your web app's Firebase configuration
+var firebaseConfig = {
+    apiKey: "AIzaSyBiGBBfGWtZfsa0LIppaZcVrak1K54C4RA",
+    authDomain: "form-2af48.firebaseapp.com",
+    databaseURL: "https://form-2af48.firebaseio.com",
+    projectId: "form-2af48",
+    storageBucket: "form-2af48.appspot.com",
+    messagingSenderId: "814221987803",
+    appId: "1:814221987803:web:da976ea17815edc7"
+};
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+
+function createAccount(email, password) {
+    firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+        console.group("createUser");
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        console.log(JSON.stringify(error));
+        console.log(JSON.stringify(errorCode));
+        console.log(JSON.stringify(errorMessage));
+        console.groupEnd();
+    });
+
+}
+
+firebase.auth().onAuthStateChanged(function(user) {
+    console.group("auth state change");
+    console.log(JSON.stringify(user));
+    if (user) {
+        // User is signed in.
+        console.log("user log in");
+        var displayName = user.displayName;
+        var email = user.email;
+        var emailVerified = user.emailVerified;
+        var photoURL = user.photoURL;
+        var isAnonymous = user.isAnonymous;
+        var uid = user.uid;
+        var providerData = user.providerData;
+        // ...
+    } else {
+        // User is signed out.
+        console.log("user log out");
+    }
+    console.groupEnd();
+});
+
+console.groupEnd();

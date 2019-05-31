@@ -32,6 +32,7 @@ Khi người dùng bấm vào nút đăng ký nếu hợp lệ thì chuyển qua
 thì thông báo những trường họ nhập sai và gợi ý thông tin cần nhập.
 Giao diện đẹp, rõ ràng.
 */
+console.group("initial.js")
 
 function Element(id, prefix) {
     this.elem = document.getElementById(id);
@@ -98,3 +99,5 @@ password.show(passwordValue);
 address.show(addressValue);
 dateOfBirth.show(dateValue + '/' + monthValue + '/' + yearValue);
 gender.show(genderValue);
+
+console.groupEnd();
