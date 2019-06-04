@@ -4,6 +4,51 @@
     box-sizing: border-box;
 }
 
+body {}
+
+h2 {
+    font-family: Aileron;
+    font-weight: 900;
+    font-size: 48/16*1rem;
+    line-height: 58/16*1rem;
+    color: #2C2E30;
+    padding-top: 10px;
+}
+
+h3 {
+    font-family: Aileron;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 34/16*1rem;
+    line-height: 41/16*1rem;
+    /* identical to box height */
+
+    text-align: center;
+
+    color: #2C2E30;
+    padding-top: 10px;
+}
+
+p {
+    font-family: Aileron;
+    font-weight: 600;
+    font-size: 18/16*1rem;
+    line-height: 34/16*1rem;
+    /* or 189% */
+    color: #7E8085;
+    padding-top: 10px;
+}
+
+a {
+    color: #2C2E30;
+}
+
+.col {
+    &-xl {
+        padding: 0;
+    }
+}
+
 .row {
     margin: 0;
 
@@ -24,7 +69,12 @@
 
         padding-left: 21.15%;
         padding-right: 21.04%;
-        top: 32px;
+        padding-top: 32px;
+
+        @media (max-width: 576px) {
+            padding-left: 11.15%;
+            padding-right: 11.04%;
+        }
     }
 
     &-3 {
@@ -44,6 +94,7 @@
         padding-top: 144px;
         padding-left: 28.23%;
         padding-right: 27.86%;
+        text-align: center;
 
     }
 
@@ -51,6 +102,7 @@
         padding-top: 67px;
         padding-left: 23.23%;
         padding-right: 23.23%;
+        text-align: center;
     }
 
     &-7 {
@@ -86,6 +138,10 @@
             &:first-child {
                 margin-left: 20%;
 
+                @media (max-width: 576px) {
+                    margin-left: 0%;
+                }
+
             }
         }
     }
@@ -94,9 +150,21 @@
         padding-left: 21.09%;
         padding-right: 21.09%;
         display: flex;
+        flex-wrap: wrap;
+        background: #F6F8F9;
+        font-weight: bold;
 
         &-nav {
             flex-grow: 1;
+
+
+            @media (max-width: 576px) {
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 576px) {
+            flex-direction: column;
         }
     }
 
@@ -107,6 +175,17 @@
 
     &-brand {
         padding: 0;
+        margin: 0;
+        margin-right: 68px;
+
+        &-2 {
+            display: -webkit-flex;
+            display: -moz-flex;
+            display: -ms-flex;
+            display: -o-flex;
+            display: flex;
+
+        }
     }
 
     &-2 {
@@ -121,19 +200,98 @@
     &__name {
 
         font-family: Aileron;
-        font-style: normal;
         font-weight: bold;
-        font-size: 26px;
-        line-height: 31px;
+        font-size: 26/16*1rem;
+        line-height: 31/16*1rem;
 
         color: #2C2E30;
     }
 
+    &-nav-2 {
+        width: 277px;
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__btn {
+        width: 169px;
+        height: 46px;
+        border: 1px solid #C9CDD5;
+        border-radius: 5px;
+        background-color: white;
+    }
+}
+
+.hero {
+    &__header {
+        padding-top: 20px;
+    }
+
+    &__content {}
+
+    &__btn {
+        width: 180px;
+        height: 55px;
+        border-radius: 10px;
+        background-color: blue;
+
+        font-family: Aileron;
+        font-weight: bold;
+        font-size: 1rem;
+        line-height: 19/16*1rem;
+        text-align: center;
+        text-transform: uppercase;
+
+        color: #FFFFFF
+    }
+
+    &__small {
+        width: 146px;
+        height: 20px;
+        margin-left: 24px;
+
+        font-family: Aileron;
+        font-weight: bold;
+        font-size: 17/16*1rem;
+        line-height: 20/16*1rem;
+        text-align: center;
+
+        color: #7E8085;
+    }
+
+    &__footer {
+        padding-top: 13px;
+        width: 186px;
+        height: 17px;
+
+        font-size: 14/16*1rem;
+        line-height: 17/16*1rem;
+        /* identical to box height */
+        color: #7E8085;
+    }
+
+    &__small-footer {
+
+
+        font-weight: 600;
+        font-size: 14/16*1rem;
+        line-height: 17/16*1rem;
+        /* identical to box height */
+
+
+        color: #FC5C42;
+    }
 }
 
 .jumbotron {
     margin: 0;
     padding: 0;
+    background-color: #F6F8F9;
+    ;
 
     &-1 {
         margin-top: 160px;
@@ -154,8 +312,28 @@
     }
 }
 
-.testimonial__title {
-    padding-top: 170px;
+.testimonials {
+    &__title {
+        padding-top: 170px;
+    }
+
+    &__1 {
+        &__link {
+            padding-top: 37px;
+        }
+    }
+
+    &__brand {
+        padding-top: 115px;
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+    }
 }
 
 .price {
@@ -167,9 +345,17 @@
     &__billed {
         max-width: 382px;
         padding-top: 62px;
+        background-color: white;
+        border-radius: 5px;
 
         &-1 {
-            margin-right: 27px;
+            margin-left: 27px;
+            background-color: blue;
+            color: white;
+
+            @media (max-width: 576px) {
+                margin-left: 0;
+            }
         }
     }
 
@@ -178,6 +364,295 @@
         margin: 0 auto;
     }
 
+    &__money {
+        padding-top: 0;
+        font-family: Aileron;
+        font-weight: 600;
+        font-size: 18/16*1rem;
+        line-height: 34/16*1rem;
+        /* identical to box height, or 189% */
+
+        text-align: center;
+
+        color: #7E8085;
+
+        &-after {
+            border: 1px solid #E7EAEE;
+        }
+
+        &-text {
+            font-family: Aileron;
+            font-size: 1rem;
+            line-height: 28/16*1rem;
+            /* or 175% */
+
+            text-align: center;
+
+            color: #7E8085;
+        }
+
+    }
+
+    &__button {
+        margin-top: 24px;
+        margin-bottom: 46px;
+        width: 280px;
+        height: 55px;
+        background-color: white;
+        border: 1px solid #7E8085;
+        border-radius: 5px;
+
+        font-family: Aileron;
+        font-weight: bold;
+        font-size: 1rem;
+        line-height: 19/16*1rem;
+        text-align: center;
+        text-transform: uppercase;
+
+        color: #54565A;
+    }
 }
 
-.footer {}
+.money {
+    font-family: Noto Serif;
+    font-weight: bold;
+    font-size: 60/16* 1rem;
+    line-height: 82/16*1rem;
+    /* identical to box height */
+
+    text-align: center;
+
+    color: #2F5BEA;
+
+    &:before {
+        content: '$';
+    }
+}
+
+@mixin reset-ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0
+}
+
+.footer {
+    &__list {
+        @include reset-ul;
+
+        & li:first-child {
+            font-weight: bold;
+        }
+
+        & li {
+            font-family: Aileron;
+            font-size: 1rem;
+            line-height: 39/16*1rem;
+            /* or 244% */
+
+
+            color: #54565A;
+        }
+    }
+
+    &-icon-facebook {
+        font-size: 1.5rem;
+    }
+}
+
+.tab {
+    &__title {
+        max-width: 852px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    &__tab-top {
+        max-width: 917px;
+        margin-left: auto;
+        margin-right: auto;
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        display: flex;
+        justify-content: space-between;
+        /*border: none;*/
+
+        &-li {
+            padding-bottom: 26px;
+
+            font-family: Aileron;
+            font-weight: bold;
+            font-size: 21/16*1rem;
+            line-height: 25/16*1rem;
+            text-align: center;
+
+            color: #2C2E30;
+
+            &:first-child {
+                border-bottom: 2px solid #2F5BEA;
+                margin-bottom: -2px;
+            }
+        }
+    }
+
+    &-1 {
+        &__header {
+            text-align: left;
+        }
+
+        &__content {
+            padding-top: 106px;
+        }
+
+        &__list {
+            padding-top: 34px;
+            text-align: left;
+            padding-bottom: 18px;
+            border-bottom: 1px solid #E7EAEE;
+
+
+            &-item {
+                padding-bottom: 10px;
+
+                font-family: Aileron;
+                font-style: normal;
+                font-weight: normal;
+                font-size: 16/16*1rem;
+                line-height: 28/16*1rem;
+                /* or 175% */
+
+
+                color: #54565A;
+            }
+        }
+
+        &__quote {
+            text-align: left;
+        }
+    }
+}
+
+.padding-none {
+    padding: 0;
+}
+
+.margin-none {
+    margin: 0;
+}
+
+.how {
+    &-item {
+        text-align: center;
+        width: 80%;
+        display: inline-block;
+        position: relative;
+
+        &-after {
+            position: absolute;
+            top: 0;
+            left: 110%;
+            width: 20px;
+            height: 80px;
+        }
+    }
+}
+
+.wrapper {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+
+    &-times-5 {
+        width: 32.768%;
+
+        @media (max-width: 576px) {
+            width: 80%;
+        }
+    }
+
+
+
+}
+
+.link {
+    font-weight: bold;
+    font-size: 1.125rem;
+    line-height: 2.125rem;
+    /* identical to box height, or 189% */
+
+
+    color: #2F5BEA;
+
+    &-black {
+        color: #2C2E30;
+    }
+}
+
+.center {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.blockquote {
+    margin: 5px;
+    padding: 15px;
+    border: 1px solid #7E8085;
+    max-width: 355px;
+    min-height: 263px;
+    position: relative;
+
+    p {
+        font-family: Noto Serif;
+        font-style: italic;
+        font-size: 1rem;
+        line-height: 1.75rem;
+        /* or 175% */
+        color: #7E8085;
+    }
+
+    footer {
+        position: absolute;
+        bottom: 0;
+        font-family: Aileron;
+        font-weight: 600;
+        font-size: 1rem;
+        line-height: 19/16*1rem;
+
+        color: #2C2E30;
+    }
+
+}
+
+.text {
+    &-white {
+        color: white;
+    }
+
+    &-blue {
+        color: #2F5BEA;
+    }
+
+}
+
+.button {
+    width: 180px;
+    height: 55px;
+    border: 1px solid #7E8085;
+    border-radius: 5px;
+    background-color: white;
+
+    font-family: Aileron;
+    font-weight: bold;
+    font-size: 1rem;
+    line-height: 19/16*1rem;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.cta {
+    &-btn {
+        padding-top: 24px;
+    }
+}

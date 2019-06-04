@@ -1,2 +1,2 @@
-cd F:\manh-trinhquoc.github.io\form
-sass --watch scss:public/css
+cd F:\manh-trinhquoc.github.io\xpider
+sass --watch scss:css
