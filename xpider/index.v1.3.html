@@ -18,7 +18,7 @@
 
 <body>
     <header class="header">
-        <nav class="navbar navbar-light navbar-expand-sm">
+        <nav class="navbar navbar-light navbar-expand-sm container self-center">
             <a href="#" class="navbar-brand logo">
                 <img src="img/logo.png" alt="logo" />
                 <span class="text-white">Xpider</span>
@@ -26,11 +26,11 @@
             <button class="navbar-toggler button_header" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="collapse navbar-collapse header__collapse text-center" id="navbarSupportedContent">
                 <ul class="navbar-nav text-white">
-                    <li class=""><a href="#">Feature</a></li>
-                    <li class=""><a href="#">Pricing</a></li>
-                    <li class="dropdown ">
+                    <li class="header__item"><a href="#">Feature</a></li>
+                    <li class="header__item"><a href="#">Pricing</a></li>
+                    <li class="header__item dropdown ">
                         <a href="#" class="dropdown-toggle" id="dropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Pages
                         </a>
@@ -40,18 +40,22 @@
                             <a class="dropdown-item" href="#">Something else here</a>
                         </div>
                     </li>
-                    <li class=""><button>Get started, It's free</button></li>
+                    <li class="header__item header__button"><button class="button button__header text-white">Get started, It's free</button></li>
                 </ul>
             </div>
         </nav>
     </header>
     <section class="hero self-center">
-        <div class="bg"><img src="img/bg.png" alt="background image" class="img-fluid" /></div>
-        <div class="content_hero text-white">
-            <p class="slogan ">Accomplish more, everyday</p>
-            <p>Millions of people trust xPider to create beautiful websites.</p>
-            <button>Get started, It’s free</button>
-            <button><img src="img/play.png" alt="play button" />Watch our video</button>
+        <div class="bg">
+            <img src="img/bg.png" alt="background image" class="img-fluid" />
+        </div>
+        <div class="hero__content text-white">
+            <div class="container  hero__content-wrapper background-blue">
+                <p class="slogan">Accomplish more, everyday</p>
+                <p>Millions of people trust xPider to create beautiful websites.</p>
+                <button>Get started, It’s free</button>
+                <button><img src="img/play.png" alt="play button" />Watch our video</button>
+            </div>
         </div>
     </section>
     <section class="container self-center tab ">
@@ -121,9 +125,9 @@
             </div>
         </div>
     </section>
-    <section class="section__1">
-        <div class="img"><img src="img/img-3.png" alt="image represent" /></div>
-        <div class="content">
+    <section class="container container-2 row self-center section__1">
+        <div class="col-sm-7 img"><img src="img/img-3.png" alt="image represent" class="img-fluid" /></div>
+        <div class="col-sm-5 content">
             <h3>Built for growth</h3>
             <p>Use Timeline to plan projects right the first time. See how the pieces fit together so you can spot gaps and overlaps before you start.</p>
             <div class="icon">
@@ -135,15 +139,15 @@
             <a href="#">Try xPider now</a>
         </div>
     </section>
-    <section class="section__2">
-        <div class="content">
+    <section class="container row self-center section__2">
+        <div class="col-sm content">
             <h3>1500+ Unique Blocks</h3>
             <p>Use Timeline to plan projects right the first time. See how the pieces fit together so you can spot gaps and overlaps before you start.</p>
             <a href="#">See all blocks live</a>
         </div>
-        <div class="img"><img src="img/img-4.png" alt="image represent" /></div>
+        <div class="col-sm img"><img src="img/img-4.png" alt="image represent" class="img-fluid" /></div>
     </section>
-    <section class="testimonial">
+    <section class="container testimonial">
         <div class="title">
             <h2>You’re in a good hand</h2>
             <p>Millions of people around the world have already made xPider the place where their dream happens.</p>
@@ -174,48 +178,63 @@
                 </footer>
             </div>
         </div>
-        <a href="#">Check all testimonials <i class="fas fa-caret-right"></i></a>
-        <footer>
-            <img src="img/logo-4.png" alt="logo image" />
-            <img src="img/logo-5.png" alt="logo image" />
-            <img src="img/logo-6.png" alt="logo image" />
-            <img src="img/logo-7.png" alt="logo image" />
-            <img src="img/logo-8.png" alt="logo image" />
+        <div class="text-center">
+            <a href="#">Check all testimonials <i class="fas fa-caret-right"></i></a>
+        </div>
+        <footer class="row text-center">
+            <div class="col">
+                <img src="img/logo-4.png" alt="logo image" class="img-fluid" />
+            </div>
+            <div class="col">
+                <img src="img/logo-5.png" alt="logo image" class="img-fluid" />
+            </div>
+            <div class="col">
+                <img src="img/logo-6.png" alt="logo image" class="img-fluid" />
+            </div>
+            <div class="col">
+                <img src="img/logo-7.png" alt="logo image" class="img-fluid" />
+            </div>
+            <div class="col">
+                <img src="img/logo-8.png" alt="logo image" class="img-fluid" />
+            </div>
         </footer>
     </section>
-    <section class="price">
-        <div class="title">
-            <h3>Simple, Straight Pricing</h3>
-            <p>Millions of people around the world have already made xPider the place where their dream happens.</p>
-        </div>
-        <div class="card-group">
-            <div class="card">
-                <div class="unit-price">$19</div>
-                <p>Billed Monthly</p>
-                <p>No one cares about products. People care about ideas. Is a product an idea? Noup. Is a brand? A good one is.
-                </p>
-                <button>Try 14 days free trial</button>
+    <section class="jumbotron price text-center">
+        <div class="container container-3 self-center">
+            <div class="title">
+                <h3>Simple, Straight Pricing</h3>
+                <p>Millions of people around the world have already made xPider the place where their dream happens.</p>
             </div>
-            <div class="card">
-                <div class="unit-price">$9</div>
-                <p>Billed Anually</p>
-                <p>No one cares about products. People care about ideas. Is a product an idea? Noup. Is a brand? A good one is.
-                </p>
-                <button>Try 14 days free trial</button>
+            <div class="card-group">
+                <div class="self-center card">
+                    <div class="unit-price">$19</div>
+                    <p>Billed Monthly</p>
+                    <p>No one cares about products. People care about ideas. Is a product an idea? Noup. Is a brand? A good one is.
+                    </p>
+                    <button>Try 14 days free trial</button>
+                </div>
+                <div class="self-center card">
+                    <div class="unit-price">$9</div>
+                    <p>Billed Anually</p>
+                    <p>No one cares about products. People care about ideas. Is a product an idea? Noup. Is a brand? A good one is.
+                    </p>
+                    <button>Try 14 days free trial</button>
+                </div>
             </div>
+            <p>Both pricings contains all of our features.</p>
+            <a href="#">Check all our features <i class="fas fa-caret-right"></i></a>
         </div>
-        <p>Both pricings contains all of our features.</p>
-        <a href="#">Check all our features <i class="fas fa-caret-right"></i></a>
     </section>
-    <section class="jumbotron cta">
+    <section class="jumbotron cta text-center">
         <div class="title">
             <h2>Try xPider for 14 days, for free!</h2>
             <p>Millions of people around the world have already made xPider the place where their dream happens.</p>
         </div>
-        <button>Get started</button>
+        <button class="">Get started</button>
     </section>
-    <footer>
-        <ul>
+    <footer class="container row self-center">
+        <div class="col-sm-4"></div>
+        <ul class="col-sm-3">
             <li>Company</li>
             <li>About Us</li>
             <li>Careers</li>
@@ -223,7 +242,7 @@
             <li>Press</li>
             <li>Brand Guidelines</li>
         </ul>
-        <ul>
+        <ul class="col-sm-2">
             <li>Product</li>
             <li>Why xPider? </li>
             <li>Enterprise</li>
@@ -231,7 +250,7 @@
             <li>Pricing</li>
             <li>Security</li>
         </ul>
-        <ul>
+        <ul class="col-sm-3">
             <li>Resources</li>
             <li>Download</li>
             <li>Help Center</li>
