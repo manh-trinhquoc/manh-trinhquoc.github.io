@@ -8,6 +8,8 @@ html {
 
 .text-white {
   color: white; }
+.text-center {
+  text-align: center; }
 
 .header {
   position: absolute;
@@ -30,5 +32,8 @@ html {
   position: absolute;
   top: 0;
   left: 0; }
+
+.title {
+  text-align: center; }
 
 /*# sourceMappingURL=style.v1.3.css.map */

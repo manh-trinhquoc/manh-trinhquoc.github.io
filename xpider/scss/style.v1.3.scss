@@ -8,8 +8,14 @@ html {
     font-size: 14px;
 }
 
-.text-white {
-    color: white;
+.text {
+    &-white {
+        color: white;
+    }
+
+    &-center {
+        text-align: center;
+    }
 }
 
 .header {
@@ -44,3 +50,7 @@ html {
 }
 
 .tab {}
+
+.title {
+    text-align: center;
+}
