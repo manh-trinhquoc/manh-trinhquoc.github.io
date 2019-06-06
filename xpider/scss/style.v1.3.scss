@@ -24,42 +24,15 @@ a:hover {
 
 }
 
-.background-blue {
-    background-color: blue;
-}
 
-.text {
-    &-white {
-        color: white;
-    }
 
-    &-black {
-        color: #2C2E30;
-    }
 
-    &-grey {
-        color: #54565A;
-
-        &-light {
-            color: #7E8085;
-        }
-    }
-
-    &-blue {
-        color: #2F5BEA;
-    }
-
-    &-center {
-        text-align: center;
-    }
-}
 
 .header {
     position: absolute;
     width: 100%;
     z-index: 1;
-
-
+    overflow: hidden;
 
     &__collapse {
 
@@ -77,20 +50,16 @@ a:hover {
     }
 
     &__button {
-        @media (min-width: 576px) {
-            padding-left: 81px;
-        }
+        @media (min-width: 576px) {}
 
-        @media (min-width: 768px) {
-            padding-left: 113px;
-        }
+        @media (min-width: 768px) {}
 
         @media (min-width: 992px) {
             padding-left: 150px;
         }
 
         @media (min-width: 1200px) {
-            padding-left: 185px;
+            padding-left: 200px;
         }
     }
 }
@@ -277,7 +246,7 @@ h2 {
 }
 
 .content {
-    padding-top: 106px;
+    padding-top: 40px;
     max-width: 505px
 }
 
@@ -296,6 +265,8 @@ h2 {
     &-item {
         max-width: 276px;
         position: relative;
+        width: 80%;
+        @extend .self-center;
 
         & p {
             @include set-font(16px, 28px);
@@ -305,14 +276,22 @@ h2 {
 
     &-arrow {
         position: absolute;
-        top: 50px;
+        display: none;
+        top: 40px;
         left: 120%;
+        height: 80px;
+        width: 20px;
+
+        @media (min-width: 576px) {
+            display: block;
+        }
     }
 }
 
 .jumbotron {
     background: #F6F8F9;
     margin: 0;
+    padding: 0;
 }
 
 h3 {
@@ -322,6 +301,10 @@ h3 {
 }
 
 .section-1 {
+
+    padding-top: 140px;
+    padding-bottom: 167px;
+
     &__content {
         display: -webkit-flex;
         display: -moz-flex;
@@ -347,4 +330,259 @@ section a {
     @extend .text-blue;
     @include set-font (18px, 34px);
     font-weight: bold;
+    display: inline-block;
+}
+
+.section-2 {
+    padding-top: 170px;
+    padding-bottom: 170px;
+
+    &__content {
+        padding-top: 40px;
+        max-width: 430px;
+
+        & p {
+            padding-top: 38px;
+            @include set-font(16px, 28px);
+            @extend .text-grey;
+        }
+
+        & a {
+            padding-top: 52px;
+        }
+    }
+}
+
+.testimonial {
+
+    padding-bottom: 130px;
+
+    &__title {
+        @extend .title;
+        @extend .self-center;
+        max-width: 556px;
+    }
+
+    &__card-group {
+        padding-top: 56px;
+        display: flex;
+        -webkit-flex-wrap: wrap;
+        -moz-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+        -o-flex-wrap: wrap;
+        flex-wrap: wrap;
+        justify-content: space-around;
+
+    }
+
+    &__card {
+
+        max-width: 355px;
+        min-height: 263px;
+        padding: 5px;
+        @include set-font(16px, 28px, "Noto Serif");
+        font-style: italic;
+        @extend .text-grey-light;
+        border: 1px solid grey;
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        display: flex;
+        flex-flow: column;
+        justify-content: space-between;
+
+        @media (min-width: 576px) {
+            flex-basis: 33%;
+        }
+
+        & footer {
+            @include set-font(16px, 19px);
+            font-style: normal;
+            @extend .text-black;
+            font-weight: 600;
+        }
+    }
+
+    & a {
+        padding-top: 37px;
+    }
+
+    &__footer {
+        padding-top: 114px;
+        @extend .text-center;
+    }
+}
+
+.price {
+
+    @extend .text-center;
+    padding-bottom: 126px;
+
+    &__title {
+        @extend .title;
+        @extend .self-center;
+        padding-top: 122px;
+        max-width: 556px;
+    }
+
+    &__card-group {
+        @extend .testimonial__card-group;
+        padding-top: 62px;
+        max-width: 792px;
+        @extend .self-center;
+    }
+
+    &__card {
+        flex-basis: 382px;
+        max-width: 382px;
+        height: 428px;
+        border: none;
+        border-radius: 5px;
+        font-style: normal;
+        background-color: white;
+
+    }
+
+    &__unit {
+        @include set-font(60px, 82px, "Noto Serif");
+        font-weight: bold;
+        @extend .text-blue;
+        padding-top: 29px;
+
+        &-after {
+            padding-top: 0px;
+            margin-top: -5px;
+            padding-bottom: 34px;
+            border-bottom: 1px solid #E7EAEE;
+            @include set-font(18px, 34px);
+            font-weight: 600;
+            @extend .text-grey-light;
+        }
+    }
+
+    &__content {
+        padding-top: 30px;
+        max-width: 300px;
+        @extend .self-center;
+        @include set-font(16px, 28px);
+        @extend .text-grey-light;
+    }
+
+    &__button {
+        @extend .button;
+        width: 280px;
+        background-color: white;
+        border: 1px solid #E7EAEE;
+        @include set-font(16px, 19px);
+        font-weight: bold;
+        text-transform: uppercase;
+        @extend .text-black-light;
+
+        &_2 {
+            @extend .price__button;
+            background-color: white;
+            @extend .text-blue;
+        }
+    }
+}
+
+.cta {
+    @extend .background-blue;
+    @extend .text-center;
+    padding-top: 111px;
+    padding-bottom: 133px;
+
+    &__title {
+        @extend .self-center;
+        max-width: 580px;
+        @extend .text-white;
+    }
+
+    &__button {
+        @extend .button;
+        @extend .price__button;
+        @extend .text-blue;
+        width: 180px;
+        background: white;
+        margin-top: 27px;
+    }
+}
+
+.footer {
+    @extend .self-center;
+    padding-top: 140px;
+    padding-bottom: 160px;
+    justify-content: flex-end;
+
+    @media (min-width: 576px) {
+        flex-wrap: nowrap;
+    }
+
+    & ul {
+        list-style-type: none;
+        min-width: 200px;
+
+        &:last-child {
+            min-width: 0px;
+        }
+    }
+
+    & li {
+
+
+
+        &:first-child {
+            font-weight: bold;
+            padding-top: 0;
+            padding-bottom: 10px;
+            @include set-font(18px, 22px);
+            @extend .text-black;
+        }
+    }
+
+    & a {
+        @include set-font(18px, 39px);
+        @extend .text-black-light;
+    }
+}
+
+.background-blue {
+    background-color: #2F5BEA;
+}
+
+.text {
+    &-white {
+        color: white;
+    }
+
+    &-black {
+        color: #2C2E30;
+
+        &-light {
+            color: #54565A;
+        }
+    }
+
+    &-grey {
+        color: #54565A;
+
+        &-light {
+            color: #7E8085;
+        }
+    }
+
+    &-blue {
+        color: #2F5BEA;
+    }
+
+    &-center {
+        text-align: center;
+    }
+}
+
+.padding {
+    &-top-45 {
+        padding-top: 45px;
+    }
 }
