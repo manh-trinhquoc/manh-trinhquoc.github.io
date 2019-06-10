@@ -1,2 +1,2 @@
-cd F:\manh-trinhquoc.github.io\xpider
+cd F:\manh-trinhquoc.github.io\portfolio
 sass --watch scss:css

@@ -1,4 +1,4 @@
 cd F:\manh-trinhquoc.github.io
 git add .
-git commit -m "xpider: chiến version v1.3"
+git commit -m "portfolio: save file after a working session"
 git push

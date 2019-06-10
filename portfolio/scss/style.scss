@@ -1,0 +1,188 @@
+@import url('../../lib/top-nav.css');
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+}
+
+body {
+    margin: 0;
+    font-family: 'Nunito', sans-serif;
+}
+
+/*place holder seclector*/
+%flex {
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    -moz-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    -o-flex-wrap: wrap;
+    flex-wrap: wrap;
+    justify-content: center;
+    -ms-align-items: center;
+    align-items: center;
+}
+
+%text {
+    &-black {
+        color: black;
+    }
+
+    &-blue {
+        color: #007FFF;
+    }
+
+    &-grey {
+        color: #979797;
+    }
+
+    &-white {
+        color: white;
+    }
+}
+
+%container {
+    max-width: 315px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+$rem: 16px;
+
+/*mixin class*/
+@mixin set-font($size:16px, $height: 30px, $weight: 600, $style: normal) {
+    font-size: $size/$rem*1rem;
+    line-height: $height/$rem*1rem;
+    font-weight: $weight;
+    font-style: $style;
+}
+
+/* Extend default to change lib setting */
+.topnav {
+    background-color: white;
+}
+
+.topnav a.icon {
+    color: blue;
+    float: left;
+    padding-left: 0;
+}
+
+.topnav.responsive a.icon {
+    position: absolute;
+    left: 0;
+
+}
+
+/*general class*/
+.size-52x52 {
+    width: 52px;
+    height: 52px;
+}
+
+.img-fuild {
+    max-width: 100%;
+}
+
+.text-blue {
+    @extend %text-blue;
+}
+
+.item {
+    position: relative;
+    padding-top: 30px;
+}
+
+/*specific section class*/
+.header {
+    position: relative;
+    top: 60px;
+    height: 52px;
+    margin-bottom: 60px;
+    @extend %container;
+
+    img {
+
+        position: absolute;
+        left: 50%;
+        top: 0;
+        transform: translateX(-50%);
+    }
+}
+
+.main {
+    @extend %container;
+}
+
+h1 {
+    text-align: center;
+    padding-top: 60px;
+    @include set-font(28px, 36px, bold);
+}
+
+.social {
+    width: 114px;
+    margin-left: auto;
+    margin-right: auto;
+    @extend %flex;
+    justify-content: space-between;
+}
+
+.work {
+    padding-top: 60px;
+
+    &__content {
+        position: absolute;
+        bottom: 30px;
+        left: 30px;
+    }
+
+    &__tag {
+        width: 80px;
+        height: 23px;
+        padding-top: 3px;
+        background: yellow;
+        border-radius: 40px;
+        @include set-font(12px, 16px, 800);
+        text-align: center;
+    }
+
+    h5 {
+        @include set-font(18px, 26px, bold);
+        @extend %text-white;
+        max-width: 221px;
+        margin: 0;
+        padding-top: 10px;
+    }
+}
+
+h2 {
+    @include set-font(12px, 16px, 800);
+    text-align: center;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    @extend %text-grey;
+}
+
+.about {
+    padding-top: 60px;
+
+    h4 {
+        @include set-font(18px, 26px, bold);
+
+    }
+
+    p {
+        @include set-font(16px, 30px);
+        max-height: 120px;
+    }
+}

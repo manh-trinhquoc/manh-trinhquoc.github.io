@@ -1,0 +1,143 @@
+@import url("../../lib/top-nav.css");
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+html {
+  font-size: 16px; }
+
+body {
+  margin: 0;
+  font-family: 'Nunito', sans-serif; }
+
+/*place holder seclector*/
+.social {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -moz-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  -o-flex-wrap: wrap;
+  flex-wrap: wrap;
+  justify-content: center;
+  -ms-align-items: center;
+  align-items: center; }
+
+.text-blue {
+  color: #007FFF; }
+h2 {
+  color: #979797; }
+.work h5 {
+  color: white; }
+
+.header, .main {
+  max-width: 315px;
+  margin-left: auto;
+  margin-right: auto; }
+
+/*mixin class*/
+/* Extend default to change lib setting */
+.topnav {
+  background-color: white; }
+
+.topnav a.icon {
+  color: blue;
+  float: left;
+  padding-left: 0; }
+
+.topnav.responsive a.icon {
+  position: absolute;
+  left: 0; }
+
+/*general class*/
+.size-52x52 {
+  width: 52px;
+  height: 52px; }
+
+.img-fuild {
+  max-width: 100%; }
+
+.item {
+  position: relative;
+  padding-top: 30px; }
+
+/*specific section class*/
+.header {
+  position: relative;
+  top: 60px;
+  height: 52px;
+  margin-bottom: 60px; }
+  .header img {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%); }
+
+h1 {
+  text-align: center;
+  padding-top: 60px;
+  font-size: 1.75rem;
+  line-height: 2.25rem;
+  font-weight: bold;
+  font-style: normal; }
+
+.social {
+  width: 114px;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: space-between; }
+
+.work {
+  padding-top: 60px; }
+  .work__content {
+    position: absolute;
+    bottom: 30px;
+    left: 30px; }
+  .work__tag {
+    width: 80px;
+    height: 23px;
+    padding-top: 3px;
+    background: yellow;
+    border-radius: 40px;
+    font-size: 0.75rem;
+    line-height: 1rem;
+    font-weight: 800;
+    font-style: normal;
+    text-align: center; }
+  .work h5 {
+    font-size: 1.125rem;
+    line-height: 1.625rem;
+    font-weight: bold;
+    font-style: normal;
+    max-width: 221px;
+    margin: 0;
+    padding-top: 10px; }
+
+h2 {
+  font-size: 0.75rem;
+  line-height: 1rem;
+  font-weight: 800;
+  font-style: normal;
+  text-align: center;
+  letter-spacing: 3px;
+  text-transform: uppercase; }
+
+.about {
+  padding-top: 60px; }
+  .about h4 {
+    font-size: 1.125rem;
+    line-height: 1.625rem;
+    font-weight: bold;
+    font-style: normal; }
+  .about p {
+    font-size: 1rem;
+    line-height: 1.875rem;
+    font-weight: 600;
+    font-style: normal;
+    max-height: 120px; }
+
+/*# sourceMappingURL=style.css.map */
