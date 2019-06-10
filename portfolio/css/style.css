@@ -15,7 +15,7 @@ a {
   text-decoration: none; }
 
 /*place holder seclector*/
-.social, .contact .social_contact, .about footer, .footer {
+.social, .contact .social_contact, .work, .about footer, .footer {
   display: -webkit-flex;
   display: -moz-flex;
   display: -ms-flex;
@@ -32,7 +32,7 @@ a {
 
 .contact h2, .footer .copyright {
   color: black; }
-.text-blue, .link__display {
+.text-blue, .header a, .link__display {
   color: #007FFF; }
 h2, .link__year, .footer {
   color: #979797; }
@@ -45,21 +45,38 @@ h2, .link__year, .footer {
   max-width: 315px;
   margin-left: auto;
   margin-right: auto; }
+  @media (min-width: 576px) {
+    .header, .main, .footer {
+      max-width: 540px; } }
+  @media (min-width: 768px) {
+    .header, .main, .footer {
+      max-width: 720px; } }
+  @media (min-width: 992px) {
+    .header, .main, .footer {
+      max-width: 960px; } }
+  @media (min-width: 1200px) {
+    .header, .main, .footer {
+      max-width: 1100px; } }
 
 /*define variable*/
 /*mixin class*/
 /* Extend default to change lib setting */
 .topnav {
   background-color: white; }
+  @media (min-width: 576px) {
+    .topnav .float-right {
+      float: right; } }
 
 .topnav a.icon {
   color: blue;
-  float: left;
-  padding-left: 0; }
+  margin-left: -16px;
+  width: 45px;
+  float: none; }
 
 .topnav.responsive a.icon {
-  position: absolute;
-  left: 0; }
+  left: 0;
+  position: relative;
+  display: block; }
 
 /*general class*/
 .size-52x52 {
@@ -77,13 +94,22 @@ h2, .link__year, .footer {
 .header {
   position: relative;
   top: 60px;
-  height: 52px;
   margin-bottom: 60px; }
   .header img {
     position: absolute;
     left: 50%;
     top: 0;
     transform: translateX(-50%); }
+  .header a {
+    font-size: 0.75rem;
+    line-height: 1rem;
+    font-weight: 800;
+    font-style: normal;
+    letter-spacing: 3px;
+    text-transform: uppercase; }
+
+.main section {
+  position: relative; }
 
 h1 {
   text-align: center;
@@ -101,6 +127,12 @@ h1 {
 
 .work {
   padding-top: 60px; }
+  @media (min-width: 576px) {
+    .work {
+      display: block;
+      column-count: 2; } }
+  .work .item:nth-child(odd) {
+    order: 2; }
   .work__content {
     position: absolute;
     bottom: 30px;
@@ -135,6 +167,14 @@ h2 {
   text-align: center;
   letter-spacing: 3px;
   text-transform: uppercase; }
+  @media (min-width: 576px) {
+    h2 {
+      position: absolute;
+      left: -120px;
+      top: 120px;
+      transform: rotate(-90deg);
+      /*writing-mode: vertical-lr;*/
+      /*text-orientation: sideways;*/ } }
 
 .about {
   padding-top: 60px; }
@@ -154,12 +194,22 @@ h2 {
   .about footer {
     flex-wrap: nowrap;
     justify-content: space-between; }
+    @media (min-width: 576px) {
+      .about footer {
+        justify-content: flex-start; } }
     .about footer img {
       height: 26px; }
+    @media (min-width: 576px) {
+      .about footer div {
+        flex: 0 0 25%; } }
 
 .link {
   padding-top: 60px;
   padding-bottom: 60px; }
+  @media (min-width: 576px) {
+    .link {
+      columns: 2;
+      column-gap: 10%; } }
   .link__display {
     font-size: 1rem;
     line-height: 1.875rem;
@@ -170,53 +220,80 @@ h2 {
     line-height: 1.875rem;
     font-weight: 600;
     font-style: normal; }
+    @media (min-width: 576px) {
+      .link__year {
+        float: right; } }
 
-.contact h2 {
-  text-align: left;
-  font-size: 1.125rem;
-  line-height: 1.625rem;
-  font-weight: bold;
-  font-style: normal;
-  text-transform: none; }
-.contact__quote {
-  font-size: 1rem;
-  line-height: 1.875rem;
-  font-weight: 600;
-  font-style: normal; }
-.contact .social_contact {
-  margin-left: 0px;
-  padding-top: 20px; }
-.contact__form {
-  padding-top: 60px;
-  position: relative; }
-.contact__row {
-  padding-top: 20px; }
-  .contact__row label {
-    font-size: 0.75rem;
-    line-height: 1rem;
-    font-weight: 800;
+.contact {
+  padding-top: 90px; }
+  @media (min-width: 576px) {
+    .contact {
+      display: flex; } }
+  .contact h2 {
+    text-align: left;
+    font-size: 1.125rem;
+    line-height: 1.625rem;
+    font-weight: bold;
     font-style: normal;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    display: block; }
-  .contact__row input {
+    text-transform: none;
+    top: 30px;
+    left: 0;
+    transform: rotate(0deg); }
+  .contact__quote {
     font-size: 1rem;
     line-height: 1.875rem;
     font-weight: 600;
     font-style: normal;
-    padding-top: 15px;
-    padding-bottom: 10px;
-    display: block;
+    padding-top: 60px; }
+    @media (min-width: 576px) {
+      .contact__quote {
+        flex: 1 1 0;
+        max-width: 230px;
+        padding-right: 20px; } }
+  .contact .social_contact {
+    margin-left: 0px;
+    padding-top: 20px; }
+  .contact__form {
+    padding-top: 60px;
+    position: relative; }
+    @media (min-width: 576px) {
+      .contact__form {
+        flex: 1 1 50%; } }
+  .contact__row {
+    padding-top: 20px; }
+    .contact__row label {
+      font-size: 0.75rem;
+      line-height: 1rem;
+      font-weight: 800;
+      font-style: normal;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      display: block; }
+    .contact__row input {
+      font-size: 1rem;
+      line-height: 1.875rem;
+      font-weight: 600;
+      font-style: normal;
+      padding-top: 15px;
+      padding-bottom: 10px;
+      display: block;
+      border: none;
+      border-bottom: 1px solid #CFCFCF;
+      width: 100%; }
+  .contact button {
+    padding: 0;
     border: none;
-    border-bottom: 1px solid #CFCFCF;
-    width: 100%; }
-.contact button {
-  padding: 0;
-  border: none;
-  background-color: white;
-  position: relative;
-  margin-top: 30px;
-  left: calc(100% - 52px); }
+    background-color: white;
+    position: relative;
+    margin-top: 30px;
+    left: calc(100% - 52px); }
+    @media (min-width: 576px) {
+      .contact button {
+        position: static;
+        padding-left: 30px;
+        -ms-align-self: flex-start;
+        align-self: flex-start;
+        margin-top: 90px; } }
 
 #message {
   height: 150px; }
@@ -230,6 +307,10 @@ h2 {
   line-height: 1.875rem;
   font-weight: 600;
   font-style: normal; }
+  @media (min-width: 576px) {
+    .footer {
+      flex-direction: row;
+      justify-content: space-between; } }
   .footer div {
     padding-top: 10px;
     padding-bottom: 10px; }

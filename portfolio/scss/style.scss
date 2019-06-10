@@ -62,6 +62,22 @@ a {
     max-width: 315px;
     margin-left: auto;
     margin-right: auto;
+
+    @media (min-width: 576px) {
+        max-width: 540px;
+    }
+
+    @media (min-width: 768px) {
+        max-width: 720px;
+    }
+
+    @media (min-width: 992px) {
+        max-width: 960px;
+    }
+
+    @media (min-width: 1200px) {
+        max-width: 1100px;
+    }
 }
 
 /*define variable*/
@@ -79,18 +95,26 @@ $light-grey: #CFCFCF;
 /* Extend default to change lib setting */
 .topnav {
     background-color: white;
+
+    .float-right {
+        @media (min-width: 576px) {
+            float: right;
+        }
+    }
 }
 
 .topnav a.icon {
     color: blue;
-    float: left;
-    padding-left: 0;
+    margin-left: -16px;
+    width: 45px;
+    float: none;
+
 }
 
 .topnav.responsive a.icon {
-    position: absolute;
     left: 0;
-
+    position: relative;
+    display: block;
 }
 
 /*general class*/
@@ -112,11 +136,12 @@ $light-grey: #CFCFCF;
     padding-top: 30px;
 }
 
+
+
 /*specific section class*/
 .header {
     position: relative;
     top: 60px;
-    height: 52px;
     margin-bottom: 60px;
     @extend %container;
 
@@ -127,16 +152,28 @@ $light-grey: #CFCFCF;
         top: 0;
         transform: translateX(-50%);
     }
+
+    a {
+        @extend .text-blue;
+        @include set-font(12px, 16px, 800);
+        letter-spacing: 3px;
+        text-transform: uppercase;
+    }
 }
 
 .main {
     @extend %container;
+
+    section {
+        position: relative;
+    }
 }
 
 h1 {
     text-align: center;
     padding-top: 60px;
     @include set-font(28px, 36px, bold);
+
 }
 
 .social {
@@ -149,6 +186,19 @@ h1 {
 
 .work {
     padding-top: 60px;
+    @extend %flex;
+
+    @media (min-width: 576px) {
+        display: block;
+        column-count: 2;
+    }
+
+    .item {
+        &:nth-child(odd) {
+            order: 2;
+        }
+    }
+
 
     &__content {
         position: absolute;
@@ -178,6 +228,8 @@ h1 {
             text-decoration: none;
         }
     }
+
+
 }
 
 h2 {
@@ -186,6 +238,16 @@ h2 {
     letter-spacing: 3px;
     text-transform: uppercase;
     @extend %text-grey;
+
+    @media (min-width: 576px) {
+        position: absolute;
+        left: -120px;
+        top: 120px;
+        transform: rotate(-90deg);
+        /*writing-mode: vertical-lr;*/
+        /*text-orientation: sideways;*/
+    }
+
 }
 
 .about {
@@ -208,9 +270,21 @@ h2 {
         flex-wrap: nowrap;
         justify-content: space-between;
 
+        @media (min-width: 576px) {
+            justify-content: flex-start;
+        }
+
         img {
 
             height: 26px;
+
+
+        }
+
+        div {
+            @media (min-width: 576px) {
+                flex: 0 0 25%;
+            }
         }
     }
 }
@@ -218,6 +292,11 @@ h2 {
 .link {
     padding-top: 60px;
     padding-bottom: 60px;
+
+    @media (min-width: 576px) {
+        columns: 2;
+        column-gap: 10%;
+    }
 
     &__display {
         @extend .text-blue;
@@ -227,19 +306,41 @@ h2 {
     &__year {
         @extend %text-grey;
         @include set-font(16px, 30px);
+
+        @media (min-width: 576px) {
+            float: right;
+        }
     }
 }
 
 .contact {
+
+    padding-top: 90px;
+
+    @media (min-width: 576px) {
+        display: flex;
+    }
+
     h2 {
         text-align: left;
         @extend %text-black;
         @include set-font(18px, 26px, bold);
         text-transform: none;
+        top: 30px;
+        left: 0;
+        transform: rotate(0deg);
     }
 
     &__quote {
         @include set-font(16px, 30px);
+        padding-top: 60px;
+
+        @media (min-width: 576px) {
+            flex: 1 1 0;
+            max-width: 230px;
+            padding-right: 20px;
+        }
+
     }
 
     .social_contact {
@@ -251,6 +352,10 @@ h2 {
     &__form {
         padding-top: 60px;
         position: relative;
+
+        @media (min-width: 576px) {
+            flex: 1 1 50%;
+        }
     }
 
     &__row {
@@ -282,6 +387,14 @@ h2 {
         position: relative;
         margin-top: 30px;
         left: calc(100% - 52px);
+
+        @media (min-width: 576px) {
+            position: static;
+            padding-left: 30px;
+            -ms-align-self: flex-start;
+            align-self: flex-start;
+            margin-top: 90px;
+        }
     }
 }
 
@@ -298,6 +411,11 @@ h2 {
     align-items: flex-start;
     @include set-font(12px, 30px);
     @extend %text-grey;
+
+    @media (min-width: 576px) {
+        flex-direction: row;
+        justify-content: space-between;
+    }
 
     div {
         padding-top: 10px;

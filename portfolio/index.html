@@ -21,13 +21,13 @@
 <body>
     <header class="header">
         <div class="topnav" id="myTopnav">
-            <a href="#" class="">Works</a>
-            <a href="#">About</a>
-            <a href="#">Links</a>
-            <a href="#">Contacts</a>
             <a href="javascript:void(0);" class="icon" onclick="toggleClassResponsive('myTopnav')">
                 <i class="fa fa-bars"></i>
             </a>
+            <a href="#works" class="">Works</a>
+            <a href="#about">About</a>
+            <a href="#links" class="float-right">Links</a>
+            <a href="#contacts" class="float-right">Contacts</a>
         </div>
         <img src="img/avatar.png" alt="avatar image" class="size-52x52" />
     </header>
@@ -38,7 +38,7 @@
             <img src="img/be.png" alt="social icon" />
             <img src="img/instagram.png" alt="social icon" />
         </div>
-        <section class="work">
+        <section class="work" id="works">
             <h2 class="title">Works</h2>
             <div class="item">
                 <div class="work__content">
@@ -67,7 +67,7 @@
                 <img src="img/post-4.png" alt="post image" class="img-fuild" />
             </div>
         </section>
-        <section class="about">
+        <section class="about" id="about">
             <h2>About</h2>
             <div class="item">
                 <h4>UX/UI</h4>
@@ -86,12 +86,18 @@
                 <p>Personally, the importance does not lie in what religion you are; however, a lack of religion does seem to run parallel with depression. This is classified as spiritual illness, which will have a negative effect on you mentally, physically, or totally.</p>
             </div>
             <footer>
-                <img src="img/google.png" alt="brand image" class="img-fuild" />
-                <img src="img/airbnb.png" alt="brand image" class="img-fuild" />
-                <img src="img/dropbox.png" alt="brand image" class="img-fuild" />
+                <div>
+                    <img src="img/google.png" alt="brand image" class="img-fuild" />
+                </div>
+                <div>
+                    <img src="img/airbnb.png" alt="brand image" class="img-fuild" />
+                </div>
+                <div>
+                    <img src="img/dropbox.png" alt="brand image" class="img-fuild" />
+                </div>
             </footer>
         </section>
-        <section class="link">
+        <section class="link" id="links">
             <h2>links</h2>
             <div class="item">
                 <a href="#">
@@ -136,33 +142,31 @@
                 </a>
             </div>
         </section>
-        <section class="contact">
+        <section class="contact" id="contacts">
             <h2>Contacts</h2>
-            <div>
-                <div class="contact__quote">
-                    <p>Positive pleasure-oriented goals are much more powerful motivators than negative fear-based ones.</p>
-                    <div class="social_contact">
-                        <img src="img/twitter.png" alt="social icon" />
-                        <img src="img/be.png" alt="social icon" />
-                        <img src="img/instagram.png" alt="social icon" />
-                    </div>
+            <div class="contact__quote">
+                <p>Positive pleasure-oriented goals are much more powerful motivators than negative fear-based ones.</p>
+                <div class="social_contact">
+                    <img src="img/twitter.png" alt="social icon" />
+                    <img src="img/be.png" alt="social icon" />
+                    <img src="img/instagram.png" alt="social icon" />
                 </div>
-                <form action="" id="form-1" class="contact__form">
-                    <div class="contact__row">
-                        <label for="name">name</label>
-                        <input type="text" id="name" placeholder="Incognito" required />
-                    </div>
-                    <div class="contact__row">
-                        <label for="email">e-mail</label>
-                        <input type="email" id="email" placeholder="incognito@gmail.com" required />
-                    </div>
-                    <div class="contact__row">
-                        <label for="message">Message</label>
-                        <input type="text" id="message" placeholder="Your question or suggestion" required />
-                    </div>
-                    <button type="submit" form="form-1"><img src="img/button-send.png" alt="button send image" /></button>
-                </form>
             </div>
+            <form action="" id="form-1" class="contact__form">
+                <div class="contact__row">
+                    <label for="name">name</label>
+                    <input type="text" id="name" placeholder="Incognito" required />
+                </div>
+                <div class="contact__row">
+                    <label for="email">e-mail</label>
+                    <input type="email" id="email" placeholder="incognito@gmail.com" required />
+                </div>
+                <div class="contact__row">
+                    <label for="message">Message</label>
+                    <input type="text" id="message" placeholder="Your question or suggestion" required />
+                </div>
+            </form>
+            <button type="submit" form="form-1"><img src="img/button-send.png" alt="button send image" /></button>
         </section>
     </main>
     <footer class="footer">
