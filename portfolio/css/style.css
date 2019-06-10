@@ -117,7 +117,16 @@ h1 {
   font-size: 1.75rem;
   line-height: 2.25rem;
   font-weight: bold;
-  font-style: normal; }
+  font-style: normal;
+  margin-left: auto;
+  margin-right: auto; }
+  @media (min-width: 576px) {
+    h1 {
+      max-width: 550px;
+      font-size: 3rem;
+      line-height: 3.75rem;
+      font-weight: bold;
+      font-style: normal; } }
 
 .social, .contact .social_contact {
   width: 114px;

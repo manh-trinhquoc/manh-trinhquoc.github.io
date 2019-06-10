@@ -173,6 +173,13 @@ h1 {
     text-align: center;
     padding-top: 60px;
     @include set-font(28px, 36px, bold);
+    margin-left: auto;
+    margin-right: auto;
+
+    @media (min-width: 576px) {
+        max-width: 550px;
+        @include set-font(48px, 60px, bold);
+    }
 
 }
 
