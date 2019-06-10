@@ -11,8 +11,11 @@ body {
   margin: 0;
   font-family: 'Nunito', sans-serif; }
 
+a {
+  text-decoration: none; }
+
 /*place holder seclector*/
-.social {
+.social, .contact .social_contact, .about footer, .footer {
   display: -webkit-flex;
   display: -moz-flex;
   display: -ms-flex;
@@ -27,18 +30,23 @@ body {
   -ms-align-items: center;
   align-items: center; }
 
-.text-blue {
+.contact h2, .footer .copyright {
+  color: black; }
+.text-blue, .link__display {
   color: #007FFF; }
-h2 {
+h2, .link__year, .footer {
   color: #979797; }
-.work h5 {
+.contact__row input {
+  color: #CFCFCF; }
+.work h5 a {
   color: white; }
 
-.header, .main {
+.header, .main, .footer {
   max-width: 315px;
   margin-left: auto;
   margin-right: auto; }
 
+/*define variable*/
 /*mixin class*/
 /* Extend default to change lib setting */
 .topnav {
@@ -85,7 +93,7 @@ h1 {
   font-weight: bold;
   font-style: normal; }
 
-.social {
+.social, .contact .social_contact {
   width: 114px;
   margin-left: auto;
   margin-right: auto;
@@ -109,13 +117,15 @@ h1 {
     font-style: normal;
     text-align: center; }
   .work h5 {
-    font-size: 1.125rem;
-    line-height: 1.625rem;
-    font-weight: bold;
-    font-style: normal;
     max-width: 221px;
     margin: 0;
     padding-top: 10px; }
+    .work h5 a {
+      font-size: 1.125rem;
+      line-height: 1.625rem;
+      font-weight: bold;
+      font-style: normal;
+      text-decoration: none; }
 
 h2 {
   font-size: 0.75rem;
@@ -138,6 +148,90 @@ h2 {
     line-height: 1.875rem;
     font-weight: 600;
     font-style: normal;
-    max-height: 120px; }
+    max-height: 120px;
+    overflow: hidden;
+    text-overflow: ellipsis; }
+  .about footer {
+    flex-wrap: nowrap;
+    justify-content: space-between; }
+    .about footer img {
+      height: 26px; }
+
+.link {
+  padding-top: 60px;
+  padding-bottom: 60px; }
+  .link__display {
+    font-size: 1rem;
+    line-height: 1.875rem;
+    font-weight: 600;
+    font-style: normal; }
+  .link__year {
+    font-size: 1rem;
+    line-height: 1.875rem;
+    font-weight: 600;
+    font-style: normal; }
+
+.contact h2 {
+  text-align: left;
+  font-size: 1.125rem;
+  line-height: 1.625rem;
+  font-weight: bold;
+  font-style: normal;
+  text-transform: none; }
+.contact__quote {
+  font-size: 1rem;
+  line-height: 1.875rem;
+  font-weight: 600;
+  font-style: normal; }
+.contact .social_contact {
+  margin-left: 0px;
+  padding-top: 20px; }
+.contact__form {
+  padding-top: 60px;
+  position: relative; }
+.contact__row {
+  padding-top: 20px; }
+  .contact__row label {
+    font-size: 0.75rem;
+    line-height: 1rem;
+    font-weight: 800;
+    font-style: normal;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    display: block; }
+  .contact__row input {
+    font-size: 1rem;
+    line-height: 1.875rem;
+    font-weight: 600;
+    font-style: normal;
+    padding-top: 15px;
+    padding-bottom: 10px;
+    display: block;
+    border: none;
+    border-bottom: 1px solid #CFCFCF;
+    width: 100%; }
+.contact button {
+  padding: 0;
+  border: none;
+  background-color: white;
+  position: relative;
+  margin-top: 30px;
+  left: calc(100% - 52px); }
+
+#message {
+  height: 150px; }
+
+.footer {
+  padding-top: 60px;
+  flex-direction: column;
+  -ms-align-items: flex-start;
+  align-items: flex-start;
+  font-size: 0.75rem;
+  line-height: 1.875rem;
+  font-weight: 600;
+  font-style: normal; }
+  .footer div {
+    padding-top: 10px;
+    padding-bottom: 10px; }
 
 /*# sourceMappingURL=style.css.map */
