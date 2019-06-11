@@ -179,11 +179,14 @@ h2 {
   @media (min-width: 576px) {
     h2 {
       position: absolute;
-      left: -120px;
+      left: -7%;
       top: 120px;
       transform: rotate(-90deg);
       /*writing-mode: vertical-lr;*/
       /*text-orientation: sideways;*/ } }
+  @media (min-width: 768px) {
+    h2 {
+      left: -5%; } }
 
 .about {
   padding-top: 60px; }
