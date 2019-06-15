@@ -257,23 +257,165 @@ console.groupEnd();
 Xử lý object
 ● Bài 1: Cho 1 object. Viết hàm kiểm tra xem object đó có phải là object rỗng hay không (không có thuộc
 tính nào). Kết quả trả về true hoặc false.
+*/
+console.group("Xử lý object");
+console.group("bai4_1");
+
+function bai4_1(argument) {
+    // console.log(`Object.getOwnPropertyNames(argument).length: ` + Object.getOwnPropertyNames(argument).length);
+    // console.log(`Object.getOwnPropertySymbols(argument).length: ` + Object.getOwnPropertySymbols(argument).length);
+    if (Object.getOwnPropertyNames(argument).length + Object.getOwnPropertySymbols(argument).length)
+        return false;
+    return true;
+}
+console.log(bai4_1({}));
+console.log(bai4_1({ foo: "bar" }));
+var object1 = {};
+var a = Symbol('a');
+var b = Symbol.for('b');
+object1[a] = 'localSymbol';
+object1[b] = 'globalSymbol';
+console.log(bai4_1(object1));
+console.groupEnd();
+/*
 ● Bài 2: Cho 1 mảng các object chứa thông tin sinh viên dạng { name: ''Huy'', gender: ''Male'', age: 20 }.
 Viết hàm sắp xếp lại mảng trên theo tên học viên (không phân biệt hoa thường).
+*/
+console.group("bai4_2");
+
+function bai4_2(arr) {
+    return arr.sort(function(a, b) {
+        return a.name.toLowerCase() > b.name.toLowerCase() ? 1 : -1;
+    })
+}
+var object1 = { name: 'Huy', gender: 'Male', age: 20 };
+var object2 = { name: 'huy', gender: 'Female', age: 21 };
+var object3 = { name: 'minh', gender: 'Male', age: 20 };
+var object4 = { name: 'anh', gender: 'Male', age: 20 };
+var object5 = { name: 'huy', gender: 'Male', age: 22 };
+var object6 = { name: 'Huy', gender: 'Male', age: 22 };
+var arr = [object1, object2, object3, object4, object5, object6];
+console.log(JSON.stringify(bai4_2(arr)));
+console.groupEnd();
+/*
 ● Bài 3: Cho 1 mảng các object chứa thông tin sinh viên dạng { name: ''Huy'', gender: ''Male'', age: 20 }.
 Viết hàm sắp xếp lại mảng trên theo tuổi học viên từ cao đến thấp.
+*/
+console.group("bai4_3");
+
+function bai4_3(arr) {
+    return arr.sort(function(a, b) {
+        return b.age - a.age;
+    })
+}
+console.log(JSON.stringify(bai4_3(arr)));
+console.groupEnd();
+/*
 ● Bài 4: Cho 1 mảng các object chứa thông tin sinh viên dạng { name: ''Huy'', gender: ''Male'', age: 20 }.
 Viết hàm lọc ra những sinh viên nào có tên bắt đầu bằng chữ ''H'' hoặc ''h''.
+*/
+console.group("bai4_4");
+
+function bai4_4(arr) {
+    return arr.filter(value => value.name[0].toLowerCase() == 'h');
+}
+console.log(JSON.stringify(bai4_4(arr)));
+console.groupEnd();
+/*
 ● Bài 5: Cho 1 mảng các object chứa thông tin sinh viên dạng { name: ''Huy'', gender: ''Male'', age: 20 }.
 Viết hàm tính ra số tuổi trung bình của toàn bộ sinh viên
+*/
+console.group("bai4_5");
 
+function bai4_5(arr) {
+    let total = arr.reduce(function(total, value) {
+        return total + value.age;
+    }, 0)
+    return (total / arr.length).toFixed(2);
+}
+console.log(bai4_5(arr));
+console.groupEnd();
+console.groupEnd();
+/*
 Tổng hợp
 ● Bài 1: Cho 2 số a và b. Viết hàm giải phương trình bậc nhất dạng ax + b = 0.
+*/
+console.group("Tổng hợp");
+console.group("bai5_1");
+
+function bai5_1(a, b) {
+    return -b / a;
+}
+console.log(bai5_1(1, 2));
+console.groupEnd();
+/*
 ● Bài 2: Cho 3 số a, b và c. Viết hàm giải phương trình bậc 2 dạng ax² + bx + c = 0.
+*/
+console.group("bai5_2");
+
+function bai5_2(a, b, c) {
+    let delta = b ** 2 - 4 * a * c;
+    if (delta < 0) return {};
+    let x1 = (-b - Math.sqrt(delta)) / 2 / a;
+    let x2 = (-b + Math.sqrt(delta)) / 2 / a;
+    return { x1, x2 };
+}
+console.log(JSON.stringify(bai5_2(-2, 1, 1)));
+console.log(JSON.stringify(bai5_2(2, 0, 1)));
+console.groupEnd();
+/*
 ● Bài 3: Viết hàm có 2 tham số, tham số đầu tiên là 1 chuỗi thời gian t dạng ''giờ:phút:giây'', tham số
 thứ 2 là 1 số x <= 1000. Kết quả trả về là 1 chuỗi biểu thị thời gian sau x giây kể từ thời điểm t. Ví
 dụ với t = ''9:20:56'' và x = 7 thì kết quả là ''9:21:3''.
+*/
+console.group("bai5_3");
+
+function bai5_3(time, t) {
+    let timeArr = time.split(":");
+    let miliseconds = 0;
+    for (index in timeArr) {
+        miliseconds += Math.pow(60, timeArr.length - 1 - index) * timeArr[index];
+    }
+    miliseconds += t;
+    let newTimeArr = [];
+    for (let i = 2; i >= 0; i--) {
+        newTimeArr.push(Math.floor(miliseconds / Math.pow(60, i)));
+        miliseconds %= Math.pow(60, i);
+    }
+    return `${newTimeArr.join(":")}`;
+}
+console.log(bai5_3("9:20:56", 7));
+console.groupEnd();
+/*
 ● Bài 4: Một con ốc sên leo từ đáy giếng lên miệng giếng, biết ban ngày leo được x mét, ban đêm lại
 bị tụt xuống y mét, hỏi sau bao nhiêu ngày thì ốc sên sẽ lên được đến miệng giếng. Viết hàm giải
 bài toán trên với 3 tham số h là chiều cao của giếng, x và y như mô tả trên.
+*/
+console.group("bai5_4");
+
+function bai5_4(h, x, y) {
+    /* Quãng đường ốc sên bò ngày thứ n:
+    (x-y)*(n-1) + x = (x-y)*n - (x-y) + x = (x-y)*n + y >= h
+        => n >= (h - y)/(x-y)
+    */
+    return Math.ceil((h - y) / (x - y));
+}
+console.log(bai5_4(10, 3, 1));
+console.log(bai5_4(10, 3, 2));
+console.log(bai5_4(13, 3, 1));
+console.groupEnd();
+/*
 ● Bài 5: Cho 1 số nguyên, hãy viết hàm sắp xếp lại các chữ số trong số nguyên đó sao cho ra 1 số
 nhỏ nhất có thể (không tính số 0 đầu tiên). Ví dụ với tham số 53751 thì kết quả là 13557*/
+console.group("bai5_5");
+
+function bai5_5(numb) {
+    let numbArr = String(numb).split("");
+    // console.log(JSON.stringify(numbArr));
+    // console.log(JSON.stringify(numbArr.sort()));
+    let newNumb = numbArr.sort().join("");
+    return parseInt(newNumb);
+}
+console.log(bai5_5(537510));
+console.groupEnd();
+console.groupEnd();
