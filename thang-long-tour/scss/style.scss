@@ -1,0 +1,46 @@
+@import url('../../lib/top-nav.css');
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+}
+
+body {
+    margin: 0;
+}
+
+.logo {
+    width: 290px;
+}
+
+$page-color: #6E542C;
+
+body {
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0, rgba(0, 0, 0, 0) 200px) no-repeat,
+        $page-color;
+}
+
+.topnav {
+    background-color: transparent;
+}
+
+.special-tour-nav {
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    justify-content: space-around;
+    -ms-align-items: center;
+    align-items: center;
+
+    & a {
+        display: inline-block;
+        text-align: center;
+    }
+}
