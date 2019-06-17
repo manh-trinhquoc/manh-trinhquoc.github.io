@@ -1,4 +1,9 @@
 @font-face {
+    font-family: mono;
+    src: url('../font/mono.woff') format('woff');
+}
+
+@font-face {
     font-family: Inconsolata;
     src: url('../font/inconsolata-regular.woff2') format('woff2'),
         url('../font/inconsolata-regular.woff') format('woff'),
