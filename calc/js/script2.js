@@ -59,7 +59,6 @@ let calc = {
     },
     calcResult: function() {
         // hàm tính toán kết quả dựa vào biểu thức toán học người dùng nhập vào và hiển thị ra element
-        console.group("Test hàm calcResult()");
         let result = '';
         let userFormular = this.userFormularArr.join('');
         let userFormularToCalculate = this.userFormularToCalculateArr.join('');
@@ -91,7 +90,6 @@ let calc = {
         // console.log(userFormularToCalculate);
         // console.log(result);
         // console.log("Hoàn thành test hàm calcResult()");
-        console.groupEnd();
     },
     addToFormular: function(objButton) {
         // method add thêm ký tự vào biểu thức toán học
@@ -247,9 +245,9 @@ btnCos.onclick = function() {
 //     btn.onclick();
 // }
 
-// // for (btn of btnPureOperatorArr) {
-// //     btn.onclick();
-// // }
+// for (btn of btnPureOperatorArr) {
+//     btn.onclick();
+// }
 // btnMulti.onclick();
 // // btnDivide.onclick();
 // // btnDot.onclick();
@@ -273,7 +271,6 @@ btnCos.onclick = function() {
 // console.groupEnd();
 
 // Bước 3: Add sự kiện onclick vào các element tương ứng
-console.group("Test bước 3: Add sự kiện onclick")
 
 // các số 0-9
 var elems = document.getElementsByClassName("js-btn-pure-number");
@@ -343,7 +340,6 @@ var elem = document.getElementsByClassName("js-btn-cos")[0];
 elem.onclick = () => { btnCos.onclick(); }
 
 // console.log("Kết thúc test bước 3");
-console.groupEnd();
 
 
 // Bước 4: add thêm các điều kiện đặc hạn chế người dùng bấm sai nút 
@@ -466,10 +462,9 @@ for (btn of [...btnPureOperatorArr, btnMulti, btnDivide]) {
         while (!passAllRequirement(calc.userFormularArr.join(''), requirements)) {
             // Thay operator cũ bằng operator mới
             btnDel.onclick();
+            if (calc.userFormularArr.join('') == '') return
         }
-
         calc.addToFormular.call(calc, this);
-
     };
 }
 

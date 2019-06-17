@@ -1,4 +1,4 @@
 cd F:\manh-trinhquoc.github.io
 git add .
-git commit -m "thang-long-tour: build lading page"
+git commit -m "cacl: fix bug programme infinite loop when click +-*/% button first"
 git push
