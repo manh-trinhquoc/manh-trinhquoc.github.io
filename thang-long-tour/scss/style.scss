@@ -25,6 +25,10 @@ body {
         $page-color;
 }
 
+button:hover {
+    cursor: pointer;
+}
+
 .topnav {
     background-color: transparent;
 }

@@ -5,4 +5,8 @@ function dynamicallyLoadScript(url) {
 }
 
 // Add js for responsive top nav
-dynamicallyLoadScript('../lib/top-nav.js')
+dynamicallyLoadScript('../lib/top-nav.js');
+
+function showMap(id) {
+    document.getElementById(id).toggleAttribute("hidden");
+}

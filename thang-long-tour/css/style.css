@@ -16,6 +16,9 @@ body {
 body {
   background: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0, rgba(0, 0, 0, 0) 200px) no-repeat, #6E542C; }
 
+button:hover {
+  cursor: pointer; }
+
 .topnav {
   background-color: transparent; }
 
