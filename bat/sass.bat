@@ -1,2 +1,2 @@
-cd F:\manh-trinhquoc.github.io\js-review
+cd F:\manh-trinhquoc.github.io\thang-long-tour
 sass --watch scss:css
