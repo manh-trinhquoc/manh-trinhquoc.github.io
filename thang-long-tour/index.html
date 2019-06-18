@@ -161,7 +161,7 @@
 </div> -->
         <!-- facebook like page -->
         <div id="fb-root"></div>
-        <!-- <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.3"></script> -->
+        <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.3"></script>
         <div class="fb-page" data-href="https://www.facebook.com/Frontend-3-2448958151999364/" data-tabs="" data-width="320" data-height="185" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
             <blockquote cite="https://www.facebook.com/Frontend-3-2448958151999364/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/Frontend-3-2448958151999364/">Frontend 3</a></blockquote>
         </div>
@@ -171,27 +171,6 @@
             Message us on facebook bằng thẻ a
         </a>
         <!-- face book chat set 2 -->
-        <!-- <div class="fb-customerchat" page_id="2448958151999364" minimized="false">
-        </div>
-        <script>
-        window.fbAsyncInit = function() {
-            FB.init({
-                appId: '430075294526117',
-                autoLogAppEvents: true,
-                xfbml: true,
-                version: 'v3.3'
-            });
-        };
-        (function(d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) return;
-            js = d.createElement(s);
-            js.id = id;
-            js.src = "https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js";
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
-        </script> -->
-        <!-- face book chat set 3 -->
         <script>
         window.fbAsyncInit = function() {
             FB.init({
@@ -201,6 +180,7 @@
         };
 
         (function(d, s, id) {
+            console.log("facebook function");
             var js, fjs = d.getElementsByTagName(s)[0];
             if (d.getElementById(id)) return;
             js = d.createElement(s);
