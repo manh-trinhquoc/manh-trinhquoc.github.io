@@ -7,7 +7,7 @@
     <title>Thang Long Tour</title>
     <!-- script for live reload - develop only -->
     <!-- <script type="text/javascript" src="js/live.js"></script> -->
-    <!-- <script type="text/javascript" src="http://livejs.com/live.js"></script> -->
+    <script type="text/javascript" src="http://livejs.com/live.js"></script>
     <!-- Load an icon library to show a hamburger menu (bars) on small screens -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- font awesome -->
@@ -17,7 +17,7 @@
 </head>
 
 <body>
-    <header>
+    <header class="header">
         <img src="img/logo.png" alt="logo image" class="logo" />
         <div class="topnav" id="topnav">
             <a href="javascript:void(0);" class="icon" onclick="toggleClassResponsive('topnav')">
@@ -30,10 +30,11 @@
             <a href="#">Tin du lịch</a>
             <a href="#">Liên hệ</a>
             <a href="#">Liên hệ</a>
-            <div class="feature">
-                <a href="#"><i class="fas fa-search"></i></a>
-                <a href="#"><i class="fas fa-user"></i></a>
-            </div>
+            <form class="topnav__search search" action="#">
+                <input type="text" placeholder="Search.." name="search" class="search__input">
+                <button type="submit" class="search__button"><i class="fa fa-search"></i></button>
+            </form>
+            <a href="#"><i class="fas fa-user"></i></a>
         </div>
     </header>
     <section class="banner">
@@ -156,13 +157,13 @@
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.865473837358!2d105.7924504147627!3d20.99802898601497!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135acba8ad197a5%3A0xa55e51322131e722!2zNDggVOG7kSBI4buvdSwgVHJ1bmcgVsSDbiwgVOG7qyBMacOqbSwgSMOgIE7hu5lpLCBWaWV0bmFt!5e0!3m2!1sen!2s!4v1560764940205!5m2!1sen!2s" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
         </div>
         <!-- google street view -->
-        <div class="map-marker" id="footer-map">
-            <iframe src="https://www.google.com/maps/embed?pb=!4v1560766712311!6m8!1m7!1sCAoSLEFGMVFpcE12MU0teTc3MWFMNFBHdGltbUtGQzRSZTJlLUQxelRSamhWOWgt!2m2!1d20.99798364323391!2d105.7947524055053!3f52.166519230599775!4f0!5f0.7820865974627469" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
-        </div>
+        <!-- <div class="map-marker" id="footer-map">
+            <iframe src="https://www.google.com/maps/embed?pb=!4v1560766712311!6m8!1m7!1sCAoSLEFGMVFpcE12MU0teTc3MWFMNFBHdGltbUtGQzRSZTJlLUQxelRSamhWOWgt!2m2!1d20.99798364323391!2d105.7947524055053!3f52.166519230599775!4f0!5f0.7820865974627469" width="600" height="500" frameborder="0" style="border:0" allowfullscreen></iframe>
+        </div> -->
         <!-- facebook like page -->
         <div id="fb-root"></div>
         <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.3"></script>
-        <div class="fb-page" data-href="https://www.facebook.com/Frontend-3-2448958151999364/" data-tabs="" data-width="320" data-height="185" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
+        <div class="fb-page" data-href="https://www.facebook.com/Frontend-3-2448958151999364/" data-tabs="" data-width="320" data-height="200" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
             <blockquote cite="https://www.facebook.com/Frontend-3-2448958151999364/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/Frontend-3-2448958151999364/">Frontend 3</a></blockquote>
         </div>
         <!-- facebook chat -->

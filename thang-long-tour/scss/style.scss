@@ -12,6 +12,7 @@ html {
 
 body {
     margin: 0;
+    padding: 5px;
 }
 
 .logo {
@@ -19,6 +20,9 @@ body {
 }
 
 $page-color: #6E542C;
+$page-color-darker: #6A572B;
+$icon-color: #B58A4D;
+$search-height: 44px;
 
 body {
     background: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0, rgba(0, 0, 0, 0) 200px) no-repeat,
@@ -29,8 +33,61 @@ button:hover {
     cursor: pointer;
 }
 
-.topnav {
-    background-color: transparent;
+%container {
+    display: block;
+    width: 100%;
+    position: relative;
+}
+
+
+.header {
+    @extend %container;
+
+    img {
+        max-width: 50%;
+    }
+
+    .topnav {
+        background-color: transparent;
+        position: relative;
+        margin-top: -40px;
+        width: 100%;
+
+        &__search {
+            min-width: 300px;
+            height: $search-height;
+        }
+    }
+
+}
+
+.search {
+    position: relative;
+
+    &__input {
+        height: 100%;
+        width: 100%;
+        background-color: $page-color-darker;
+        border: none;
+        padding-left: 5px;
+        padding-right: $search-height;
+        overflow: hidden;
+    }
+
+    &__button {
+        position: absolute;
+        right: 1px;
+        top: 1px;
+        height: $search-height - 2px;
+        width: $search-height - 2px;
+        background-color: $page-color-darker;
+        border: none;
+
+    }
+}
+
+i {
+    color: $icon-color;
 }
 
 .special-tour-nav {
