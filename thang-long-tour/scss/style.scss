@@ -19,10 +19,18 @@ body {
     width: 290px;
 }
 
+/*Cac mau sac chinh*/
 $page-color: #6E542C;
 $page-color-darker: #92703B;
-$icon-color: #B58A4D;
+$page-color-lighter: #92703B;
+$text-color: #F3CB03;
+$text-color-darker: #B09302;
+$text-color-lighter: #B58A4D;
+$text-no-color: white;
+$icon-color: $text-color-lighter;
 $search-height: 44px;
+$basic-padding: 5px;
+
 
 body {
     background: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0, rgba(0, 0, 0, 0) 200px) no-repeat,
@@ -158,6 +166,11 @@ i {
             text-align: center;
             /*min-width: 95px;*/
         }
+
+        img {
+            width: 33px;
+            height: 33px;
+        }
     }
 
 }
@@ -227,4 +240,23 @@ a {
     width: 100px;
     height: 30px;
     text-align: center;
+}
+
+.footer {
+    @extend %container;
+
+    &__logo {
+        text-align: center;
+    }
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+        padding-top: $basic-padding;
+    }
+
 }
