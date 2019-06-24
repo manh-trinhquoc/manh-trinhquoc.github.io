@@ -35,7 +35,7 @@
                 <button type="submit" class="search__button"><i class="fa fa-search"></i></button>
             </form>
             <div class="a">
-                <div class="topnav__sign-in"><i class="fas fa-user"></i></div>
+                <button class="topnav__sign-in" onclick="showSignInPopover()"><i class="fas fa-user"></i></button>
             </div>
         </div>
     </header>
@@ -81,25 +81,36 @@
             </ul>
         </div>
     </section>
-    <div class="sign-up">
+    <div class="sign-up" id="sign-up-popover" onclick="showSignInPopover()">
+        <button class="sign-up__cancel" onclick="hideSignUpPopover()">
+            <i class="fas fa-times"></i>
+        </button>
         <form action="#" id="sign-up">
             <h2>Đăng ký</h2>
-            <input type="text" placeholder="Họ tên*" />
-            <p class="sign-up__fail"></p>
-            <input type="text" placeholder="Số điện thoại*" />
-            <p class="sign-up__fail"></p>
-            <input type="text" placeholder="Email*" />
-            <p class="sign-up__fail"></p>
-            <input type="text" placeholder="Mật khẩu*" />
-            <p class="sign-up__fail"></p>
-            <input type="text" placeholder="Nhắc lại mật khẩu*" />
-            <p class="sign-up__fail"></p>
-            <p>Các trường có dấu * bắt buộc phải điền</p>
+            <div class="sign-up__input">
+                <div class="row">
+                    <div class="col">
+                        <input type="text" placeholder="Họ tên*" />
+                        <p class="sign-up__fail"></p>
+                    </div>
+                    <div class="col">
+                        <input type="text" placeholder="Số điện thoại*" />
+                        <p class="sign-up__fail"></p>
+                    </div>
+                </div>
+                <input type="text" placeholder="Email*" />
+                <p class="sign-up__fail"></p>
+                <input type="text" placeholder="Mật khẩu*" />
+                <p class="sign-up__fail"></p>
+                <input type="text" placeholder="Nhắc lại mật khẩu*" />
+                <p class="sign-up__fail"></p>
+                <p>Các trường có dấu * bắt buộc phải điền</p>
+            </div>
         </form>
         <form action="#" id="sign-in" hidden="">
             <h2>Đăng nhập</h2>
             <h2 class="sign-up__welcome">Chào mừng bạn quay trở lại</h2>
-            <div class="sign-in">
+            <div class="sign-up__input">
                 <input type="text" placeholder="Email*" />
                 <p class="sign-up__fail"></p>
                 <input type="text" placeholder="Mật khẩu*" />

@@ -13,12 +13,14 @@ function showMap(id) {
 
 let eleSignUpForm = document.getElementById("sign-up");
 let eleSignInForm = document.getElementById("sign-in");
+let eleSignUpPopover = document.getElementById("sign-up-popover");
 
 function signIn() {
     if (eleSignInForm.hasAttribute("hidden")) {
         eleSignInForm.removeAttribute("hidden");
         eleSignUpForm.setAttribute("hidden", "");
     }
+    event.stopPropagation()
 }
 
 function signUp() {
@@ -26,4 +28,23 @@ function signUp() {
         eleSignUpForm.removeAttribute("hidden");
         eleSignInForm.setAttribute("hidden", "");
     }
+    event.stopPropagation()
 }
+
+function hideSignUpPopover() {
+    eleSignUpPopover.setAttribute("hidden", "");
+    event.stopPropagation()
+}
+
+function showSignInPopover() {
+    eleSignUpPopover.removeAttribute("hidden");
+    event.stopPropagation()
+}
+
+document.addEventListener("click", function() {
+
+    if (!eleSignUpPopover.hasAttribute("hidden")) {
+        hideSignUpPopover();
+    }
+
+});
