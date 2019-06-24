@@ -34,7 +34,7 @@ button:hover {
     .header, .banner__nav, .banner__wrapper, .foreign, .viet-nam, .footer {
       max-width: 1140px; } }
 
-.row, .header .topnav__sign-in, .banner__nav {
+.row, .header .topnav__sign-in, .sign-up__btn, .banner__nav {
   display: -webkit-flex;
   display: -moz-flex;
   display: -ms-flex;
@@ -45,7 +45,7 @@ button:hover {
   .row {
     flex-flow: column; } }
 
-.header .topnav__sign-in, .row {
+.header .topnav__sign-in, .row, .sign-up__btn {
   justify-content: center;
   -ms-align-items: center;
   align-items: center; }
@@ -226,7 +226,8 @@ a {
   width: 100px;
   text-align: center;
   background-color: #B58A4D;
-  padding: 10px; }
+  padding: 10px;
+  border: none; }
 
 .footer {
   padding-bottom: 5px; }
@@ -246,5 +247,38 @@ ul {
   margin: 0; }
   ul li {
     padding-top: 5px; }
+
+.sign-up {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(74, 56, 29, 0.9);
+  z-index: 1;
+  padding: 5px;
+  width: 300px; }
+  .sign-up input {
+    width: 100%;
+    padding: 5px;
+    height: 44px;
+    display: block; }
+  .sign-up__fail {
+    height: 22px;
+    width: 100%; }
+  .sign-up #sign-up {
+    height: 572px; }
+  .sign-up #sign-in {
+    height: 572px;
+    position: relative; }
+  .sign-up__btn {
+    bottom: 5px; }
+  .sign-up__welcome {
+    font-size: 2rem;
+    position: relative;
+    top: 15%; }
+
+.sign-in {
+  position: absolute;
+  bottom: 0;
+  width: 100%; }
 
 /*# sourceMappingURL=style.css.map */

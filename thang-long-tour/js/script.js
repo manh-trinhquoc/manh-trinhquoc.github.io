@@ -10,3 +10,20 @@ dynamicallyLoadScript('../lib/top-nav.js');
 function showMap(id) {
     document.getElementById(id).toggleAttribute("hidden");
 }
+
+let eleSignUpForm = document.getElementById("sign-up");
+let eleSignInForm = document.getElementById("sign-in");
+
+function signIn() {
+    if (eleSignInForm.hasAttribute("hidden")) {
+        eleSignInForm.removeAttribute("hidden");
+        eleSignUpForm.setAttribute("hidden", "");
+    }
+}
+
+function signUp() {
+    if (eleSignUpForm.hasAttribute("hidden")) {
+        eleSignUpForm.removeAttribute("hidden");
+        eleSignInForm.setAttribute("hidden", "");
+    }
+}

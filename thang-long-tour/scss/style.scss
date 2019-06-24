@@ -17,8 +17,9 @@ body {
 
 /*Cac mau sac chinh*/
 $page-color: #6E542C;
-$page-color-darker: #92703B;
+$page-color-darker: #4A381D;
 $page-color-lighter: #92703B;
+$page-color-darker_trans: rgba(74, 56, 29, 0.9);
 $text-color: #F3CB03;
 $text-color-darker: #B09302;
 $text-color-lighter: #B58A4D;
@@ -363,6 +364,7 @@ a {
     text-align: center;
     background-color: $btn-color;
     padding: $btn-padding;
+    border: none;
 }
 
 .footer {
@@ -397,4 +399,53 @@ ul {
         padding-top: $basic-padding;
     }
 
+}
+
+.sign-up {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: $page-color-darker_trans;
+    z-index: 1;
+    padding: 5px;
+    width: 300px;
+
+    input {
+        width: 100%;
+        padding: 5px;
+        height: $search-height;
+        display: block;
+    }
+
+    &__fail {
+        height: $search-height/2;
+        width: 100%;
+    }
+
+    #sign-up {
+        height: $search-height*13;
+    }
+
+    #sign-in {
+        height: $search-height*13;
+        position: relative;
+    }
+
+    &__btn {
+        @extend %d-flex_center;
+        bottom: 5px;
+    }
+
+    &__welcome {
+        font-size: 2rem;
+        position: relative;
+        top: 15%;
+    }
+
+}
+
+.sign-in {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 }
