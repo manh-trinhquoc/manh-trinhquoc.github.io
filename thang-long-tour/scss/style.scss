@@ -122,6 +122,11 @@ button:hover {
             @extend %d-flex_center;
         }
 
+        .a {
+            padding: 0;
+            padding-left: 16px;
+        }
+
         @media (min-width: 576px) {
             margin-top: 0;
 

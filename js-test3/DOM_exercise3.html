@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My Books List</title>
+    <!-- script for live reload - develop only -->
+    <!-- <script type="text/javascript" src="js/live.js"></script> -->
+    <!-- <script type="text/javascript" src="http://livejs.com/live.js"></script> -->
+</head>
+
+<body>
+    <h1>My Books List</h1>
+    <script>
+    //Tạo 1 mảng các sách có cấu trúc sau(dữ liệu tự tìm)
+    let bookArr = [{
+            title: 'The Design of EveryDay Things',
+            author: 'Don Norman',
+            thumbnail: 'https://upload.wikimedia.org/wikipedia/en/3/33/The_Design_of_Everyday_Things_%28cover_1988%29.jpg',
+            alreadyRead: false
+        },
+        {
+            title: 'The Most Human Human',
+            author: 'Brian Christian',
+            thumbnail: 'https://images-na.ssl-images-amazon.com/images/I/51aKPFuUy1L._SX324_BO1,204,203,200_.jpg',
+            alreadyRead: true
+        },
+        {
+            title: 'Cracking the coding interview',
+            author: 'Gayle Laakmann McDowell',
+            thumbnail: 'https://images-na.ssl-images-amazon.com/images/I/51l5XzLln%2BL._SX348_BO1,204,203,200_.jpg',
+            alreadyRead: true
+        },
+        {
+            title: 'Head First JavaScript',
+            author: 'Michael Morrison ',
+            thumbnail: 'https://images-na.ssl-images-amazon.com/images/I/519zH9A5AwL._SX258_BO1,204,203,200_.jpg',
+            alreadyRead: false
+        },
+        {
+            title: 'Introduction to Algorithms',
+            author: 'Thomas H. Cormen',
+            thumbnail: 'https://images-na.ssl-images-amazon.com/images/I/51rPLfOvqxL._SX376_BO1,204,203,200_.jpg',
+            alreadyRead: false
+        }
+
+    ]
+    // Sử dụng vòng lặp duyệt qua các sách. Với mỗi sách tạo ra 1 thẻ div với tên sách, tên tác giả, ảnh bìa rồi đưa nó vào trang web
+    for (book of bookArr) {
+        let eleDiv = document.createElement('div');
+        eleDiv.innerHTML = `<h1>${book.title}</h1> <p>${book.author}</p><img src="${book.thumbnail}" alt="thumbnail img">`;
+        console.log(eleDiv);
+        // Thay đổi style cho mỗi sách tuỳ thuôc vào việc bạn đã đọc nó hay chưa
+        eleDiv.style.color = book.alreadyRead ? "red" : "blue";
+        document.getElementsByTagName('body')[0].appendChild(eleDiv);
+    }
+    </script>
+</body>
+
+</html>

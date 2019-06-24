@@ -75,6 +75,9 @@ button:hover {
     border-radius: 22px;
     background-color: #92703B;
     padding: 0; }
+  .header .topnav .a {
+    padding: 0;
+    padding-left: 16px; }
   @media (min-width: 576px) {
     .header .topnav {
       margin-top: 0; }

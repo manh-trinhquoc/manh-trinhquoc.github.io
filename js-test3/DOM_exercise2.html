@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>About Me</title>
+    <!-- script for live reload - develop only -->
+    <!-- <script type="text/javascript" src="js/live.js"></script> -->
+    <!-- <script type="text/javascript" src="http://livejs.com/live.js"></script> -->
+</head>
+
+<body>
+    <h1>About Me</h1>
+    <ul>
+        <li>Nickname: <span id="nickname"></span>
+        <li>Favorites: <span id="favorites"></span>
+        <li>Hometown: <span id="hometown"></span>
+    </ul>
+    <script>
+    // Thêm một thẻ script vào dưới cùng.
+    var eleScript = document.createElement("script");
+    eleScript.innerHTML = `console.log('this is a script tag');`
+    document.getElementsByTagName('body')[0].appendChild(eleScript);
+    // Thay đổi font chữ của thẻ <body> trở thành "Arial, sans-serif".
+    let eleBody = document.getElementsByTagName('body')[0];
+    eleBody.style.fontFamily = "Arial, sans-serif";
+    // Thay thế từng phần (Nickname, Favorites, Hometown) bằng thông tin của riêng bạn.
+    let eleNickName = document.getElementById('nickname');
+    eleNickName.innerText = "Manh";
+
+    let eleFavorites = document.getElementById('favorites');
+    eleFavorites.innerText = "Cat";
+
+    let eleHometown = document.getElementById('hometown');
+    eleHometown.innerText = "Ha Noi";
+    // Lặp lại qua từng li và thêm class listitem. Sử dụng class vừa thêm để đổi màu của các list item thành màu đỏ (red)
+    let elesLi = document.getElementsByTagName('li');
+    for (ele of elesLi) {
+        ele.classList.add('listitem');
+    }
+
+    var eleStyle = document.createElement("style");
+    eleStyle.innerHTML = `.listitem {color: red}`;
+    document.getElementsByTagName('head')[0].appendChild(eleStyle);
+    // Tạo một phần tử img mới và đặt thuộc tính src của nó thành avatar của bạn. Đưa phần tử đó vào trang.
+    var eleImg = document.createElement("img");
+    eleImg.setAttribute('src', `img/avatar.jpg`);
+    eleImg.setAttribute('alt', `my avatar img`);
+    document.getElementsByTagName('body')[0].appendChild(eleImg);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Số nguyên tố</title>
+    <!-- script for live reload - develop only -->
+    <!-- <script type="text/javascript" src="js/live.js"></script> -->
+    <!-- <script type="text/javascript" src="http://livejs.com/live.js"></script> -->
+</head>
+
+<body>
+    <h1>Số nguyên tố</h1>
+    <script>
+    function primeNumberList(maxVal = 1000) {
+        // In ra trình duyệt sử dụng  document.write()
+        let primeArr = [];
+
+        function isPrime(val) {
+            let maxNumb = val / 2;
+            for (let i = 2; i <= maxNumb; i++) {
+
+                if (val % i == 0) {
+                    // console.log(i);
+
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        for (let i = 2; i <= maxVal; i++) {
+            // if (isPrime(i)) primeArr.push(i);
+            if (isPrime(i)) document.write(i + ' ');
+        }
+        // document.write(primeArr);
+    }
+    primeNumberList();
+    </script>
+</body>
+
+</html>
