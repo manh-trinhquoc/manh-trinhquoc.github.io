@@ -1,0 +1,32 @@
+@import 'style.scss';
+
+.breadcrumb {
+    @extend %responsive-max-width;
+    margin-top: $padding-lg;
+
+    li {
+        display: inline-block;
+
+
+    }
+
+    li:not(:last-child):after {
+        content: "/";
+        display: inline-block;
+        padding-left: $padding-xs;
+        padding-right: $padding-xs;
+    }
+
+    .active {
+        color: $text-color;
+    }
+}
+
+.container {
+    @extend %responsive-max-width;
+}
+
+h2 {
+    text-align: left;
+    margin-top: $padding-lg;
+}

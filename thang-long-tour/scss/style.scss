@@ -1,4 +1,4 @@
-@import url('../../lib/top-nav.css');
+@import url('/thang-long-tour/comp/top-nav.css');
 
 * {
     -webkit-box-sizing: border-box;
@@ -125,11 +125,10 @@ button:hover {
 
     .topnav {
         background-color: transparent;
-        position: relative;
+        position: absolute;
+        z-index: 1;
         margin-top: -35px;
-        width: 100%;
-
-
+        width: calc(100% - 10px);
 
         &__search {
             min-width: 300px;
@@ -164,6 +163,7 @@ button:hover {
 
         @media (min-width: 576px) {
             margin-top: 0;
+            position: relative;
 
             a {
                 padding: 0
@@ -326,7 +326,7 @@ i {
 }
 
 .foreign {
-    margin-top: 50%;
+    margin-top: 60%;
     @extend %responsive-max-width;
     border-bottom: 1px solid $page-color-darker;
     padding-bottom: $padding-lg;
