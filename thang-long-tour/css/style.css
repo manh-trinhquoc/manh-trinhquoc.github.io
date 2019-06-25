@@ -2,18 +2,20 @@
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0; }
 
+/*Cac mau sac chinh*/
+/*font size*/
+/*tag size*/
 html {
   font-size: 16px;
   color: white; }
 
 body {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0, rgba(0, 0, 0, 0) 200px) no-repeat, #6E542C;
   margin: 0; }
-
-/*Cac mau sac chinh*/
-body {
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0, rgba(0, 0, 0, 0) 200px) no-repeat, #6E542C; }
 
 button:hover {
   cursor: pointer; }
@@ -57,14 +59,8 @@ button:hover {
 .logo {
   width: 290px; }
 
-.icon, .icon_filter {
-  max-width: 33px;
-  max-height: 33px; }
-  .icon_filter {
-    filter: invert(52%) sepia(88%) saturate(249%) hue-rotate(356deg) brightness(91%) contrast(93%); }
-
 .header {
-  padding-top: 5px; }
+  padding-top: 20px; }
   .header img {
     max-width: 50%; }
   .header i {
@@ -80,7 +76,7 @@ button:hover {
       height: 44px;
       display: none; }
     .header .topnav.responsive {
-      background-color: rgba(74, 56, 29, 0.9); }
+      background-color: rgba(91, 70, 36, 0.9); }
     .header .topnav.responsive .topnav__search {
       display: block;
       margin: 0 auto; }
@@ -88,7 +84,7 @@ button:hover {
       width: 44px;
       height: 44px;
       border-radius: 22px;
-      background-color: #92703B;
+      background-color: #09ff30;
       padding: 0;
       border: none; }
     .header .topnav .a {
@@ -107,7 +103,8 @@ button:hover {
           background-color: transparent; }
           .header .topnav__search:hover input {
             width: 300px;
-            background-color: #92703B; }
+            background-color: #09ff30;
+            color: white; }
         .header .topnav input {
           position: absolute;
           right: 0;
@@ -125,7 +122,7 @@ button:hover {
     padding-left: 5px;
     padding-right: 44px;
     overflow: hidden;
-    color: #F3CB03; }
+    color: #09ff30; }
   .search__button {
     position: absolute;
     right: 1px;
@@ -136,7 +133,7 @@ button:hover {
     border: none; }
 
 i {
-  color: #B58A4D; }
+  color: #3cff5b; }
 
 .banner {
   width: 100%;
@@ -166,16 +163,39 @@ i {
     -ms-align-items: flex-end;
     align-items: flex-end;
     width: 100%; }
-    .banner__nav a {
-      display: block;
-      text-align: center;
-      /*min-width: 95px;*/ }
+  .banner__item {
+    display: block;
+    text-align: center;
+    /*min-width: 95px;*/ }
+  .banner__icon {
+    max-width: 33px;
+    max-height: 33px;
+    filter: invert(67%) sepia(37%) saturate(6421%) hue-rotate(92deg) brightness(121%) contrast(122%); }
+    @media (min-width: 992px) {
+      .banner__icon {
+        max-width: 49.5px;
+        max-height: 49.5px; } }
   .banner__wrapper {
     position: static; }
 
+@media (min-width: 576px) {
+  .banner-content__contry {
+    font-size: 16.5px; }
+  .banner-content__header {
+    font-size: 27.5px; }
+  .banner-content__duration {
+    font-size: 11.5px; } }
+@media (min-width: 768px) {
+  .banner-content__contry {
+    font-size: 33px; }
+  .banner-content__header {
+    font-size: 55px; }
+  .banner-content__duration {
+    font-size: 23px; } }
+
 .foreign {
   margin-top: 50%;
-  border-bottom: 1px solid #4A381D;
+  border-bottom: 1px solid #4a381d;
   padding-bottom: 70px; }
 
 .viet-nam {
@@ -190,13 +210,17 @@ a {
   text-decoration: none; }
 
 .row {
-  justify-content: space-between; }
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding-top: 5px;
+  padding-bottom: 5px; }
 
 .card {
   width: 260px;
-  height: 340px;
+  height: 350px;
   margin-bottom: 20px;
-  position: relative; }
+  position: relative;
+  padding: 10px; }
   .card img {
     max-width: 100%; }
   .card__img {
@@ -205,43 +229,60 @@ a {
     background-image: url("../img/india-1.jpg");
     background-position: center;
     position: relative; }
-  .card .sale {
+  .card__sale {
     position: absolute;
     bottom: 0;
     background-color: red;
     padding: 5px; }
-  .card h3,
-  .card h4,
-  .card h5 {
-    font-size: 1rem;
-    margin: 2px 0px; }
-  .card h3 {
-    margin-top: 10px; }
-  .card .price {
-    margin-top: 10px;
-    margin-bottom: 10px; }
+  .card__country {
+    color: #00d522;
+    padding-top: 5px; }
+  .card__header {
+    color: #09ff30;
+    padding-top: 5px;
+    padding-bottom: 5px; }
+  .card__price {
+    padding-top: 10px; }
+    .card__price:after {
+      content: ' vnd';
+      color: #00d522; }
+  .card__duration, .card__start-date {
+    color: #09ff30; }
 
-.btn, .sign-up__cancel {
+.btn, .btn_sm, .btn_md, .btn_deactive, .sign-up__cancel {
   margin: 0 auto;
-  width: 100px;
+  color: white;
   text-align: center;
-  background-color: #B58A4D;
+  background-color: #00d522;
   padding: 10px;
   border: none; }
+  .btn_sm {
+    width: 100px; }
+  .btn_md {
+    width: 200px; }
+  .btn_deactive {
+    background-color: #4a381d;
+    color: #00d522; }
 
 .footer {
   padding-bottom: 5px;
   padding-top: 5px;
-  background-color: #4A381D; }
+  background-color: #4a381d; }
+  .footer .row {
+    flex-wrap: wrap;
+    justify-content: space-between; }
   .footer__logo {
-    text-align: center; }
+    text-align: center;
+    padding: 10px; }
   .footer__link {
     padding-left: 10%; }
     @media (min-width: 576px) {
       .footer__link {
-        padding-left: 0; } }
+        padding-left: 0;
+        padding: 10px; } }
   .footer__fb {
-    min-width: 310px; }
+    min-width: 300px;
+    padding: 10px; }
   .footer__social-list {
     justify-content: space-between;
     font-size: 33px; }
@@ -257,7 +298,7 @@ ul {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  background-color: rgba(74, 56, 29, 0.9);
+  background-color: rgba(91, 70, 36, 0.9);
   z-index: 1;
   padding: 5px;
   width: 50%;
@@ -270,21 +311,23 @@ ul {
     display: block; }
   .sign-up__fail {
     height: 22px;
-    width: 100%; }
+    width: 100%;
+    margin: 20px; }
   .sign-up #sign-up {
-    height: 572px;
+    height: 616px;
     position: relative; }
     @media (min-width: 576px) {
       .sign-up #sign-up {
         height: 484px; } }
   .sign-up #sign-in {
-    height: 572px;
+    height: 616px;
     position: relative; }
     @media (min-width: 576px) {
       .sign-up #sign-in {
         height: 484px; } }
   .sign-up__btn {
-    bottom: 5px; }
+    bottom: 5px;
+    padding: 20px; }
   .sign-up__welcome {
     font-size: 2rem;
     position: relative;

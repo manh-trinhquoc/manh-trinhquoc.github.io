@@ -43,38 +43,38 @@
         <img src="img/banner-1.jpg" alt="banner image" />
         <div class="banner__wrapper">
             <div class="banner__content">
-                <h4>Việt Nam</h4>
-                <h3>TOUR DU LỊCH HÀ NỘI - HẠ LONG - CÁT BÀ</h3>
-                <h4>Thời gian: 04 ngày 03 đêm</h4>
+                <h4 class="banner-content__contry">Việt Nam</h4>
+                <h3 class="banner-content__header">TOUR DU LỊCH HÀ NỘI - HẠ LONG - CÁT BÀ</h3>
+                <h4 class="banner-content__duration">Thời gian: 04 ngày 03 đêm</h4>
             </div>
             <ul class="banner__nav">
                 <li>
-                    <a href="#">
-                        <img src="img/special-tour-icon-1.png" alt="special tour icon" class="icon_filter" /> <br />
+                    <a href="#" class="banner__item">
+                        <img src="img/special-tour-icon-1.png" alt="special tour icon" class="banner__icon" /> <br />
                         Hành hương
                     </a>
                 </li>
                 <li>
-                    <a href="#">
-                        <img src="img/special-tour-icon-2.png" alt="special tour icon" class="icon_filter" /> <br />
+                    <a href="#" class="banner__item">
+                        <img src="img/special-tour-icon-2.png" alt="special tour icon" class="banner__icon" /> <br />
                         Xe đạp
                     </a>
                 </li>
                 <li>
-                    <a href="#">
-                        <img src="img/special-tour-icon-3.png" alt="special tour icon" class="icon_filter" /> <br />
+                    <a href="#" class="banner__item">
+                        <img src="img/special-tour-icon-3.png" alt="special tour icon" class="banner__icon" /> <br />
                         Motor
                     </a>
                 </li>
                 <li>
-                    <a href="#">
-                        <img src="img/special-tour-icon-4.png" alt="special tour icon" class="icon_filter" /> <br />
+                    <a href="#" class="banner__item">
+                        <img src="img/special-tour-icon-4.png" alt="special tour icon" class="banner__icon" /> <br />
                         Câu cá
                     </a>
                 </li>
                 <li>
-                    <a href="#">
-                        <img src="img/special-tour-icon-5.png" alt="special tour icon" class="icon_filter" /> <br />
+                    <a href="#" class="banner__item">
+                        <img src="img/special-tour-icon-5.png" alt="special tour icon" class="banner__icon" /> <br />
                         Chụp ảnh
                     </a>
                 </li>
@@ -119,8 +119,8 @@
             </div>
         </form>
         <div class="sign-up__btn">
-            <button type="submit" class="btn" onclick="signUp()">Đăng ký</button>
-            <button type="submit" class="btn" onclick="signIn()">Đăng nhập</button>
+            <button type="submit" class="btn_sm" onclick="signUp()">Đăng ký</button>
+            <button type="submit" class="btn_sm btn_deactive" onclick="signIn()">Đăng nhập</button>
         </div>
     </div>
     <section class="foreign">
@@ -129,41 +129,64 @@
             <div class="card">
                 <a href="#">
                     <div class="card__img">
-                        <div class="sale">-600.000</div>
+                        <div class="card__sale">-600.000</div>
                     </div>
-                    <h4>Ấn độ</h4>
-                    <h3>Tour du lịch Bắc Ấn độ: Ladakh - “tiểu tây tạng trên đất ấn</h3>
-                    <h5 class="price">4.500.000</h5>
-                    <h5 class="duration">Thời gian: 04 ngày 03 đêm</h5>
-                    <h5 class="start-date">Khởi hành: 28/04; 29/04; 2/5</h5>
+                    <h4 class="card__country">Ấn độ</h4>
+                    <h3 class="card__header">Tour du lịch Bắc Ấn độ: Ladakh - “tiểu tây tạng trên đất ấn</h3>
+                    <h5 class="card__price">4.500.000</h5>
+                    <h5 class="card__duration">Thời gian: 04 ngày 03 đêm</h5>
+                    <h5 class="card__start-date">Khởi hành: 28/04; 29/04; 2/5</h5>
                 </a>
             </div>
             <div class="card">
                 <a href="#">
                     <div class="card__img">
-                        <div class="sale">-600.000</div>
+                        <div class="card__sale">-600.000</div>
                     </div>
-                    <h4>Ấn độ</h4>
-                    <h3>Tour du lịch Bắc Ấn độ: Ladakh - “tiểu tây tạng trên đất ấn</h3>
-                    <h5 class="price">4.500.000</h5>
-                    <h5 class="duration">Thời gian: 04 ngày 03 đêm</h5>
-                    <h5 class="start-date">Khởi hành: 28/04; 29/04; 2/5</h5>
+                    <h4 class="card__country">Ấn độ</h4>
+                    <h3 class="card__header">Tour du lịch Bắc Ấn độ: Ladakh - “tiểu tây tạng trên đất ấn</h3>
+                    <h5 class="card__price">4.500.000</h5>
+                    <h5 class="card__duration">Thời gian: 04 ngày 03 đêm</h5>
+                    <h5 class="card__start-date">Khởi hành: 28/04; 29/04; 2/5</h5>
                 </a>
             </div>
             <div class="card">
                 <a href="#">
                     <div class="card__img">
-                        <div class="sale">-600.000</div>
+                        <div class="card__sale">-600.000</div>
                     </div>
-                    <h4>Ấn độ</h4>
-                    <h3>Tour du lịch Bắc Ấn độ: Ladakh - “tiểu tây tạng trên đất ấn</h3>
-                    <h5 class="price">4.500.000</h5>
-                    <h5 class="duration">Thời gian: 04 ngày 03 đêm</h5>
-                    <h5 class="start-date">Khởi hành: 28/04; 29/04; 2/5</h5>
+                    <h4 class="card__country">Ấn độ</h4>
+                    <h3 class="card__header">Tour du lịch Bắc Ấn độ: Ladakh - “tiểu tây tạng trên đất ấn</h3>
+                    <h5 class="card__price">4.500.000</h5>
+                    <h5 class="card__duration">Thời gian: 04 ngày 03 đêm</h5>
+                    <h5 class="card__start-date">Khởi hành: 28/04; 29/04; 2/5</h5>
                 </a>
             </div>
-        </div>
-        <div class="btn"><a href="#">Xem thêm</a></div>
+            <div class="card">
+                <a href="#">
+                    <div class="card__img">
+                        <div class="card__sale">-600.000</div>
+                    </div>
+                    <h4 class="card__country">Ấn độ</h4>
+                    <h3 class="card__header">Tour du lịch Bắc Ấn độ: Ladakh - “tiểu tây tạng trên đất ấn</h3>
+                    <h5 class="card__price">4.500.000</h5>
+                    <h5 class="card__duration">Thời gian: 04 ngày 03 đêm</h5>
+                    <h5 class="card__start-date">Khởi hành: 28/04; 29/04; 2/5</h5>
+                </a>
+            </div>
+            <div class="card">
+                <a href="#">
+                    <div class="card__img">
+                        <div class="card__sale">-600.000</div>
+                    </div>
+                    <h4 class="card__country">Ấn độ</h4>
+                    <h3 class="card__header">Tour du lịch Bắc Ấn độ: Ladakh - “tiểu tây tạng trên đất ấn</h3>
+                    <h5 class="card__price">4.500.000</h5>
+                    <h5 class="card__duration">Thời gian: 04 ngày 03 đêm</h5>
+                    <h5 class="card__start-date">Khởi hành: 28/04; 29/04; 2/5</h5>
+                </a>
+            </div>
+            <div class="btn_md"><a href="#">Xem thêm</a></div>
     </section>
     <section class="viet-nam">
         <h2><a href="#">Du lịch Việt Nam</a></h2>
@@ -171,13 +194,73 @@
             <div class="card">
                 <a href="#">
                     <div class="card__img">
-                        <div class="sale">-600.000</div>
+                        <div class="card__sale">-600.000</div>
                     </div>
-                    <h4>Ấn độ</h4>
-                    <h3>Tour du lịch Bắc Ấn độ: Ladakh - “tiểu tây tạng trên đất ấn</h3>
-                    <h5 class="price">4.500.000</h5>
-                    <h5 class="duration">Thời gian: 04 ngày 03 đêm</h5>
-                    <h5 class="start-date">Khởi hành: 28/04; 29/04; 2/5</h5>
+                    <h4 class="card__country">Ấn độ</h4>
+                    <h3 class="card__header">Tour du lịch Bắc Ấn độ: Ladakh - “tiểu tây tạng trên đất ấn</h3>
+                    <h5 class="card__price">4.500.000</h5>
+                    <h5 class="card__duration">Thời gian: 04 ngày 03 đêm</h5>
+                    <h5 class="card__start-date">Khởi hành: 28/04; 29/04; 2/5</h5>
+                </a>
+            </div>
+            <div class="card">
+                <a href="#">
+                    <div class="card__img">
+                        <div class="card__sale">-600.000</div>
+                    </div>
+                    <h4 class="card__country">Ấn độ</h4>
+                    <h3 class="card__header">Tour du lịch Bắc Ấn độ: Ladakh - “tiểu tây tạng trên đất ấn</h3>
+                    <h5 class="card__price">4.500.000</h5>
+                    <h5 class="card__duration">Thời gian: 04 ngày 03 đêm</h5>
+                    <h5 class="card__start-date">Khởi hành: 28/04; 29/04; 2/5</h5>
+                </a>
+            </div>
+            <div class="card">
+                <a href="#">
+                    <div class="card__img">
+                        <div class="card__sale">-600.000</div>
+                    </div>
+                    <h4 class="card__country">Ấn độ</h4>
+                    <h3 class="card__header">Tour du lịch Bắc Ấn độ: Ladakh - “tiểu tây tạng trên đất ấn</h3>
+                    <h5 class="card__price">4.500.000</h5>
+                    <h5 class="card__duration">Thời gian: 04 ngày 03 đêm</h5>
+                    <h5 class="card__start-date">Khởi hành: 28/04; 29/04; 2/5</h5>
+                </a>
+            </div>
+            <div class="card">
+                <a href="#">
+                    <div class="card__img">
+                        <div class="card__sale">-600.000</div>
+                    </div>
+                    <h4 class="card__country">Ấn độ</h4>
+                    <h3 class="card__header">Tour du lịch Bắc Ấn độ: Ladakh - “tiểu tây tạng trên đất ấn</h3>
+                    <h5 class="card__price">4.500.000</h5>
+                    <h5 class="card__duration">Thời gian: 04 ngày 03 đêm</h5>
+                    <h5 class="card__start-date">Khởi hành: 28/04; 29/04; 2/5</h5>
+                </a>
+            </div>
+            <div class="card">
+                <a href="#">
+                    <div class="card__img">
+                        <div class="card__sale">-600.000</div>
+                    </div>
+                    <h4 class="card__country">Ấn độ</h4>
+                    <h3 class="card__header">Tour du lịch Bắc Ấn độ: Ladakh - “tiểu tây tạng trên đất ấn</h3>
+                    <h5 class="card__price">4.500.000</h5>
+                    <h5 class="card__duration">Thời gian: 04 ngày 03 đêm</h5>
+                    <h5 class="card__start-date">Khởi hành: 28/04; 29/04; 2/5</h5>
+                </a>
+            </div>
+            <div class="card">
+                <a href="#">
+                    <div class="card__img">
+                        <div class="card__sale">-600.000</div>
+                    </div>
+                    <h4 class="card__country">Ấn độ</h4>
+                    <h3 class="card__header">Tour du lịch Bắc Ấn độ: Ladakh - “tiểu tây tạng trên đất ấn</h3>
+                    <h5 class="card__price">4.500.000</h5>
+                    <h5 class="card__duration">Thời gian: 04 ngày 03 đêm</h5>
+                    <h5 class="card__start-date">Khởi hành: 28/04; 29/04; 2/5</h5>
                 </a>
             </div>
             <div class="card">
@@ -205,7 +288,7 @@
                 </a>
             </div>
         </div>
-        <div class="btn"><a href="#">Xem thêm</a></div>
+        <div class="btn_md"><a href="#">Xem thêm</a></div>
     </section>
     <footer class="footer">
         <div class="row">

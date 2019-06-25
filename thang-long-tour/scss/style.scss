@@ -4,26 +4,22 @@
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-}
-
-html {
-    font-size: 16px;
-    color: white;
-}
-
-body {
+    padding: 0;
     margin: 0;
 }
 
+
+
 /*Cac mau sac chinh*/
 $page-color: #6E542C;
-$page-color-darker: #4A381D;
-$page-color-lighter: #92703B;
-$page-color-darker_trans: rgba(74, 56, 29, 0.9);
-$text-color: #F3CB03;
-$text-color-darker: #B09302;
-$text-color-lighter: #B58A4D;
+$page-color-darker: #4a381d;
+$page-color-lighter: #92703b;
+$page-color-darker_trans: rgba(91, 70, 36, 0.9);
+$text-color: #09ff30;
+$text-color-darker: #00d522;
+$text-color-lighter: #3cff5b;
 $text-no-color: white;
+/*font size*/
 $text-size-sm: 13px;
 $text-size-md: 18px;
 $text-size-lg: 35px;
@@ -32,19 +28,26 @@ $text-size-banner-md: $text-size-md+15;
 $text-size-banner-lg: $text-size-lg+20;
 $icon-color: $text-color-lighter;
 $icon-size: 33px;
+/*tag size*/
 $search-height: 44px;
 $padding-xs: 5px;
 $padding-sm: 10px;
 $padding-md: 20px;
 $padding-lg: 70px;
-$btn-width: 100px;
+$btn-sm: 100px;
+$btn-md: 200px;
 $btn-padding: $padding-sm;
-$btn-color: $text-color-lighter;
+$btn-bg-color: $text-color-darker;
 
+html {
+    font-size: 16px;
+    color: white;
+}
 
 body {
     background: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0, rgba(0, 0, 0, 0) 200px) no-repeat,
         $page-color;
+    margin: 0;
 }
 
 button:hover {
@@ -105,21 +108,10 @@ button:hover {
     width: 290px;
 }
 
-.icon {
-
-    max-width: $icon-size;
-    max-height: $icon-size;
-
-    &_filter {
-        @extend .icon;
-        filter: invert(52%) sepia(88%) saturate(249%) hue-rotate(356deg) brightness(91%) contrast(93%);
-    }
-}
-
 .header {
     @extend %responsive-max-width;
     @extend %sm-screen-padding;
-    padding-top: $padding-xs;
+    padding-top: $padding-md;
 
     img {
         max-width: 50%;
@@ -159,7 +151,7 @@ button:hover {
             width: $search-height;
             height: $search-height;
             border-radius: $search-height/2;
-            background-color: $page-color-lighter;
+            background-color: $text-color;
             padding: 0;
             @extend %d-flex_center;
             border: none;
@@ -187,7 +179,8 @@ button:hover {
                 &:hover {
                     input {
                         width: 300px;
-                        background-color: $page-color-lighter;
+                        background-color: $text-color;
+                        color: $text-no-color;
                     }
                 }
             }
@@ -275,18 +268,59 @@ i {
         -ms-align-items: flex-end;
         align-items: flex-end;
         width: 100%;
+    }
 
-        & a {
-            display: block;
-            text-align: center;
-            /*min-width: 95px;*/
+    &__item {
+        display: block;
+        text-align: center;
+        /*min-width: 95px;*/
+    }
+
+    &__icon {
+        max-width: $icon-size;
+        max-height: $icon-size;
+        filter: invert(67%) sepia(37%) saturate(6421%) hue-rotate(92deg) brightness(121%) contrast(122%);
+
+        @media (min-width: 992px) {
+            max-width: $icon-size * 1.5;
+            max-height: $icon-size * 1.5;
         }
-
     }
 
     &__wrapper {
         @extend %responsive-max-width;
         position: static;
+    }
+
+}
+
+.banner-content {
+    @media (min-width: 576px) {
+        &__contry {
+            font-size: $text-size-banner-md/2;
+        }
+
+        &__header {
+            font-size: $text-size-banner-lg/2;
+        }
+
+        &__duration {
+            font-size: $text-size-banner-sm/2;
+        }
+    }
+
+    @media (min-width: 768px) {
+        &__contry {
+            font-size: $text-size-banner-md;
+        }
+
+        &__header {
+            font-size: $text-size-banner-lg;
+        }
+
+        &__duration {
+            font-size: $text-size-banner-sm;
+        }
     }
 
 }
@@ -316,14 +350,18 @@ a {
 .row {
     @extend %d-flex_responsive;
     @extend %d-flex_center;
+    flex-wrap: wrap;
     justify-content: space-between;
+    padding-top: $padding-xs;
+    padding-bottom: $padding-xs;
 }
 
 .card {
     width: 260px;
-    height: 340px;
+    height: 350px;
     margin-bottom: $padding-md;
     position: relative;
+    padding: $padding-sm;
 
     img {
         max-width: 100%;
@@ -339,37 +377,64 @@ a {
 
 
 
-    .sale {
+    &__sale {
         position: absolute;
         bottom: 0;
         background-color: red;
         padding: $padding-xs;
     }
 
-    h3,
-    h4,
-    h5 {
-        font-size: 1rem;
-        margin: 2px 0px;
+    &__country {
+        color: $text-color-darker;
+        padding-top: $padding-xs;
     }
 
-    h3 {
-        margin-top: 10px;
+    &__header {
+        color: $text-color;
+        padding-top: $padding-xs;
+        padding-bottom: $padding-xs;
     }
 
-    .price {
-        margin-top: $padding-sm;
-        margin-bottom: $padding-sm;
+    &__price {
+        padding-top: $padding-sm;
+
+        &:after {
+            content: ' vnd';
+            color: $text-color-darker;
+        }
     }
+
+    &__duration,
+    &__start-date {
+        color: $text-color;
+    }
+
 }
 
 .btn {
     margin: 0 auto;
-    width: $btn-width;
+    color: $text-no-color;
     text-align: center;
-    background-color: $btn-color;
+    background-color: $btn-bg-color;
     padding: $btn-padding;
     border: none;
+
+    &_sm {
+        @extend .btn;
+        width: $btn-sm;
+    }
+
+    &_md {
+        @extend .btn;
+        width: $btn-md;
+
+    }
+
+    &_deactive {
+        @extend .btn;
+        background-color: $page-color-darker;
+        color: $text-color-darker
+    }
 }
 
 .footer {
@@ -379,11 +444,13 @@ a {
 
     .row {
         @extend %responsive-max-width;
+        flex-wrap: wrap;
+        justify-content: space-between;
     }
 
     &__logo {
         text-align: center;
-
+        padding: $padding-sm;
     }
 
     &__link {
@@ -391,11 +458,13 @@ a {
 
         @media (min-width: 576px) {
             padding-left: 0;
+            padding: $padding-sm;
         }
     }
 
     &__fb {
-        min-width: 310px;
+        min-width: 300px;
+        padding: $padding-sm;
     }
 
     &__social-list {
@@ -438,10 +507,11 @@ ul {
     &__fail {
         height: $search-height/2;
         width: 100%;
+        margin: $padding-md;
     }
 
     #sign-up {
-        height: $search-height*13;
+        height: $search-height*14;
         position: relative;
 
         @media (min-width: 576px) {
@@ -450,7 +520,7 @@ ul {
     }
 
     #sign-in {
-        height: $search-height*13;
+        height: $search-height*14;
         position: relative;
 
         @media (min-width: 576px) {
@@ -461,6 +531,7 @@ ul {
     &__btn {
         @extend %d-flex_center;
         bottom: $padding-xs;
+        padding: $padding-md;
     }
 
     &__welcome {
