@@ -14,6 +14,7 @@ function showMap(id) {
 let eleSignUpForm = document.getElementById("sign-up");
 let eleSignInForm = document.getElementById("sign-in");
 let eleSignUpPopover = document.getElementById("sign-up-popover");
+let eleTopnavPopover = document.getElementById("topnav");
 
 function signIn() {
     if (eleSignInForm.hasAttribute("hidden")) {
@@ -31,6 +32,11 @@ function signUp() {
     event.stopPropagation()
 }
 
+function toggleSignUpPopover() {
+    eleSignUpPopover.toggleAttribute("hidden");
+    event.stopPropagation()
+}
+
 function hideSignUpPopover() {
     eleSignUpPopover.setAttribute("hidden", "");
     event.stopPropagation()
@@ -41,10 +47,9 @@ function showSignInPopover() {
     event.stopPropagation()
 }
 
-document.addEventListener("click", function() {
+function hidePopover() {
+    hideSignUpPopover();
+    eleTopnavPopover.classList.remove("responsive");
+}
 
-    if (!eleSignUpPopover.hasAttribute("hidden")) {
-        hideSignUpPopover();
-    }
-
-});
+document.addEventListener("click", hidePopover);

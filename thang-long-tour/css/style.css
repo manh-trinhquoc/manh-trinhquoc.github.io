@@ -18,23 +18,23 @@ body {
 button:hover {
   cursor: pointer; }
 
-.header, .banner__nav, .banner__wrapper, .foreign, .viet-nam, .footer {
+.header, .banner__nav, .banner__wrapper, .foreign, .viet-nam, .footer .row {
   margin-left: auto;
   margin-right: auto; }
   @media (min-width: 576px) {
-    .header, .banner__nav, .banner__wrapper, .foreign, .viet-nam, .footer {
+    .header, .banner__nav, .banner__wrapper, .foreign, .viet-nam, .footer .row {
       max-width: 540px; } }
   @media (min-width: 768px) {
-    .header, .banner__nav, .banner__wrapper, .foreign, .viet-nam, .footer {
+    .header, .banner__nav, .banner__wrapper, .foreign, .viet-nam, .footer .row {
       max-width: 720px; } }
   @media (min-width: 992px) {
-    .header, .banner__nav, .banner__wrapper, .foreign, .viet-nam, .footer {
+    .header, .banner__nav, .banner__wrapper, .foreign, .viet-nam, .footer .row {
       max-width: 960px; } }
   @media (min-width: 1200px) {
-    .header, .banner__nav, .banner__wrapper, .foreign, .viet-nam, .footer {
+    .header, .banner__nav, .banner__wrapper, .foreign, .viet-nam, .footer .row {
       max-width: 1140px; } }
 
-.row, .header .topnav__sign-in, .sign-up__btn, .banner__nav {
+.row, .header .topnav__sign-in, .sign-up__btn, .banner__content, .banner__nav, .footer__social-list {
   display: -webkit-flex;
   display: -moz-flex;
   display: -ms-flex;
@@ -80,7 +80,7 @@ button:hover {
       height: 44px;
       display: none; }
     .header .topnav.responsive {
-      background-color: rgba(0, 0, 0, 0.7); }
+      background-color: rgba(74, 56, 29, 0.9); }
     .header .topnav.responsive .topnav__search {
       display: block;
       margin: 0 auto; }
@@ -145,17 +145,12 @@ i {
   left: 0;
   z-index: -1; }
   .banner img {
-    max-width: 100%; }
+    width: 100%; }
   .banner__content {
     position: absolute;
     top: 0;
     height: 100%;
     padding: 5px;
-    display: -webkit-flex;
-    display: -moz-flex;
-    display: -ms-flex;
-    display: -o-flex;
-    display: flex;
     flex-flow: column;
     -ms-align-items: center;
     justify-content: center; }
@@ -166,7 +161,7 @@ i {
       display: block; } }
   .banner__nav {
     position: absolute;
-    bottom: 0;
+    bottom: 5px;
     justify-content: space-between;
     -ms-align-items: flex-end;
     align-items: flex-end;
@@ -179,7 +174,13 @@ i {
     position: static; }
 
 .foreign {
-  margin-top: 50%; }
+  margin-top: 50%;
+  border-bottom: 1px solid #4A381D;
+  padding-bottom: 70px; }
+
+.viet-nam {
+  padding-top: 70px;
+  padding-bottom: 70px; }
 
 h2 {
   text-align: center; }
@@ -229,7 +230,9 @@ a {
   border: none; }
 
 .footer {
-  padding-bottom: 5px; }
+  padding-bottom: 5px;
+  padding-top: 5px;
+  background-color: #4A381D; }
   .footer__logo {
     text-align: center; }
   .footer__link {
@@ -239,6 +242,9 @@ a {
         padding-left: 0; } }
   .footer__fb {
     min-width: 310px; }
+  .footer__social-list {
+    justify-content: space-between;
+    font-size: 33px; }
 
 ul {
   list-style-type: none;

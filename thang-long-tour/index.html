@@ -19,11 +19,11 @@
 <body>
     <header class="header">
         <img src="img/logo.png" alt="logo image" class="logo" />
-        <div class="topnav" id="topnav">
+        <div class="topnav" id="topnav" onclick="event.stopPropagation()">
             <a href="javascript:void(0);" class="icon" onclick="toggleClassResponsive('topnav')">
                 <i class="fa fa-bars"></i>
             </a>
-            <a href="#">Trang chủ</a>
+            <a href="">Trang chủ</a>
             <a href="#">Tìm tour</a>
             <a href="#">Địa danh du lịch</a>
             <a href="#">Khách sạn</a>
@@ -35,7 +35,7 @@
                 <button type="submit" class="search__button"><i class="fa fa-search"></i></button>
             </form>
             <div class="a">
-                <button class="topnav__sign-in" onclick="showSignInPopover()"><i class="fas fa-user"></i></button>
+                <button class="topnav__sign-in" onclick="toggleSignUpPopover()"><i class="fas fa-user"></i></button>
             </div>
         </div>
     </header>
@@ -81,7 +81,7 @@
             </ul>
         </div>
     </section>
-    <div class="sign-up" id="sign-up-popover" onclick="showSignInPopover()">
+    <div class="sign-up" id="sign-up-popover" onclick="showSignInPopover()" hidden="">
         <button class="sign-up__cancel" onclick="hideSignUpPopover()">
             <i class="fas fa-times"></i>
         </button>
@@ -218,6 +218,14 @@
                 <li><a href="tel:+84-090"><i class="fas fa-phone"></i> Tel: +84 090</a></li>
                 <li><a href="mailto:abc@gmail.com"><i class="fas fa-envelope"></i> Mail: abc@gmail.com</a></li>
                 <li><a href="https://manh-trinhquoc.github.io"><i class="fas fa-globe-asia"></i> Website: manh-trinhquoc.github.io</a></li>
+                <li>Kết bạn với mình qua <br />
+                    <ul class="footer__social-list">
+                        <li><a href=""><i class="fab fa-facebook-square"></i></a></li>
+                        <li><a href=""><i class="fab fa-linkedin"></i></a></li>
+                        <li><a href=""><i class="fab fa-github-square"></i></a></li>
+                        <li><a href=""><i class="fab fa-twitter-square"></i></a></li>
+                    </ul>
+                </li>
             </ul>
             <!-- google map -->
             <!-- <div class="map-marker" id="footer-map">
@@ -229,11 +237,11 @@
         </div> -->
             <div class="footer__fb">
                 <!-- facebook like page -->
-                <!-- <div id="fb-root"></div>
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.3"></script>
-<div class="fb-page" data-href="https://www.facebook.com/Frontend-3-2448958151999364/" data-tabs="" data-width="310" data-height="200" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
-    <blockquote cite="https://www.facebook.com/Frontend-3-2448958151999364/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/Frontend-3-2448958151999364/">Frontend 3</a></blockquote>
-</div> -->
+                <div id="fb-root"></div>
+                <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.3"></script>
+                <div class="fb-page" data-href="https://www.facebook.com/Frontend-3-2448958151999364/" data-tabs="" data-width="310" data-height="200" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
+                    <blockquote cite="https://www.facebook.com/Frontend-3-2448958151999364/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/Frontend-3-2448958151999364/">Frontend 3</a></blockquote>
+                </div>
             </div>
         </div>
         <!-- facebook chat -->
@@ -244,7 +252,7 @@
         <!-- <div class="fb-customerchat" page_id="2448958151999364">
         </div> -->
         <!-- face book chat set 2 -->
-        <!-- <script>
+        <script>
         window.fbAsyncInit = function() {
             FB.init({
                 xfbml: true,
@@ -261,13 +269,10 @@
             js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));
-        </script> -->
+        </script>
         <!-- Your customer chat code -->
-        <!-- <div class="fb-customerchat" attribution=setup_tool page_id="2448958151999364" theme_color="#4A381D" logged_in_greeting="Đây là tính năng thử nghiệm phục vụ cho đồ án lớp web front-end 3" logged_out_greeting="Đây là tính năng thử nghiệm phục vụ cho đồ án lớp web front-end 3">
-        </div> -->
-        <!-- zalo chat -->
-        <!-- <div class="zalo-chat-widget" data-oaid="579745863508352884" data-welcome-message="Rất vui khi được hỗ trợ bạn!" data-autopopup="0" data-width="350" data-height="420"></div>
-<script src="https://sp.zalo.me/plugins/sdk.js"></script> -->
+        <div class="fb-customerchat" attribution=setup_tool page_id="2448958151999364" theme_color="#4A381D" logged_in_greeting="Đây là tính năng thử nghiệm phục vụ cho đồ án lớp web front-end 3" logged_out_greeting="Đây là tính năng thử nghiệm phục vụ cho đồ án lớp web front-end 3">
+        </div>
     </footer>
     <!-- custome -->
     <script type="text/javascript" src="js/script.js">
