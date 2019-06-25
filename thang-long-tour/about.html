@@ -13,7 +13,6 @@
     <!-- font awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     <!-- custom -->
-    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/about.css">
 </head>
 
@@ -47,20 +46,20 @@
             <h2>Đăng ký</h2>
             <div class="sign-up__input">
                 <div class="row">
-                    <div class="col">
-                        <input type="text" placeholder="Họ tên*" />
+                    <div class="col-6">
+                        <input class="sign-up__input-text" type="text" placeholder="Họ tên*" />
                         <p class="sign-up__fail"></p>
                     </div>
-                    <div class="col">
-                        <input type="text" placeholder="Số điện thoại*" />
+                    <div class="col-6">
+                        <input class="sign-up__input-text" type="text" placeholder="Số điện thoại*" />
                         <p class="sign-up__fail"></p>
                     </div>
                 </div>
-                <input type="text" placeholder="Email*" />
+                <input class="sign-up__input-text" type="text" placeholder="Email*" />
                 <p class="sign-up__fail"></p>
-                <input type="text" placeholder="Mật khẩu*" />
+                <input class="sign-up__input-text" type="text" placeholder="Mật khẩu*" />
                 <p class="sign-up__fail"></p>
-                <input type="text" placeholder="Nhắc lại mật khẩu*" />
+                <input class="sign-up__input-text" type="text" placeholder="Nhắc lại mật khẩu*" />
                 <p class="sign-up__fail"></p>
                 <p>Các trường có dấu * bắt buộc phải điền</p>
             </div>
@@ -69,9 +68,9 @@
             <h2>Đăng nhập</h2>
             <h2 class="sign-up__welcome">Chào mừng bạn quay trở lại</h2>
             <div class="sign-up__input">
-                <input type="text" placeholder="Email*" />
+                <input class="sign-up__input-text" type="text" placeholder="Email*" />
                 <p class="sign-up__fail"></p>
-                <input type="text" placeholder="Mật khẩu*" />
+                <input class="sign-up__input-text" type="text" placeholder="Mật khẩu*" />
                 <p class="sign-up__fail"></p>
                 <p>Các trường có dấu * bắt buộc phải điền</p>
             </div>
@@ -85,8 +84,50 @@
         <li><a href="/thang-long-tour/index.html">Trang chủ</a></li>
         <li><a href="" class="active">Liên hệ</a></li>
     </ul>
-    <div class="container">
+    <div class="contact">
         <h2>Liên hệ</h2>
+        <!-- google map -->
+        <div class="map-marker" id="footer-map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.865473837358!2d105.7924504147627!3d20.99802898601497!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135acba8ad197a5%3A0xa55e51322131e722!2zNDggVOG7kSBI4buvdSwgVHJ1bmcgVsSDbiwgVOG7qyBMacOqbSwgSMOgIE7hu5lpLCBWaWV0bmFt!5e0!3m2!1sen!2s!4v1560764940205!5m2!1sen!2s" frameborder="0" style="border:0" allowfullscreen></iframe>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <div class="contact__content">
+                    <h2>Thăng Long Tour</h2>
+                    <ul>
+                        <li><i class="fas fa-map-marker"></i> Địa chỉ: Hà Nội</li>
+                        <li><a href="tel:+84-090"><i class="fas fa-phone"></i> Tel: +84 090</a></li>
+                        <li><a href="mailto:abc@gmail.com"><i class="fas fa-envelope"></i> Mail: abc@gmail.com</a></li>
+                        <li><a href="https://manh-trinhquoc.github.io"><i class="fas fa-globe-asia"></i> Website: manh-trinhquoc.github.io</a></li>
+                    </ul>
+                </div>
+                <div class="contact__content">
+                    <h2><a href="tel:+84-090"><i class="fas fa-phone"></i> Hotline: +84 090</a></h2>
+                    <p>(Miễn cước người gọi)</p>
+                </div>
+            </div>
+            <div class="col-8">
+                <p>Để biết thêm thông tin vui lòng liên hệ với chúng tôi qua e-mail hoặc điền thông tin và thắc mắc
+                    của bạn theo mẫu biểu sau. Cám ơn!</p>
+                <div class="row">
+                    <div class="col-6">
+                        <input class="sign-up__input-text" type="text" placeholder="Họ tên*" />
+                        <p class="sign-up__fail"></p>
+                    </div>
+                    <div class="col-6">
+                        <input class="sign-up__input-text" type="text" placeholder="Số điện thoại*" />
+                        <p class="sign-up__fail"></p>
+                    </div>
+                </div>
+                <input class="sign-up__input-text" type="text" placeholder="Email*" />
+                <p class="sign-up__fail"></p>
+                <input class="sign-up__input-text" type="text" placeholder="Mật khẩu*" />
+                <p class="sign-up__fail"></p>
+                <input class="sign-up__input-text" type="text" placeholder="Nhắc lại mật khẩu*" />
+                <p class="sign-up__fail"></p>
+                <button type="submit" class="btn_sm">Gửi đi</button>
+            </div>
+        </div>
     </div>
     <footer class="footer">
         <div class="row">
@@ -108,10 +149,6 @@
                     </ul>
                 </li>
             </ul>
-            <!-- google map -->
-            <!-- <div class="map-marker" id="footer-map">
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.865473837358!2d105.7924504147627!3d20.99802898601497!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135acba8ad197a5%3A0xa55e51322131e722!2zNDggVOG7kSBI4buvdSwgVHJ1bmcgVsSDbiwgVOG7qyBMacOqbSwgSMOgIE7hu5lpLCBWaWV0bmFt!5e0!3m2!1sen!2s!4v1560764940205!5m2!1sen!2s" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
-</div> -->
             <!-- google street view -->
             <!-- <div class="map-marker" id="footer-map">
             <iframe src="https://www.google.com/maps/embed?pb=!4v1560766712311!6m8!1m7!1sCAoSLEFGMVFpcE12MU0teTc3MWFMNFBHdGltbUtGQzRSZTJlLUQxelRSamhWOWgt!2m2!1d20.99798364323391!2d105.7947524055053!3f52.166519230599775!4f0!5f0.7820865974627469" width="600" height="500" frameborder="0" style="border:0" allowfullscreen></iframe>

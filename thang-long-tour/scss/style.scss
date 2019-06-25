@@ -497,7 +497,7 @@ ul {
     min-width: 300px;
     max-width: 600px;
 
-    input {
+    &__input-text {
         width: 100%;
         padding: $padding-xs;
         height: $search-height;
@@ -545,11 +545,7 @@ ul {
         align-items: stretch;
     }
 
-    .col {
-        @media (min-width: 576px) {
-            width: 49%;
-        }
-    }
+
 
     &__input {
         position: absolute;
@@ -569,5 +565,11 @@ ul {
 
     i {
         color: white;
+    }
+}
+
+.col-6 {
+    @media (min-width: 576px) {
+        width: 49%;
     }
 }

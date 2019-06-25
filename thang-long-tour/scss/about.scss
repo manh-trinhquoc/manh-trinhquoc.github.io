@@ -2,6 +2,8 @@
 
 .breadcrumb {
     @extend %responsive-max-width;
+    padding-left: $padding-xs;
+    padding-right: $padding-xs;
     margin-top: $padding-lg;
 
     li {
@@ -22,11 +24,35 @@
     }
 }
 
-.container {
+.contact {
     @extend %responsive-max-width;
+
+    &__content {
+        padding-bottom: $padding-md;
+    }
+
+    .row h2 {
+        margin-bottom: $padding-sm;
+    }
 }
 
 h2 {
     text-align: left;
     margin-top: $padding-lg;
+}
+
+
+.map-marker {
+    margin-top: $padding-lg;
+    padding-left: $padding-xs;
+    padding-right: $padding-xs;
+
+    iframe {
+        width: 100%;
+        height: 100%;
+    }
+
+    @media (min-width: 576px) {
+        height: 500px;
+    }
 }
