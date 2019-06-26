@@ -119,6 +119,15 @@ button:hover {
     @extend %responsive-max-width;
     @extend %sm-screen-padding;
     padding-top: $padding-md;
+    margin: 0 auto;
+
+    &__wrapper {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1;
+    }
 
     img {
         max-width: 50%;
@@ -129,78 +138,77 @@ button:hover {
         color: $text-no-color;
 
     }
+}
 
-    .topnav {
-        background-color: transparent;
-        position: absolute;
-        z-index: 1;
-        margin-top: -35px;
-        width: calc(100% - 10px);
+.topnav {
+    background-color: transparent;
+    position: absolute;
+    z-index: 1;
+    margin-top: -35px;
+    width: calc(100% - 10px);
 
-        &__search {
-            min-width: 300px;
-            width: 99%;
-            height: $search-height;
-            display: none;
-        }
-
-        &.responsive {
-            background-color: $page-color-darker_trans;
-        }
-
-        &.responsive .topnav__search {
-            display: block;
-            margin: 0 auto;
-        }
-
-        &__sign-in {
-            width: $search-height;
-            height: $search-height;
-            border-radius: $search-height/2;
-            background-color: $text-color;
-            padding: 0;
-            @extend %d-flex_center;
-            border: none;
-        }
-
-        .a {
-            padding: 0;
-            padding-left: 16px;
-        }
-
-        @media (min-width: 576px) {
-            margin-top: 0;
-            position: relative;
-
-            a {
-                padding: 0
-            }
-
-            &__search {
-                display: block;
-                min-width: 0;
-                width: $search-height;
-                position: relative;
-                background-color: transparent;
-
-                &:hover {
-                    input {
-                        width: 300px;
-                        background-color: $text-color;
-                        color: $text-no-color;
-                    }
-                }
-            }
-
-            input {
-                position: absolute;
-                right: 0;
-                width: 0;
-                transition: 0.5s linear;
-            }
-        }
+    &__search {
+        min-width: 300px;
+        width: 99%;
+        height: $search-height;
+        display: none;
     }
 
+    &.responsive {
+        background-color: $page-color-darker_trans;
+    }
+
+    &.responsive .topnav__search {
+        display: block;
+        margin: 0 auto;
+    }
+
+    &__sign-in {
+        width: $search-height;
+        height: $search-height;
+        border-radius: $search-height/2;
+        background-color: $text-color;
+        padding: 0;
+        @extend %d-flex_center;
+        border: none;
+    }
+
+    .a {
+        padding: 0;
+        padding-left: 16px;
+    }
+
+    @media (min-width: 576px) {
+        margin-top: 0;
+        position: relative;
+
+        a {
+            padding: 0
+        }
+
+        &__search {
+            display: block;
+            min-width: 0;
+            width: $search-height;
+            position: relative;
+            background-color: transparent;
+
+            &:hover {
+                input {
+                    width: 300px;
+                    background-color: $text-color;
+                    color: $text-no-color;
+                }
+            }
+        }
+
+        input {
+            position: absolute;
+            right: 0;
+            width: 0;
+            transition: 0.5s linear;
+        }
+    }
 }
 
 .search {
@@ -232,10 +240,7 @@ i {
 
 .banner {
     width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
+    position: relative;
 
     img {
         width: 100%;
@@ -329,7 +334,7 @@ i {
 }
 
 .foreign {
-    margin-top: 60%;
+    padding-top: $padding-lg;
     @extend %responsive-max-width;
     border-bottom: 1px solid $page-color-darker;
     padding-bottom: $padding-lg;

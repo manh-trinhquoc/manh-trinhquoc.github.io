@@ -13,7 +13,7 @@
     <!-- font awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     <!-- custom -->
-    <link rel="stylesheet" href="css/about.css">
+    <link rel="stylesheet" href="css/find-tour.css">
 </head>
 
 <body>
@@ -64,74 +64,213 @@
             </div>
         </div>
     </div>
-    <header class="header">
-        <img src="img/logo.png" alt="logo image" class="logo" />
-        <div class="topnav" id="topnav">
-            <a href="javascript:void(0);" class="icon" onclick="toggleClassResponsive('topnav')">
-                <i class="fa fa-bars"></i>
-            </a>
-            <a href="/thang-long-tour/index.html">Trang chủ</a>
-            <a href="#">Tìm tour</a>
-            <a href="#">Địa danh du lịch</a>
-            <a href="#">Khách sạn</a>
-            <a href="#">Tin du lịch</a>
-            <a href="/thang-long-tour/about.html">Liên hệ</a>
-            <form class="topnav__search search" action="#">
-                <input type="text" placeholder="Search.." name="search" class="input__text search__input-text">
-                <button type="submit" class="search__button"><i class="fa fa-search"></i></button>
-            </form>
-            <div class="a">
-                <button class="topnav__sign-in" onclick="togglePopover('register-popover')"><i class="fas fa-user"></i></button>
+    <div class="header__wrapper">
+        <header class="header">
+            <img src="img/logo.png" alt="logo image" class="logo" />
+            <div class="topnav" id="topnav">
+                <a href="javascript:void(0);" class="icon" onclick="toggleClassResponsive('topnav')">
+                    <i class="fa fa-bars"></i>
+                </a>
+                <a href="/thang-long-tour/index.html">Trang chủ</a>
+                <a href="/thang-long-tour/find-tour.html">Tìm tour</a>
+                <a href="#">Địa danh du lịch</a>
+                <a href="#">Khách sạn</a>
+                <a href="#">Tin du lịch</a>
+                <a href="/thang-long-tour/about.html">Liên hệ</a>
+                <form class="topnav__search search" action="#">
+                    <input type="text" placeholder="Search.." name="search" class="input__text search__input-text">
+                    <button type="submit" class="search__button"><i class="fa fa-search"></i></button>
+                </form>
+                <div class="a">
+                    <button class="topnav__sign-in" onclick="togglePopover('register-popover')"><i class="fas fa-user"></i></button>
+                </div>
             </div>
+        </header>
+    </div>
+    <section class="banner">
+        <img src="img/banner-1.jpg" alt="banner image" />
+        <div class="banner__wrapper">
+            <div class="banner__content">
+                <h4 class="banner-content__contry">Việt Nam</h4>
+                <h3 class="banner-content__header">TOUR DU LỊCH HÀ NỘI - HẠ LONG - CÁT BÀ</h3>
+                <h4 class="banner-content__duration">Thời gian: 04 ngày 03 đêm</h4>
+            </div>
+            <ul class="banner__nav">
+                <li>
+                    <a href="#" class="banner__item">
+                        <img src="img/special-tour-icon-1.png" alt="special tour icon" class="banner__icon" /> <br />
+                        Hành hương
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="banner__item">
+                        <img src="img/special-tour-icon-2.png" alt="special tour icon" class="banner__icon" /> <br />
+                        Xe đạp
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="banner__item">
+                        <img src="img/special-tour-icon-3.png" alt="special tour icon" class="banner__icon" /> <br />
+                        Motor
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="banner__item">
+                        <img src="img/special-tour-icon-4.png" alt="special tour icon" class="banner__icon" /> <br />
+                        Câu cá
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="banner__item">
+                        <img src="img/special-tour-icon-5.png" alt="special tour icon" class="banner__icon" /> <br />
+                        Chụp ảnh
+                    </a>
+                </li>
+            </ul>
         </div>
-    </header>
+    </section>
     <ul class="breadcrumb">
         <li><a href="/thang-long-tour/index.html">Trang chủ</a></li>
-        <li><a href="" class="active">Liên hệ</a></li>
+        <li><a href="" class="active">Tìm tour</a></li>
     </ul>
-    <div class="contact">
-        <h2 class="contact__title">Liên hệ</h2>
-        <!-- google map -->
-        <div class="map-marker" id="footer-map">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.865473837358!2d105.7924504147627!3d20.99802898601497!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135acba8ad197a5%3A0xa55e51322131e722!2zNDggVOG7kSBI4buvdSwgVHJ1bmcgVsSDbiwgVOG7qyBMacOqbSwgSMOgIE7hu5lpLCBWaWV0bmFt!5e0!3m2!1sen!2s!4v1560764940205!5m2!1sen!2s" frameborder="0" style="border:0" allowfullscreen></iframe>
-        </div>
-        <div class="row_align_start">
-            <div class="col_4">
-                <div class="contact__content">
-                    <h2 class="contact__title">Thăng Long Tour</h2>
+    <div class="row find-tour">
+        <div class="col-3">
+            <form class="filter__form">
+                <h2>Bộ lọc tour</h2>
+                <div class="filter__item">
+                    <p>Điểm khởi hành</p>
+                    <select name="" id="">
+                        <option value="null">Điểm khởi hành</option>
+                        <option value="Hà Nội">Hà Nội</option>
+                        <option value="Hồ Chí Minh">Hồ Chí Minh</option>
+                    </select>
+                </div>
+                <div class="filter__item">
+                    <p>Điểm đến</p>
+                    <select name="" id="">
+                        <option value="null">Điểm đến</option>
+                        <option value="Hà Nội">Hà Nội</option>
+                        <option value="Đà Nẵng">Đà Nẵng</option>
+                        <option value="Hồ Chí Minh">Hồ Chí Minh</option>
+                    </select>
+                </div>
+                <div class="filter__item">
+                    <p>Ngày khởi hành</p>
+                    <select name="" id="">
+                        <option value="null">Ngày khởi hành</option>
+                    </select>
+                </div>
+                <div class="filter__item">
+                    <p>Thời gian</p>
+                    <select name="" id="">
+                        <option value="null">Thời gian</option>
+                        <option value="1">Trong ngày</option>
+                        <option value="2">2 ngày</option>
+                        <option value="3">3 ngày</option>
+                        <option value="4">4 ngày</option>
+                        <option value="5">5 ngày</option>
+                        <option value="6">6 ngày</option>
+                        <option value="7">1 tuần</option>
+                        <option value="8">&gt; 1 tuần</option>
+                    </select>
+                </div>
+                <div class="filter__item">
+                    <p>Loại hình tour</p>
                     <ul>
-                        <li><i class="fas fa-map-marker"></i> Địa chỉ: Hà Nội</li>
-                        <li><a href="tel:+84-090"><i class="fas fa-phone"></i> Tel: +84 090</a></li>
-                        <li><a href="mailto:abc@gmail.com"><i class="fas fa-envelope"></i> Mail: abc@gmail.com</a></li>
-                        <li><a href="https://manh-trinhquoc.github.io"><i class="fas fa-globe-asia"></i> Website: manh-trinhquoc.github.io</a></li>
+                        <li><input type="checkbox" name="" value="viet-nam" id="viet-nam">
+                            <label for="viet-nam">Trong nước</label></li>
+                        <li><input type="checkbox" name="" value="global" id="global">
+                            <label for="global">Quốc tế</label></li>
+                        </li>
+                        <li><input type="checkbox" name="" value="tam-linh" id="tam-linh">
+                            <label for="tam-linh">Tâm linh</label></li>
+                        </li>
+                        <li><input type="checkbox" name="" value="bike" id="bike">
+                            <label for="bike">Xe đạp</label></li>
+                        </li>
+                        <li><input type="checkbox" name="" value="motor" id="motor">
+                            <label for="motor">Xe máy</label></li>
+                        </li>
+                        <li><input type="checkbox" name="" value="fishing" id="fishing">
+                            <label for="fishing">Câu cá</label></li>
+                        </li>
+                        <li><input type="checkbox" name="" value="picture" id="picture">
+                            <label for="picture">Nhiếp ảnh</label></li>
+                        </li>
                     </ul>
                 </div>
-                <div class="contact__content">
-                    <h2 class="contact__title"><a href="tel:+84-090"><i class="fas fa-phone"></i> Hotline: +84 090</a></h2>
-                    <p class="contact__note">(Miễn cước người gọi)</p>
-                </div>
+                <button type="submit" class="btn_sm">TÌM KIẾM</button>
+            </form>
+        </div>
+        <div class="col-9">
+            <div class="filter__item">
+                <p>Sắp xếp</p>
+                <select name="" id="">
+                    <option value="null">Sắp xếp</option>
+                    <option value="price-incre">Giá tăng dần</option>
+                    <option value="price-decre">Giá giảm dần</option>
+                </select>
             </div>
-            <div class="col_8">
-                <p class="contact__title">Để biết thêm thông tin vui lòng liên hệ với chúng tôi qua e-mail hoặc điền thông tin và thắc mắc của bạn theo mẫu biểu sau. Cám ơn!</p>
-                <div class="row">
-                    <div class="col">
-                        <input class="input__text" type="text" placeholder="Họ tên*" />
-                        <p class="input__remark"></p>
-                    </div>
-                    <div class="col_fill"></div>
-                    <div class="col">
-                        <input class="input__text" type="text" placeholder="Số điện thoại*" />
-                        <p class="input__remark"></p>
-                    </div>
+            <div class="filter__result row">
+                <div class="card">
+                    <a href="#">
+                        <div class="card__img">
+                            <div class="card__sale">-600.000</div>
+                        </div>
+                        <h4 class="card__country">Ấn độ</h4>
+                        <h3 class="card__header">Tour du lịch Bắc Ấn độ: Ladakh - “tiểu tây tạng trên đất ấn</h3>
+                        <h5 class="card__price">4.500.000</h5>
+                        <h5 class="card__duration">Thời gian: 04 ngày 03 đêm</h5>
+                        <h5 class="card__start-date">Khởi hành: 28/04; 29/04; 2/5</h5>
+                    </a>
                 </div>
-                <input class="input__text" type="text" placeholder="Email*" />
-                <p class="input__remark"></p>
-                <input class="input__text" type="text" placeholder="Mật khẩu*" />
-                <p class="input__remark"></p>
-                <input class="input__text" type="text" placeholder="Nhắc lại mật khẩu*" />
-                <p class="input__remark"></p>
-                <div class="btn__wrapper">
-                    <button type="submit" class="btn_sm">Gửi đi</button>
+                <div class="card">
+                    <a href="#">
+                        <div class="card__img">
+                            <div class="card__sale">-600.000</div>
+                        </div>
+                        <h4 class="card__country">Ấn độ</h4>
+                        <h3 class="card__header">Tour du lịch Bắc Ấn độ: Ladakh - “tiểu tây tạng trên đất ấn</h3>
+                        <h5 class="card__price">4.500.000</h5>
+                        <h5 class="card__duration">Thời gian: 04 ngày 03 đêm</h5>
+                        <h5 class="card__start-date">Khởi hành: 28/04; 29/04; 2/5</h5>
+                    </a>
+                </div>
+                <div class="card">
+                    <a href="#">
+                        <div class="card__img">
+                            <div class="card__sale">-600.000</div>
+                        </div>
+                        <h4 class="card__country">Ấn độ</h4>
+                        <h3 class="card__header">Tour du lịch Bắc Ấn độ: Ladakh - “tiểu tây tạng trên đất ấn</h3>
+                        <h5 class="card__price">4.500.000</h5>
+                        <h5 class="card__duration">Thời gian: 04 ngày 03 đêm</h5>
+                        <h5 class="card__start-date">Khởi hành: 28/04; 29/04; 2/5</h5>
+                    </a>
+                </div>
+                <div class="card">
+                    <a href="#">
+                        <div class="card__img">
+                            <div class="card__sale">-600.000</div>
+                        </div>
+                        <h4 class="card__country">Ấn độ</h4>
+                        <h3 class="card__header">Tour du lịch Bắc Ấn độ: Ladakh - “tiểu tây tạng trên đất ấn</h3>
+                        <h5 class="card__price">4.500.000</h5>
+                        <h5 class="card__duration">Thời gian: 04 ngày 03 đêm</h5>
+                        <h5 class="card__start-date">Khởi hành: 28/04; 29/04; 2/5</h5>
+                    </a>
+                </div>
+                <div class="card">
+                    <a href="#">
+                        <div class="card__img">
+                            <div class="card__sale">-600.000</div>
+                        </div>
+                        <h4 class="card__country">Ấn độ</h4>
+                        <h3 class="card__header">Tour du lịch Bắc Ấn độ: Ladakh - “tiểu tây tạng trên đất ấn</h3>
+                        <h5 class="card__price">4.500.000</h5>
+                        <h5 class="card__duration">Thời gian: 04 ngày 03 đêm</h5>
+                        <h5 class="card__start-date">Khởi hành: 28/04; 29/04; 2/5</h5>
+                    </a>
                 </div>
             </div>
         </div>
