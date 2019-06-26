@@ -1,1 +1,45 @@
 @import 'about.scss';
+
+.col {
+    &_3 {
+        @extend .col;
+        flex: 1 1 25%;
+    }
+
+    &_9 {
+        @extend .col;
+        flex: 1 1 75%;
+    }
+}
+
+.filter {
+    @extend %responsive-max-width;
+
+    &__form {
+        background-color: $page-color-darker;
+        padding: $padding-sm;
+    }
+
+    &__form-wrapper {
+        padding-right: $padding-md;
+        padding-top: $padding-lg;
+    }
+
+    &__item {
+        padding-top: $padding-md*2;
+
+        p {
+            padding-bottom: $padding-sm;
+        }
+    }
+
+    &__item:last-child {
+        padding-bottom: $padding-md*2;
+    }
+}
+
+.input {
+    &__select {
+        @extend .input__text;
+    }
+}

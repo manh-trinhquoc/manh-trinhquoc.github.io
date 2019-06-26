@@ -133,13 +133,13 @@
         <li><a href="/thang-long-tour/index.html">Trang chủ</a></li>
         <li><a href="" class="active">Tìm tour</a></li>
     </ul>
-    <div class="row find-tour">
-        <div class="col-3">
+    <div class="row_align_start filter">
+        <div class="col_3 filter__form-wrapper">
             <form class="filter__form">
                 <h2>Bộ lọc tour</h2>
                 <div class="filter__item">
                     <p>Điểm khởi hành</p>
-                    <select name="" id="">
+                    <select name="" id="" class="input__select">
                         <option value="null">Điểm khởi hành</option>
                         <option value="Hà Nội">Hà Nội</option>
                         <option value="Hồ Chí Minh">Hồ Chí Minh</option>
@@ -147,7 +147,7 @@
                 </div>
                 <div class="filter__item">
                     <p>Điểm đến</p>
-                    <select name="" id="">
+                    <select name="" id="" class="input__select">
                         <option value="null">Điểm đến</option>
                         <option value="Hà Nội">Hà Nội</option>
                         <option value="Đà Nẵng">Đà Nẵng</option>
@@ -156,13 +156,13 @@
                 </div>
                 <div class="filter__item">
                     <p>Ngày khởi hành</p>
-                    <select name="" id="">
+                    <select name="" id="" class="input__select">
                         <option value="null">Ngày khởi hành</option>
                     </select>
                 </div>
                 <div class="filter__item">
                     <p>Thời gian</p>
-                    <select name="" id="">
+                    <select name="" id="" class="input__select">
                         <option value="null">Thời gian</option>
                         <option value="1">Trong ngày</option>
                         <option value="2">2 ngày</option>
@@ -202,10 +202,10 @@
                 <button type="submit" class="btn_sm">TÌM KIẾM</button>
             </form>
         </div>
-        <div class="col-9">
+        <div class="col_9">
             <div class="filter__item">
                 <p>Sắp xếp</p>
-                <select name="" id="">
+                <select name="" id="" class="input__select">
                     <option value="null">Sắp xếp</option>
                     <option value="price-incre">Giá tăng dần</option>
                     <option value="price-decre">Giá giảm dần</option>
@@ -273,6 +273,14 @@
                     </a>
                 </div>
             </div>
+            <nav aria-label="Page navigation">
+                <ul class="pagination">
+                    <li><a href="">&lt;&lt;</a></li>
+                    <li><a href="">1</a></li>
+                    <li><a href="">2</a></li>
+                    <li><a href="">&gt;&gt;</a></li>
+                </ul>
+            </nav>
         </div>
     </div>
     <footer class="footer">
