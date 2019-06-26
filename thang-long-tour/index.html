@@ -17,9 +17,56 @@
 </head>
 
 <body>
+    <div class="popover" id="register-popover" hidden="">
+        <div class="popover__background" onclick="hidePopover('register-popover')">
+            <div class="register" id=register onclick="showPopover('register-popover')">
+                <button type="button" class="btn_icon register__cancel-btn" onclick="hidePopover('register-popover')">
+                    <i class="fas fa-times"></i>
+                </button>
+                <form action="#" id="sign-up" class="register__form">
+                    <h2 class="register__title">Đăng ký</h2>
+                    <div class="register__input">
+                        <div class="row">
+                            <div class="col">
+                                <input type="text" placeholder="Họ tên*" class="input__text" />
+                                <p class="input__remark"></p>
+                            </div>
+                            <div class="col_fill"></div>
+                            <div class="col">
+                                <input type="text" placeholder="Số điện thoại*" class="input__text" />
+                                <p class="input__remark"></p>
+                            </div>
+                        </div>
+                        <input type="text" placeholder="Email*" class="input__text" />
+                        <p class="input__remark"></p>
+                        <input type="text" placeholder="Mật khẩu*" class="input__text" />
+                        <p class="input__remark"></p>
+                        <input type="text" placeholder="Nhắc lại mật khẩu*" class="input__text" />
+                        <p class="input__remark"></p>
+                        <p class="register__note">Các trường có dấu * bắt buộc phải điền</p>
+                    </div>
+                </form>
+                <form action="#" id="sign-in" hidden="" class="register__form">
+                    <h2 class="register__title">Đăng nhập</h2>
+                    <h2 class="sign-up__welcome">Chào mừng bạn quay trở lại</h2>
+                    <div class="register__input">
+                        <input type="text" placeholder="Email*" class="input__text" />
+                        <p class="input__remark"></p>
+                        <input type="text" placeholder="Mật khẩu*" class="input__text" />
+                        <p class="input__remark"></p>
+                        <p class="register__note">Các trường có dấu * bắt buộc phải điền</p>
+                    </div>
+                </form>
+                <div class="btn__wrapper">
+                    <button type="submit" class="btn_sm" onclick="signUp()" id="sign-up-btn">Đăng ký</button>
+                    <button type="submit" class="btn_sm btn_deactive" onclick="signIn()" id="sign-in-btn">Đăng nhập</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <header class="header">
         <img src="img/logo.png" alt="logo image" class="logo" />
-        <div class="topnav" id="topnav" onclick="event.stopPropagation()">
+        <div class="topnav" id="topnav">
             <a href="javascript:void(0);" class="icon" onclick="toggleClassResponsive('topnav')">
                 <i class="fa fa-bars"></i>
             </a>
@@ -30,11 +77,11 @@
             <a href="#">Tin du lịch</a>
             <a href="/thang-long-tour/about.html">Liên hệ</a>
             <form class="topnav__search search" action="#">
-                <input type="text" placeholder="Search.." name="search" class="search__input">
+                <input type="text" placeholder="Search.." name="search" class="input__text search__input-text">
                 <button type="submit" class="search__button"><i class="fa fa-search"></i></button>
             </form>
             <div class="a">
-                <button class="topnav__sign-in" onclick="toggleSignUpPopover()"><i class="fas fa-user"></i></button>
+                <button class="topnav__sign-in" onclick="togglePopover('register-popover')"><i class="fas fa-user"></i></button>
             </div>
         </div>
     </header>
@@ -80,48 +127,6 @@
             </ul>
         </div>
     </section>
-    <div class="sign-up" id="sign-up-popover" onclick="showSignInPopover()" hidden="">
-        <button class="sign-up__cancel" onclick="hideSignUpPopover()">
-            <i class="fas fa-times"></i>
-        </button>
-        <form action="#" id="sign-up">
-            <h2>Đăng ký</h2>
-            <div class="sign-up__input">
-                <div class="row">
-                    <div class="col-6">
-                        <input type="text" placeholder="Họ tên*" />
-                        <p class="sign-up__fail"></p>
-                    </div>
-                    <div class="col-6">
-                        <input type="text" placeholder="Số điện thoại*" />
-                        <p class="sign-up__fail"></p>
-                    </div>
-                </div>
-                <input type="text" placeholder="Email*" />
-                <p class="sign-up__fail"></p>
-                <input type="text" placeholder="Mật khẩu*" />
-                <p class="sign-up__fail"></p>
-                <input type="text" placeholder="Nhắc lại mật khẩu*" />
-                <p class="sign-up__fail"></p>
-                <p>Các trường có dấu * bắt buộc phải điền</p>
-            </div>
-        </form>
-        <form action="#" id="sign-in" hidden="">
-            <h2>Đăng nhập</h2>
-            <h2 class="sign-up__welcome">Chào mừng bạn quay trở lại</h2>
-            <div class="sign-up__input">
-                <input type="text" placeholder="Email*" />
-                <p class="sign-up__fail"></p>
-                <input type="text" placeholder="Mật khẩu*" />
-                <p class="sign-up__fail"></p>
-                <p>Các trường có dấu * bắt buộc phải điền</p>
-            </div>
-        </form>
-        <div class="sign-up__btn">
-            <button type="submit" class="btn_sm" onclick="signUp()">Đăng ký</button>
-            <button type="submit" class="btn_sm btn_deactive" onclick="signIn()">Đăng nhập</button>
-        </div>
-    </div>
     <section class="foreign">
         <h2><a href="#">Du lịch nước ngoài</a></h2>
         <div class="row">
@@ -291,7 +296,7 @@
         <div class="btn_md"><a href="#">Xem thêm</a></div>
     </section>
     <footer class="footer">
-        <div class="row">
+        <div class="row footer__inner-wrapper">
             <div class="footer__logo">
                 <img src="img/logo.png" alt="logo image"> <br />
                 Ⓒ Copyright 2019 Manh
@@ -310,10 +315,6 @@
                     </ul>
                 </li>
             </ul>
-            <!-- google street view -->
-            <!-- <div class="map-marker" id="footer-map">
-            <iframe src="https://www.google.com/maps/embed?pb=!4v1560766712311!6m8!1m7!1sCAoSLEFGMVFpcE12MU0teTc3MWFMNFBHdGltbUtGQzRSZTJlLUQxelRSamhWOWgt!2m2!1d20.99798364323391!2d105.7947524055053!3f52.166519230599775!4f0!5f0.7820865974627469" width="600" height="500" frameborder="0" style="border:0" allowfullscreen></iframe>
-        </div> -->
             <div class="footer__fb">
                 <!-- facebook like page -->
                 <div id="fb-root"></div>
@@ -323,39 +324,43 @@
                 </div>
             </div>
         </div>
-        <!-- facebook chat -->
-        <!-- <a href="https://m.me/2448958151999364">
-    Message us on facebook bằng thẻ a
-</a> -->
-        <!-- facebook chat set 1 -->
-        <!-- <div class="fb-customerchat" page_id="2448958151999364">
-        </div> -->
-        <!-- face book chat set 2 -->
-        <script>
-        window.fbAsyncInit = function() {
-            FB.init({
-                xfbml: true,
-                version: 'v3.3'
-            });
-        };
-
-        (function(d, s, id) {
-            console.log("facebook function");
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) return;
-            js = d.createElement(s);
-            js.id = id;
-            js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
-        </script>
-        <!-- Your customer chat code -->
-        <div class="fb-customerchat" attribution=setup_tool page_id="2448958151999364" theme_color="#4A381D" logged_in_greeting="Đây là tính năng thử nghiệm phục vụ cho đồ án lớp web front-end 3" logged_out_greeting="Đây là tính năng thử nghiệm phục vụ cho đồ án lớp web front-end 3">
-        </div>
     </footer>
     <!-- custome -->
     <script type="text/javascript" src="js/script.js">
     </script>
+    <!-- google street view -->
+    <!-- <div class="map-marker" id="footer-map">
+            <iframe src="https://www.google.com/maps/embed?pb=!4v1560766712311!6m8!1m7!1sCAoSLEFGMVFpcE12MU0teTc3MWFMNFBHdGltbUtGQzRSZTJlLUQxelRSamhWOWgt!2m2!1d20.99798364323391!2d105.7947524055053!3f52.166519230599775!4f0!5f0.7820865974627469" width="600" height="500" frameborder="0" style="border:0" allowfullscreen></iframe>
+        </div> -->
+    <!-- facebook chat -->
+    <!-- <a href="https://m.me/2448958151999364">
+    Message us on facebook bằng thẻ a
+</a> -->
+    <!-- facebook chat set 1 -->
+    <!-- <div class="fb-customerchat" page_id="2448958151999364">
+        </div> -->
+    <!-- face book chat set 2 -->
+    <script>
+    window.fbAsyncInit = function() {
+        FB.init({
+            xfbml: true,
+            version: 'v3.3'
+        });
+    };
+
+    (function(d, s, id) {
+        console.log("facebook function");
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+    </script>
+    <!-- Your customer chat code -->
+    <div class="fb-customerchat" attribution=setup_tool page_id="2448958151999364" theme_color="#4A381D" logged_in_greeting="Đây là tính năng thử nghiệm phục vụ cho đồ án lớp web front-end 3" logged_out_greeting="Đây là tính năng thử nghiệm phục vụ cho đồ án lớp web front-end 3">
+    </div>
 </body>
 
 </html>

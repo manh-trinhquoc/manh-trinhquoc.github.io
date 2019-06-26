@@ -11,45 +11,53 @@ function showMap(id) {
     document.getElementById(id).toggleAttribute("hidden");
 }
 
-let eleSignUpForm = document.getElementById("sign-up");
-let eleSignInForm = document.getElementById("sign-in");
-let eleSignUpPopover = document.getElementById("sign-up-popover");
+
+
 let eleTopnavPopover = document.getElementById("topnav");
 
 function signIn() {
+    let eleSignUpForm = document.getElementById("sign-up");
+    let eleSignInForm = document.getElementById("sign-in");
     if (eleSignInForm.hasAttribute("hidden")) {
         eleSignInForm.removeAttribute("hidden");
         eleSignUpForm.setAttribute("hidden", "");
     }
+    document.getElementById("sign-in-btn").classList.remove("btn_deactive");;
+    document.getElementById("sign-up-btn").classList.add("btn_deactive");
     event.stopPropagation()
 }
 
 function signUp() {
+    let eleSignUpForm = document.getElementById("sign-up");
+    let eleSignInForm = document.getElementById("sign-in");
     if (eleSignUpForm.hasAttribute("hidden")) {
         eleSignUpForm.removeAttribute("hidden");
         eleSignInForm.setAttribute("hidden", "");
     }
+    document.getElementById("sign-up-btn").classList.remove("btn_deactive");;
+    document.getElementById("sign-in-btn").classList.add("btn_deactive");
     event.stopPropagation()
 }
 
-function toggleSignUpPopover() {
-    eleSignUpPopover.toggleAttribute("hidden");
+function togglePopover(id) {
+    let elePopover = document.getElementById(id);
+    elePopover.toggleAttribute("hidden");
+}
+
+function hidePopover(id) {
+    console.group("hidePopover");
+    console.trace();
+    console.groupEnd();
+    let elePopover = document.getElementById(id);
+    elePopover.setAttribute("hidden", "");
     event.stopPropagation()
 }
 
-function hideSignUpPopover() {
-    eleSignUpPopover.setAttribute("hidden", "");
+function showPopover(id) {
+    console.group("showPopover");
+    console.trace();
+    console.groupEnd();
+    let elePopover = document.getElementById(id);
+    elePopover.removeAttribute("hidden");
     event.stopPropagation()
 }
-
-function showSignInPopover() {
-    eleSignUpPopover.removeAttribute("hidden");
-    event.stopPropagation()
-}
-
-function hidePopover() {
-    hideSignUpPopover();
-    eleTopnavPopover.classList.remove("responsive");
-}
-
-document.addEventListener("click", hidePopover);

@@ -31,14 +31,11 @@
         padding-bottom: $padding-md;
     }
 
-    .row h2 {
+    &__title {
+        text-align: left;
+        margin-top: $padding-lg;
         margin-bottom: $padding-sm;
     }
-}
-
-h2 {
-    text-align: left;
-    margin-top: $padding-lg;
 }
 
 
@@ -55,4 +52,8 @@ h2 {
     @media (min-width: 576px) {
         height: 500px;
     }
+}
+
+.row {
+    .col-4 {}
 }

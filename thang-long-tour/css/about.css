@@ -20,23 +20,23 @@ body {
 button:hover {
   cursor: pointer; }
 
-.header, .banner__nav, .banner__wrapper, .foreign, .viet-nam, .footer .row, .breadcrumb, .contact {
+.header, .banner__nav, .banner__wrapper, .foreign, .viet-nam, .footer__inner-wrapper, .breadcrumb, .contact {
   margin-left: auto;
   margin-right: auto; }
   @media (min-width: 576px) {
-    .header, .banner__nav, .banner__wrapper, .foreign, .viet-nam, .footer .row, .breadcrumb, .contact {
+    .header, .banner__nav, .banner__wrapper, .foreign, .viet-nam, .footer__inner-wrapper, .breadcrumb, .contact {
       max-width: 540px; } }
   @media (min-width: 768px) {
-    .header, .banner__nav, .banner__wrapper, .foreign, .viet-nam, .footer .row, .breadcrumb, .contact {
+    .header, .banner__nav, .banner__wrapper, .foreign, .viet-nam, .footer__inner-wrapper, .breadcrumb, .contact {
       max-width: 720px; } }
   @media (min-width: 992px) {
-    .header, .banner__nav, .banner__wrapper, .foreign, .viet-nam, .footer .row, .breadcrumb, .contact {
+    .header, .banner__nav, .banner__wrapper, .foreign, .viet-nam, .footer__inner-wrapper, .breadcrumb, .contact {
       max-width: 960px; } }
   @media (min-width: 1200px) {
-    .header, .banner__nav, .banner__wrapper, .foreign, .viet-nam, .footer .row, .breadcrumb, .contact {
+    .header, .banner__nav, .banner__wrapper, .foreign, .viet-nam, .footer__inner-wrapper, .breadcrumb, .contact {
       max-width: 1140px; } }
 
-.row, .header .topnav__sign-in, .sign-up__btn, .banner__content, .banner__nav, .footer__social-list {
+.row, .header .topnav__sign-in, .btn__wrapper, .popover__background, .banner__content, .banner__nav, .footer__social-list {
   display: -webkit-flex;
   display: -moz-flex;
   display: -ms-flex;
@@ -47,11 +47,10 @@ button:hover {
   .row {
     flex-flow: column; } }
 
-.header .topnav__sign-in, .row, .sign-up__btn {
+.header .topnav__sign-in, .row, .btn__wrapper, .popover__background {
   justify-content: center;
   -ms-align-items: center;
-  /* align-items: center; */
-  }
+  align-items: center; }
 
 @media (max-width: 576px) {
   .header {
@@ -117,15 +116,11 @@ button:hover {
 .search {
   position: relative;
   background-color: transparent; }
-  .search__input {
-    height: 100%;
-    width: 100%;
+  .search__input-text {
     background-color: transparent;
-    border: none;
     padding-left: 5px;
     padding-right: 44px;
-    overflow: hidden;
-    color: #09ff30; }
+    overflow: hidden; }
   .search__button {
     position: absolute;
     right: 1px;
@@ -216,8 +211,17 @@ a {
   flex-wrap: wrap;
   justify-content: space-between;
   padding-top: 5px;
-  padding-bottom: 5px;
+  padding-bottom: 5px; }
+
+.col, .col_fill {
+  flex: 1 1 0%;
   }
+  @media (max-width: 576px) {
+    .col, .col_fill {
+      align-self: stretch; } }
+  .col_fill {
+    /* max-width: 10px; */
+    }
 
 .card {
   width: 260px;
@@ -253,13 +257,21 @@ a {
   .card__duration, .card__start-date {
     color: #09ff30; }
 
-.btn, .btn_sm, .btn_md, .btn_deactive, .sign-up__cancel {
+.btn, .btn_icon, .btn_sm, .btn_md, .btn_deactive {
   margin: 0 auto;
   color: white;
   text-align: center;
   background-color: #00d522;
   padding: 10px;
   border: none; }
+  .btn__wrapper {
+    width: 100%;
+    padding: 20px; }
+  .btn_icon {
+    width: 44px;
+    height: 44px;
+    font-size: 27.5px;
+    background-color: transparent; }
   .btn_sm {
     width: 100px; }
   .btn_md {
@@ -272,9 +284,6 @@ a {
   padding-bottom: 5px;
   padding-top: 5px;
   background-color: #4a381d; }
-  .footer .row {
-    flex-wrap: wrap;
-    justify-content: space-between; }
   .footer__logo {
     text-align: center;
     padding: 10px; }
@@ -286,7 +295,9 @@ a {
         padding: 10px; } }
   .footer__fb {
     min-width: 300px;
-    padding: 10px; }
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px; }
   .footer__social-list {
     justify-content: space-between;
     font-size: 33px; }
@@ -298,64 +309,66 @@ ul {
   ul li {
     padding-top: 5px; }
 
-.sign-up {
+.popover {
   position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: rgba(91, 70, 36, 0.9);
-  z-index: 1;
+  z-index: 100;
+  top: 0;
+  width: 100%;
+  height: 0; }
+  .popover__background {
+    background-color: rgba(91, 70, 36, 0.9);
+    width: 100%;
+    height: 200vh; }
+  @media (min-width: 576px) {
+    .popover {
+      position: sticky; }
+      .popover__background {
+        height: 100vh; } }
+
+.register {
+  background-color: #6E542C;
+  margin: 0 auto;
   padding: 5px;
   width: 50%;
   min-width: 300px;
   max-width: 600px; }
-  .sign-up__input-text {
-    width: 100%;
-    padding: 5px;
-    height: 44px;
-    display: block; }
-  .sign-up__fail {
-    height: 22px;
-    width: 100%;
-    margin: 20px; }
-  .sign-up #sign-up {
-    height: 616px;
-    position: relative; }
-    @media (min-width: 576px) {
-      .sign-up #sign-up {
-        height: 484px; } }
-  .sign-up #sign-in {
-    height: 616px;
-    position: relative; }
-    @media (min-width: 576px) {
-      .sign-up #sign-in {
-        height: 484px; } }
-  .sign-up__btn {
-    bottom: 5px;
-    padding: 20px; }
-  .sign-up__welcome {
-    font-size: 2rem;
+  .register__cancel-btn {
     position: relative;
-    top: 15%; }
-  .sign-up .row {
-    -ms-align-items: stretch;
-    align-items: stretch; }
-  .sign-up__input {
+    left: calc(100% - 44px); }
+  .register__form {
+    height: 528px;
+    position: relative; }
+    @media (min-width: 576px) {
+      .register__form {
+        height: 440px; } }
+  .register__title {
+    padding-top: 20px;
+    padding-bottom: 20px; }
+  .register__input {
     position: absolute;
     bottom: 0;
     width: 100%; }
-  .sign-up__cancel {
-    height: 44px;
-    width: 44px;
-    background-color: transparent;
-    font-size: 27.5px;
-    position: relative;
-    left: calc(100% - 44px); }
-  .sign-up i {
-    color: white; }
+  .register__note {
+    font-size: 8px; }
 
-@media (min-width: 576px) {
-  .col-6 {
-    width: 49%; } }
+.sign-up__welcome {
+  font-size: 2rem;
+  position: relative;
+  top: 15%; }
+
+.input__text {
+  width: 100%;
+  padding: 5px;
+  height: 44px;
+  display: block;
+  border: none; }
+.input__remark {
+  width: 100%;
+  height: 22px;
+  font-size: 8px;
+  margin: 0;
+  padding-top: 20px;
+  padding-bottom: 20px; }
 
 .breadcrumb {
   padding-left: 5px;
@@ -373,12 +386,10 @@ ul {
 
 .contact__content {
   padding-bottom: 20px; }
-.contact .row h2 {
-  margin-bottom: 10px; }
-
-h2 {
+.contact__title {
   text-align: left;
-  margin-top: 70px; }
+  margin-top: 70px;
+  margin-bottom: 10px; }
 
 .map-marker {
   margin-top: 70px;
