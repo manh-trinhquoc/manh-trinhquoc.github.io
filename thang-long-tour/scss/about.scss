@@ -33,9 +33,15 @@
 
     &__title {
         text-align: left;
-        margin-top: $padding-lg;
-        margin-bottom: $padding-sm;
+        padding-top: $padding-lg;
+        padding-bottom: $padding-sm;
     }
+
+    &__note {
+        padding-left: $padding-md;
+    }
+
+
 }
 
 
@@ -55,5 +61,21 @@
 }
 
 .row {
-    .col-4 {}
+    &_align_start {
+        @extend .row;
+        -ms-align-items: start;
+        align-items: start;
+    }
+}
+
+.col {
+    &_4 {
+        @extend .col;
+        flex: 1 1 33.33%;
+    }
+
+    &_8 {
+        @extend .col;
+        flex: 1 1 66.65%;
+    }
 }

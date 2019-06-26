@@ -1,4 +1,4 @@
 cd F:\manh-trinhquoc.github.io
 git add .
-git commit -m "thang-long-tour: css landing page"
+git commit -m "thang-long-tour: finish about.html"
 git push
