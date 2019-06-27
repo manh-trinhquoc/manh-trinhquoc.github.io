@@ -1,0 +1,38 @@
+@import 'find-tour.scss';
+
+.book-tour {
+    @extend %responsive-max-width;
+    padding-bottom: $padding-lg;
+
+    &__title {
+        @extend .contact__title;
+        padding-bottom: $padding-lg;
+    }
+
+    &__client-info {
+        padding-left: $padding-lg;
+
+        h2 {
+            padding-bottom: $padding-md;
+        }
+    }
+}
+
+.tour-info {
+    @extend .filter__form;
+    padding-bottom: $padding-lg;
+
+    h2 {
+        @extend .contact__title;
+        color: $text-color;
+
+        &:first-child {
+            padding-top: 0;
+        }
+    }
+
+    p {
+        text-align: center;
+        font-size: $text-size-lg;
+    }
+}

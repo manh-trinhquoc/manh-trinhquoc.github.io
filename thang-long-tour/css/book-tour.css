@@ -1,0 +1,544 @@
+@import url("/thang-long-tour/comp/top-nav.css");
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0; }
+
+/*Cac mau sac chinh*/
+/*font size*/
+/*tag size*/
+html {
+  font-size: 16px;
+  color: white; }
+
+body {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0, rgba(0, 0, 0, 0) 200px) no-repeat, #6E542C;
+  margin: 0; }
+
+button:hover {
+  cursor: pointer; }
+
+.header, .banner__nav, .banner__wrapper, .foreign, .viet-nam, .footer__inner-wrapper, .breadcrumb, .contact, .filter, .book-tour {
+  margin-left: auto;
+  margin-right: auto; }
+  @media (min-width: 576px) {
+    .header, .banner__nav, .banner__wrapper, .foreign, .viet-nam, .footer__inner-wrapper, .breadcrumb, .contact, .filter, .book-tour {
+      max-width: 540px; } }
+  @media (min-width: 768px) {
+    .header, .banner__nav, .banner__wrapper, .foreign, .viet-nam, .footer__inner-wrapper, .breadcrumb, .contact, .filter, .book-tour {
+      max-width: 720px; } }
+  @media (min-width: 992px) {
+    .header, .banner__nav, .banner__wrapper, .foreign, .viet-nam, .footer__inner-wrapper, .breadcrumb, .contact, .filter, .book-tour {
+      max-width: 960px; } }
+  @media (min-width: 1200px) {
+    .header, .banner__nav, .banner__wrapper, .foreign, .viet-nam, .footer__inner-wrapper, .breadcrumb, .contact, .filter, .book-tour {
+      max-width: 1140px; } }
+
+.row, .row_align_start {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex; }
+  @media (max-width: 576px) {
+    .row, .row_align_start {
+      flex-flow: column; } }
+
+.topnav__sign-in, .row, .row_align_start, .btn__wrapper, .popover__background, .pagination {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  justify-content: center;
+  -ms-align-items: center;
+  align-items: center; }
+
+@media (max-width: 576px) {
+  .header {
+    padding: 5px; } }
+
+.logo {
+  width: 290px; }
+
+.header {
+  padding-top: 20px;
+  margin: 0 auto; }
+  .header__wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1; }
+  .header img {
+    max-width: 50%; }
+  .header i {
+    color: white; }
+
+.topnav {
+  background-color: transparent;
+  position: absolute;
+  z-index: 1;
+  margin-top: -35px;
+  width: calc(100% - 10px); }
+  .topnav__search {
+    min-width: 300px;
+    width: 99%;
+    height: 44px;
+    display: none; }
+  .topnav.responsive {
+    background-color: rgba(91, 70, 36, 0.9); }
+  .topnav.responsive .topnav__search {
+    display: block;
+    margin: 0 auto; }
+  .topnav__sign-in {
+    width: 44px;
+    height: 44px;
+    border-radius: 22px;
+    background-color: #09ff30;
+    padding: 0;
+    border: none; }
+  .topnav .a {
+    padding: 0;
+    padding-left: 16px; }
+  @media (min-width: 576px) {
+    .topnav {
+      margin-top: 0;
+      position: relative; }
+      .topnav a {
+        padding: 0; }
+      .topnav__search {
+        display: block;
+        min-width: 0;
+        width: 44px;
+        position: relative;
+        background-color: transparent; }
+        .topnav__search:hover input {
+          width: 300px;
+          background-color: #09ff30;
+          color: white; }
+      .topnav input {
+        position: absolute;
+        right: 0;
+        width: 0;
+        transition: 0.5s linear; } }
+
+.search {
+  position: relative;
+  background-color: transparent; }
+  .search__input-text {
+    background-color: transparent;
+    padding-left: 5px;
+    padding-right: 44px;
+    overflow: hidden; }
+  .search__button {
+    position: absolute;
+    right: 1px;
+    top: 1px;
+    height: 42px;
+    width: 42px;
+    background-color: transparent;
+    border: none; }
+
+i {
+  color: #3cff5b; }
+
+.banner {
+  width: 100%;
+  position: relative; }
+  .banner img {
+    width: 100%; }
+  .banner__content {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    padding: 5px;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    flex-flow: column;
+    -ms-align-items: center;
+    justify-content: center; }
+  .banner h4 {
+    display: none; }
+  @media (min-width: 576px) {
+    .banner h4 {
+      display: block; } }
+  .banner__nav {
+    position: absolute;
+    bottom: 5px;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    justify-content: space-between;
+    -ms-align-items: flex-end;
+    align-items: flex-end;
+    width: 100%; }
+  .banner__item {
+    display: block;
+    text-align: center;
+    /*min-width: 95px;*/ }
+  .banner__icon {
+    max-width: 33px;
+    max-height: 33px;
+    filter: invert(67%) sepia(37%) saturate(6421%) hue-rotate(92deg) brightness(121%) contrast(122%); }
+    @media (min-width: 992px) {
+      .banner__icon {
+        max-width: 49.5px;
+        max-height: 49.5px; } }
+  .banner__wrapper {
+    position: static; }
+
+@media (min-width: 576px) {
+  .banner-content__contry {
+    font-size: 16.5px; }
+  .banner-content__header {
+    font-size: 27.5px; }
+  .banner-content__duration {
+    font-size: 11.5px; } }
+@media (min-width: 768px) {
+  .banner-content__contry {
+    font-size: 33px; }
+  .banner-content__header {
+    font-size: 55px; }
+  .banner-content__duration {
+    font-size: 23px; } }
+
+.foreign {
+  padding-top: 70px;
+  border-bottom: 1px solid #4a381d;
+  padding-bottom: 70px; }
+
+.viet-nam {
+  padding-top: 70px;
+  padding-bottom: 70px; }
+
+h2 {
+  text-align: center; }
+
+a {
+  color: white;
+  text-decoration: none; }
+
+.row, .row_align_start {
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding-top: 5px;
+  padding-bottom: 5px; }
+
+.col, .col_fill, .col_4, .col_8, .col_3, .col_9 {
+  flex: 1 1 0%; }
+  @media (max-width: 576px) {
+    .col, .col_fill, .col_4, .col_8, .col_3, .col_9 {
+      align-self: stretch; } }
+  .col_fill {
+    max-width: 10px; }
+
+.card {
+  width: 260px;
+  height: 350px;
+  margin-bottom: 20px;
+  position: relative;
+  padding: 10px; }
+  .card img {
+    max-width: 100%; }
+  .card__img {
+    height: 170px;
+    overflow: hidden;
+    background-image: url("../img/india-1.jpg");
+    background-position: center;
+    position: relative; }
+  .card__sale {
+    position: absolute;
+    bottom: 0;
+    background-color: red;
+    padding: 5px; }
+  .card__country {
+    color: #00d522;
+    padding-top: 5px; }
+  .card__header {
+    color: #09ff30;
+    padding-top: 5px;
+    padding-bottom: 5px; }
+  .card__price {
+    padding-top: 10px; }
+    .card__price:after {
+      content: ' vnd';
+      color: #00d522; }
+  .card__duration, .card__start-date {
+    color: #09ff30; }
+
+.btn, .btn_icon, .btn_sm, .btn_md, .btn_deactive {
+  margin: 0 auto;
+  color: white;
+  text-align: center;
+  background-color: #00d522;
+  padding: 10px;
+  border: none; }
+  .btn__wrapper {
+    width: 100%;
+    padding: 20px; }
+  .btn_icon {
+    width: 44px;
+    height: 44px;
+    font-size: 27.5px;
+    background-color: transparent; }
+  .btn_sm {
+    width: 100px; }
+  .btn_md {
+    width: 200px; }
+  .btn_deactive {
+    background-color: #4a381d;
+    color: #00d522; }
+
+.footer {
+  padding-bottom: 5px;
+  padding-top: 5px;
+  background-color: #4a381d; }
+  .footer__logo {
+    text-align: center;
+    padding: 10px; }
+  .footer__link {
+    padding-left: 10%; }
+    @media (min-width: 576px) {
+      .footer__link {
+        padding-left: 0;
+        padding: 10px; } }
+  .footer__fb {
+    min-width: 300px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px; }
+  .footer__social-list {
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    justify-content: space-between;
+    font-size: 33px; }
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0; }
+  ul li {
+    padding-top: 5px; }
+
+.popover {
+  position: absolute;
+  z-index: 100;
+  top: 0;
+  width: 100%;
+  height: 0; }
+  .popover__background {
+    background-color: rgba(91, 70, 36, 0.9);
+    width: 100%;
+    height: 200vh; }
+  @media (min-width: 576px) {
+    .popover {
+      position: sticky; }
+      .popover__background {
+        height: 100vh; } }
+
+.register {
+  background-color: #6E542C;
+  margin: 0 auto;
+  padding: 5px;
+  width: 50%;
+  min-width: 300px;
+  max-width: 600px; }
+  .register__cancel-btn {
+    position: relative;
+    left: calc(100% - 44px); }
+  .register__form {
+    height: 528px;
+    position: relative; }
+    @media (min-width: 576px) {
+      .register__form {
+        height: 440px; } }
+  .register__title {
+    padding-top: 20px;
+    padding-bottom: 20px; }
+  .register__input {
+    position: absolute;
+    bottom: 0;
+    width: 100%; }
+  .register__note {
+    font-size: 8px; }
+
+.sign-up__welcome {
+  font-size: 2rem;
+  position: relative;
+  top: 15%; }
+
+.input__text, .input__select, .input__select_background, .checkbox__wrapper {
+  width: 100%;
+  padding: 5px;
+  height: 44px;
+  display: block;
+  border: none; }
+.input__remark {
+  width: 100%;
+  height: 22px;
+  font-size: 8px;
+  margin: 0;
+  padding-top: 20px;
+  padding-bottom: 20px; }
+
+.breadcrumb {
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-top: 70px; }
+  .breadcrumb li {
+    display: inline-block; }
+  .breadcrumb li:not(:last-child):after {
+    content: "/";
+    display: inline-block;
+    padding-left: 5px;
+    padding-right: 5px; }
+  .breadcrumb .active {
+    color: #09ff30; }
+
+.contact__content {
+  padding-bottom: 20px; }
+.contact__title, .book-tour__title, .tour-info h2 {
+  text-align: left;
+  padding-top: 70px;
+  padding-bottom: 10px; }
+.contact__note {
+  padding-left: 20px; }
+
+.map-marker {
+  margin-top: 70px;
+  padding-left: 5px;
+  padding-right: 5px; }
+  .map-marker iframe {
+    width: 100%;
+    height: 100%; }
+  @media (min-width: 576px) {
+    .map-marker {
+      height: 500px; } }
+
+.row_align_start {
+  -ms-align-items: start;
+  align-items: start; }
+
+.col_4 {
+  flex: 1 1 33.33%; }
+.col_8 {
+  flex: 1 1 66.65%; }
+
+.col_3 {
+  flex: 1 1 25%; }
+.col_9 {
+  flex: 1 1 75%; }
+
+.filter__form, .tour-info {
+  background-color: #4a381d;
+  padding: 10px; }
+.filter__form-wrapper {
+  padding-right: 20px;
+  padding-top: 70px; }
+.filter__item, .filter__item_arrange {
+  padding-top: 40px; }
+  .filter__item p, .filter__item_arrange p {
+    padding-bottom: 10px; }
+.filter__item_arrange {
+  padding-top: 70px;
+  padding-bottom: 20px;
+  width: 30%; }
+  .filter__item_arrange p {
+    padding-left: 10px; }
+.filter__button {
+  padding-top: 40px; }
+
+.input__select, .input__select_background {
+  background-color: #6E542C;
+  color: white; }
+  .input__select_background {
+    background-color: #4a381d; }
+.input__checkbox {
+  width: 20px;
+  height: 20px;
+  color: white; }
+  .input__checkbox:after {
+    width: 20px;
+    height: 20px;
+    background: #6E542C;
+    content: "";
+    display: inline-block; }
+  .input__checkbox:checked:after {
+    content: "\2714";
+    text-align: center;
+    color: white; }
+
+/*input[type="checkbox"] {
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline: 0;
+    background: $page-color;
+    height: 16px;
+    width: 16px;
+    border: 1px solid white;
+}*/
+.checkbox__wrapper {
+  width: 100%;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  -ms-align-items: center;
+  align-items: center; }
+.checkbox__label {
+  padding-left: 20px; }
+
+.pagination {
+  width: 100%; }
+  .pagination a {
+    color: white;
+    padding: 10px;
+    display: inline-block;
+    min-width: 44px;
+    min-height: 44px;
+    text-align: center;
+    font-size: 18px;
+    text-decoration: none;
+    transition: background-color .3s; }
+  .pagination .active {
+    background-color: #92703b;
+    color: white; }
+  .pagination .disable {
+    visibility: hidden; }
+  .pagination a:hover:not(.active):not(.disable) {
+    background-color: #ddd; }
+
+.book-tour {
+  padding-bottom: 70px; }
+  .book-tour__title {
+    padding-bottom: 70px; }
+  .book-tour__client-info {
+    padding-left: 70px; }
+    .book-tour__client-info h2 {
+      padding-bottom: 20px; }
+
+.tour-info {
+  padding-bottom: 70px; }
+  .tour-info h2 {
+    color: #09ff30; }
+    .tour-info h2:first-child {
+      padding-top: 0; }
+  .tour-info p {
+    text-align: center;
+    font-size: 35px; }
+
+/*# sourceMappingURL=book-tour.css.map */
