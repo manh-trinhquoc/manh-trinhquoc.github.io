@@ -76,7 +76,7 @@ button:hover {
     }
 }
 
-%d-flex {
+@mixin d-flex {
     display: -webkit-flex;
     display: -moz-flex;
     display: -ms-flex;
@@ -85,7 +85,7 @@ button:hover {
 }
 
 %d-flex_responsive {
-    @extend %d-flex;
+    @include d-flex;
 
     @media (max-width: 576px) {
         flex-flow: column;
@@ -93,7 +93,7 @@ button:hover {
 }
 
 %d-flex_center {
-    @extend %d-flex;
+    @include d-flex;
     justify-content: center;
     -ms-align-items: center;
     align-items: center;
@@ -251,7 +251,7 @@ i {
         top: 0;
         height: 100%;
         padding: $padding-xs;
-        @extend %d-flex;
+        @include d-flex;
         flex-flow: column;
         -ms-align-items: center;
         justify-content: center;
@@ -271,7 +271,7 @@ i {
         @extend %responsive-max-width;
         position: absolute;
         bottom: $padding-xs;
-        @extend %d-flex;
+        @include d-flex;
         justify-content: space-between;
         -ms-align-items: flex-end;
         align-items: flex-end;
@@ -502,7 +502,7 @@ a {
     }
 
     &__social-list {
-        @extend %d-flex;
+        @include d-flex;
         justify-content: space-between;
         font-size: $icon-size;
     }

@@ -36,18 +36,22 @@ button:hover {
     .header, .banner__nav, .banner__wrapper, .foreign, .viet-nam, .footer__inner-wrapper, .breadcrumb, .contact, .filter {
       max-width: 1140px; } }
 
-.row, .row_align_start, .topnav__sign-in, .btn__wrapper, .popover__background, .banner__content, .banner__nav, .footer__social-list {
+.row, .row_align_start {
   display: -webkit-flex;
   display: -moz-flex;
   display: -ms-flex;
   display: -o-flex;
   display: flex; }
+  @media (max-width: 576px) {
+    .row, .row_align_start {
+      flex-flow: column; } }
 
-@media (max-width: 576px) {
-  .row, .row_align_start {
-    flex-flow: column; } }
-
-.topnav__sign-in, .row, .row_align_start, .btn__wrapper, .popover__background {
+.topnav__sign-in, .row, .row_align_start, .btn__wrapper, .popover__background, .pagination {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
   justify-content: center;
   -ms-align-items: center;
   align-items: center; }
@@ -151,6 +155,11 @@ i {
     top: 0;
     height: 100%;
     padding: 5px;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
     flex-flow: column;
     -ms-align-items: center;
     justify-content: center; }
@@ -162,6 +171,11 @@ i {
   .banner__nav {
     position: absolute;
     bottom: 5px;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
     justify-content: space-between;
     -ms-align-items: flex-end;
     align-items: flex-end;
@@ -302,6 +316,11 @@ a {
     padding-bottom: 10px;
     padding-left: 20px; }
   .footer__social-list {
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
     justify-content: space-between;
     font-size: 33px; }
 
@@ -359,7 +378,7 @@ ul {
   position: relative;
   top: 15%; }
 
-.input__text, .input__select {
+.input__text, .input__select, .input__select_background, .checkbox__wrapper {
   width: 100%;
   padding: 5px;
   height: 44px;
@@ -427,11 +446,80 @@ ul {
 .filter__form-wrapper {
   padding-right: 20px;
   padding-top: 70px; }
-.filter__item {
+.filter__item, .filter__item_arrange {
   padding-top: 40px; }
-  .filter__item p {
+  .filter__item p, .filter__item_arrange p {
     padding-bottom: 10px; }
-.filter__item:last-child {
-  padding-bottom: 40px; }
+.filter__item_arrange {
+  padding-top: 70px;
+  padding-bottom: 20px;
+  width: 30%; }
+  .filter__item_arrange p {
+    padding-left: 10px; }
+.filter__button {
+  padding-top: 40px; }
+
+.input__select, .input__select_background {
+  background-color: #6E542C;
+  color: white; }
+  .input__select_background {
+    background-color: #4a381d; }
+.input__checkbox {
+  width: 20px;
+  height: 20px;
+  color: white; }
+  .input__checkbox:after {
+    width: 20px;
+    height: 20px;
+    background: #6E542C;
+    content: "";
+    display: inline-block; }
+  .input__checkbox:checked:after {
+    content: "\2714";
+    text-align: center;
+    color: white; }
+
+/*input[type="checkbox"] {
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline: 0;
+    background: $page-color;
+    height: 16px;
+    width: 16px;
+    border: 1px solid white;
+}*/
+.checkbox__wrapper {
+  width: 100%;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  -ms-align-items: center;
+  align-items: center; }
+.checkbox__label {
+  padding-left: 20px; }
+
+.pagination {
+  width: 100%; }
+  .pagination a {
+    color: white;
+    padding: 10px;
+    display: inline-block;
+    min-width: 44px;
+    min-height: 44px;
+    text-align: center;
+    font-size: 18px;
+    text-decoration: none;
+    transition: background-color .3s; }
+  .pagination .active {
+    background-color: #92703b;
+    color: white; }
+  .pagination .disable {
+    visibility: hidden; }
+  .pagination a:hover:not(.active):not(.disable) {
+    background-color: #ddd; }
 
 /*# sourceMappingURL=find-tour.css.map */

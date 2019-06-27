@@ -36,18 +36,22 @@ button:hover {
     .header, .banner__nav, .banner__wrapper, .foreign, .viet-nam, .footer__inner-wrapper {
       max-width: 1140px; } }
 
-.row, .topnav__sign-in, .btn__wrapper, .popover__background, .banner__content, .banner__nav, .footer__social-list {
+.row {
   display: -webkit-flex;
   display: -moz-flex;
   display: -ms-flex;
   display: -o-flex;
   display: flex; }
-
-@media (max-width: 576px) {
-  .row {
-    flex-flow: column; } }
+  @media (max-width: 576px) {
+    .row {
+      flex-flow: column; } }
 
 .topnav__sign-in, .row, .btn__wrapper, .popover__background {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
   justify-content: center;
   -ms-align-items: center;
   align-items: center; }
@@ -151,6 +155,11 @@ i {
     top: 0;
     height: 100%;
     padding: 5px;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
     flex-flow: column;
     -ms-align-items: center;
     justify-content: center; }
@@ -162,6 +171,11 @@ i {
   .banner__nav {
     position: absolute;
     bottom: 5px;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
     justify-content: space-between;
     -ms-align-items: flex-end;
     align-items: flex-end;
@@ -302,6 +316,11 @@ a {
     padding-bottom: 10px;
     padding-left: 20px; }
   .footer__social-list {
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
     justify-content: space-between;
     font-size: 33px; }
 

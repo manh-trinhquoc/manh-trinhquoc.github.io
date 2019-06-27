@@ -177,35 +177,37 @@
                 <div class="filter__item">
                     <p>Loại hình tour</p>
                     <ul>
-                        <li><input type="checkbox" name="" value="viet-nam" id="viet-nam">
-                            <label for="viet-nam">Trong nước</label></li>
-                        <li><input type="checkbox" name="" value="global" id="global">
-                            <label for="global">Quốc tế</label></li>
+                        <li class="checkbox__wrapper"><input class="input__checkbox" type="checkbox" name="" value="viet-nam" id="viet-nam">
+                            <label class="checkbox__label" for="viet-nam">Trong nước</label></li>
+                        <li class="checkbox__wrapper"><input class="input__checkbox" type="checkbox" name="" value="global" id="global">
+                            <label class="checkbox__label" for="global">Quốc tế</label></li>
                         </li>
-                        <li><input type="checkbox" name="" value="tam-linh" id="tam-linh">
-                            <label for="tam-linh">Tâm linh</label></li>
+                        <li class="checkbox__wrapper"><input class="input__checkbox" type="checkbox" name="" value="tam-linh" id="tam-linh">
+                            <label class="checkbox__label" for="tam-linh">Tâm linh</label></li>
                         </li>
-                        <li><input type="checkbox" name="" value="bike" id="bike">
-                            <label for="bike">Xe đạp</label></li>
+                        <li class="checkbox__wrapper"><input class="input__checkbox" type="checkbox" name="" value="bike" id="bike">
+                            <label class="checkbox__label" for="bike">Xe đạp</label></li>
                         </li>
-                        <li><input type="checkbox" name="" value="motor" id="motor">
-                            <label for="motor">Xe máy</label></li>
+                        <li class="checkbox__wrapper"><input class="input__checkbox" type="checkbox" name="" value="motor" id="motor">
+                            <label class="checkbox__label" for="motor">Xe máy</label></li>
                         </li>
-                        <li><input type="checkbox" name="" value="fishing" id="fishing">
-                            <label for="fishing">Câu cá</label></li>
+                        <li class="checkbox__wrapper"><input class="input__checkbox" type="checkbox" name="" value="fishing" id="fishing">
+                            <label class="checkbox__label" for="fishing">Câu cá</label></li>
                         </li>
-                        <li><input type="checkbox" name="" value="picture" id="picture">
-                            <label for="picture">Nhiếp ảnh</label></li>
+                        <li class="checkbox__wrapper"><input class="input__checkbox" type="checkbox" name="" value="picture" id="picture">
+                            <label class="checkbox__label" for="picture">Nhiếp ảnh</label></li>
                         </li>
                     </ul>
                 </div>
-                <button type="submit" class="btn_sm">TÌM KIẾM</button>
+                <div class="btn__wrapper filter__button">
+                    <button type="submit" class="btn_sm">TÌM KIẾM</button>
+                </div>
             </form>
         </div>
         <div class="col_9">
-            <div class="filter__item">
+            <div class="filter__item_arrange">
                 <p>Sắp xếp</p>
-                <select name="" id="" class="input__select">
+                <select name="" id="" class="input__select_background">
                     <option value="null">Sắp xếp</option>
                     <option value="price-incre">Giá tăng dần</option>
                     <option value="price-decre">Giá giảm dần</option>
@@ -273,13 +275,11 @@
                     </a>
                 </div>
             </div>
-            <nav aria-label="Page navigation">
-                <ul class="pagination">
-                    <li><a href="">&lt;&lt;</a></li>
-                    <li><a href="">1</a></li>
-                    <li><a href="">2</a></li>
-                    <li><a href="">&gt;&gt;</a></li>
-                </ul>
+            <nav class="pagination">
+                <a href="#" class="disable">&laquo;</a>
+                <a href="" class="active">1</a>
+                <a href="">2</a>
+                <a href="">&raquo;</a>
             </nav>
         </div>
     </div>

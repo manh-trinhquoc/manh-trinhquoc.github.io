@@ -31,15 +31,118 @@
         p {
             padding-bottom: $padding-sm;
         }
+
+
     }
 
-    &__item:last-child {
-        padding-bottom: $padding-md*2;
+    &__item_arrange {
+        @extend .filter__item;
+        padding-top: $padding-lg;
+        padding-bottom: $padding-md;
+        width: 30%;
+
+        p {
+            padding-left: $padding-sm;
+        }
     }
+
+    &__button {
+        padding-top: $padding-md*2;
+    }
+
+
+
 }
 
 .input {
     &__select {
         @extend .input__text;
+        background-color: $page-color;
+        color: $text-no-color;
+
+        &_background {
+            @extend .input__select;
+            background-color: $page-color-darker;
+        }
+    }
+
+    &__checkbox {
+        width: $padding-md;
+        height: $padding-md;
+        color: $text-no-color;
+
+        &:after {
+            width: $padding-md;
+            height: $padding-md;
+            background: $page-color;
+            content: "";
+            display: inline-block;
+        }
+
+        &:checked:after {
+            content: "\2714";
+            text-align: center;
+            color: $text-no-color;
+        }
+    }
+
+
+
+
+}
+
+/*input[type="checkbox"] {
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline: 0;
+    background: $page-color;
+    height: 16px;
+    width: 16px;
+    border: 1px solid white;
+}*/
+
+.checkbox {
+    &__wrapper {
+        @extend .input__text;
+        width: 100%;
+        @include d-flex;
+        -ms-align-items: center;
+        align-items: center;
+    }
+
+    &__label {
+        padding-left: $padding-md;
+    }
+}
+
+.pagination {
+    width: 100%;
+    @extend %d-flex_center;
+
+    a {
+        color: $text-no-color;
+        padding: $padding-sm;
+        display: inline-block;
+        min-width: $search-height;
+        min-height: $search-height;
+        text-align: center;
+        font-size: $text-size-md;
+        text-decoration: none;
+        transition: background-color .3s;
+    }
+
+    .active {
+        background-color: $page-color-lighter;
+        color: white;
+    }
+
+    .disable {
+        visibility: hidden;
+    }
+
+    a:hover:not(.active):not(.disable) {
+        background-color: #ddd;
     }
 }
