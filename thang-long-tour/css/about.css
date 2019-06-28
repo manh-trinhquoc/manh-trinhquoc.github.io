@@ -213,8 +213,8 @@ i {
 
 .tour-list {
   padding-top: 70px;
-  border-bottom: 1px solid #4a381d;
-  padding-bottom: 70px; }
+  padding-bottom: 70px;
+  border-bottom: 1px solid #4a381d; }
 
 h2 {
   text-align: center; }
@@ -376,7 +376,7 @@ ul {
     opacity: 0.6;
     background-color: #4a381d; }
 
-.title {
+.title, .title_left, .title_left-top {
   padding-top: 20px;
   padding-bottom: 20px; }
 
@@ -408,14 +408,13 @@ ul {
   .breadcrumb .active {
     color: #09ff30; }
 
-.contact__content {
-  padding-bottom: 20px; }
-.contact__title {
-  text-align: left;
+.contact {
   padding-top: 70px;
-  padding-bottom: 10px; }
-.contact__note {
-  padding-left: 20px; }
+  padding-bottom: 70px; }
+  .contact__note {
+    padding-left: 20px; }
+  .contact__info {
+    padding-top: 70px; }
 
 .map-marker {
   margin-top: 70px;
@@ -436,5 +435,10 @@ ul {
   flex: 1 1 33.33%; }
 .col_8 {
   flex: 1 1 66.65%; }
+
+.title_left, .title_left-top {
+  text-align: left; }
+  .title_left-top {
+    padding-top: 0; }
 
 /*# sourceMappingURL=about.css.map */

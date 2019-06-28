@@ -1,6 +1,7 @@
 @import 'book-tour.scss';
 
 .personal {
-    @extend .book-tour;
-    padding-top: $padding-lg;
+    @include container;
+    @extend .row_align_start;
+    border-bottom: 1px solid $page-color-darker;
 }

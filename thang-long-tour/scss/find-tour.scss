@@ -13,7 +13,7 @@
 }
 
 .filter {
-    @extend %responsive-max-width;
+    @include container;
 
     &__form {
         background-color: $page-color-darker;
@@ -22,7 +22,6 @@
 
     &__form-wrapper {
         padding-right: $padding-md;
-        padding-top: $padding-lg;
     }
 
     &__item {
@@ -37,7 +36,7 @@
 
     &__item_arrange {
         @extend .filter__item;
-        padding-top: $padding-lg;
+        padding-top: 0;
         padding-bottom: $padding-md;
         width: 30%;
 

@@ -25,20 +25,14 @@
 }
 
 .contact {
-    @extend %responsive-max-width;
-
-    &__content {
-        padding-bottom: $padding-md;
-    }
-
-    &__title {
-        text-align: left;
-        padding-top: $padding-lg;
-        padding-bottom: $padding-sm;
-    }
+    @include container;
 
     &__note {
         padding-left: $padding-md;
+    }
+
+    &__info {
+        padding-top: $padding-lg;
     }
 
 
@@ -77,5 +71,17 @@
     &_8 {
         @extend .col;
         flex: 1 1 66.65%;
+    }
+}
+
+.title {
+    &_left {
+        @extend .title;
+        text-align: left;
+
+        &-top {
+            @extend .title_left;
+            padding-top: 0;
+        }
     }
 }

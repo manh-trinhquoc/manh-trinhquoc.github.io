@@ -334,11 +334,16 @@ i {
 
 }
 
-.tour-list {
+@mixin container {
     padding-top: $padding-lg;
     @extend %responsive-max-width;
-    border-bottom: 1px solid $page-color-darker;
     padding-bottom: $padding-lg;
+}
+
+.tour-list {
+    @include container;
+    border-bottom: 1px solid $page-color-darker;
+
 }
 
 h2 {

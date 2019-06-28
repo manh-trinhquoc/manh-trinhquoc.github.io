@@ -1,37 +1,28 @@
 @import 'find-tour.scss';
 
 .book-tour {
-    @extend %responsive-max-width;
-    padding-bottom: $padding-lg;
-
-    &__title {
-        @extend .contact__title;
-        padding-bottom: $padding-lg;
-    }
+    @include container;
 
     &__client-info {
         padding-left: $padding-lg;
+    }
 
-        h2 {
-            padding-bottom: $padding-md;
-        }
+    &__content {
+        @extend .row_align_start;
+        padding-top: $padding-lg;
     }
 }
 
 .tour-info {
-    @extend .filter__form;
     text-align: center;
     padding-bottom: $padding-lg;
     width: 80%;
+    background-color: $page-color-darker;
 
     h2 {
         padding-top: $padding-md;
         padding-bottom: $padding-md;
         color: $text-color;
-
-        &:first-child {
-            padding-top: 0;
-        }
     }
 
     p {
