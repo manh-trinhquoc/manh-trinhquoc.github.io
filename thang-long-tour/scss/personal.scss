@@ -1,0 +1,6 @@
+@import 'book-tour.scss';
+
+.personal {
+    @extend .book-tour;
+    padding-top: $padding-lg;
+}

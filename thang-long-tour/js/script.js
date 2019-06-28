@@ -22,8 +22,8 @@ function signIn() {
         eleSignInForm.removeAttribute("hidden");
         eleSignUpForm.setAttribute("hidden", "");
     }
-    document.getElementById("sign-in-btn").classList.remove("btn_deactive");;
-    document.getElementById("sign-up-btn").classList.add("btn_deactive");
+    document.getElementById("sign-in-btn").classList.remove("deactive");;
+    document.getElementById("sign-up-btn").classList.add("deactive");
     event.stopPropagation()
 }
 
@@ -34,8 +34,8 @@ function signUp() {
         eleSignUpForm.removeAttribute("hidden");
         eleSignInForm.setAttribute("hidden", "");
     }
-    document.getElementById("sign-up-btn").classList.remove("btn_deactive");;
-    document.getElementById("sign-in-btn").classList.add("btn_deactive");
+    document.getElementById("sign-up-btn").classList.remove("deactive");;
+    document.getElementById("sign-in-btn").classList.add("deactive");
     event.stopPropagation()
 }
 

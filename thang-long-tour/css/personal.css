@@ -20,33 +20,33 @@ body {
 button:hover {
   cursor: pointer; }
 
-.header, .banner__nav, .banner__wrapper, .tour-list, .footer__inner-wrapper {
+.header, .banner__nav, .banner__wrapper, .tour-list, .footer__inner-wrapper, .breadcrumb, .contact, .filter, .book-tour, .personal {
   margin-left: auto;
   margin-right: auto; }
   @media (min-width: 576px) {
-    .header, .banner__nav, .banner__wrapper, .tour-list, .footer__inner-wrapper {
+    .header, .banner__nav, .banner__wrapper, .tour-list, .footer__inner-wrapper, .breadcrumb, .contact, .filter, .book-tour, .personal {
       max-width: 540px; } }
   @media (min-width: 768px) {
-    .header, .banner__nav, .banner__wrapper, .tour-list, .footer__inner-wrapper {
+    .header, .banner__nav, .banner__wrapper, .tour-list, .footer__inner-wrapper, .breadcrumb, .contact, .filter, .book-tour, .personal {
       max-width: 720px; } }
   @media (min-width: 992px) {
-    .header, .banner__nav, .banner__wrapper, .tour-list, .footer__inner-wrapper {
+    .header, .banner__nav, .banner__wrapper, .tour-list, .footer__inner-wrapper, .breadcrumb, .contact, .filter, .book-tour, .personal {
       max-width: 960px; } }
   @media (min-width: 1200px) {
-    .header, .banner__nav, .banner__wrapper, .tour-list, .footer__inner-wrapper {
+    .header, .banner__nav, .banner__wrapper, .tour-list, .footer__inner-wrapper, .breadcrumb, .contact, .filter, .book-tour, .personal {
       max-width: 1140px; } }
 
-.row {
+.row, .row_align_start {
   display: -webkit-flex;
   display: -moz-flex;
   display: -ms-flex;
   display: -o-flex;
   display: flex; }
   @media (max-width: 576px) {
-    .row {
+    .row, .row_align_start {
       flex-flow: column; } }
 
-.topnav__sign-in, .row, .btn__wrapper, .popover__background {
+.topnav__sign-in, .row, .row_align_start, .btn__wrapper, .popover__background, .pagination {
   display: -webkit-flex;
   display: -moz-flex;
   display: -ms-flex;
@@ -223,16 +223,16 @@ a {
   color: white;
   text-decoration: none; }
 
-.row {
+.row, .row_align_start {
   flex-wrap: wrap;
   justify-content: space-between;
   padding-top: 5px;
   padding-bottom: 5px; }
 
-.col, .col_fill {
+.col, .col_fill, .col_4, .col_8, .col_3, .col_9 {
   flex: 1 1 0%; }
   @media (max-width: 576px) {
-    .col, .col_fill {
+    .col, .col_fill, .col_4, .col_8, .col_3, .col_9 {
       align-self: stretch; } }
   .col_fill {
     max-width: 10px; }
@@ -380,7 +380,7 @@ ul {
   padding-top: 20px;
   padding-bottom: 20px; }
 
-.input__text {
+.input__text, .input__select, .input__select_background, .checkbox__wrapper {
   width: 100%;
   padding: 5px;
   height: 44px;
@@ -394,4 +394,159 @@ ul {
   padding-top: 20px;
   padding-bottom: 20px; }
 
-/*# sourceMappingURL=style.css.map */
+.breadcrumb {
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-top: 70px; }
+  .breadcrumb li {
+    display: inline-block; }
+  .breadcrumb li:not(:last-child):after {
+    content: "/";
+    display: inline-block;
+    padding-left: 5px;
+    padding-right: 5px; }
+  .breadcrumb .active {
+    color: #09ff30; }
+
+.contact__content {
+  padding-bottom: 20px; }
+.contact__title, .book-tour__title {
+  text-align: left;
+  padding-top: 70px;
+  padding-bottom: 10px; }
+.contact__note {
+  padding-left: 20px; }
+
+.map-marker {
+  margin-top: 70px;
+  padding-left: 5px;
+  padding-right: 5px; }
+  .map-marker iframe {
+    width: 100%;
+    height: 100%; }
+  @media (min-width: 576px) {
+    .map-marker {
+      height: 500px; } }
+
+.row_align_start {
+  -ms-align-items: start;
+  align-items: start; }
+
+.col_4 {
+  flex: 1 1 33.33%; }
+.col_8 {
+  flex: 1 1 66.65%; }
+
+.col_3 {
+  flex: 1 1 25%; }
+.col_9 {
+  flex: 1 1 75%; }
+
+.filter__form, .tour-info {
+  background-color: #4a381d;
+  padding: 10px; }
+.filter__form-wrapper {
+  padding-right: 20px;
+  padding-top: 70px; }
+.filter__item, .filter__item_arrange {
+  padding-top: 40px; }
+  .filter__item p, .filter__item_arrange p {
+    padding-bottom: 10px; }
+.filter__item_arrange {
+  padding-top: 70px;
+  padding-bottom: 20px;
+  width: 30%; }
+  .filter__item_arrange p {
+    padding-left: 10px; }
+.filter__button {
+  padding-top: 40px; }
+
+.input__select, .input__select_background {
+  background-color: #6E542C;
+  color: white; }
+  .input__select_background {
+    background-color: #4a381d; }
+.input__checkbox {
+  width: 20px;
+  height: 20px;
+  color: white; }
+  .input__checkbox:after {
+    width: 20px;
+    height: 20px;
+    background: #6E542C;
+    content: "";
+    display: inline-block; }
+  .input__checkbox:checked:after {
+    content: "\2714";
+    text-align: center;
+    color: white; }
+
+/*input[type="checkbox"] {
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline: 0;
+    background: $page-color;
+    height: 16px;
+    width: 16px;
+    border: 1px solid white;
+}*/
+.checkbox__wrapper {
+  width: 100%;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  -ms-align-items: center;
+  align-items: center; }
+.checkbox__label {
+  padding-left: 20px; }
+
+.pagination {
+  width: 100%; }
+  .pagination a {
+    color: white;
+    padding: 10px;
+    display: inline-block;
+    min-width: 44px;
+    min-height: 44px;
+    text-align: center;
+    font-size: 18px;
+    text-decoration: none;
+    transition: background-color .3s; }
+  .pagination .active {
+    background-color: #92703b;
+    color: white; }
+  .pagination .disable {
+    visibility: hidden; }
+  .pagination a:hover:not(.active):not(.disable) {
+    background-color: #ddd; }
+
+.book-tour, .personal {
+  padding-bottom: 70px; }
+  .book-tour__title {
+    padding-bottom: 70px; }
+  .book-tour__client-info {
+    padding-left: 70px; }
+    .book-tour__client-info h2 {
+      padding-bottom: 20px; }
+
+.tour-info {
+  text-align: center;
+  padding-bottom: 70px;
+  width: 80%; }
+  .tour-info h2 {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: #09ff30; }
+    .tour-info h2:first-child {
+      padding-top: 0; }
+  .tour-info p {
+    font-size: 35px; }
+
+.personal {
+  padding-top: 70px; }
+
+/*# sourceMappingURL=personal.css.map */

@@ -20,20 +20,20 @@ body {
 button:hover {
   cursor: pointer; }
 
-.header, .banner__nav, .banner__wrapper, .foreign, .viet-nam, .footer__inner-wrapper, .breadcrumb, .contact, .filter {
+.header, .banner__nav, .banner__wrapper, .tour-list, .footer__inner-wrapper, .breadcrumb, .contact, .filter {
   margin-left: auto;
   margin-right: auto; }
   @media (min-width: 576px) {
-    .header, .banner__nav, .banner__wrapper, .foreign, .viet-nam, .footer__inner-wrapper, .breadcrumb, .contact, .filter {
+    .header, .banner__nav, .banner__wrapper, .tour-list, .footer__inner-wrapper, .breadcrumb, .contact, .filter {
       max-width: 540px; } }
   @media (min-width: 768px) {
-    .header, .banner__nav, .banner__wrapper, .foreign, .viet-nam, .footer__inner-wrapper, .breadcrumb, .contact, .filter {
+    .header, .banner__nav, .banner__wrapper, .tour-list, .footer__inner-wrapper, .breadcrumb, .contact, .filter {
       max-width: 720px; } }
   @media (min-width: 992px) {
-    .header, .banner__nav, .banner__wrapper, .foreign, .viet-nam, .footer__inner-wrapper, .breadcrumb, .contact, .filter {
+    .header, .banner__nav, .banner__wrapper, .tour-list, .footer__inner-wrapper, .breadcrumb, .contact, .filter {
       max-width: 960px; } }
   @media (min-width: 1200px) {
-    .header, .banner__nav, .banner__wrapper, .foreign, .viet-nam, .footer__inner-wrapper, .breadcrumb, .contact, .filter {
+    .header, .banner__nav, .banner__wrapper, .tour-list, .footer__inner-wrapper, .breadcrumb, .contact, .filter {
       max-width: 1140px; } }
 
 .row, .row_align_start {
@@ -154,6 +154,7 @@ i {
     position: absolute;
     top: 0;
     height: 100%;
+    width: 75%;
     padding: 5px;
     display: -webkit-flex;
     display: -moz-flex;
@@ -210,13 +211,9 @@ i {
   .banner-content__duration {
     font-size: 23px; } }
 
-.foreign {
+.tour-list {
   padding-top: 70px;
   border-bottom: 1px solid #4a381d;
-  padding-bottom: 70px; }
-
-.viet-nam {
-  padding-top: 70px;
   padding-bottom: 70px; }
 
 h2 {
@@ -274,13 +271,16 @@ a {
   .card__duration, .card__start-date {
     color: #09ff30; }
 
-.btn, .btn_icon, .btn_sm, .btn_md, .btn_deactive {
+.btn, .btn_no-bg, .btn_icon, .btn_sm, .btn_md {
   margin: 0 auto;
   color: white;
   text-align: center;
   background-color: #00d522;
   padding: 10px;
-  border: none; }
+  border: none;
+  cursor: pointer; }
+  .btn_no-bg {
+    background-color: inherit; }
   .btn__wrapper {
     width: 100%;
     padding: 20px; }
@@ -293,9 +293,6 @@ a {
     width: 100px; }
   .btn_md {
     width: 200px; }
-  .btn_deactive {
-    background-color: #4a381d;
-    color: #00d522; }
 
 .footer {
   padding-bottom: 5px;
@@ -348,35 +345,40 @@ ul {
         height: 100vh; } }
 
 .register {
-  background-color: #6E542C;
+  background-color: #4a381d;
   margin: 0 auto;
-  padding: 5px;
   width: 50%;
   min-width: 300px;
-  max-width: 600px; }
+  max-width: 600px;
+  position: relative; }
   .register__cancel-btn {
-    position: relative;
-    left: calc(100% - 44px); }
+    position: absolute;
+    left: calc(100% - 44px);
+    top: -44px; }
+  .register__choose {
+    padding: 0;
+    flex-wrap: nowrap;
+    flex-flow: row;
+    background-color: #6E542C; }
   .register__form {
-    height: 528px;
-    position: relative; }
+    position: relative;
+    background-color: #6E542C;
+    padding: 5px;
+    height: 528px; }
     @media (min-width: 576px) {
       .register__form {
         height: 440px; } }
-  .register__title {
-    padding-top: 20px;
-    padding-bottom: 20px; }
   .register__input {
-    position: absolute;
-    bottom: 0;
     width: 100%; }
   .register__note {
     font-size: 8px; }
+  .register .deactive {
+    opacity: 0.6;
+    background-color: #4a381d; }
 
-.sign-up__welcome {
-  font-size: 2rem;
-  position: relative;
-  top: 15%; }
+.title {
+  padding-top: 20px;
+  padding-bottom: 20px; }
 
 .input__text, .input__select, .input__select_background, .checkbox__wrapper {
   width: 100%;

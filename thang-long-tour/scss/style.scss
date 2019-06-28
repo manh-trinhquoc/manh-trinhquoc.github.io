@@ -250,6 +250,7 @@ i {
         position: absolute;
         top: 0;
         height: 100%;
+        width: 75%;
         padding: $padding-xs;
         @include d-flex;
         flex-flow: column;
@@ -333,16 +334,10 @@ i {
 
 }
 
-.foreign {
+.tour-list {
     padding-top: $padding-lg;
     @extend %responsive-max-width;
     border-bottom: 1px solid $page-color-darker;
-    padding-bottom: $padding-lg;
-}
-
-.viet-nam {
-    @extend %responsive-max-width;
-    padding-top: $padding-lg;
     padding-bottom: $padding-lg;
 }
 
@@ -437,6 +432,12 @@ a {
     background-color: $btn-bg-color;
     padding: $btn-padding;
     border: none;
+    cursor: pointer;
+
+    &_no-bg {
+        @extend .btn;
+        background-color: inherit;
+    }
 
     &__wrapper {
         width: 100%;
@@ -463,11 +464,6 @@ a {
 
     }
 
-    &_deactive {
-        @extend .btn;
-        background-color: $page-color-darker;
-        color: $text-color-darker
-    }
 }
 
 .footer {
@@ -545,52 +541,58 @@ ul {
 
 .register {
 
-    background-color: $page-color;
+    background-color: $page-color-darker;
     margin: 0 auto;
-    padding: $padding-xs;
     width: 50%;
     min-width: 300px;
     max-width: 600px;
+    position: relative;
 
     &__cancel-btn {
-        position: relative;
+        position: absolute;
         left: calc(100% - 44px);
+        top: -44px;
+    }
+
+    &__choose {
+        padding: 0;
+        flex-wrap: nowrap;
+        flex-flow: row;
+        background-color: $page-color;
     }
 
     &__form {
-        height: $search-height*12;
         position: relative;
+        background-color: $page-color;
+        padding: $padding-xs;
+        height: $search-height * 12;
 
         @media (min-width: 576px) {
             height: $search-height * 10;
         }
     }
 
-    &__title {
-        padding-top: $padding-md;
-        padding-bottom: $padding-md;
-    }
-
     &__input {
-        position: absolute;
-        bottom: 0;
         width: 100%;
     }
 
     &__note {
         font-size: $text-size-xs;
     }
-}
 
-.sign-up {
-    &__welcome {
-        font-size: 2rem;
-        position: relative;
-        top: 15%;
+    .deactive {
+        opacity: 0.6;
+        background-color: $page-color-darker;
     }
+
 }
 
 
+
+.title {
+    padding-top: $padding-md;
+    padding-bottom: $padding-md;
+}
 
 
 .input {

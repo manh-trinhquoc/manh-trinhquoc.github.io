@@ -23,8 +23,15 @@
                 <button type="button" class="btn_icon register__cancel-btn" onclick="hidePopover('register-popover')">
                     <i class="fas fa-times"></i>
                 </button>
+                <div class="row register__choose">
+                    <div class="col btn_no-bg" onclick="signUp()" id="sign-up-btn">
+                        <h2 class="title">Đăng ký</h2>
+                    </div>
+                    <div class="col btn_no-bg deactive" onclick="signIn()" id="sign-in-btn">
+                        <h2 class="title">Đăng nhập</h2>
+                    </div>
+                </div>
                 <form action="#" id="sign-up" class="register__form">
-                    <h2 class="register__title">Đăng ký</h2>
                     <div class="register__input">
                         <div class="row">
                             <div class="col">
@@ -45,10 +52,12 @@
                         <p class="input__remark"></p>
                         <p class="register__note">Các trường có dấu * bắt buộc phải điền</p>
                     </div>
+                    <div class="btn__wrapper">
+                        <button type="submit" class="btn_sm">Gửi đi</button>
+                    </div>
                 </form>
                 <form action="#" id="sign-in" hidden="" class="register__form">
-                    <h2 class="register__title">Đăng nhập</h2>
-                    <h2 class="sign-up__welcome">Chào mừng bạn quay trở lại</h2>
+                    <h2 class="title">Chào mừng bạn quay trở lại</h2>
                     <div class="register__input">
                         <input type="text" placeholder="Email*" class="input__text" />
                         <p class="input__remark"></p>
@@ -56,11 +65,10 @@
                         <p class="input__remark"></p>
                         <p class="register__note">Các trường có dấu * bắt buộc phải điền</p>
                     </div>
+                    <div class="btn__wrapper">
+                        <button type="submit" class="btn_sm">Gửi đi</button>
+                    </div>
                 </form>
-                <div class="btn__wrapper">
-                    <button type="submit" class="btn_sm" onclick="signUp()" id="sign-up-btn">Đăng ký</button>
-                    <button type="submit" class="btn_sm btn_deactive" onclick="signIn()" id="sign-in-btn">Đăng nhập</button>
-                </div>
             </div>
         </div>
     </div>

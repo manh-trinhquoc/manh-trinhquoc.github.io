@@ -20,10 +20,13 @@
 
 .tour-info {
     @extend .filter__form;
+    text-align: center;
     padding-bottom: $padding-lg;
+    width: 80%;
 
     h2 {
-        @extend .contact__title;
+        padding-top: $padding-md;
+        padding-bottom: $padding-md;
         color: $text-color;
 
         &:first-child {
@@ -32,7 +35,7 @@
     }
 
     p {
-        text-align: center;
+
         font-size: $text-size-lg;
     }
 }
