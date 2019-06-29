@@ -47,7 +47,7 @@ button:hover {
     .row, .row_align_start, .personal, .row_no-wrap {
       flex-flow: column; } }
 
-.topnav__sign-in, .row, .row_align_start, .personal, .row_no-wrap, .btn__wrapper, .popover__background, .pagination {
+.topnav__sign-in, .row, .row_align_start, .personal, .row_no-wrap, .btn__wrapper, .popover__background, .popover-always-sticky__background, .pagination {
   display: -webkit-flex;
   display: -moz-flex;
   display: -ms-flex;
@@ -331,20 +331,20 @@ ul {
   ul li {
     padding-top: 5px; }
 
-.popover {
+.popover, .popover_always-sticky {
   position: absolute;
   z-index: 100;
   top: 0;
   width: 100%;
   height: 0; }
-  .popover__background {
+  .popover__background, .popover-always-sticky__background {
     background-color: rgba(91, 70, 36, 0.9);
     width: 100%;
     height: 200vh; }
   @media (min-width: 576px) {
-    .popover {
+    .popover, .popover_always-sticky {
       position: sticky; }
-      .popover__background {
+      .popover__background, .popover-always-sticky__background {
         height: 100vh; } }
 
 .register {
@@ -572,5 +572,20 @@ ul {
   max-height: 90%;
   margin-left: auto;
   padding: 0; }
+
+.book-tour {
+  width: 100%;
+  background-color: #4a381d;
+  padding: 5px;
+  position: relative; }
+  @media (min-width: 576px) {
+    .book-tour {
+      width: 50%; } }
+
+.popover_always-sticky {
+  position: sticky;
+  top: -70px; }
+.popover-always-sticky__background {
+  height: 200vh; }
 
 /*# sourceMappingURL=detail.css.map */

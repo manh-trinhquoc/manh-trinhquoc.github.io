@@ -38,3 +38,29 @@
     margin-left: auto;
     padding: 0;
 }
+
+.book-tour {
+    width: 100%;
+    background-color: $page-color-darker;
+    padding: $padding-xs;
+    position: relative;
+
+    @media (min-width: 576px) {
+        width: 50%;
+    }
+}
+
+.popover {
+    &_always-sticky {
+        @extend .popover;
+        position: sticky;
+        top: -$padding-lg;
+
+    }
+
+    &-always-sticky__background {
+        @extend .popover__background;
+        height: 200vh;
+    }
+
+}
