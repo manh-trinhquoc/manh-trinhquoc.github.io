@@ -1,5 +1,5 @@
 start  "" "C:\Program Files\Sublime Text 3\sublime_text.exe" "F:\manh-trinhquoc.github.io"
-start  "" "C:\Program Files\Sublime Text 3\subl.exe" "F:\manh-trinhquoc.github.io\thang-long-tour\personal.html"
+start  "" "C:\Program Files\Sublime Text 3\subl.exe" "F:\manh-trinhquoc.github.io\thang-long-tour\detail.html"
 start  "" "C:\Program Files\Sublime Text 3\subl.exe" "F:\manh-trinhquoc.github.io\thang-long-tour\js\script.js"
-start  "" "C:\Program Files\Sublime Text 3\subl.exe" "F:\manh-trinhquoc.github.io\thang-long-tour\scss\personal.scss"
+start  "" "C:\Program Files\Sublime Text 3\subl.exe" "F:\manh-trinhquoc.github.io\thang-long-tour\scss\detail.scss"
 start  "" "C:\Program Files\Sublime Text 3\subl.exe" "F:\manh-trinhquoc.github.io\thang-long-tour\scss\style.scss"

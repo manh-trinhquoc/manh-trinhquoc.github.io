@@ -1,1 +1,40 @@
 @import 'personal.scss';
+
+.detail {
+    &__wrapper {
+        @include container;
+    }
+}
+
+.row {
+    &_no-wrap {
+        @extend .row_align_start;
+        flex-wrap: nowrap;
+    }
+}
+
+.tour-info {
+    text-align: center;
+    width: 90%;
+    margin-left: auto;
+    background-color: $page-color-darker;
+
+    h2 {
+        padding-top: $padding-md;
+        padding-bottom: $padding-md;
+        color: $text-color;
+    }
+
+    p {
+
+        font-size: $text-size-md;
+    }
+}
+
+.map_small {
+    width: 90%;
+    height: 90%;
+    max-height: 90%;
+    margin-left: auto;
+    padding: 0;
+}

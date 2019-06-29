@@ -20,33 +20,34 @@ body {
 button:hover {
   cursor: pointer; }
 
-.header, .banner__nav, .banner__wrapper, .tour-list, .footer__inner-wrapper, .breadcrumb, .contact, .filter, .book-tour, .personal {
+.header, .banner__nav, .banner__wrapper, .tour-list, .footer__inner-wrapper, .breadcrumb, .contact, .filter, .personal, .detail__wrapper {
   margin-left: auto;
   margin-right: auto; }
   @media (min-width: 576px) {
-    .header, .banner__nav, .banner__wrapper, .tour-list, .footer__inner-wrapper, .breadcrumb, .contact, .filter, .book-tour, .personal {
+    .header, .banner__nav, .banner__wrapper, .tour-list, .footer__inner-wrapper, .breadcrumb, .contact, .filter, .personal, .detail__wrapper {
       max-width: 540px; } }
   @media (min-width: 768px) {
-    .header, .banner__nav, .banner__wrapper, .tour-list, .footer__inner-wrapper, .breadcrumb, .contact, .filter, .book-tour, .personal {
+    .header, .banner__nav, .banner__wrapper, .tour-list, .footer__inner-wrapper, .breadcrumb, .contact, .filter, .personal, .detail__wrapper {
       max-width: 720px; } }
   @media (min-width: 992px) {
-    .header, .banner__nav, .banner__wrapper, .tour-list, .footer__inner-wrapper, .breadcrumb, .contact, .filter, .book-tour, .personal {
+    .header, .banner__nav, .banner__wrapper, .tour-list, .footer__inner-wrapper, .breadcrumb, .contact, .filter, .personal, .detail__wrapper {
       max-width: 960px; } }
   @media (min-width: 1200px) {
-    .header, .banner__nav, .banner__wrapper, .tour-list, .footer__inner-wrapper, .breadcrumb, .contact, .filter, .book-tour, .personal {
+    .header, .banner__nav, .banner__wrapper, .tour-list, .footer__inner-wrapper, .breadcrumb, .contact, .filter, .personal, .detail__wrapper {
       max-width: 1140px; } }
 
-.row, .row_align_start, .book-tour__content, .personal {
+.row, .row_align_start, .personal, .row_no-wrap {
   display: -webkit-flex;
   display: -moz-flex;
   display: -ms-flex;
   display: -o-flex;
-  display: flex; }
+  display: flex;
+  flex-wrap: nowrap; }
   @media (max-width: 576px) {
-    .row, .row_align_start, .book-tour__content, .personal {
+    .row, .row_align_start, .personal, .row_no-wrap {
       flex-flow: column; } }
 
-.topnav__sign-in, .row, .row_align_start, .book-tour__content, .personal, .btn__wrapper, .popover__background, .pagination {
+.topnav__sign-in, .row, .row_align_start, .personal, .row_no-wrap, .btn__wrapper, .popover__background, .pagination {
   display: -webkit-flex;
   display: -moz-flex;
   display: -ms-flex;
@@ -145,11 +146,13 @@ button:hover {
 i {
   color: #3cff5b; }
 
+.img-responsive {
+  width: 100%;
+  max-width: 100%; }
+
 .banner {
   width: 100%;
   position: relative; }
-  .banner img {
-    width: 100%; }
   .banner__content {
     position: absolute;
     top: 0;
@@ -214,6 +217,8 @@ i {
 .tour-list {
   padding-top: 70px;
   padding-bottom: 70px;
+  padding-left: 5px;
+  padding-right: 5px;
   border-bottom: 1px solid #4a381d; }
 
 h2 {
@@ -223,7 +228,7 @@ a {
   color: white;
   text-decoration: none; }
 
-.row, .row_align_start, .book-tour__content, .personal {
+.row, .row_align_start, .personal, .row_no-wrap {
   flex-wrap: wrap;
   justify-content: space-between;
   padding-top: 5px;
@@ -243,8 +248,6 @@ a {
   margin-bottom: 20px;
   position: relative;
   padding: 10px; }
-  .card img {
-    max-width: 100%; }
   .card__img {
     height: 170px;
     overflow: hidden;
@@ -367,7 +370,8 @@ ul {
     height: 528px; }
     @media (min-width: 576px) {
       .register__form {
-        height: 440px; } }
+        /*height: $search-height * 10;*/
+        height: auto; } }
   .register__input {
     width: 100%; }
   .register__note {
@@ -410,7 +414,9 @@ ul {
 
 .contact {
   padding-top: 70px;
-  padding-bottom: 70px; }
+  padding-bottom: 70px;
+  padding-left: 5px;
+  padding-right: 5px; }
   .contact__note {
     padding-left: 20px; }
   .contact__info {
@@ -427,7 +433,7 @@ ul {
     .map-marker {
       height: 500px; } }
 
-.row_align_start, .book-tour__content, .personal {
+.row_align_start, .personal, .row_no-wrap {
   -ms-align-items: start;
   align-items: start; }
 
@@ -448,7 +454,9 @@ ul {
 
 .filter {
   padding-top: 70px;
-  padding-bottom: 70px; }
+  padding-bottom: 70px;
+  padding-left: 5px;
+  padding-right: 5px; }
   .filter__form {
     background-color: #4a381d;
     padding: 10px; }
@@ -530,29 +538,39 @@ ul {
   .pagination a:hover:not(.active):not(.disable) {
     background-color: #ddd; }
 
-.book-tour {
+.personal {
   padding-top: 70px;
-  padding-bottom: 70px; }
-  .book-tour__client-info {
-    padding-left: 70px; }
-  .book-tour__content {
-    padding-top: 70px; }
+  padding-bottom: 70px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom: 1px solid #4a381d; }
+
+.detail__wrapper {
+  padding-top: 70px;
+  padding-bottom: 70px;
+  padding-left: 5px;
+  padding-right: 5px; }
+
+.row_no-wrap {
+  flex-wrap: nowrap; }
 
 .tour-info {
   text-align: center;
-  padding-bottom: 70px;
-  width: 80%;
+  width: 90%;
+  margin-left: auto;
   background-color: #4a381d; }
   .tour-info h2 {
     padding-top: 20px;
     padding-bottom: 20px;
     color: #09ff30; }
   .tour-info p {
-    font-size: 35px; }
+    font-size: 18px; }
 
-.personal {
-  padding-top: 70px;
-  padding-bottom: 70px;
-  border-bottom: 1px solid #4a381d; }
+.map_small {
+  width: 90%;
+  height: 90%;
+  max-height: 90%;
+  margin-left: auto;
+  padding: 0; }
 
 /*# sourceMappingURL=detail.css.map */

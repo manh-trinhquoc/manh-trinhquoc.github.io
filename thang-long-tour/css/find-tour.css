@@ -41,7 +41,8 @@ button:hover {
   display: -moz-flex;
   display: -ms-flex;
   display: -o-flex;
-  display: flex; }
+  display: flex;
+  flex-wrap: nowrap; }
   @media (max-width: 576px) {
     .row, .row_align_start {
       flex-flow: column; } }
@@ -145,11 +146,13 @@ button:hover {
 i {
   color: #3cff5b; }
 
+.img-responsive {
+  width: 100%;
+  max-width: 100%; }
+
 .banner {
   width: 100%;
   position: relative; }
-  .banner img {
-    width: 100%; }
   .banner__content {
     position: absolute;
     top: 0;
@@ -214,6 +217,8 @@ i {
 .tour-list {
   padding-top: 70px;
   padding-bottom: 70px;
+  padding-left: 5px;
+  padding-right: 5px;
   border-bottom: 1px solid #4a381d; }
 
 h2 {
@@ -243,8 +248,6 @@ a {
   margin-bottom: 20px;
   position: relative;
   padding: 10px; }
-  .card img {
-    max-width: 100%; }
   .card__img {
     height: 170px;
     overflow: hidden;
@@ -367,7 +370,8 @@ ul {
     height: 528px; }
     @media (min-width: 576px) {
       .register__form {
-        height: 440px; } }
+        /*height: $search-height * 10;*/
+        height: auto; } }
   .register__input {
     width: 100%; }
   .register__note {
@@ -410,7 +414,9 @@ ul {
 
 .contact {
   padding-top: 70px;
-  padding-bottom: 70px; }
+  padding-bottom: 70px;
+  padding-left: 5px;
+  padding-right: 5px; }
   .contact__note {
     padding-left: 20px; }
   .contact__info {
@@ -448,7 +454,9 @@ ul {
 
 .filter {
   padding-top: 70px;
-  padding-bottom: 70px; }
+  padding-bottom: 70px;
+  padding-left: 5px;
+  padding-right: 5px; }
   .filter__form {
     background-color: #4a381d;
     padding: 10px; }

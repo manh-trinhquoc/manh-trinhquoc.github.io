@@ -86,6 +86,7 @@ button:hover {
 
 %d-flex_responsive {
     @include d-flex;
+    flex-wrap: nowrap;
 
     @media (max-width: 576px) {
         flex-flow: column;
@@ -238,13 +239,16 @@ i {
     color: $icon-color;
 }
 
+.img {
+    &-responsive {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
 .banner {
     width: 100%;
     position: relative;
-
-    img {
-        width: 100%;
-    }
 
     &__content {
         position: absolute;
@@ -338,6 +342,8 @@ i {
     padding-top: $padding-lg;
     @extend %responsive-max-width;
     padding-bottom: $padding-lg;
+    padding-left: $padding-xs;
+    padding-right: $padding-xs;
 }
 
 .tour-list {
@@ -380,10 +386,6 @@ a {
     margin-bottom: $padding-md;
     position: relative;
     padding: $padding-sm;
-
-    img {
-        max-width: 100%;
-    }
 
     &__img {
         height: 170px;
@@ -573,7 +575,8 @@ ul {
         height: $search-height * 12;
 
         @media (min-width: 576px) {
-            height: $search-height * 10;
+            /*height: $search-height * 10;*/
+            height: auto;
         }
     }
 
