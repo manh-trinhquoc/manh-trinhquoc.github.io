@@ -1,7 +1,0 @@
-@import 'find-tour.scss';
-
-.personal {
-    @include container;
-    @extend .row_align_start;
-    border-bottom: 1px solid $page-color-darker;
-}

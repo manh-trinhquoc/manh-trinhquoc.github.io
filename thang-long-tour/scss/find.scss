@@ -1,16 +1,5 @@
-@import 'about.scss';
-
-.col {
-    &_3 {
-        @extend .col;
-        flex: 1 1 25%;
-    }
-
-    &_9 {
-        @extend .col;
-        flex: 1 1 75%;
-    }
-}
+/*component special in find page: find-tour, find-hotel, find-place, find-news*/
+@import 'common.scss';
 
 .filter {
     @include container;
@@ -84,10 +73,6 @@
             color: $text-no-color;
         }
     }
-
-
-
-
 }
 
 /*input[type="checkbox"] {
@@ -143,5 +128,35 @@
 
     a:hover:not(.active):not(.disable) {
         background-color: #ddd;
+    }
+}
+
+.card {
+    &__upload-date {
+        color: $text-color-darker;
+    }
+}
+
+.filter-hotel__result {
+    @extend .row;
+    padding-top: 0;
+}
+
+.card-hotel {
+    @extend .card;
+    padding-top: 0;
+    margin-top: 0;
+
+    &__category {
+        @extend .card__country;
+    }
+
+    &__name {
+        @extend .card__header;
+    }
+
+    &__address {
+        color: $text-color-darker;
+        padding-top: $padding-sm;
     }
 }

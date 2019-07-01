@@ -1,3 +1,5 @@
+/*general variable and common component show in every pages*/
+
 @import url('/thang-long-tour/comp/top-nav.css');
 
 * {
@@ -637,5 +639,94 @@ ul {
         margin: 0;
         padding-top: $padding-md;
         padding-bottom: $padding-md;
+    }
+}
+
+.breadcrumb {
+    @extend %responsive-max-width;
+    padding-left: $padding-xs;
+    padding-right: $padding-xs;
+    margin-top: $padding-lg;
+
+    li {
+        display: inline-block;
+
+
+    }
+
+    li:not(:last-child):after {
+        content: "/";
+        display: inline-block;
+        padding-left: $padding-xs;
+        padding-right: $padding-xs;
+    }
+
+    .active {
+        color: $text-color;
+    }
+}
+
+.map-marker {
+    padding-left: $padding-xs;
+    padding-right: $padding-xs;
+
+    iframe {
+        width: 100%;
+        height: 100%;
+    }
+
+    @media (min-width: 576px) {
+        height: 500px;
+    }
+}
+
+.row {
+    &_align_start {
+        @extend .row;
+        -ms-align-items: start;
+        align-items: start;
+    }
+}
+
+.col {
+    &_4 {
+        @extend .col;
+        flex: 1 1 33.33%;
+    }
+
+    &_8 {
+        @extend .col;
+        flex: 1 1 66.65%;
+    }
+}
+
+.title {
+    &_left {
+        @extend .title;
+        text-align: left;
+
+        &-top {
+            @extend .title_left;
+            padding-top: 0;
+        }
+    }
+}
+
+.col {
+    &_3 {
+        @extend .col;
+        flex: 1 1 25%;
+    }
+
+    &_9 {
+        @extend .col;
+        flex: 1 1 75%;
+    }
+}
+
+.row {
+    &_no-wrap {
+        @extend .row_align_start;
+        flex-wrap: nowrap;
     }
 }

@@ -1,3 +1,4 @@
+/*general variable and common component show in every pages*/
 @import url("/thang-long-tour/comp/top-nav.css");
 * {
   -webkit-box-sizing: border-box;
@@ -20,23 +21,23 @@ body {
 button:hover {
   cursor: pointer; }
 
-.header, .banner__nav, .banner__wrapper, .tour-list, .footer__inner-wrapper, .breadcrumb, .contact, .filter, .personal, .detail__wrapper {
+.header, .banner__nav, .banner__wrapper, .tour-list, .footer__inner-wrapper, .breadcrumb {
   margin-left: auto;
   margin-right: auto; }
   @media (min-width: 576px) {
-    .header, .banner__nav, .banner__wrapper, .tour-list, .footer__inner-wrapper, .breadcrumb, .contact, .filter, .personal, .detail__wrapper {
+    .header, .banner__nav, .banner__wrapper, .tour-list, .footer__inner-wrapper, .breadcrumb {
       max-width: 540px; } }
   @media (min-width: 768px) {
-    .header, .banner__nav, .banner__wrapper, .tour-list, .footer__inner-wrapper, .breadcrumb, .contact, .filter, .personal, .detail__wrapper {
+    .header, .banner__nav, .banner__wrapper, .tour-list, .footer__inner-wrapper, .breadcrumb {
       max-width: 720px; } }
   @media (min-width: 992px) {
-    .header, .banner__nav, .banner__wrapper, .tour-list, .footer__inner-wrapper, .breadcrumb, .contact, .filter, .personal, .detail__wrapper {
+    .header, .banner__nav, .banner__wrapper, .tour-list, .footer__inner-wrapper, .breadcrumb {
       max-width: 960px; } }
   @media (min-width: 1200px) {
-    .header, .banner__nav, .banner__wrapper, .tour-list, .footer__inner-wrapper, .breadcrumb, .contact, .filter, .personal, .detail__wrapper {
+    .header, .banner__nav, .banner__wrapper, .tour-list, .footer__inner-wrapper, .breadcrumb {
       max-width: 1140px; } }
 
-.row, .row_justify_start, .row_align_start, .personal, .row_no-wrap {
+.row, .row_justify_start, .row_align_start, .row_no-wrap {
   display: -webkit-flex;
   display: -moz-flex;
   display: -ms-flex;
@@ -44,10 +45,10 @@ button:hover {
   display: flex;
   flex-wrap: nowrap; }
   @media (max-width: 576px) {
-    .row, .row_justify_start, .row_align_start, .personal, .row_no-wrap {
+    .row, .row_justify_start, .row_align_start, .row_no-wrap {
       flex-flow: column; } }
 
-.topnav__sign-in, .row, .row_justify_start, .row_align_start, .personal, .row_no-wrap, .card__img, .btn__wrapper, .popover__background, .popover-always-sticky__background, .pagination {
+.topnav__sign-in, .row, .row_justify_start, .row_align_start, .row_no-wrap, .card__img, .btn__wrapper, .popover__background {
   display: -webkit-flex;
   display: -moz-flex;
   display: -ms-flex;
@@ -231,7 +232,7 @@ a {
   color: white;
   text-decoration: none; }
 
-.row, .row_justify_start, .row_align_start, .personal, .row_no-wrap {
+.row, .row_justify_start, .row_align_start, .row_no-wrap {
   flex-wrap: wrap;
   justify-content: space-between;
   padding-top: 5px;
@@ -340,20 +341,20 @@ ul {
   ul li {
     padding-top: 5px; }
 
-.popover, .popover_always-sticky {
+.popover {
   position: absolute;
   z-index: 100;
   top: 0;
   width: 100%;
   height: 0; }
-  .popover__background, .popover-always-sticky__background {
+  .popover__background {
     background-color: rgba(91, 70, 36, 0.9);
     width: 100%;
     height: 200vh; }
   @media (min-width: 576px) {
-    .popover, .popover_always-sticky {
+    .popover {
       position: sticky; }
-      .popover__background, .popover-always-sticky__background {
+      .popover__background {
         height: 100vh; } }
 
 .register {
@@ -393,7 +394,7 @@ ul {
   padding-top: 20px;
   padding-bottom: 20px; }
 
-.input__text, .input__select, .input__select_background, .checkbox__wrapper {
+.input__text {
   width: 100%;
   padding: 5px;
   height: 44px;
@@ -421,17 +422,6 @@ ul {
   .breadcrumb .active {
     color: #09ff30; }
 
-.contact {
-  padding-top: 70px;
-  padding-bottom: 70px;
-  padding-left: 5px;
-  padding-right: 5px; }
-  .contact__note {
-    padding-left: 20px; }
-  .contact__info {
-    margin-bottom: 20px;
-    border-bottom: 1px solid #4a381d; }
-
 .map-marker {
   padding-left: 5px;
   padding-right: 5px; }
@@ -442,7 +432,7 @@ ul {
     .map-marker {
       height: 500px; } }
 
-.row_align_start, .personal, .row_no-wrap {
+.row_align_start, .row_no-wrap {
   -ms-align-items: start;
   align-items: start; }
 
@@ -461,145 +451,7 @@ ul {
 .col_9 {
   flex: 1 1 75%; }
 
-.filter {
-  padding-top: 70px;
-  padding-bottom: 70px;
-  padding-left: 5px;
-  padding-right: 5px; }
-  .filter__form {
-    background-color: #4a381d;
-    padding: 10px; }
-  .filter__form-wrapper {
-    padding-right: 20px; }
-  .filter__item, .filter__item_arrange {
-    padding-top: 40px; }
-    .filter__item p, .filter__item_arrange p {
-      padding-bottom: 10px; }
-  .filter__item_arrange {
-    padding-top: 0;
-    padding-bottom: 20px;
-    width: 30%; }
-    .filter__item_arrange p {
-      padding-left: 10px; }
-  .filter__button {
-    padding-top: 40px; }
-
-.input__select, .input__select_background {
-  background-color: #6E542C;
-  color: white; }
-  .input__select_background {
-    background-color: #4a381d; }
-.input__checkbox {
-  width: 20px;
-  height: 20px;
-  color: white; }
-  .input__checkbox:after {
-    width: 20px;
-    height: 20px;
-    background: #6E542C;
-    content: "";
-    display: inline-block; }
-  .input__checkbox:checked:after {
-    content: "\2714";
-    text-align: center;
-    color: white; }
-
-/*input[type="checkbox"] {
-    cursor: pointer;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    outline: 0;
-    background: $page-color;
-    height: 16px;
-    width: 16px;
-    border: 1px solid white;
-}*/
-.checkbox__wrapper {
-  width: 100%;
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flex;
-  display: -o-flex;
-  display: flex;
-  -ms-align-items: center;
-  align-items: center; }
-.checkbox__label {
-  padding-left: 20px; }
-
-.pagination {
-  width: 100%; }
-  .pagination a {
-    color: white;
-    padding: 10px;
-    display: inline-block;
-    min-width: 44px;
-    min-height: 44px;
-    text-align: center;
-    font-size: 18px;
-    text-decoration: none;
-    transition: background-color .3s; }
-  .pagination .active {
-    background-color: #92703b;
-    color: white; }
-  .pagination .disable {
-    visibility: hidden; }
-  .pagination a:hover:not(.active):not(.disable) {
-    background-color: #ddd; }
-
-.personal {
-  padding-top: 70px;
-  padding-bottom: 70px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom: 1px solid #4a381d; }
-
-.detail__wrapper {
-  padding-top: 70px;
-  padding-bottom: 70px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom: 1px solid #4a381d; }
-
 .row_no-wrap {
   flex-wrap: nowrap; }
 
-.tour-info {
-  text-align: center;
-  width: 90%;
-  margin-left: auto;
-  background-color: #4a381d; }
-  .tour-info h2 {
-    padding-top: 20px;
-    padding-bottom: 20px;
-    color: #09ff30; }
-  .tour-info p {
-    font-size: 18px; }
-
-.map_small {
-  width: 90%;
-  height: 90%;
-  max-height: 90%;
-  margin-left: auto;
-  padding: 0; }
-
-.book-tour {
-  width: 100%;
-  background-color: #4a381d;
-  padding: 5px;
-  position: relative; }
-  @media (min-width: 576px) {
-    .book-tour {
-      width: 50%; } }
-
-.popover_always-sticky {
-  position: sticky;
-  top: -70px;
-  bottom: -70px; }
-.popover-always-sticky__background {
-  height: 200vh; }
-
-.card__upload-date {
-  color: #00d522; }
-
-/*# sourceMappingURL=find-places.css.map */
+/*# sourceMappingURL=common.css.map */

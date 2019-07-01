@@ -1,4 +1,5 @@
-@import 'personal.scss';
+/*component only show in detail page: tour-detail, place-detail, hotel-detail, news-detail*/
+@import 'common.scss';
 
 .detail {
     &__wrapper {
@@ -6,16 +7,8 @@
 
         border-bottom: 1px solid $page-color-darker;
     }
-
-
 }
 
-.row {
-    &_no-wrap {
-        @extend .row_align_start;
-        flex-wrap: nowrap;
-    }
-}
 
 .tour-info {
     text-align: center;
