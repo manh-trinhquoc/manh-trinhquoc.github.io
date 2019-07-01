@@ -36,7 +36,7 @@ button:hover {
     .header, .banner__nav, .banner__wrapper, .tour-list, .footer__inner-wrapper, .breadcrumb, .contact, .filter {
       max-width: 1140px; } }
 
-.row, .row_align_start {
+.row, .row_justify_start, .row_align_start {
   display: -webkit-flex;
   display: -moz-flex;
   display: -ms-flex;
@@ -44,10 +44,10 @@ button:hover {
   display: flex;
   flex-wrap: nowrap; }
   @media (max-width: 576px) {
-    .row, .row_align_start {
+    .row, .row_justify_start, .row_align_start {
       flex-flow: column; } }
 
-.topnav__sign-in, .row, .row_align_start, .btn__wrapper, .popover__background, .pagination {
+.topnav__sign-in, .row, .row_justify_start, .row_align_start, .btn__wrapper, .popover__background, .pagination {
   display: -webkit-flex;
   display: -moz-flex;
   display: -ms-flex;
@@ -229,11 +229,13 @@ a {
   color: white;
   text-decoration: none; }
 
-.row, .row_align_start {
+.row, .row_justify_start, .row_align_start {
   flex-wrap: wrap;
   justify-content: space-between;
   padding-top: 5px;
   padding-bottom: 5px; }
+  .row_justify_start {
+    justify-content: flex-start; }
 
 .col, .col_fill, .col_4, .col_8, .col_3, .col_9 {
   flex: 1 1 0%; }
@@ -246,7 +248,8 @@ a {
 .card {
   width: 260px;
   height: 350px;
-  margin-bottom: 20px;
+  margin: 20px;
+  margin-left: 0;
   position: relative;
   padding: 10px; }
   .card__img {
@@ -313,6 +316,7 @@ a {
         padding: 10px; } }
   .footer__fb {
     min-width: 300px;
+    max-width: 300px;
     padding-top: 10px;
     padding-bottom: 10px;
     padding-left: 20px; }

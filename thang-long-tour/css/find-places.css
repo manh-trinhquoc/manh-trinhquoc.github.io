@@ -594,4 +594,7 @@ ul {
 .popover-always-sticky__background {
   height: 200vh; }
 
-/*# sourceMappingURL=detail.css.map */
+.card__upload-date {
+  color: #00d522; }
+
+/*# sourceMappingURL=find-places.css.map */

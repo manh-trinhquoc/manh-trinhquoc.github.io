@@ -369,6 +369,11 @@ a {
     justify-content: space-between;
     padding-top: $padding-xs;
     padding-bottom: $padding-xs;
+
+    &_justify_start {
+        @extend .row;
+        justify-content: flex-start;
+    }
 }
 
 .col {
@@ -384,7 +389,8 @@ a {
 .card {
     width: 260px;
     height: 350px;
-    margin-bottom: $padding-md;
+    margin: $padding-md;
+    margin-left: 0;
     position: relative;
     padding: $padding-sm;
 
@@ -499,6 +505,7 @@ a {
 
     &__fb {
         min-width: 300px;
+        max-width: 300px;
         padding-top: $padding-sm;
         padding-bottom: $padding-sm;
         padding-left: $padding-md;
