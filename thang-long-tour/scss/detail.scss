@@ -3,7 +3,11 @@
 .detail {
     &__wrapper {
         @include container;
+
+        border-bottom: 1px solid $page-color-darker;
     }
+
+
 }
 
 .row {

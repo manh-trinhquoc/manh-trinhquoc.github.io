@@ -47,7 +47,7 @@ button:hover {
     .row, .row_justify_start, .row_align_start, .personal {
       flex-flow: column; } }
 
-.topnav__sign-in, .row, .row_justify_start, .row_align_start, .personal, .btn__wrapper, .popover__background, .pagination {
+.topnav__sign-in, .row, .row_justify_start, .row_align_start, .personal, .card__img, .btn__wrapper, .popover__background, .pagination {
   display: -webkit-flex;
   display: -moz-flex;
   display: -ms-flex;
@@ -255,12 +255,14 @@ a {
   .card__img {
     height: 170px;
     overflow: hidden;
-    background-image: url("../img/india-1.jpg");
-    background-position: center;
+    background-color: inherit;
     position: relative; }
+    .card__img img {
+      max-width: 100%; }
   .card__sale {
     position: absolute;
     bottom: 0;
+    left: 0;
     background-color: red;
     padding: 5px; }
   .card__country {
