@@ -170,6 +170,8 @@ i {
     justify-content: center; }
   .banner h4 {
     display: none; }
+  .banner > img {
+    width: 100%; }
   @media (min-width: 576px) {
     .banner h4 {
       display: block; } }

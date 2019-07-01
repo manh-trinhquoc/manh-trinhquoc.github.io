@@ -32,7 +32,8 @@
     }
 
     &__info {
-        padding-top: $padding-lg;
+        margin-bottom: $padding-md;
+        border-bottom: 1px solid $page-color-darker;
     }
 
 
@@ -40,7 +41,6 @@
 
 
 .map-marker {
-    margin-top: $padding-lg;
     padding-left: $padding-xs;
     padding-right: $padding-xs;
 

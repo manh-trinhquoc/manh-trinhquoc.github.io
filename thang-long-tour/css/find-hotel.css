@@ -36,7 +36,7 @@ button:hover {
     .header, .banner__nav, .banner__wrapper, .tour-list, .footer__inner-wrapper, .breadcrumb, .contact, .filter, .personal, .detail__wrapper {
       max-width: 1140px; } }
 
-.row, .row_justify_start, .row_align_start, .personal, .row_no-wrap {
+.row, .row_justify_start, .row_align_start, .personal, .row_no-wrap, .filter-hotel__result {
   display: -webkit-flex;
   display: -moz-flex;
   display: -ms-flex;
@@ -44,10 +44,10 @@ button:hover {
   display: flex;
   flex-wrap: nowrap; }
   @media (max-width: 576px) {
-    .row, .row_justify_start, .row_align_start, .personal, .row_no-wrap {
+    .row, .row_justify_start, .row_align_start, .personal, .row_no-wrap, .filter-hotel__result {
       flex-flow: column; } }
 
-.topnav__sign-in, .row, .row_justify_start, .row_align_start, .personal, .row_no-wrap, .card__img, .btn__wrapper, .popover__background, .popover-always-sticky__background, .pagination {
+.topnav__sign-in, .row, .row_justify_start, .row_align_start, .personal, .row_no-wrap, .filter-hotel__result, .card__img, .btn__wrapper, .popover__background, .popover-always-sticky__background, .pagination {
   display: -webkit-flex;
   display: -moz-flex;
   display: -ms-flex;
@@ -231,7 +231,7 @@ a {
   color: white;
   text-decoration: none; }
 
-.row, .row_justify_start, .row_align_start, .personal, .row_no-wrap {
+.row, .row_justify_start, .row_align_start, .personal, .row_no-wrap, .filter-hotel__result {
   flex-wrap: wrap;
   justify-content: space-between;
   padding-top: 5px;
@@ -247,7 +247,7 @@ a {
   .col_fill {
     max-width: 10px; }
 
-.card {
+.card, .card-hotel {
   width: 260px;
   height: 350px;
   margin: 20px;
@@ -267,10 +267,10 @@ a {
     left: 0;
     background-color: red;
     padding: 5px; }
-  .card__country {
+  .card__country, .card-hotel__category {
     color: #00d522;
     padding-top: 5px; }
-  .card__header {
+  .card__header, .card-hotel__name {
     color: #09ff30;
     padding-top: 5px;
     padding-bottom: 5px; }
@@ -602,4 +602,14 @@ ul {
 .card__upload-date {
   color: #00d522; }
 
-/*# sourceMappingURL=find-places.css.map */
+.filter-hotel__result {
+  padding-top: 0; }
+
+.card-hotel {
+  padding-top: 0;
+  margin-top: 0; }
+  .card-hotel__address {
+    color: #00d522;
+    padding-top: 10px; }
+
+/*# sourceMappingURL=find-hotel.css.map */

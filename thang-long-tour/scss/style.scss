@@ -267,6 +267,10 @@ i {
         display: none;
     }
 
+    &>img {
+        width: 100%;
+    }
+
     @media (min-width: 576px) {
         h4 {
             display: block;

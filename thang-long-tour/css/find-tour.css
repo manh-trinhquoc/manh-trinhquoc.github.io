@@ -170,6 +170,8 @@ i {
     justify-content: center; }
   .banner h4 {
     display: none; }
+  .banner > img {
+    width: 100%; }
   @media (min-width: 576px) {
     .banner h4 {
       display: block; } }
@@ -427,10 +429,10 @@ ul {
   .contact__note {
     padding-left: 20px; }
   .contact__info {
-    padding-top: 70px; }
+    margin-bottom: 20px;
+    border-bottom: 1px solid #4a381d; }
 
 .map-marker {
-  margin-top: 70px;
   padding-left: 5px;
   padding-right: 5px; }
   .map-marker iframe {
