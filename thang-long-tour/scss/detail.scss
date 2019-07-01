@@ -55,6 +55,7 @@
         @extend .popover;
         position: sticky;
         top: -$padding-lg;
+        bottom: -$padding-lg;
 
     }
 

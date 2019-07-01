@@ -17,8 +17,8 @@
 </head>
 
 <body>
-    <div class="popover_always-sticky" id="book-tour-popover" hidden="">
-        <div class="popover-always-sticky__background" onclick="hidePopover('book-tour-popover')">
+    <div class="popover" id="book-tour-popover" hidden="">
+        <div class="popover__background" onclick="hidePopover('book-tour-popover')">
             <div class="book-tour" onclick="showPopover('book-tour-popover')">
                 <button type="button" class="btn_icon register__cancel-btn" onclick="hidePopover('book-tour-popover')">
                     <i class="fas fa-times"></i>
@@ -167,7 +167,7 @@
                     <h2>Ngày khởi hành</h2>
                     <p>27/06/2019</p>
                     <div class="btn__wrapper">
-                        <button type="button" class="btn_sm" onclick="showPopover('book-tour-popover')">Đặt tour</button>
+                        <button type="button" class="btn_sm" onclick="showPopover('book-tour-popover'), window.scrollTo(0,0)">Đặt tour</button>
                     </div>
                 </div>
                 <div class="comment">

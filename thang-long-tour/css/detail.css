@@ -157,7 +157,8 @@ i {
     position: absolute;
     top: 0;
     height: 100%;
-    width: 75%;
+    width: 70%;
+    max-width: 70%;
     padding: 5px;
     display: -webkit-flex;
     display: -moz-flex;
@@ -584,7 +585,8 @@ ul {
 
 .popover_always-sticky {
   position: sticky;
-  top: -70px; }
+  top: -70px;
+  bottom: -70px; }
 .popover-always-sticky__background {
   height: 200vh; }
 
