@@ -160,3 +160,9 @@
         padding-top: $padding-sm;
     }
 }
+
+.search-gg {
+    @include container;
+    padding-top: $padding-md;
+    padding-bottom: $padding-md;
+}
