@@ -80,10 +80,10 @@
                     <i class="fa fa-bars"></i>
                 </a>
                 <a href="/thang-long-tour/index.html">Trang chủ</a>
-                <a href="/thang-long-tour/find-tour.html">Tìm tour</a>
+                <a href="/thang-long-tour/find-tours.html">Tìm tour</a>
                 <a href="/thang-long-tour/find-places.html">Địa danh du lịch</a>
-                <a href="/thang-long-tour/find-hotel.html">Khách sạn</a>
-                <a href="/thang-long-tour/find-news.html">Tin du lịch</a>
+                <a href="/thang-long-tour/find-hotels.html">Khách sạn</a>
+                <a href="/thang-long-tour/find-blogs.html">Blog du lịch</a>
                 <a href="/thang-long-tour/about.html">Liên hệ</a>
                 <form class="topnav__search search" action="#">
                     <input type="text" placeholder="Search.." name="search" class="input__text search__input-text">
@@ -96,7 +96,7 @@
         </header>
     </div>
     <section class="banner">
-        <img src="img/banner-1.jpg" alt="banner image" />
+        <img class="img-responsive" src="img/banner-1.jpg" alt="banner image" />
         <div class="banner__wrapper">
             <div class="banner__content">
                 <h4 class="banner-content__contry">Việt Nam</h4>
@@ -139,163 +139,89 @@
     </section>
     <ul class="breadcrumb">
         <li><a href="/thang-long-tour/index.html">Trang chủ</a></li>
-        <li><a href="" class="active">Tìm tour</a></li>
+        <li><a href="" class="active">Blog du lịch</a></li>
     </ul>
-    <div class="row_align_start filter">
-        <div class="col_3 filter__form-wrapper">
-            <form class="filter__form">
-                <h2>Bộ lọc tour</h2>
-                <div class="filter__item">
-                    <p>Điểm khởi hành</p>
-                    <select name="" id="" class="input__select">
-                        <option value="null">Điểm khởi hành</option>
-                        <option value="Hà Nội">Hà Nội</option>
-                        <option value="Hồ Chí Minh">Hồ Chí Minh</option>
-                    </select>
-                </div>
-                <div class="filter__item">
-                    <p>Điểm đến</p>
-                    <select name="" id="" class="input__select">
-                        <option value="null">Điểm đến</option>
-                        <option value="Hà Nội">Hà Nội</option>
-                        <option value="Đà Nẵng">Đà Nẵng</option>
-                        <option value="Hồ Chí Minh">Hồ Chí Minh</option>
-                    </select>
-                </div>
-                <div class="filter__item">
-                    <p>Ngày khởi hành</p>
-                    <select name="" id="" class="input__select">
-                        <option value="null">Ngày khởi hành</option>
-                    </select>
-                </div>
-                <div class="filter__item">
-                    <p>Thời gian</p>
-                    <select name="" id="" class="input__select">
-                        <option value="null">Thời gian</option>
-                        <option value="1">Trong ngày</option>
-                        <option value="2">2 ngày</option>
-                        <option value="3">3 ngày</option>
-                        <option value="4">4 ngày</option>
-                        <option value="5">5 ngày</option>
-                        <option value="6">6 ngày</option>
-                        <option value="7">1 tuần</option>
-                        <option value="8">&gt; 1 tuần</option>
-                    </select>
-                </div>
-                <div class="filter__item">
-                    <p>Loại hình tour</p>
-                    <ul>
-                        <li class="checkbox__wrapper"><input class="input__checkbox" type="checkbox" name="" value="viet-nam" id="viet-nam">
-                            <label class="checkbox__label" for="viet-nam">Trong nước</label></li>
-                        <li class="checkbox__wrapper"><input class="input__checkbox" type="checkbox" name="" value="global" id="global">
-                            <label class="checkbox__label" for="global">Quốc tế</label></li>
-                        </li>
-                        <li class="checkbox__wrapper"><input class="input__checkbox" type="checkbox" name="" value="tam-linh" id="tam-linh">
-                            <label class="checkbox__label" for="tam-linh">Tâm linh</label></li>
-                        </li>
-                        <li class="checkbox__wrapper"><input class="input__checkbox" type="checkbox" name="" value="bike" id="bike">
-                            <label class="checkbox__label" for="bike">Xe đạp</label></li>
-                        </li>
-                        <li class="checkbox__wrapper"><input class="input__checkbox" type="checkbox" name="" value="motor" id="motor">
-                            <label class="checkbox__label" for="motor">Xe máy</label></li>
-                        </li>
-                        <li class="checkbox__wrapper"><input class="input__checkbox" type="checkbox" name="" value="fishing" id="fishing">
-                            <label class="checkbox__label" for="fishing">Câu cá</label></li>
-                        </li>
-                        <li class="checkbox__wrapper"><input class="input__checkbox" type="checkbox" name="" value="picture" id="picture">
-                            <label class="checkbox__label" for="picture">Nhiếp ảnh</label></li>
-                        </li>
-                    </ul>
-                </div>
-                <div class="btn__wrapper filter__button">
-                    <button type="submit" class="btn_sm">Tìm kiếm</button>
-                </div>
-            </form>
-        </div>
-        <div class="col_9">
-            <div class="filter__item_arrange">
-                <p>Sắp xếp</p>
-                <select name="" id="" class="input__select_background">
-                    <option value="null">Sắp xếp</option>
-                    <option value="price-incre">Giá tăng dần</option>
-                    <option value="price-decre">Giá giảm dần</option>
-                </select>
-            </div>
-            <div class="row">
-                <div class="card">
-                    <a href="detail.html">
-                        <div class="card__img">
-                            <img src="img/india-1.jpg" alt="demo image" />
-                            <div class="card__sale">-600.000</div>
-                        </div>
-                        <h4 class="card__country">Ấn độ</h4>
-                        <h3 class="card__header">Tour du lịch Bắc Ấn độ: Ladakh - “tiểu tây tạng trên đất ấn</h3>
-                        <h5 class="card__price">4.500.000</h5>
-                        <h5 class="card__duration">Thời gian: 04 ngày 03 đêm</h5>
-                        <h5 class="card__start-date">Khởi hành: 28/04; 29/04; 2/5</h5>
-                    </a>
-                </div>
-                <div class="card">
-                    <a href="detail.html">
-                        <div class="card__img">
-                            <img src="img/india-1.jpg" alt="demo image" />
-                            <div class="card__sale">-600.000</div>
-                        </div>
-                        <h4 class="card__country">Ấn độ</h4>
-                        <h3 class="card__header">Tour du lịch Bắc Ấn độ: Ladakh - “tiểu tây tạng trên đất ấn</h3>
-                        <h5 class="card__price">4.500.000</h5>
-                        <h5 class="card__duration">Thời gian: 04 ngày 03 đêm</h5>
-                        <h5 class="card__start-date">Khởi hành: 28/04; 29/04; 2/5</h5>
-                    </a>
-                </div>
-                <div class="card">
-                    <a href="detail.html">
-                        <div class="card__img">
-                            <img src="img/india-1.jpg" alt="demo image" />
-                            <div class="card__sale">-600.000</div>
-                        </div>
-                        <h4 class="card__country">Ấn độ</h4>
-                        <h3 class="card__header">Tour du lịch Bắc Ấn độ: Ladakh - “tiểu tây tạng trên đất ấn</h3>
-                        <h5 class="card__price">4.500.000</h5>
-                        <h5 class="card__duration">Thời gian: 04 ngày 03 đêm</h5>
-                        <h5 class="card__start-date">Khởi hành: 28/04; 29/04; 2/5</h5>
-                    </a>
-                </div>
-                <div class="card">
-                    <a href="detail.html">
-                        <div class="card__img">
-                            <img src="img/india-1.jpg" alt="demo image" />
-                            <div class="card__sale">-600.000</div>
-                        </div>
-                        <h4 class="card__country">Ấn độ</h4>
-                        <h3 class="card__header">Tour du lịch Bắc Ấn độ: Ladakh - “tiểu tây tạng trên đất ấn</h3>
-                        <h5 class="card__price">4.500.000</h5>
-                        <h5 class="card__duration">Thời gian: 04 ngày 03 đêm</h5>
-                        <h5 class="card__start-date">Khởi hành: 28/04; 29/04; 2/5</h5>
-                    </a>
-                </div>
-                <div class="card">
-                    <a href="detail.html">
-                        <div class="card__img">
-                            <img src="img/india-1.jpg" alt="demo image" />
-                            <div class="card__sale">-600.000</div>
-                        </div>
-                        <h4 class="card__country">Ấn độ</h4>
-                        <h3 class="card__header">Tour du lịch Bắc Ấn độ: Ladakh - “tiểu tây tạng trên đất ấn</h3>
-                        <h5 class="card__price">4.500.000</h5>
-                        <h5 class="card__duration">Thời gian: 04 ngày 03 đêm</h5>
-                        <h5 class="card__start-date">Khởi hành: 28/04; 29/04; 2/5</h5>
-                    </a>
-                </div>
-            </div>
-            <nav class="pagination">
-                <a href="#" class="disable">&laquo;</a>
-                <a href="" class="active">1</a>
-                <a href="">2</a>
-                <a href="">&raquo;</a>
-            </nav>
-        </div>
+    <div class="search-gg">
+        <!-- Sao chép mã sau đây và dán nó vào một phần tử <div> trong phần <body> của trang web của bạn, nơi bạn muốn cả hộp tìm kiếm và kết quả tìm kiếm kết xuất. -->
+        <script async src="https://cse.google.com/cse.js?cx=017304219906317488510:iiffvytem58"></script>
+        <div class="gcse-search"></div>
     </div>
+    <section class="tour-list">
+        <div class="row">
+            <div class="card">
+                <a href="detail-blog.html">
+                    <div class="card__img">
+                        <img src="img/news-japan-1.jpg" alt="demo image" />
+                    </div>
+                    <h5 class="card__upload-date">01/07/2019</h5>
+                    <h3 class="card__header">Du lịch Nhật Bản</h3>
+                    <p>
+                        Đến với “đất nước mặt trời mọc”, nơi truyền thống và hiện đại giao hòa, với đường chân trời được tạo thành từ những tòa cao ốc chọc trời chen chân cùng những đền đài cổ kính và đỉnh núi tuyết phủ quanh năm...
+                    </p>
+                </a>
+            </div>
+            <div class="card">
+                <a href="detail-blog.html">
+                    <div class="card__img">
+                        <img src="img/news-japan-1.jpg" alt="demo image" />
+                    </div>
+                    <h5 class="card__upload-date">01/07/2019</h5>
+                    <h3 class="card__header">Du lịch Nhật Bản</h3>
+                    <p>
+                        Đến với “đất nước mặt trời mọc”, nơi truyền thống và hiện đại giao hòa, với đường chân trời được tạo thành từ những tòa cao ốc chọc trời chen chân cùng những đền đài cổ kính và đỉnh núi tuyết phủ quanh năm...
+                    </p>
+                </a>
+            </div>
+            <div class="card">
+                <a href="detail-blog.html">
+                    <div class="card__img">
+                        <img src="img/news-japan-1.jpg" alt="demo image" />
+                    </div>
+                    <h5 class="card__upload-date">01/07/2019</h5>
+                    <h3 class="card__header">Du lịch Nhật Bản</h3>
+                    <p>
+                        Đến với “đất nước mặt trời mọc”, nơi truyền thống và hiện đại giao hòa, với đường chân trời được tạo thành từ những tòa cao ốc chọc trời chen chân cùng những đền đài cổ kính và đỉnh núi tuyết phủ quanh năm...
+                    </p>
+                </a>
+            </div>
+            <div class="card">
+                <a href="detail-blog.html">
+                    <div class="card__img">
+                        <img src="img/news-japan-1.jpg" alt="demo image" />
+                    </div>
+                    <h5 class="card__upload-date">01/07/2019</h5>
+                    <h3 class="card__header">Du lịch Nhật Bản</h3>
+                    <p>
+                        Đến với “đất nước mặt trời mọc”, nơi truyền thống và hiện đại giao hòa, với đường chân trời được tạo thành từ những tòa cao ốc chọc trời chen chân cùng những đền đài cổ kính và đỉnh núi tuyết phủ quanh năm...
+                    </p>
+                </a>
+            </div>
+            <div class="card">
+                <a href="detail-blog.html">
+                    <div class="card__img">
+                        <img src="img/news-japan-1.jpg" alt="demo image" />
+                    </div>
+                    <h5 class="card__upload-date">01/07/2019</h5>
+                    <h3 class="card__header">Du lịch Nhật Bản</h3>
+                    <p>
+                        Đến với “đất nước mặt trời mọc”, nơi truyền thống và hiện đại giao hòa, với đường chân trời được tạo thành từ những tòa cao ốc chọc trời chen chân cùng những đền đài cổ kính và đỉnh núi tuyết phủ quanh năm...
+                    </p>
+                </a>
+            </div>
+            <div class="card">
+                <a href="detail-blog.html">
+                    <div class="card__img">
+                        <img src="img/news-japan-1.jpg" alt="demo image" />
+                    </div>
+                    <h5 class="card__upload-date">01/07/2019</h5>
+                    <h3 class="card__header">Du lịch Nhật Bản</h3>
+                    <p>
+                        Đến với “đất nước mặt trời mọc”, nơi truyền thống và hiện đại giao hòa, với đường chân trời được tạo thành từ những tòa cao ốc chọc trời chen chân cùng những đền đài cổ kính và đỉnh núi tuyết phủ quanh năm...
+                    </p>
+                </a>
+            </div>
+        </div>
+    </section>
     <footer class="footer">
         <div class="row footer__inner-wrapper">
             <div class="footer__logo">
@@ -328,6 +254,7 @@
     </footer>
     <!-- custome -->
     <script type="text/javascript" src="js/script.js">
+    <script type="text/javascript" src="js/detail.js">
     </script>
     <!-- google street view -->
     <!-- <div class="map-marker" id="footer-map">

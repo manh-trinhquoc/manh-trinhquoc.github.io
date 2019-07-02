@@ -80,10 +80,10 @@
                     <i class="fa fa-bars"></i>
                 </a>
                 <a href="/thang-long-tour/index.html">Trang chủ</a>
-                <a href="/thang-long-tour/find-tour.html">Tìm tour</a>
+                <a href="/thang-long-tour/find-tours.html">Tìm tour</a>
                 <a href="/thang-long-tour/find-places.html">Địa danh du lịch</a>
-                <a href="/thang-long-tour/find-hotel.html">Khách sạn</a>
-                <a href="/thang-long-tour/find-news.html">Tin du lịch</a>
+                <a href="/thang-long-tour/find-hotels.html">Khách sạn</a>
+                <a href="/thang-long-tour/find-blogs.html">Blog du lịch</a>
                 <a href="/thang-long-tour/about.html">Liên hệ</a>
                 <form class="topnav__search search" action="#">
                     <input type="text" placeholder="Search.." name="search" class="input__text search__input-text">
@@ -139,63 +139,73 @@
     </section>
     <ul class="breadcrumb">
         <li><a href="/thang-long-tour/index.html">Trang chủ</a></li>
-        <li><a href="" class="active">Tìm khách sạn</a></li>
+        <li><a href="" class="active">Tìm tour</a></li>
     </ul>
     <div class="row_align_start filter">
         <div class="col_3 filter__form-wrapper">
             <form class="filter__form">
-                <h2>Bộ lọc khách sạn</h2>
+                <h2>Bộ lọc tour</h2>
                 <div class="filter__item">
-                    <p>Đất nước</p>
+                    <p>Điểm khởi hành</p>
                     <select name="" id="" class="input__select">
-                        <option value="null">Tất cả</option>
-                        <option value="Hà Nội">Việt Nam</option>
-                        <option value="Hồ Chí Minh">Thái Lan</option>
+                        <option value="null">Điểm khởi hành</option>
+                        <option value="Hà Nội">Hà Nội</option>
+                        <option value="Hồ Chí Minh">Hồ Chí Minh</option>
                     </select>
                 </div>
                 <div class="filter__item">
-                    <p>Thành phố</p>
+                    <p>Điểm đến</p>
                     <select name="" id="" class="input__select">
-                        <option value="null">Tất cả</option>
+                        <option value="null">Điểm đến</option>
                         <option value="Hà Nội">Hà Nội</option>
                         <option value="Đà Nẵng">Đà Nẵng</option>
                         <option value="Hồ Chí Minh">Hồ Chí Minh</option>
                     </select>
                 </div>
                 <div class="filter__item">
-                    <p>Quận/huyện</p>
+                    <p>Ngày khởi hành</p>
                     <select name="" id="" class="input__select">
-                        <option value="null">Tất cả</option>
-                        <option value="Hà Nội">Đống Đa</option>
-                        <option value="Hà Nội">Hoàn Kiếm</option>
+                        <option value="null">Ngày khởi hành</option>
                     </select>
                 </div>
                 <div class="filter__item">
-                    <p>Đường phố</p>
+                    <p>Thời gian</p>
                     <select name="" id="" class="input__select">
-                        <option value="null">Tất cả</option>
-                        <option value="Ngo quyen">Ngô Quyền</option>
-                        <option value="Tran hung dao">Trần Hưng Đạo</option>
+                        <option value="null">Thời gian</option>
+                        <option value="1">Trong ngày</option>
+                        <option value="2">2 ngày</option>
+                        <option value="3">3 ngày</option>
+                        <option value="4">4 ngày</option>
+                        <option value="5">5 ngày</option>
+                        <option value="6">6 ngày</option>
+                        <option value="7">1 tuần</option>
+                        <option value="8">&gt; 1 tuần</option>
                     </select>
                 </div>
                 <div class="filter__item">
-                    <p>Loại hình</p>
-                    <select name="" id="" class="input__select">
-                        <option value="null">Tất cả</option>
-                        <option value="khach san">Khách sạn</option>
-                        <option value="homestay">Homestay</option>
-                    </select>
-                </div>
-                <div class="filter__item">
-                    <p>Hạng sao</p>
-                    <select name="" id="" class="input__select">
-                        <option value="null">Tất cả</option>
-                        <option value="1">1 sao</option>
-                        <option value="2">2 sao</option>
-                        <option value="3">3 sao</option>
-                        <option value="4">4 sao</option>
-                        <option value="5">5 sao</option>
-                    </select>
+                    <p>Loại hình tour</p>
+                    <ul>
+                        <li class="checkbox__wrapper"><input class="input__checkbox" type="checkbox" name="" value="viet-nam" id="viet-nam">
+                            <label class="checkbox__label" for="viet-nam">Trong nước</label></li>
+                        <li class="checkbox__wrapper"><input class="input__checkbox" type="checkbox" name="" value="global" id="global">
+                            <label class="checkbox__label" for="global">Quốc tế</label></li>
+                        </li>
+                        <li class="checkbox__wrapper"><input class="input__checkbox" type="checkbox" name="" value="tam-linh" id="tam-linh">
+                            <label class="checkbox__label" for="tam-linh">Tâm linh</label></li>
+                        </li>
+                        <li class="checkbox__wrapper"><input class="input__checkbox" type="checkbox" name="" value="bike" id="bike">
+                            <label class="checkbox__label" for="bike">Xe đạp</label></li>
+                        </li>
+                        <li class="checkbox__wrapper"><input class="input__checkbox" type="checkbox" name="" value="motor" id="motor">
+                            <label class="checkbox__label" for="motor">Xe máy</label></li>
+                        </li>
+                        <li class="checkbox__wrapper"><input class="input__checkbox" type="checkbox" name="" value="fishing" id="fishing">
+                            <label class="checkbox__label" for="fishing">Câu cá</label></li>
+                        </li>
+                        <li class="checkbox__wrapper"><input class="input__checkbox" type="checkbox" name="" value="picture" id="picture">
+                            <label class="checkbox__label" for="picture">Nhiếp ảnh</label></li>
+                        </li>
+                    </ul>
                 </div>
                 <div class="btn__wrapper filter__button">
                     <button type="submit" class="btn_sm">Tìm kiếm</button>
@@ -203,89 +213,78 @@
             </form>
         </div>
         <div class="col_9">
-            <div class="filter-hotel__result">
-                <div class="card-hotel">
-                    <a href="hotel-detail.html">
+            <div class="filter__item_arrange">
+                <p>Sắp xếp</p>
+                <select name="" id="" class="input__select_background">
+                    <option value="null">Sắp xếp</option>
+                    <option value="price-incre">Giá tăng dần</option>
+                    <option value="price-decre">Giá giảm dần</option>
+                </select>
+            </div>
+            <div class="row">
+                <div class="card">
+                    <a href="detail-tour.html">
                         <div class="card__img">
-                            <img src="img/hotel-sofitel.jpg" alt="demo image" class="img-responsive" />
+                            <img src="img/india-1.jpg" alt="demo image" />
+                            <div class="card__sale">-600.000</div>
                         </div>
-                        <div class="row">
-                            <h4 class="card-hotel__category">Khách sạn</h4>
-                            <h4 class="card-hotel__star">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </h4>
-                        </div>
-                        <h3 class="card-hotel__name">Khách Sạn Sofitel Legend Metropole Hà Nội</h3>
-                        <h5 class="card-hotel__address"><i class="fas fa-map-marker"></i>
-                            Số 15, Phố Ngô Quyền, Quận Hoàn Kiếm, Hà Nội
-                        </h5>
+                        <h4 class="card__country">Ấn độ</h4>
+                        <h3 class="card__header">Tour du lịch Bắc Ấn độ: Ladakh - “tiểu tây tạng trên đất ấn</h3>
+                        <h5 class="card__price">4.500.000</h5>
+                        <h5 class="card__duration">Thời gian: 04 ngày 03 đêm</h5>
+                        <h5 class="card__start-date">Khởi hành: 28/04; 29/04; 2/5</h5>
                     </a>
                 </div>
-                <div class="card-hotel">
-                    <a href="hotel-detail.html">
+                <div class="card">
+                    <a href="detail-tour.html">
                         <div class="card__img">
-                            <img src="img/hotel-sofitel.jpg" alt="demo image" class="img-responsive" />
+                            <img src="img/india-1.jpg" alt="demo image" />
+                            <div class="card__sale">-600.000</div>
                         </div>
-                        <div class="row">
-                            <h4 class="card-hotel__category">Khách sạn</h4>
-                            <h4 class="card-hotel__star">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </h4>
-                        </div>
-                        <h3 class="card-hotel__name">Khách Sạn Sofitel Legend Metropole Hà Nội</h3>
-                        <h5 class="card-hotel__address"><i class="fas fa-map-marker"></i>
-                            Số 15, Phố Ngô Quyền, Quận Hoàn Kiếm, Hà Nội
-                        </h5>
+                        <h4 class="card__country">Ấn độ</h4>
+                        <h3 class="card__header">Tour du lịch Bắc Ấn độ: Ladakh - “tiểu tây tạng trên đất ấn</h3>
+                        <h5 class="card__price">4.500.000</h5>
+                        <h5 class="card__duration">Thời gian: 04 ngày 03 đêm</h5>
+                        <h5 class="card__start-date">Khởi hành: 28/04; 29/04; 2/5</h5>
                     </a>
                 </div>
-                <div class="card-hotel">
-                    <a href="hotel-detail.html">
+                <div class="card">
+                    <a href="detail-tour.html">
                         <div class="card__img">
-                            <img src="img/hotel-sofitel.jpg" alt="demo image" class="img-responsive" />
+                            <img src="img/india-1.jpg" alt="demo image" />
+                            <div class="card__sale">-600.000</div>
                         </div>
-                        <div class="row">
-                            <h4 class="card-hotel__category">Khách sạn</h4>
-                            <h4 class="card-hotel__star">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </h4>
-                        </div>
-                        <h3 class="card-hotel__name">Khách Sạn Sofitel Legend Metropole Hà Nội</h3>
-                        <h5 class="card-hotel__address"><i class="fas fa-map-marker"></i>
-                            Số 15, Phố Ngô Quyền, Quận Hoàn Kiếm, Hà Nội
-                        </h5>
+                        <h4 class="card__country">Ấn độ</h4>
+                        <h3 class="card__header">Tour du lịch Bắc Ấn độ: Ladakh - “tiểu tây tạng trên đất ấn</h3>
+                        <h5 class="card__price">4.500.000</h5>
+                        <h5 class="card__duration">Thời gian: 04 ngày 03 đêm</h5>
+                        <h5 class="card__start-date">Khởi hành: 28/04; 29/04; 2/5</h5>
                     </a>
                 </div>
-                <div class="card-hotel">
-                    <a href="hotel-detail.html">
+                <div class="card">
+                    <a href="detail-tour.html">
                         <div class="card__img">
-                            <img src="img/hotel-sofitel.jpg" alt="demo image" class="img-responsive" />
+                            <img src="img/india-1.jpg" alt="demo image" />
+                            <div class="card__sale">-600.000</div>
                         </div>
-                        <div class="row">
-                            <h4 class="card-hotel__category">Khách sạn</h4>
-                            <h4 class="card-hotel__star">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </h4>
+                        <h4 class="card__country">Ấn độ</h4>
+                        <h3 class="card__header">Tour du lịch Bắc Ấn độ: Ladakh - “tiểu tây tạng trên đất ấn</h3>
+                        <h5 class="card__price">4.500.000</h5>
+                        <h5 class="card__duration">Thời gian: 04 ngày 03 đêm</h5>
+                        <h5 class="card__start-date">Khởi hành: 28/04; 29/04; 2/5</h5>
+                    </a>
+                </div>
+                <div class="card">
+                    <a href="detail-tour.html">
+                        <div class="card__img">
+                            <img src="img/india-1.jpg" alt="demo image" />
+                            <div class="card__sale">-600.000</div>
                         </div>
-                        <h3 class="card-hotel__name">Khách Sạn Sofitel Legend Metropole Hà Nội</h3>
-                        <h5 class="card-hotel__address"><i class="fas fa-map-marker"></i>
-                            Số 15, Phố Ngô Quyền, Quận Hoàn Kiếm, Hà Nội
-                        </h5>
+                        <h4 class="card__country">Ấn độ</h4>
+                        <h3 class="card__header">Tour du lịch Bắc Ấn độ: Ladakh - “tiểu tây tạng trên đất ấn</h3>
+                        <h5 class="card__price">4.500.000</h5>
+                        <h5 class="card__duration">Thời gian: 04 ngày 03 đêm</h5>
+                        <h5 class="card__start-date">Khởi hành: 28/04; 29/04; 2/5</h5>
                     </a>
                 </div>
             </div>
