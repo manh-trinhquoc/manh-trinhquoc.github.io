@@ -609,4 +609,13 @@ ul {
 .side-list {
   max-height: auto; }
 
+/*facebook modification*/
+._50f7 {
+  color: white; }
+
+.fb-comments,
+.fb-like {
+  width: 100%;
+  padding-top: 20px; }
+
 /*# sourceMappingURL=detail.css.map */
