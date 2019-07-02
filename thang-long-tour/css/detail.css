@@ -582,7 +582,7 @@ ul {
   .tour-info p {
     font-size: 18px; }
 
-.map_small {
+.map_small, .side-list {
   width: 90%;
   height: 90%;
   max-height: 90%;
@@ -604,5 +604,8 @@ ul {
   bottom: -70px; }
 .popover-always-sticky__background {
   height: 200vh; }
+
+.side-list {
+  max-height: auto; }
 
 /*# sourceMappingURL=detail.css.map */

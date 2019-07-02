@@ -62,3 +62,8 @@
     }
 
 }
+
+.side-list {
+    @extend .map_small;
+    max-height: auto;
+}
