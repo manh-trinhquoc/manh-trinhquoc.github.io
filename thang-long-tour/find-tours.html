@@ -143,34 +143,32 @@
     </ul>
     <div class="row_align_start filter">
         <div class="col_3 filter__form-wrapper">
-            <form class="filter__form">
+            <form class="filter__form" action="find-tours.html" target="_self" method="GET">
                 <h2>Bộ lọc tour</h2>
                 <div class="filter__item">
                     <p>Điểm khởi hành</p>
-                    <select name="" id="" class="input__select">
+                    <select name="departure" id="" class="input__select">
                         <option value="null">Điểm khởi hành</option>
-                        <option value="Hà Nội">Hà Nội</option>
-                        <option value="Hồ Chí Minh">Hồ Chí Minh</option>
+                        <option value="hanoi">Hà Nội</option>
+                        <option value="hcm">Hồ Chí Minh</option>
                     </select>
                 </div>
                 <div class="filter__item">
                     <p>Điểm đến</p>
-                    <select name="" id="" class="input__select">
+                    <select name="destination" id="" class="input__select">
                         <option value="null">Điểm đến</option>
-                        <option value="Hà Nội">Hà Nội</option>
-                        <option value="Đà Nẵng">Đà Nẵng</option>
-                        <option value="Hồ Chí Minh">Hồ Chí Minh</option>
+                        <option value="hanoi">Hà Nội</option>
+                        <option value="danang">Đà Nẵng</option>
+                        <option value="hcm">Hồ Chí Minh</option>
                     </select>
                 </div>
                 <div class="filter__item">
                     <p>Ngày khởi hành</p>
-                    <select name="" id="" class="input__select">
-                        <option value="null">Ngày khởi hành</option>
-                    </select>
+                    <input type="date" name="departure-date" id="" class="input__date">
                 </div>
                 <div class="filter__item">
                     <p>Thời gian</p>
-                    <select name="" id="" class="input__select">
+                    <select name="duration" id="" class="input__select">
                         <option value="null">Thời gian</option>
                         <option value="1">Trong ngày</option>
                         <option value="2">2 ngày</option>
@@ -185,24 +183,24 @@
                 <div class="filter__item">
                     <p>Loại hình tour</p>
                     <ul>
-                        <li class="checkbox__wrapper"><input class="input__checkbox" type="checkbox" name="" value="viet-nam" id="viet-nam">
+                        <li class="checkbox__wrapper"><input class="input__checkbox" type="checkbox" name="trip-type" value="viet-nam" id="viet-nam">
                             <label class="checkbox__label" for="viet-nam">Trong nước</label></li>
-                        <li class="checkbox__wrapper"><input class="input__checkbox" type="checkbox" name="" value="global" id="global">
+                        <li class="checkbox__wrapper"><input class="input__checkbox" type="checkbox" name="trip-type" value="global" id="global">
                             <label class="checkbox__label" for="global">Quốc tế</label></li>
                         </li>
-                        <li class="checkbox__wrapper"><input class="input__checkbox" type="checkbox" name="" value="tam-linh" id="tam-linh">
+                        <li class="checkbox__wrapper"><input class="input__checkbox" type="checkbox" name="trip-type" value="tam-linh" id="tam-linh">
                             <label class="checkbox__label" for="tam-linh">Tâm linh</label></li>
                         </li>
-                        <li class="checkbox__wrapper"><input class="input__checkbox" type="checkbox" name="" value="bike" id="bike">
+                        <li class="checkbox__wrapper"><input class="input__checkbox" type="checkbox" name="trip-type" value="bike" id="bike">
                             <label class="checkbox__label" for="bike">Xe đạp</label></li>
                         </li>
-                        <li class="checkbox__wrapper"><input class="input__checkbox" type="checkbox" name="" value="motor" id="motor">
+                        <li class="checkbox__wrapper"><input class="input__checkbox" type="checkbox" name="trip-type" value="motor" id="motor">
                             <label class="checkbox__label" for="motor">Xe máy</label></li>
                         </li>
-                        <li class="checkbox__wrapper"><input class="input__checkbox" type="checkbox" name="" value="fishing" id="fishing">
+                        <li class="checkbox__wrapper"><input class="input__checkbox" type="checkbox" name="trip-type" value="fishing" id="fishing">
                             <label class="checkbox__label" for="fishing">Câu cá</label></li>
                         </li>
-                        <li class="checkbox__wrapper"><input class="input__checkbox" type="checkbox" name="" value="picture" id="picture">
+                        <li class="checkbox__wrapper"><input class="input__checkbox" type="checkbox" name="trip-type" value="picture" id="picture">
                             <label class="checkbox__label" for="picture">Nhiếp ảnh</label></li>
                         </li>
                     </ul>

@@ -509,7 +509,54 @@
         padding-top: $padding-md;
         padding-bottom: $padding-md;
     }
+
+    &__select {
+        @extend .input__text;
+        background-color: $page-color;
+        color: $text-no-color;
+
+        &_background {
+            @extend .input__select;
+            background-color: $page-color-darker;
+        }
+    }
+
+    &__checkbox {
+        width: $padding-md;
+        height: $padding-md;
+        color: $text-no-color;
+
+        &:after {
+            width: $padding-md;
+            height: $padding-md;
+            background: $page-color;
+            content: "";
+            display: inline-block;
+        }
+
+        &:checked:after {
+            content: "\2714";
+            text-align: center;
+            color: $text-no-color;
+        }
+    }
+
+    &__date {
+        @extend .input__select;
+    }
 }
+
+/*input[type="checkbox"] {
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline: 0;
+    background: $page-color;
+    height: 16px;
+    width: 16px;
+    border: 1px solid white;
+}*/
 
 .breadcrumb {
     @extend %responsive-max-width;

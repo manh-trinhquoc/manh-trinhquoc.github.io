@@ -437,7 +437,7 @@ ul {
     .title_left-top {
       padding-top: 0; }
 
-.input__text {
+.input__text, .input__select, .input__select_background, .input__date {
   width: 100%;
   padding: 5px;
   height: 44px;
@@ -450,7 +450,37 @@ ul {
   margin: 0;
   padding-top: 20px;
   padding-bottom: 20px; }
+.input__select, .input__select_background, .input__date {
+  background-color: #6E542C;
+  color: white; }
+  .input__select_background {
+    background-color: #4a381d; }
+.input__checkbox {
+  width: 20px;
+  height: 20px;
+  color: white; }
+  .input__checkbox:after {
+    width: 20px;
+    height: 20px;
+    background: #6E542C;
+    content: "";
+    display: inline-block; }
+  .input__checkbox:checked:after {
+    content: "\2714";
+    text-align: center;
+    color: white; }
 
+/*input[type="checkbox"] {
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline: 0;
+    background: $page-color;
+    height: 16px;
+    width: 16px;
+    border: 1px solid white;
+}*/
 .breadcrumb {
   padding-left: 5px;
   padding-right: 5px;
