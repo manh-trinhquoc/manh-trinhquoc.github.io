@@ -101,7 +101,8 @@ ul {
   position: absolute;
   z-index: 1;
   margin-top: -35px;
-  width: calc(100% - 10px); }
+  width: calc(100% - 10px);
+  justify-content: flex-start; }
   @media (min-width: 576px) {
     .topnav {
       margin-top: 0; } }
@@ -121,8 +122,7 @@ ul {
   .topnav__sign-in {
     width: 44px;
     height: 44px;
-    border-radius: 22px;
-    background-color: #09ff30;
+    background-color: transparent;
     padding: 0;
     border: none; }
   .topnav .a {
@@ -131,6 +131,10 @@ ul {
     @media (min-width: 576px) {
       .topnav .a {
         padding: 0; } }
+  .topnav form {
+    margin-left: auto; }
+  .topnav button {
+    font-size: 23px; }
   @media (min-width: 576px) {
     .topnav__search {
       display: block;
@@ -279,12 +283,13 @@ ul {
     flex: 1 1 75%; }
 
 .card {
-  width: 260px;
   height: 350px;
   margin: 20px;
-  margin-left: 0;
   position: relative;
   padding: 10px; }
+  @media (min-width: 576px) {
+    .card {
+      margin-left: 0; } }
   .card__img {
     height: 170px;
     overflow: hidden;

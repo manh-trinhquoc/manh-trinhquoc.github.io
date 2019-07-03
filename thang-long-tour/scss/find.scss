@@ -10,7 +10,7 @@
     }
 
     &__form-wrapper {
-        padding-right: $padding-md;
+        @include media(padding-right, $padding-md);
     }
 
     &__item {
@@ -25,9 +25,13 @@
 
     &__item_arrange {
         @extend .filter__item;
-        padding-top: 0;
+        padding-top: $padding-md;
+        @include media(padding-top, 0);
         padding-bottom: $padding-md;
-        width: 30%;
+        width: 100%;
+        @include media(width, 30%);
+        text-align: center;
+        @include media(text-align, left);
 
         p {
             padding-left: $padding-sm;

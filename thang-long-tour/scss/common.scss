@@ -41,6 +41,7 @@
     width: calc(100% - 10px);
     @include media(margin-top, 0);
     @include media(position, relative);
+    justify-content: flex-start;
 
     &__search {
         min-width: 300px;
@@ -61,8 +62,7 @@
     &__sign-in {
         width: $search-height;
         height: $search-height;
-        border-radius: $search-height/2;
-        background-color: $text-color;
+        background-color: transparent;
         padding: 0;
         @extend %d-flex_center;
         border: none;
@@ -72,6 +72,14 @@
         padding: 0;
         padding-left: 16px;
         @include media(padding, 0);
+    }
+
+    form {
+        margin-left: auto;
+    }
+
+    button {
+        font-size: $text-size-md + 5px;
     }
 
     @media (min-width: 576px) {
@@ -270,10 +278,9 @@
 }
 
 .card {
-    width: 260px;
     height: 350px;
     margin: $padding-md;
-    margin-left: 0;
+    @include media(margin-left, 0);
     position: relative;
     padding: $padding-sm;
 
