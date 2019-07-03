@@ -3,6 +3,7 @@
 
 .filter {
     @include container;
+    position: relative;
 
     &__form {
         background-color: $page-color-darker;
@@ -42,7 +43,11 @@
         padding-top: $padding-md*2;
     }
 
-
+    &__result {
+        position: relative;
+        -ms-align-self: stretch;
+        align-self: stretch;
+    }
 
 }
 
@@ -107,7 +112,10 @@
 
 .pagination {
     width: 100%;
+    position: absolute;
+    bottom: 0;
     @extend %d-flex_center;
+    @include media(padding-right, $padding-md);
 
     a {
         color: $text-no-color;
@@ -135,15 +143,13 @@
     }
 }
 
-.card {
-    &__upload-date {
-        color: $text-color-darker;
-    }
-}
-
 .filter-hotel__result {
-    @extend .row;
+    @extend .row_align_start;
     padding-top: 0;
+    position: relative;
+    padding-bottom: $search-height;
+    -ms-align-self: stretch;
+    align-self: stretch;
 }
 
 .card-hotel {
@@ -169,4 +175,13 @@
     @include container;
     padding-top: $padding-md;
     padding-bottom: $padding-md;
+}
+
+.place-result {
+    position: relative;
+    padding-bottom: $search-height;
+}
+
+.blog-result {
+    @extend .place-result;
 }

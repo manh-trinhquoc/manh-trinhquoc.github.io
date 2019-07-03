@@ -2,6 +2,11 @@
 @import 'find.scss';
 
 .detail {
+    padding: $padding-xs;
+    @include media(padding, 0);
+    padding-bottom: $padding-md;
+    @include media(padding-bottom, $padding-md);
+
     &__wrapper {
         @include container;
 
@@ -16,6 +21,8 @@
     margin-left: auto;
     margin-bottom: $padding-md;
     background-color: $page-color-darker;
+    margin-right: auto;
+    @include media(margin-right, 0);
 
     h2 {
         padding-top: $padding-md;
@@ -35,6 +42,8 @@
     max-height: 90%;
     margin-left: auto;
     padding: 0;
+    margin-right: auto;
+    @include media(margin-right, 0);
 }
 
 .book-tour {
@@ -77,5 +86,4 @@
 .fb-comments,
 .fb-like {
     width: 100%;
-    padding-top: $padding-md;
 }

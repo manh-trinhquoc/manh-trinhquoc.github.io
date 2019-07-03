@@ -219,7 +219,7 @@
 .tour-list {
     @include container;
     border-bottom: 1px solid $page-color-darker;
-
+    position: relative;
 }
 
 .row {
@@ -278,6 +278,7 @@
 }
 
 .card {
+    @extend .col;
     height: 350px;
     margin: $padding-md;
     @include media(margin-left, 0);
@@ -289,7 +290,8 @@
         overflow: hidden;
         background-color: inherit;
         position: relative;
-        @extend %d-flex_center;
+        /*@extend %d-flex_center;*/
+        @include d-flex;
 
         img {
             max-width: 100%;
@@ -329,6 +331,9 @@
         color: $text-color;
     }
 
+    &__upload-date {
+        color: $text-color-darker;
+    }
 }
 
 .btn {
