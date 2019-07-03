@@ -1,118 +1,8 @@
 /*general variable and common component show in every pages*/
 
 @import url('/thang-long-tour/comp/top-nav.css');
-
-* {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-}
-
-
-
-/*Cac mau sac chinh*/
-$page-color: #6E542C;
-$page-color-darker: #4a381d;
-$page-color-lighter: #92703b;
-$page-color-darker_trans: rgba(91, 70, 36, 0.9);
-$text-color: #09ff30;
-$text-color-darker: #00d522;
-$text-color-lighter: #3cff5b;
-$text-no-color: white;
-/*font size*/
-$text-size-xs: 8px;
-$text-size-sm: 13px;
-$text-size-md: 18px;
-$text-size-lg: 35px;
-$text-size-banner-sm: $text-size-sm+10;
-$text-size-banner-md: $text-size-md+15;
-$text-size-banner-lg: $text-size-lg+20;
-$icon-color: $text-color-lighter;
-$icon-size: 33px;
-/*tag size*/
-$search-height: 44px;
-$padding-xs: 5px;
-$padding-sm: 10px;
-$padding-md: 20px;
-$padding-lg: 70px;
-$btn-sm: 100px;
-$btn-md: 200px;
-$btn-padding: $padding-sm;
-$btn-bg-color: $text-color-darker;
-
-html {
-    font-size: 16px;
-    color: white;
-}
-
-body {
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0, rgba(0, 0, 0, 0) 200px) no-repeat,
-        $page-color;
-    margin: 0;
-}
-
-button:hover {
-    cursor: pointer;
-}
-
-%responsive-max-width {
-    margin-left: auto;
-    margin-right: auto;
-
-    @media (min-width: 576px) {
-        max-width: 540px;
-    }
-
-    @media (min-width: 768px) {
-        max-width: 720px;
-    }
-
-    @media (min-width: 992px) {
-        max-width: 960px;
-    }
-
-    @media (min-width: 1200px) {
-        max-width: 1140px;
-    }
-}
-
-@mixin d-flex {
-    display: -webkit-flex;
-    display: -moz-flex;
-    display: -ms-flex;
-    display: -o-flex;
-    display: flex;
-}
-
-%d-flex_responsive {
-    @include d-flex;
-    flex-wrap: nowrap;
-
-    @media (max-width: 576px) {
-        flex-flow: column;
-    }
-}
-
-%d-flex_center {
-    @include d-flex;
-    justify-content: center;
-    -ms-align-items: center;
-    align-items: center;
-}
-
-@mixin d-flex-col-responsive {
-    @media (max-width: 576px) {
-        align-self: stretch;
-    }
-}
-
-%sm-screen-padding {
-    @media (max-width: 576px) {
-        padding: $padding-xs;
-    }
-}
+@import '_lib.scss';
+@import '_redefine.scss';
 
 .logo {
     width: 290px;
@@ -149,6 +39,8 @@ button:hover {
     z-index: 1;
     margin-top: -35px;
     width: calc(100% - 10px);
+    @include media(margin-top, 0);
+    @include media(position, relative);
 
     &__search {
         min-width: 300px;
@@ -179,16 +71,10 @@ button:hover {
     .a {
         padding: 0;
         padding-left: 16px;
+        @include media(padding, 0);
     }
 
     @media (min-width: 576px) {
-        margin-top: 0;
-        position: relative;
-
-        a {
-            padding: 0
-        }
-
         &__search {
             display: block;
             min-width: 0;
@@ -237,9 +123,7 @@ button:hover {
     }
 }
 
-i {
-    color: $icon-color;
-}
+
 
 .img {
     &-responsive {
@@ -267,16 +151,11 @@ i {
 
     h4 {
         display: none;
+        @include media(display, block);
     }
 
     &>img {
         width: 100%;
-    }
-
-    @media (min-width: 576px) {
-        h4 {
-            display: block;
-        }
     }
 
     &__nav {
@@ -300,11 +179,8 @@ i {
         max-width: $icon-size;
         max-height: $icon-size;
         filter: invert(67%) sepia(37%) saturate(6421%) hue-rotate(92deg) brightness(121%) contrast(122%);
-
-        @media (min-width: 992px) {
-            max-width: $icon-size * 1.5;
-            max-height: $icon-size * 1.5;
-        }
+        @include media(max-width, $icon-size * 1.5, 992px);
+        @include media(max-height, $icon-size * 1.5, 992px);
     }
 
     &__wrapper {
@@ -315,57 +191,27 @@ i {
 }
 
 .banner-content {
-    @media (min-width: 576px) {
-        &__contry {
-            font-size: $text-size-banner-md/2;
-        }
 
-        &__header {
-            font-size: $text-size-banner-lg/2;
-        }
-
-        &__duration {
-            font-size: $text-size-banner-sm/2;
-        }
+    &__contry {
+        @include media(font-size, $text-size-banner-md/2);
+        @include media(font-size, $text-size-banner-md, 768px);
     }
 
-    @media (min-width: 768px) {
-        &__contry {
-            font-size: $text-size-banner-md;
-        }
-
-        &__header {
-            font-size: $text-size-banner-lg;
-        }
-
-        &__duration {
-            font-size: $text-size-banner-sm;
-        }
+    &__header {
+        @include media(font-size, $text-size-banner-lg/2);
+        @include media(font-size, $text-size-banner-lg, 768px);
     }
 
-}
-
-@mixin container {
-    padding-top: $padding-lg;
-    @extend %responsive-max-width;
-    padding-bottom: $padding-lg;
-    padding-left: $padding-xs;
-    padding-right: $padding-xs;
+    &__duration {
+        @include media(font-size, $text-size-banner-sm/2);
+        @include media(font-size, $text-size-banner-sm, 768px);
+    }
 }
 
 .tour-list {
     @include container;
     border-bottom: 1px solid $page-color-darker;
 
-}
-
-h2 {
-    text-align: center;
-}
-
-a {
-    color: white;
-    text-decoration: none;
 }
 
 .row {
@@ -380,15 +226,46 @@ a {
         @extend .row;
         justify-content: flex-start;
     }
+
+    &_no-wrap {
+        @extend .row_align_start;
+        flex-wrap: nowrap;
+    }
+
+    &_align_start {
+        @extend .row;
+        -ms-align-items: start;
+        align-items: start;
+    }
 }
 
 .col {
     @include d-flex-col-responsive;
     flex: 1 1 0%;
 
+    &_4 {
+        @extend .col;
+        flex: 1 1 33.33%;
+    }
+
+    &_8 {
+        @extend .col;
+        flex: 1 1 66.65%;
+    }
+
     &_fill {
         @extend .col;
         max-width: $padding-sm;
+    }
+
+    &_3 {
+        @extend .col;
+        flex: 1 1 25%;
+    }
+
+    &_9 {
+        @extend .col;
+        flex: 1 1 75%;
     }
 }
 
@@ -411,8 +288,6 @@ a {
             max-width: 100%;
         }
     }
-
-
 
     &__sale {
         position: absolute;
@@ -507,11 +382,8 @@ a {
 
     &__link {
         padding-left: 10%;
-
-        @media (min-width: 576px) {
-            padding-left: 0;
-            padding: $padding-sm;
-        }
+        @include media(padding-left, 0);
+        @include media(padding, $padding-sm);
     }
 
     &__fb {
@@ -520,7 +392,6 @@ a {
         padding-top: $padding-sm;
         padding-bottom: $padding-sm;
         padding-left: $padding-md;
-
     }
 
     &__social-list {
@@ -531,37 +402,20 @@ a {
 
 }
 
-ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-
-    li {
-        padding-top: $padding-xs;
-    }
-
-}
-
 .popover {
     position: absolute;
     z-index: 100;
     top: 0;
     width: 100%;
     height: 0;
+    @include media(position, sticky);
 
     &__background {
         background-color: $page-color-darker_trans;
         width: 100%;
         height: 200vh;
         @extend %d-flex_center;
-    }
-
-    @media (min-width: 576px) {
-        position: sticky;
-
-        &__background {
-            height: 100vh;
-        }
+        @include media(height, 100vh);
     }
 }
 
@@ -592,11 +446,7 @@ ul {
         background-color: $page-color;
         padding: $padding-xs;
         height: $search-height * 12;
-
-        @media (min-width: 576px) {
-            /*height: $search-height * 10;*/
-            height: auto;
-        }
+        @include media(height, auto);
     }
 
     &__input {
@@ -614,13 +464,20 @@ ul {
 
 }
 
-
-
 .title {
     padding-top: $padding-md;
     padding-bottom: $padding-md;
-}
 
+    &_left {
+        @extend .title;
+        text-align: left;
+
+        &-top {
+            @extend .title_left;
+            padding-top: 0;
+        }
+    }
+}
 
 .input {
 
@@ -669,64 +526,10 @@ ul {
 .map-marker {
     padding-left: $padding-xs;
     padding-right: $padding-xs;
+    @include media(height, 500px);
 
     iframe {
         width: 100%;
         height: 100%;
-    }
-
-    @media (min-width: 576px) {
-        height: 500px;
-    }
-}
-
-.row {
-    &_align_start {
-        @extend .row;
-        -ms-align-items: start;
-        align-items: start;
-    }
-}
-
-.col {
-    &_4 {
-        @extend .col;
-        flex: 1 1 33.33%;
-    }
-
-    &_8 {
-        @extend .col;
-        flex: 1 1 66.65%;
-    }
-}
-
-.title {
-    &_left {
-        @extend .title;
-        text-align: left;
-
-        &-top {
-            @extend .title_left;
-            padding-top: 0;
-        }
-    }
-}
-
-.col {
-    &_3 {
-        @extend .col;
-        flex: 1 1 25%;
-    }
-
-    &_9 {
-        @extend .col;
-        flex: 1 1 75%;
-    }
-}
-
-.row {
-    &_no-wrap {
-        @extend .row_align_start;
-        flex-wrap: nowrap;
     }
 }
