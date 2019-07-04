@@ -1,11 +1,12 @@
 /*Cac mau sac chinh*/
-$page-color: #6E542C;
-$page-color-darker: #4a381d;
-$page-color-lighter: #92703b;
-$page-color-darker_trans: rgba(91, 70, 36, 0.9);
-$text-color: #09ff30;
-$text-color-darker: #00d522;
-$text-color-lighter: #3cff5b;
+$page-color: #806000;
+$page-color-darker: #403000;
+$page-color-lighter: #BF8F00;
+$page-color-darker_trans: rgba(64, 48, 0, 0.9);
+$text-color: #FFBF00;
+$text-color-filter: invert(80%) sepia(65%) saturate(2893%) hue-rotate(359deg) brightness(102%) contrast(105%);
+$text-color-darker: #E6AC00;
+$text-color-lighter: #FFBF00;
 $text-no-color: white;
 /*font size*/
 $text-size-xs: 8px;

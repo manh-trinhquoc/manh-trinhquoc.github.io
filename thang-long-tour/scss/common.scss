@@ -186,7 +186,7 @@
     &__icon {
         max-width: $icon-size;
         max-height: $icon-size;
-        filter: invert(67%) sepia(37%) saturate(6421%) hue-rotate(92deg) brightness(121%) contrast(122%);
+        filter: $text-color-filter;
         @include media(max-width, $icon-size * 1.5, 992px);
         @include media(max-height, $icon-size * 1.5, 992px);
     }
