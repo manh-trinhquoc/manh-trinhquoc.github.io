@@ -43,7 +43,7 @@ function setInputChecked(queryString, variable) {
     }
     for (each of elems) {
         if (!variable) {
-            console.log("variable of" + queryString + " is not define")
+            // console.log("variable of" + queryString + " is not define")
             return;
         }
         if (each.value.toLowerCase() == variable.toLowerCase()) {
@@ -64,13 +64,16 @@ try {
     for (each of filterArr) {
         // Tạo biến toàn cục có tên và giá trị là attribute trên url
         this[each[0]] = each[1];
-        console.log(each[0] + ": " + this[each[0]]);
+        // console.log(each[0] + ": " + this[each[0]]);
     }
     setInputSelected("#departure option", departure);
     setInputSelected("#destination option", destination);
     setInputSelected("#duration option", duration);
     setInputDateValue("#departure-date", this["departure-date"]);
-    setInputChecked("#trip-type input", this["trip-type"]);
+    for (let i = 1; i <= 7; i++) {
+        setInputChecked("#trip-type input", this[`trip-type-${i}`]);
+    }
+
 } catch {
     console.log("there is not any attribute in url");
 }
@@ -85,9 +88,10 @@ xmlhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
         let allToursData = JSON.parse(this.responseText);
         // console.log(JSON.stringify(allToursData));
-        console.log(allToursData);
-        displayProduct(allToursData, window["page"]);
-        // managePaginationAppearance();
+        // console.log(allToursData);
+        let numbOfPage = displayProduct(allToursData, window["page"]);
+        addPagination(numbOfPage);
+        managePaginationAppearance(window["page"]);
     }
 };
 
@@ -118,9 +122,12 @@ function displayProduct(productData, page) {
             `<div class="card">
                         <a href="detail-tour.html?id=${id}">
                             <div class="card__img">
-                                <img src="${product.img[0]}" alt="demo image" />
-                                <div class="card__sale">${product['sale-off']}</div>
-                            </div>
+                                <img src="${product.img[0]}" alt="demo image" />`
+        if (product['sale-off'] < 0) {
+            elem += `<div class="card__sale">${product['sale-off']}</div>`
+        }
+
+        elem += `</div>
                             <h4 class="card__country">${product.destination}</h4>
                             <h3 class="card__header">${product.name}</h3>
                             <h5 class="card__price">${product.price}</h5>
@@ -146,49 +153,68 @@ function displayProduct(productData, page) {
     // Đóng thẻ .row
     elem += `</div>`
     document.getElementById('filter-result').innerHTML = elem;
-    addPagination(productData, maxItemPerPage);
+    let numbOfProduct = Object.keys(productData).length
+    let numbOfPage = Math.ceil(numbOfProduct / maxItemPerPage);
+    return numbOfPage;
 }
 
-function managePaginationAppearance() {
-    let url = window.location.href;
-    let page = parseInt(url.split("=")[1]);
-    if (!page) page = 1;
-    let pageElements = document.getElementsByClassName('page-item');
+function addPagination(numbOfPage) {
+    console.group("addPagination");
+    let documentURL = document.URL;
+    // lọc bỏ attribute page=1& đã thêm trước đó
+    documentURL = documentURL.replace(/&?page=[0-9]*/g, "");
+    // console.log('documentURL: ' + documentURL);
+    // kiểm tra url đã có ? chưa để tạo url trong pagination
+    let href = '';
+    if (documentURL.search(/\?/) < 0) {
+        href = documentURL + '?page=';
+    } else {
+        href = documentURL + '&page=';
+    }
+    // Thêm các trang
+    let elem = '';
+    if (numbOfPage > 1) {
+        elem += `<a href="#" class="disable">&laquo;</a>`;
+    }
+
+    elem += `<a href="${href + 1}" class="active">1</a>`;
+    for (let i = 2; i <= numbOfPage; i++) {
+        elem += `<a href="${href + i}">${i}</a>`;
+    }
+    if (numbOfPage > 1) {
+        elem += `<a href="${href + 2}">&raquo;</a>`;
+    }
+    document.getElementById('pagination').innerHTML = elem;
+    console.groupEnd();
+}
+
+function managePaginationAppearance(currentPage) {
+    console.group('managePaginationAppearance');
+    if (!currentPage) currentPage = 1;
+    let pageElements = document.querySelectorAll('#pagination a');
     let lastPage = pageElements.length - 2;
     // console.log(pageElements);
-    for (i in pageElements) {
-        pageElements[i].className = "page-item";
-        if (page == i) pageElements[i].classList.add('active');
+    for (let i = 0; i < pageElements.length; i++) {
+        // console.log(i);
+        // console.log(pageElements[i]);
+        if (currentPage == i) pageElements[i].classList.add('active');
+        else pageElements[i].classList.remove('active');
     }
-    pageElements[0].innerHTML = `<a class="page-link" href="?page=${page - 1}">
-                                    <span aria-hidden="true">&laquo;</span>
-                                </a>`;
-    pageElements[pageElements.length - 1].innerHTML = `<a class="page-link" href="?page=${page + 1}">
-                                                <span aria-hidden="true">&raquo;</span>
-                                            </a>`;
-    if (page == 1) {
-        pageElements[0].className = "page-item disabled";
+    if (currentPage == 1) {
+        pageElements[0].classList.add("disable");
+    } else {
+        pageElements[0].classList.remove("disable");
     }
-    if (page == lastPage) {
-        pageElements[pageElements.length - 1].className = "page-item disabled";
+    if (currentPage == lastPage) {
+        pageElements[pageElements.length - 1].classList.add("disable");
+    } else {
+        pageElements[pageElements.length - 1].classList.remove("disable");
     }
-}
-
-function addPagination(productData, maxItemPerPage) {
-    let count = 0;
-    let elem = `<li class="page-item"></li>`;
-    for (id in productData) {
-        let page = Math.floor(count / maxItemPerPage) + 1;
-        let remain = count % maxItemPerPage;
-        // console.log(remain);
-        if (remain == 0) {
-            elem += `<li class="page-item"><a class="page-link" href="?page=${page}">${page}</a></li>`;
-
-        }
-        count++;
-    }
-    elem += `<li class="page-item"></li>`;
-    console.log(elem);
-    $(".pagination").append(elem);
-
+    // modify content of pagination << and >>
+    let url = document.URL;
+    let href = url.replace(/page=[0-9]*/g, `page=${currentPage- 1}`);
+    pageElements[0].setAttribute('href', href);
+    href = url.replace(/page=[0-9]*/g, `page=${+currentPage+ 1}`);
+    pageElements[pageElements.length - 1].setAttribute('href', href);
+    console.groupEnd();
 }
