@@ -1,0 +1,37 @@
+{
+    "T1904001":
+    {
+        "name": "Tour du lịch Bắc Ấn độ: Ladakh - “tiểu tây tạng trên đất ấn",
+        "price": 45000000,
+        "sale-off": 1000000,
+        "duration":
+        {
+            "day": 4,
+            "night": 3
+        },
+        "departure": "Hà Nội",
+        "destination": "Ấn Độ",
+        "departure-date": "2019-04-28",
+        "trip-type": "global",
+        "img": ["/thang-long-tour/img/india-1.jpg"],
+        "link": "html/T1904001.html"
+    },
+    "T1904002":
+    {
+        "name": "Tour du lịch Bắc Ấn độ: Ladakh - “tiểu tây tạng trên đất ấn",
+        "price": 45000000,
+        "sale-off": 0,
+        "duration":
+        {
+            "day": 4,
+            "night": 3
+        },
+        "departure": "Hà Nội",
+        "destination": "Ấn Độ",
+        "departure-date": "2019-04-30",
+        "trip-type": "global",
+        "img": ["/thang-long-tour/img/india-1.jpg"],
+        "link": "html/T1904001.html"
+    }
+
+}
