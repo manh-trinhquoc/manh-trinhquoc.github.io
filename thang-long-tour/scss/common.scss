@@ -187,8 +187,8 @@
         max-width: $icon-size;
         max-height: $icon-size;
         filter: $text-color-filter;
-        @include media(max-width, $icon-size * 1.5, 992px);
-        @include media(max-height, $icon-size * 1.5, 992px);
+        @include media(max-width, $icon-size * 3, 992px);
+        @include media(max-height, $icon-size * 3, 992px);
     }
 
     &__wrapper {
@@ -196,6 +196,18 @@
         position: static;
     }
 
+}
+
+.nav-background {
+    position: absolute;
+    bottom: $padding-xs - 1px;
+    background-color: $page-color-darker_trans-more;
+    width: 100%;
+
+
+    &__item {
+        visibility: hidden;
+    }
 }
 
 .banner-content {

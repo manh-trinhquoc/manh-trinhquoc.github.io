@@ -172,8 +172,7 @@ ul {
 
 .img-responsive {
   width: 100%;
-  /* max-width: 100%; */
-  }
+  max-width: 100%; }
 
 .banner {
   width: 100%;
@@ -222,12 +221,20 @@ ul {
     filter: invert(80%) sepia(65%) saturate(2893%) hue-rotate(359deg) brightness(102%) contrast(105%); }
     @media (min-width: 992px) {
       .banner__icon {
-        max-width: 49.5px; } }
+        max-width: 99px; } }
     @media (min-width: 992px) {
       .banner__icon {
-        max-height: 49.5px; } }
+        max-height: 99px; } }
   .banner__wrapper {
     position: static; }
+
+.nav-background {
+  position: absolute;
+  bottom: 4px;
+  background-color: rgba(64, 48, 0, 0.5);
+  width: 100%; }
+  .nav-background__item {
+    visibility: hidden; }
 
 @media (min-width: 576px) {
   .banner-content__contry {
