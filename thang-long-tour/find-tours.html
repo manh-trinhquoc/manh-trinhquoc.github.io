@@ -157,7 +157,7 @@
                 <h2>Bộ lọc tour</h2>
                 <div class="filter__item">
                     <p>Điểm khởi hành</p>
-                    <select name="departure" id="" class="input__select">
+                    <select name="departure" id="departure" class="input__select">
                         <option value="null">Điểm khởi hành</option>
                         <option value="hanoi">Hà Nội</option>
                         <option value="hcm">Hồ Chí Minh</option>
@@ -165,7 +165,7 @@
                 </div>
                 <div class="filter__item">
                     <p>Điểm đến</p>
-                    <select name="destination" id="" class="input__select">
+                    <select name="destination" id="destination" class="input__select">
                         <option value="null">Điểm đến</option>
                         <option value="hanoi">Hà Nội</option>
                         <option value="danang">Đà Nẵng</option>
@@ -174,11 +174,11 @@
                 </div>
                 <div class="filter__item">
                     <p>Ngày khởi hành</p>
-                    <input type="date" name="departure-date" id="" class="input__date">
+                    <input type="date" name="departure-date" id="departure-date" class="input__date">
                 </div>
                 <div class="filter__item">
                     <p>Thời gian</p>
-                    <select name="duration" id="" class="input__select">
+                    <select name="duration" id="duration" class="input__select">
                         <option value="null">Thời gian</option>
                         <option value="1">Trong ngày</option>
                         <option value="2">2 ngày</option>
@@ -192,7 +192,7 @@
                 </div>
                 <div class="filter__item">
                     <p>Loại hình tour</p>
-                    <ul>
+                    <ul id="trip-type">
                         <li class="checkbox__wrapper"><input class="input__checkbox" type="checkbox" name="trip-type" value="viet-nam" id="viet-nam">
                             <label class="checkbox__label" for="viet-nam">Trong nước</label></li>
                         <li class="checkbox__wrapper"><input class="input__checkbox" type="checkbox" name="trip-type" value="global" id="global">
@@ -338,8 +338,8 @@
         </div>
     </footer>
     <!-- custome -->
-    <script type="text/javascript" src="js/script.js">
-    </script>
+    <script type="text/javascript" src="js/find.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
     <!-- google street view -->
     <!-- <div class="map-marker" id="footer-map">
             <iframe src="https://www.google.com/maps/embed?pb=!4v1560766712311!6m8!1m7!1sCAoSLEFGMVFpcE12MU0teTc3MWFMNFBHdGltbUtGQzRSZTJlLUQxelRSamhWOWgt!2m2!1d20.99798364323391!2d105.7947524055053!3f52.166519230599775!4f0!5f0.7820865974627469" width="600" height="500" frameborder="0" style="border:0" allowfullscreen></iframe>
