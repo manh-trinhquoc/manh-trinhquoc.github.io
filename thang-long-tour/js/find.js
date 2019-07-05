@@ -54,47 +54,43 @@ function setInputChecked(queryString, variable) {
     }
     console.log("cannot find match value of " + queryString + " to set checked");
 }
+
+// Gọi các hàm tick lựa chọn
+let URIDecoded = decodeURI(document.URL);
+URIDecoded = URIDecoded.replace(/\+/g, " ");
+let filterArr = [];
 try {
-    let URIDecoded = decodeURI(document.URL);
-    URIDecoded = URIDecoded.replace(/\+/g, " ");
     let filterArrFromURL = URIDecoded.split("?")[1].split("&");
-    let filterArr = filterArrFromURL.map(value => {
+    filterArr = filterArrFromURL.map(value => {
         return value.split("=");
     });
-    for (each of filterArr) {
-        // Tạo biến toàn cục có tên và giá trị là attribute trên url
-        this[each[0]] = each[1];
-        // console.log(each[0] + ": " + this[each[0]]);
-    }
-    setInputSelected("#departure option", departure);
-    setInputSelected("#destination option", destination);
-    setInputSelected("#duration option", duration);
-    setInputDateValue("#departure-date", this["departure-date"]);
-    for (let i = 1; i <= 7; i++) {
-        setInputChecked("#trip-type input", this[`trip-type-${i}`]);
-    }
-
 } catch {
     console.log("there is not any attribute in url");
 }
+// Tạo condition object có property và giá trị là attribute trên url
+let filterConditionObj = {};
+for (each of filterArr) {
+    if (each[0] != 'trip-type') filterConditionObj[each[0]] = each[1];
+    else {
+        if (!filterConditionObj[each[0]]) filterConditionObj[each[0]] = [];
+        filterConditionObj[each[0]].push(each[1]);
 
-// Tạo request lấy data từ file json sau đó hiển thị
-var xmlhttp = new XMLHttpRequest();
-var url = "/thang-long-tour/json/tours.json";
-xmlhttp.open("GET", url, true);
-xmlhttp.send();
-
-xmlhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-        let allToursData = JSON.parse(this.responseText);
-        // console.log(JSON.stringify(allToursData));
-        // console.log(allToursData);
-        let numbOfPage = displayProduct(allToursData, window["page"]);
-        addPagination(numbOfPage);
-        managePaginationAppearance(window["page"]);
     }
-};
+}
+console.log(filterConditionObj);
+setInputSelected("#departure option", filterConditionObj.departure);
+setInputSelected("#destination option", filterConditionObj.destination);
+setInputSelected("#duration option", filterConditionObj.duration);
+setInputDateValue("#departure-date", filterConditionObj["departure-date"]);
+if (filterConditionObj['trip-type']) {
+    for (each of filterConditionObj['trip-type']) {
+        setInputChecked(`#${each}`, each);
+    }
+}
 
+console.log('Kết thúc việc tick những lựa chọn đã được chọn');
+
+// lấy data từ JSON và hiển thị kết quả lọc
 function displayProduct(productData, page) {
     // Lấy số trang hiện tại
     if (!page) page = 1;
@@ -131,7 +127,7 @@ function displayProduct(productData, page) {
                             <h4 class="card__country">${product.destination}</h4>
                             <h3 class="card__header">${product.name}</h3>
                             <h5 class="card__price">${product.price}</h5>
-                            <h5 class="card__duration">Thời gian: ${product.duration.day} ngày ${product.duration.night} đêm</h5>
+                            <h5 class="card__duration">Thời gian: ${product.day} ngày ${product.night} đêm</h5>
                             <h5 class="card__start-date">Khởi hành: ${product['departure-date']}</h5>
                         </a>
                     </div>`;
@@ -218,3 +214,123 @@ function managePaginationAppearance(currentPage) {
     pageElements[pageElements.length - 1].setAttribute('href', href);
     console.groupEnd();
 }
+
+function filterCondition(productData, conditionObj) {
+    // Lọc product với điều kiện tất cả condition phải thỏa mãn.
+    // Bỏ qua trường hợp condition không tồn tại.
+    console.group("filterCondition()");
+    let newProductData = {};
+    for (id in productData) {
+        console.group("id: " + id);
+        let product = productData[id];
+        let isProductPass = true;
+        // console.log(JSON.stringify(newProductData));
+        for (key in conditionObj) {
+            // console.log("key: " + key);
+            // console.log("conditionObj[key]: " + conditionObj[key]);
+            // console.log("product[key]: " + product[key]);
+            // debugger;
+            if (!conditionObj[key] || conditionObj[key] == 'null') {
+                // console.log('conditionObj[key] is undefine or null');
+                continue;
+            }
+            if (!product[key]) {
+                // console.log('product[key] is undefine');
+                continue;
+            }
+            if (product[key] != conditionObj[key]) {
+                // console.log('delete product: ' + id);
+                isProductPass = false;
+                break;
+            }
+        }
+        if (!isProductPass) {
+            // console.log('item is not added to new productData');
+            console.groupEnd();
+            continue;
+        }
+        // console.log('item is added to newProductData');
+        newProductData[id] = JSON.parse(JSON.stringify(productData[id]));
+        console.groupEnd();
+    }
+
+    console.groupEnd();
+    return newProductData;
+}
+
+function filterConditionArr(productData, conditionArr) {
+    // Lọc data với điều kiện đầu vào là 1 array
+    console.group("filterConditionArr()");
+    let newProductData = {};
+    for (id in productData) {
+        console.group("id: " + id);
+        let productTripTypeValues = productData[id]['trip-type'];
+        console.log("product[trip-type]: " + productTripTypeValues);
+        let isProductPass = true;
+        // console.log(JSON.stringify(newProductData));
+
+        if (productTripTypeValues) {
+            isProductPass = isArrContain(conditionArr, productTripTypeValues)
+        }
+
+        if (!isProductPass) {
+            console.log('item is not added to new productData');
+            console.groupEnd();
+            continue;
+        }
+
+        console.log('item is added to newProductData');
+        newProductData[id] = JSON.parse(JSON.stringify(productData[id]));
+        console.groupEnd();
+
+    }
+
+    console.groupEnd();
+    return newProductData;
+}
+
+function isArrContain(smallArr, bigArr) {
+    console.group('isArrContain');
+    for (small of smallArr) {
+        let isContain = false;
+        for (big of bigArr) {
+            if (small == big) {
+                isContain = true;
+                break;
+            }
+        }
+        if (isContain == false) {
+            console.groupEnd();
+            return false;
+        }
+
+    }
+    console.groupEnd();
+    return true;
+}
+
+// Tạo request lấy data từ file json sau đó hiển thị
+var xmlhttp = new XMLHttpRequest();
+var url = "/thang-long-tour/json/tours.json";
+xmlhttp.open("GET", url, true);
+xmlhttp.send();
+
+xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        let allToursData = JSON.parse(this.responseText);
+        // console.log(JSON.stringify(allToursData));
+        // console.log(allToursData);
+        let conditionObj = {
+            'departure': filterConditionObj['departure'],
+            'destination': filterConditionObj['destination'],
+            'departure-date': filterConditionObj['departure-date'],
+            'duration': filterConditionObj['duration'],
+        };
+        let filterTours = filterCondition(allToursData, conditionObj);
+        filterTours = filterConditionArr(filterTours, filterConditionObj['trip-type']);
+        // console.log(filterTours);
+        let numbOfPage = displayProduct(filterTours, filterConditionObj["page"]);
+        addPagination(numbOfPage);
+        managePaginationAppearance(filterConditionObj["page"]);
+    }
+};
