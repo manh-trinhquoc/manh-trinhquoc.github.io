@@ -187,6 +187,7 @@ function addPagination(numbOfPage) {
 function managePaginationAppearance(currentPage) {
     console.group('managePaginationAppearance');
     if (!currentPage) currentPage = 1;
+    // console.log(currentPage);
     let pageElements = document.querySelectorAll('#pagination a');
     let lastPage = pageElements.length - 2;
     // console.log(pageElements);
@@ -208,10 +209,20 @@ function managePaginationAppearance(currentPage) {
     }
     // modify content of pagination << and >>
     let url = document.URL;
-    let href = url.replace(/page=[0-9]*/g, `page=${currentPage- 1}`);
-    pageElements[0].setAttribute('href', href);
-    href = url.replace(/page=[0-9]*/g, `page=${+currentPage+ 1}`);
-    pageElements[pageElements.length - 1].setAttribute('href', href);
+    let href = '';
+    // trường hợp trên url chưa có attribute
+    if (url.search(/\?/) < 0) href = '?page=2';
+    else href = '&page=2';
+    // trường hợp url chưa có page
+    if (url.search(/page=[0-9]*/) < 0) {
+        href = url + href;
+    } else {
+        href = url.replace(/page=[0-9]*/g, `page=${currentPage- 1}`);
+        pageElements[0].setAttribute('href', href);
+        href = url.replace(/page=[0-9]*/g, `page=${+currentPage+ 1}`);
+        pageElements[pageElements.length - 1].setAttribute('href', href);
+    }
+
     console.groupEnd();
 }
 

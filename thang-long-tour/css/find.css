@@ -325,7 +325,9 @@ ul {
   .card__header, .card-hotel__name {
     color: #FFBF00;
     padding-top: 5px;
-    padding-bottom: 5px; }
+    padding-bottom: 5px;
+    height: 60px;
+    overflow: hidden; }
   .card__price {
     padding-top: 10px; }
     .card__price:after {
@@ -553,6 +555,9 @@ ul {
     -ms-align-self: stretch;
     align-self: stretch; }
 
+#filter-result {
+  padding-bottom: 44px; }
+
 .checkbox__wrapper {
   width: 100%;
   display: -webkit-flex;
@@ -567,9 +572,8 @@ ul {
 
 .pagination {
   width: 100%;
-  /* position: absolute; */
-  bottom: 0;
-  }
+  position: absolute;
+  bottom: 0; }
   @media (min-width: 576px) {
     .pagination {
       padding-right: 20px; } }

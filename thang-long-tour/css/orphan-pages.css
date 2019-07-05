@@ -325,7 +325,9 @@ ul {
   .card__header {
     color: #FFBF00;
     padding-top: 5px;
-    padding-bottom: 5px; }
+    padding-bottom: 5px;
+    height: 60px;
+    overflow: hidden; }
   .card__price {
     padding-top: 10px; }
     .card__price:after {

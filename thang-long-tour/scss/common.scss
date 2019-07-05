@@ -327,6 +327,8 @@
         color: $text-color;
         padding-top: $padding-xs;
         padding-bottom: $padding-xs;
+        height: 60px;
+        overflow: hidden;
     }
 
     &__price {
