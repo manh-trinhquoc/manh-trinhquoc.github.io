@@ -567,8 +567,9 @@ ul {
 
 .pagination {
   width: 100%;
-  position: absolute;
-  bottom: 0; }
+  /* position: absolute; */
+  bottom: 0;
+  }
   @media (min-width: 576px) {
     .pagination {
       padding-right: 20px; } }

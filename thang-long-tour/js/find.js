@@ -96,7 +96,7 @@ function displayProduct(productData, page) {
     if (!page) page = 1;
     // console.log(page);
     let maxItemPerRow = 3;
-    let maxRow = 2;
+    let maxRow = 4;
     let maxItemPerPage = maxRow * maxItemPerRow;
     let elem = '<div class="row">';
     let countInProductData = 0;
@@ -141,7 +141,7 @@ function displayProduct(productData, page) {
         }
     }
     // Bổ sung thẻ card cho đủ số cột
-    if (countRow < maxRow) {
+    if (countRow < maxRow && countItemInRow > 0) {
         for (let i = countItemInRow; i < maxItemPerRow; i++) {
             elem += `<div class="card"></div>`;
         }
@@ -221,7 +221,7 @@ function filterCondition(productData, conditionObj) {
     console.group("filterCondition()");
     let newProductData = {};
     for (id in productData) {
-        console.group("id: " + id);
+        // console.group("id: " + id);
         let product = productData[id];
         let isProductPass = true;
         // console.log(JSON.stringify(newProductData));
@@ -246,12 +246,12 @@ function filterCondition(productData, conditionObj) {
         }
         if (!isProductPass) {
             // console.log('item is not added to new productData');
-            console.groupEnd();
+            // console.groupEnd();
             continue;
         }
         // console.log('item is added to newProductData');
         newProductData[id] = JSON.parse(JSON.stringify(productData[id]));
-        console.groupEnd();
+        // console.groupEnd();
     }
 
     console.groupEnd();
@@ -266,9 +266,9 @@ function filterConditionArr(productData, conditionArr) {
         console.group("id: " + id);
         let productTripTypeValues = productData[id]['trip-type'];
         console.log("product[trip-type]: " + productTripTypeValues);
+        console.log('conditionArr: ' + conditionArr);
         let isProductPass = true;
         // console.log(JSON.stringify(newProductData));
-
         if (productTripTypeValues) {
             isProductPass = isArrContain(conditionArr, productTripTypeValues)
         }
@@ -327,7 +327,9 @@ xmlhttp.onreadystatechange = function() {
             'duration': filterConditionObj['duration'],
         };
         let filterTours = filterCondition(allToursData, conditionObj);
-        filterTours = filterConditionArr(filterTours, filterConditionObj['trip-type']);
+        if (Array.isArray(filterConditionObj['trip-type'])) {
+            filterTours = filterConditionArr(filterTours, filterConditionObj['trip-type']);
+        }
         // console.log(filterTours);
         let numbOfPage = displayProduct(filterTours, filterConditionObj["page"]);
         addPagination(numbOfPage);

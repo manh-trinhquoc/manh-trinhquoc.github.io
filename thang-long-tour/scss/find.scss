@@ -51,6 +51,10 @@
 
 }
 
+#filter-result {
+    padding-bottom: $search-height;
+}
+
 .checkbox {
     &__wrapper {
         @extend .input__text;
