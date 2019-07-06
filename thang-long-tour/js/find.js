@@ -3,12 +3,12 @@
 function setInputSelected(queryString, variable) {
     let elems = document.querySelectorAll(queryString);
     if (elems.length == 0) {
-        console.log("cannot match elems of " + queryString);
+        // console.log("cannot match elems of " + queryString);
         return;
     }
     for (each of elems) {
         if (!variable) {
-            console.log("variable of" + queryString + " is not define")
+            // console.log("variable of" + queryString + " is not define")
             return;
         }
         if (each.value.toLowerCase() == variable.toLowerCase()) {
@@ -23,12 +23,12 @@ function setInputSelected(queryString, variable) {
 function setInputDateValue(queryString, variable) {
     let elems = document.querySelectorAll(queryString);
     if (elems.length == 0) {
-        console.log("cannot match elems of " + queryString);
+        // console.log("cannot match elems of " + queryString);
         return;
     }
     for (each of elems) {
         if (!variable) {
-            console.log("variable of" + queryString + " is not define")
+            // console.log("variable of" + queryString + " is not define")
             return;
         }
         each.setAttribute("value", variable);
@@ -38,7 +38,7 @@ function setInputDateValue(queryString, variable) {
 function setInputChecked(queryString, variable) {
     let elems = document.querySelectorAll(queryString);
     if (elems.length == 0) {
-        console.log("cannot match elems of " + queryString);
+        // console.log("cannot match elems of " + queryString);
         return;
     }
     for (each of elems) {
@@ -77,7 +77,7 @@ for (each of filterArr) {
 
     }
 }
-console.log(filterConditionObj);
+// console.log(filterConditionObj);
 setInputSelected("#departure option", filterConditionObj.departure);
 setInputSelected("#destination option", filterConditionObj.destination);
 setInputSelected("#duration option", filterConditionObj.duration);
@@ -274,10 +274,10 @@ function filterConditionArr(productData, conditionArr) {
     console.group("filterConditionArr()");
     let newProductData = {};
     for (id in productData) {
-        console.group("id: " + id);
+        // console.group("id: " + id);
         let productTripTypeValues = productData[id]['trip-type'];
-        console.log("product[trip-type]: " + productTripTypeValues);
-        console.log('conditionArr: ' + conditionArr);
+        // console.log("product[trip-type]: " + productTripTypeValues);
+        // console.log('conditionArr: ' + conditionArr);
         let isProductPass = true;
         // console.log(JSON.stringify(newProductData));
         if (productTripTypeValues) {
@@ -285,14 +285,14 @@ function filterConditionArr(productData, conditionArr) {
         }
 
         if (!isProductPass) {
-            console.log('item is not added to new productData');
-            console.groupEnd();
+            // console.log('item is not added to new productData');
+            // console.groupEnd();
             continue;
         }
 
-        console.log('item is added to newProductData');
+        // console.log('item is added to newProductData');
         newProductData[id] = JSON.parse(JSON.stringify(productData[id]));
-        console.groupEnd();
+        // console.groupEnd();
 
     }
 
@@ -301,7 +301,7 @@ function filterConditionArr(productData, conditionArr) {
 }
 
 function isArrContain(smallArr, bigArr) {
-    console.group('isArrContain');
+    // console.group('isArrContain');
     for (small of smallArr) {
         let isContain = false;
         for (big of bigArr) {
@@ -311,12 +311,12 @@ function isArrContain(smallArr, bigArr) {
             }
         }
         if (isContain == false) {
-            console.groupEnd();
+            // console.groupEnd();
             return false;
         }
 
     }
-    console.groupEnd();
+    // console.groupEnd();
     return true;
 }
 
@@ -325,7 +325,8 @@ var xmlhttp = new XMLHttpRequest();
 var url = "/thang-long-tour/json/tours.json";
 xmlhttp.open("GET", url, true);
 xmlhttp.send();
-
+// global tours object contain all visible tour
+let visibleTours;
 xmlhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
         let allToursData = JSON.parse(this.responseText);
@@ -337,13 +338,65 @@ xmlhttp.onreadystatechange = function() {
             'departure-date': filterConditionObj['departure-date'],
             'duration': filterConditionObj['duration'],
         };
-        let filterTours = filterCondition(allToursData, conditionObj);
+        visibleTours = filterCondition(allToursData, conditionObj);
         if (Array.isArray(filterConditionObj['trip-type'])) {
-            filterTours = filterConditionArr(filterTours, filterConditionObj['trip-type']);
+            visibleTours = filterConditionArr(visibleTours, filterConditionObj['trip-type']);
         }
-        // console.log(filterTours);
-        let numbOfPage = displayProduct(filterTours, filterConditionObj["page"]);
+        // console.log(visibleTours);
+        let numbOfPage = displayProduct(visibleTours, filterConditionObj["page"]);
         addPagination(numbOfPage);
         managePaginationAppearance(filterConditionObj["page"]);
     }
 };
+
+// Bắt các sự kiện click chuột
+function sortData(dataArrInput, property, option = "increment") {
+    // Hàm sort dữ liệu
+    let dataArrOutput = JSON.parse(JSON.stringify(dataArrInput));
+    dataArrOutput.sort(function(a, b) {
+        if (!a[property]) return 0;
+        if (!b[property]) return 0;
+        if (option == 'increment') {
+            return (a[property] > b[property]) ? 1 : -1;
+        } else {
+            return (a[property] > b[property]) ? -1 : 1;
+        }
+    })
+    return dataArrOutput;
+}
+// test sort function
+// let obj1 = {
+//     "price": 3,
+//     "sale-off": 3,
+//     "departure-date": "2019-04-02"
+// }
+// let obj2 = {
+//     "price": 1,
+//     "sale-off": 2,
+//     "departure-date": "2019-04-01"
+// }
+// let obj3 = {
+//     "price": 2,
+//     "sale-off": 1,
+//     "departure-date": "2019-04-03"
+// }
+// let testArr = [obj1, obj2, obj3];
+// console.log('testArr: ' + JSON.stringify(testArr));
+// console.log('sort price: ' + JSON.stringify(sortData(testArr, 'price')));
+// console.log('sort sale-off: ' + JSON.stringify(sortData(testArr, 'sale-off')));
+// console.log('sort date: ' + JSON.stringify(sortData(testArr, 'departure-date')));
+// console.log('sort unknow-property: ' + JSON.stringify(sortData(testArr, 'unknow-property')));
+// console.log('sort date decre: ' + JSON.stringify(sortData(testArr, 'departure-date', 'decrement')));
+
+function onClickSort(elem) {
+    let sortCommand = elem.value;
+    console.log(sortCommand);
+    // change visibleTours object to array to sort
+    let toursArr = [];
+    for (id in visibleTours) {
+        let tour = { "id": id };
+        for (property in tour) {
+
+        }
+    }
+}
