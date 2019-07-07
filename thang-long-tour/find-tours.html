@@ -153,7 +153,7 @@
     </ul>
     <div class="row_align_start filter">
         <div class="col_3 filter__form-wrapper">
-            <form class="filter__form" action="find-tours.html" target="_self" method="GET">
+            <form class="filter__form" action="find-tours.html" target="_self" method="GET" id="filter-form">
                 <h2>Bộ lọc tour</h2>
                 <div class="filter__item">
                     <p>Điểm khởi hành</p>
@@ -232,10 +232,12 @@
         <div class="col_9 filter__result">
             <div class="filter__item_arrange">
                 <p>Sắp xếp</p>
-                <select name="" onchange="onClickSort(this)" class="input__select_background">
+                <select name="sort" id="sort" form="filter-form" onchange="onClickSort()" class="input__select_background">
                     <option value="null">Sắp xếp</option>
                     <option value="price-incre">Giá tăng dần</option>
                     <option value="price-decre">Giá giảm dần</option>
+                    <option value="departure-date-incre">Ngày khởi hành tăng dần</option>
+                    <option value="departure-date-decre">Ngày khởi hành giảm dần</option>
                 </select>
             </div>
             <div id="filter-result">

@@ -81,6 +81,7 @@ for (each of filterArr) {
 setInputSelected("#departure option", filterConditionObj.departure);
 setInputSelected("#destination option", filterConditionObj.destination);
 setInputSelected("#duration option", filterConditionObj.duration);
+setInputSelected("#sort option", filterConditionObj.sort);
 setInputDateValue("#departure-date", filterConditionObj["departure-date"]);
 if (filterConditionObj['trip-type']) {
     for (each of filterConditionObj['trip-type']) {
@@ -320,36 +321,50 @@ function isArrContain(smallArr, bigArr) {
     return true;
 }
 
-// Tạo request lấy data từ file json sau đó hiển thị
-var xmlhttp = new XMLHttpRequest();
-var url = "/thang-long-tour/json/tours.json";
-xmlhttp.open("GET", url, true);
-xmlhttp.send();
-// global tours object contain all visible tour
-let visibleTours;
-xmlhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-        let allToursData = JSON.parse(this.responseText);
-        // console.log(JSON.stringify(allToursData));
-        // console.log(allToursData);
-        let conditionObj = {
-            'departure': filterConditionObj['departure'],
-            'destination': filterConditionObj['destination'],
-            'departure-date': filterConditionObj['departure-date'],
-            'duration': filterConditionObj['duration'],
-        };
-        visibleTours = filterCondition(allToursData, conditionObj);
-        if (Array.isArray(filterConditionObj['trip-type'])) {
-            visibleTours = filterConditionArr(visibleTours, filterConditionObj['trip-type']);
+function filterDate(productData, conditionObj) {
+    // Khi lọc ngày thì sẽ hiển thị những tour từ ngày được chọn về sau
+    // Bỏ qua trường hợp condition không tồn tại.
+    console.group("filterDate()");
+    let newProductData = {};
+    for (id in productData) {
+        // console.group("id: " + id);
+        let product = productData[id];
+        let isProductPass = true;
+        // console.log(JSON.stringify(newProductData));
+        for (key in conditionObj) {
+            // console.log("key: " + key);
+            // console.log("conditionObj[key]: " + conditionObj[key]);
+            // console.log("product[key]: " + product[key]);
+            // debugger;
+            if (!conditionObj[key] || conditionObj[key] == 'null') {
+                // console.log('conditionObj[key] is undefine or null');
+                continue;
+            }
+            if (!product[key]) {
+                // console.log('product[key] is undefine');
+                continue;
+            }
+            if (product[key] < conditionObj[key]) {
+                // console.log('delete product: ' + id);
+                isProductPass = false;
+                break;
+            }
         }
-        // console.log(visibleTours);
-        let numbOfPage = displayProduct(visibleTours, filterConditionObj["page"]);
-        addPagination(numbOfPage);
-        managePaginationAppearance(filterConditionObj["page"]);
+        if (!isProductPass) {
+            // console.log('item is not added to new productData');
+            // console.groupEnd();
+            continue;
+        }
+        // console.log('item is added to newProductData');
+        newProductData[id] = JSON.parse(JSON.stringify(productData[id]));
+        // console.groupEnd();
     }
-};
 
-// Bắt các sự kiện click chuột
+    console.groupEnd();
+    return newProductData;
+}
+
+// Sắp xếp data sau khi có sort
 function sortData(dataArrInput, property, option = "increment") {
     // Hàm sort dữ liệu
     let dataArrOutput = JSON.parse(JSON.stringify(dataArrInput));
@@ -388,15 +403,69 @@ function sortData(dataArrInput, property, option = "increment") {
 // console.log('sort unknow-property: ' + JSON.stringify(sortData(testArr, 'unknow-property')));
 // console.log('sort date decre: ' + JSON.stringify(sortData(testArr, 'departure-date', 'decrement')));
 
-function onClickSort(elem) {
-    let sortCommand = elem.value;
+function sortTours(productData, sortCommand) {
     console.log(sortCommand);
-    // change visibleTours object to array to sort
-    let toursArr = [];
-    for (id in visibleTours) {
-        let tour = { "id": id };
-        for (property in tour) {
-
-        }
+    if (!sortCommand) productData;
+    // change productData object to array to sort
+    let dataArr = [];
+    for (id in productData) {
+        let item = productData[id];
+        item.id = id;
+        dataArr.push(item);
     }
+    // Call sort function base on sort command
+    if (sortCommand == 'price-incre') {
+        dataArr = sortData(dataArr, 'price');
+    } else if (sortCommand == 'price-decre') {
+        dataArr = sortData(dataArr, 'price', 'decre');
+    } else if (sortCommand == 'departure-date-incre') {
+        dataArr = sortData(dataArr, 'departure-date');
+    } else if (sortCommand == 'departure-date-decre') {
+        dataArr = sortData(dataArr, 'departure-date', 'decre');
+    }
+    // test sortsArr after sorted
+    // for (each of dataArr) {
+    //     console.log(each.price);
+    // }
+    // change sorted tour array back to object
+    let sortedProductData = {};
+    for (each of dataArr) {
+        let id = each.id;
+        delete each.id;
+        sortedProductData[id] = each;
+    }
+    return sortedProductData;
+}
+
+// Tạo request lấy data từ file json sau đó hiển thị
+var xmlhttp = new XMLHttpRequest();
+var url = "/thang-long-tour/json/tours.json";
+xmlhttp.open("GET", url, true);
+xmlhttp.send();
+xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        let allToursData = JSON.parse(this.responseText);
+        // console.log(JSON.stringify(allToursData));
+        // console.log(allToursData);
+        let conditionObj = {
+            'departure': filterConditionObj['departure'],
+            'destination': filterConditionObj['destination'],
+            'duration': filterConditionObj['duration'],
+        };
+        let visibleTours = filterCondition(allToursData, conditionObj);
+        if (Array.isArray(filterConditionObj['trip-type'])) {
+            visibleTours = filterConditionArr(visibleTours, filterConditionObj['trip-type']);
+        }
+        visibleTours = filterDate(visibleTours, { 'departure-date': filterConditionObj['departure-date'] })
+        visibleTours = sortTours(visibleTours, filterConditionObj['sort']);
+        // console.log(visibleTours);
+        let numbOfPage = displayProduct(visibleTours, filterConditionObj["page"]);
+        addPagination(numbOfPage);
+        managePaginationAppearance(filterConditionObj["page"]);
+    }
+};
+
+// Khi user bấm sort thì tương đương bấm submit
+function onClickSort() {
+    document.getElementById('filter-form').submit();
 }
