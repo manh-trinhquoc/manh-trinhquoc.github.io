@@ -92,68 +92,7 @@ if (filterConditionObj['trip-type']) {
 console.log('Kết thúc việc tick những lựa chọn đã được chọn');
 
 // lấy data từ JSON và hiển thị kết quả lọc
-function displayProduct(productData, page) {
-    // Lấy số trang hiện tại
-    if (!page) page = 1;
-    // console.log(page);
-    let maxItemPerRow = 3;
-    let maxRow = 4;
-    let maxItemPerPage = maxRow * maxItemPerRow;
-    let elem = '<div class="row">';
-    let countInProductData = 0;
-    let countItemInRow = 0;
-    let countRow = 0;
-    let startAt = (page - 1) * maxItemPerPage;
-    //     console.log(startAt);
-    for (id in productData) {
-        // console.log("id: " + id);
-        if (countInProductData < startAt) {
-            // Bỏ qua những item nằm ở trang < trang này
-            countInProductData++;
-            continue;
-        }
-        countInProductData++;
-        countItemInRow++;
-        let product = productData[id];
-        elem +=
-            `<div class="card">
-                        <a href="detail-tour.html?id=${id}">
-                            <div class="card__img">
-                                <img src="${product.img[0]}" alt="demo image" />`
-        if (product['sale-off'] < 0) {
-            elem += `<div class="card__sale">${product['sale-off']}</div>`
-        }
 
-        elem += `</div>
-                            <h4 class="card__country">${product.destination}</h4>
-                            <h3 class="card__header">${product.name}</h3>
-                            <h5 class="card__price">${product.price}</h5>
-                            <h5 class="card__duration">Thời gian: ${product.day} ngày ${product.night} đêm</h5>
-                            <h5 class="card__start-date">Khởi hành: ${product['departure-date']}</h5>
-                        </a>
-                    </div>`;
-        if (countItemInRow >= maxItemPerRow) {
-            countItemInRow = 0;
-            elem += `</div><div class="row">`;
-            countRow++;
-        }
-        if (countRow >= maxRow) {
-            break;
-        }
-    }
-    // Bổ sung thẻ card cho đủ số cột
-    if (countRow < maxRow && countItemInRow > 0) {
-        for (let i = countItemInRow; i < maxItemPerRow; i++) {
-            elem += `<div class="card"></div>`;
-        }
-    }
-    // Đóng thẻ .row
-    elem += `</div>`
-    document.getElementById('filter-result').innerHTML = elem;
-    let numbOfProduct = Object.keys(productData).length
-    let numbOfPage = Math.ceil(numbOfProduct / maxItemPerPage);
-    return numbOfPage;
-}
 
 function addPagination(numbOfPage) {
     console.group("addPagination");
@@ -407,12 +346,7 @@ function sortTours(productData, sortCommand) {
     console.log(sortCommand);
     if (!sortCommand) productData;
     // change productData object to array to sort
-    let dataArr = [];
-    for (id in productData) {
-        let item = productData[id];
-        item.id = id;
-        dataArr.push(item);
-    }
+    let dataArr = convertDataObjToArr(productData);
     // Call sort function base on sort command
     if (sortCommand == 'price-incre') {
         dataArr = sortData(dataArr, 'price');
@@ -428,18 +362,13 @@ function sortTours(productData, sortCommand) {
     //     console.log(each.price);
     // }
     // change sorted tour array back to object
-    let sortedProductData = {};
-    for (each of dataArr) {
-        let id = each.id;
-        delete each.id;
-        sortedProductData[id] = each;
-    }
+    let sortedProductData = convertDataArrToObj(dataArr);
     return sortedProductData;
 }
 
 // Tạo request lấy data từ file json sau đó hiển thị
-var xmlhttp = new XMLHttpRequest();
-var url = "/thang-long-tour/json/tours.json";
+let xmlhttp = new XMLHttpRequest();
+let url = "/thang-long-tour/json/tours.json";
 xmlhttp.open("GET", url, true);
 xmlhttp.send();
 xmlhttp.onreadystatechange = function() {
@@ -459,7 +388,7 @@ xmlhttp.onreadystatechange = function() {
         visibleTours = filterDate(visibleTours, { 'departure-date': filterConditionObj['departure-date'] })
         visibleTours = sortTours(visibleTours, filterConditionObj['sort']);
         // console.log(visibleTours);
-        let numbOfPage = displayProduct(visibleTours, filterConditionObj["page"]);
+        let numbOfPage = displayTours(visibleTours, filterConditionObj["page"], "filter-result");
         addPagination(numbOfPage);
         managePaginationAppearance(filterConditionObj["page"]);
     }

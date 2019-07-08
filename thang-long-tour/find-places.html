@@ -152,73 +152,13 @@
         <li><a href="" class="active">Địa danh du lịch</a></li>
     </ul>
     <div class="tour-list">
-        <section class="place-result">
-            <div class="row">
-                <div class="col card">
-                    <a href="detail-place.html">
-                        <div class="card__img">
-                            <img src="img/vung-liem-1.jpg" alt="demo image" />
-                        </div>
-                        <h5 class="card__upload-date">01/07/2019</h5>
-                        <h3 class="card__header">Chùa Vũng Liêm, Vĩnh Long</h3>
-                    </a>
-                </div>
-                <div class="col card">
-                    <a href="detail-place.html">
-                        <div class="card__img">
-                            <img src="img/vung-liem-1.jpg" alt="demo image" />
-                        </div>
-                        <h5 class="card__upload-date">01/07/2019</h5>
-                        <h3 class="card__header">Chùa Vũng Liêm, Vĩnh Long</h3>
-                    </a>
-                </div>
-                <div class="col card">
-                    <a href="detail-place.html">
-                        <div class="card__img">
-                            <img src="img/vung-liem-1.jpg" alt="demo image" />
-                        </div>
-                        <h5 class="card__upload-date">01/07/2019</h5>
-                        <h3 class="card__header">Chùa Vũng Liêm, Vĩnh Long</h3>
-                    </a>
-                </div>
-                <div class="col card">
-                    <a href="detail-place.html">
-                        <div class="card__img">
-                            <img src="img/vung-liem-1.jpg" alt="demo image" />
-                        </div>
-                        <h5 class="card__upload-date">01/07/2019</h5>
-                        <h3 class="card__header">Chùa Vũng Liêm, Vĩnh Long</h3>
-                    </a>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col card">
-                    <a href="detail-place.html">
-                        <div class="card__img">
-                            <img src="img/vung-liem-1.jpg" alt="demo image" />
-                        </div>
-                        <h5 class="card__upload-date">01/07/2019</h5>
-                        <h3 class="card__header">Chùa Vũng Liêm, Vĩnh Long</h3>
-                    </a>
-                </div>
-                <div class="col card">
-                    <a href="detail-place.html">
-                        <div class="card__img">
-                            <img src="img/vung-liem-1.jpg" alt="demo image" />
-                        </div>
-                        <h5 class="card__upload-date">01/07/2019</h5>
-                        <h3 class="card__header">Chùa Vũng Liêm, Vĩnh Long</h3>
-                    </a>
-                </div>
-                <div class="card"></div>
-                <div class="card"></div>
-            </div>
-            <nav class="pagination">
-                <a href="#" class="disable">&laquo;</a>
-                <a href="" class="active">1</a>
-                <a href="">2</a>
-                <a href="">&raquo;</a>
-            </nav>
+        <div class="search-inpage">
+            <input type="text" placeholder="Search.." name="search" class="input__text search__input-text" id="search-inpage">
+            <button type="button" class="search__button" onclick="searchPlaces()" id="search-inpage-btn">
+                <i class="fa fa-search"></i>
+            </button>
+        </div>
+        <section class="place-result" id="place-result">
         </section>
     </div>
     <footer class="footer">
@@ -252,8 +192,9 @@
         </div>
     </footer>
     <!-- custome -->
-    <script type="text/javascript" src="js/script.js">
-    <script type="text/javascript" src="js/detail.js">
+    <script type="text/javascript" src="js/lib.js">
+    </script>
+    <script type="text/javascript" src="js/find-places.js">
     </script>
     <!-- google street view -->
     <!-- <div class="map-marker" id="footer-map">

@@ -157,7 +157,7 @@
         <div class="gcse-search"></div>
         <!-- expertRec custom search -->
         <script>
-        (function() {
+            (function() {
             var id = '8b253c5c-9cde-11e9-bc77-0242ac130002';
             var ci_search = document.createElement('script');
             ci_search.type = 'text/javascript';
@@ -170,91 +170,13 @@
         <ci-search></ci-search>
     </div>
     <div class="tour-list">
-        <section class="blog-result">
-            <div class="row">
-                <div class="card">
-                    <a href="detail-blog.html">
-                        <div class="card__img">
-                            <img src="img/news-japan-1.jpg" alt="demo image" />
-                        </div>
-                        <h5 class="card__upload-date">01/07/2019</h5>
-                        <h3 class="card__header">Du lịch Nhật Bản</h3>
-                        <p>
-                            Đến với “đất nước mặt trời mọc”, nơi truyền thống và hiện đại giao hòa, với đường chân trời được tạo thành từ những tòa cao ốc chọc trời chen chân cùng những đền đài cổ kính và đỉnh núi tuyết phủ quanh năm...
-                        </p>
-                    </a>
-                </div>
-                <div class="card">
-                    <a href="detail-blog.html">
-                        <div class="card__img">
-                            <img src="img/news-japan-1.jpg" alt="demo image" />
-                        </div>
-                        <h5 class="card__upload-date">01/07/2019</h5>
-                        <h3 class="card__header">Du lịch Nhật Bản</h3>
-                        <p>
-                            Đến với “đất nước mặt trời mọc”, nơi truyền thống và hiện đại giao hòa, với đường chân trời được tạo thành từ những tòa cao ốc chọc trời chen chân cùng những đền đài cổ kính và đỉnh núi tuyết phủ quanh năm...
-                        </p>
-                    </a>
-                </div>
-                <div class="card">
-                    <a href="detail-blog.html">
-                        <div class="card__img">
-                            <img src="img/news-japan-1.jpg" alt="demo image" />
-                        </div>
-                        <h5 class="card__upload-date">01/07/2019</h5>
-                        <h3 class="card__header">Du lịch Nhật Bản</h3>
-                        <p>
-                            Đến với “đất nước mặt trời mọc”, nơi truyền thống và hiện đại giao hòa, với đường chân trời được tạo thành từ những tòa cao ốc chọc trời chen chân cùng những đền đài cổ kính và đỉnh núi tuyết phủ quanh năm...
-                        </p>
-                    </a>
-                </div>
-                <div class="card">
-                    <a href="detail-blog.html">
-                        <div class="card__img">
-                            <img src="img/news-japan-1.jpg" alt="demo image" />
-                        </div>
-                        <h5 class="card__upload-date">01/07/2019</h5>
-                        <h3 class="card__header">Du lịch Nhật Bản</h3>
-                        <p>
-                            Đến với “đất nước mặt trời mọc”, nơi truyền thống và hiện đại giao hòa, với đường chân trời được tạo thành từ những tòa cao ốc chọc trời chen chân cùng những đền đài cổ kính và đỉnh núi tuyết phủ quanh năm...
-                        </p>
-                    </a>
-                </div>
-            </div>
-            <div class="row">
-                <div class="card">
-                    <a href="detail-blog.html">
-                        <div class="card__img">
-                            <img src="img/news-japan-1.jpg" alt="demo image" />
-                        </div>
-                        <h5 class="card__upload-date">01/07/2019</h5>
-                        <h3 class="card__header">Du lịch Nhật Bản</h3>
-                        <p>
-                            Đến với “đất nước mặt trời mọc”, nơi truyền thống và hiện đại giao hòa, với đường chân trời được tạo thành từ những tòa cao ốc chọc trời chen chân cùng những đền đài cổ kính và đỉnh núi tuyết phủ quanh năm...
-                        </p>
-                    </a>
-                </div>
-                <div class="card">
-                    <a href="detail-blog.html">
-                        <div class="card__img">
-                            <img src="img/news-japan-1.jpg" alt="demo image" />
-                        </div>
-                        <h5 class="card__upload-date">01/07/2019</h5>
-                        <h3 class="card__header">Du lịch Nhật Bản</h3>
-                        <p>
-                            Đến với “đất nước mặt trời mọc”, nơi truyền thống và hiện đại giao hòa, với đường chân trời được tạo thành từ những tòa cao ốc chọc trời chen chân cùng những đền đài cổ kính và đỉnh núi tuyết phủ quanh năm...
-                        </p>
-                    </a>
-                </div>
-                <div class="card"></div>
-                <div class="card"></div>
-            </div>
-            <nav class="pagination">
-                <a href="#" class="disable">&laquo;</a>
-                <a href="" class="active">1</a>
-                <a href="">2</a>
-                <a href="">&raquo;</a>
-            </nav>
+        <div class="search-inpage">
+            <input type="text" placeholder="Search.." name="search" class="input__text search__input-text" id="search-inpage">
+            <button type="button" class="search__button" onclick="searchBlogs()" id="search-inpage-btn">
+                <i class="fa fa-search"></i>
+            </button>
+        </div>
+        <section class="blog-result" id="blog-result">
         </section>
     </div>
     <footer class="footer">
@@ -288,9 +210,8 @@
         </div>
     </footer>
     <!-- custome -->
-    <script type="text/javascript" src="js/script.js">
-    <script type="text/javascript" src="js/detail.js">
-    </script>
+    <script type="text/javascript" src="js/lib.js"></script>>
+    <script type="text/javascript" src="js/find-blogs.js"> </script>
     <!-- google street view -->
     <!-- <div class="map-marker" id="footer-map">
             <iframe src="https://www.google.com/maps/embed?pb=!4v1560766712311!6m8!1m7!1sCAoSLEFGMVFpcE12MU0teTc3MWFMNFBHdGltbUtGQzRSZTJlLUQxelRSamhWOWgt!2m2!1d20.99798364323391!2d105.7947524055053!3f52.166519230599775!4f0!5f0.7820865974627469" width="600" height="500" frameborder="0" style="border:0" allowfullscreen></iframe>

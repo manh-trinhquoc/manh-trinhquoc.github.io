@@ -153,7 +153,7 @@ ul {
       width: 0;
       transition: 0.5s linear; } }
 
-.search {
+.search, .search-inpage {
   position: relative;
   background-color: transparent; }
   .search__input-text {
@@ -169,6 +169,9 @@ ul {
     width: 42px;
     background-color: transparent;
     border: none; }
+  .search-result {
+    background-color: #FFBF00;
+    color: white; }
 
 .img-responsive {
   width: 100%;
@@ -277,7 +280,7 @@ ul {
     align-items: start; }
 
 .col, .col_4, .col_8, .col_fill, .col_3, .col_9, .card, .card-hotel {
-  flex: 1 1 0%; }
+  flex: 1 0 0%; }
   @media (max-width: 576px) {
     .col, .col_4, .col_8, .col_fill, .col_3, .col_9, .card, .card-hotel {
       align-self: stretch; } }
@@ -322,12 +325,16 @@ ul {
   .card__country, .card-hotel__category {
     color: #E6AC00;
     padding-top: 5px; }
-  .card__header, .card-hotel__name {
+  .card__header, .card__header-full, .card-hotel__name {
     color: #FFBF00;
     padding-top: 5px;
     padding-bottom: 5px;
     height: 60px;
-    overflow: hidden; }
+    overflow: hidden;
+    text-transform: capitalize;
+    font-size: 1.1rem; }
+    .card__header-full {
+      height: 150px; }
   .card__price {
     padding-top: 10px; }
     .card__price:after {
@@ -616,6 +623,17 @@ ul {
   padding-right: 5px;
   padding-top: 20px;
   padding-bottom: 20px; }
+
+.search-inpage {
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-bottom: 10px;
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #403000; }
+  .search-inpage input {
+    color: white; }
 
 .place-result, .blog-result {
   position: relative;

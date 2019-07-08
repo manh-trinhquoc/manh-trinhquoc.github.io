@@ -168,6 +168,9 @@ ul {
     width: 42px;
     background-color: transparent;
     border: none; }
+  .search-result {
+    background-color: #FFBF00;
+    color: white; }
 
 .img-responsive {
   width: 100%;
@@ -276,7 +279,7 @@ ul {
     align-items: start; }
 
 .col, .col_4, .col_8, .col_fill, .col_3, .col_9, .card {
-  flex: 1 1 0%; }
+  flex: 1 0 0%; }
   @media (max-width: 576px) {
     .col, .col_4, .col_8, .col_fill, .col_3, .col_9, .card {
       align-self: stretch; } }
@@ -321,12 +324,16 @@ ul {
   .card__country {
     color: #E6AC00;
     padding-top: 5px; }
-  .card__header {
+  .card__header, .card__header-full {
     color: #FFBF00;
     padding-top: 5px;
     padding-bottom: 5px;
     height: 60px;
-    overflow: hidden; }
+    overflow: hidden;
+    text-transform: capitalize;
+    font-size: 1.1rem; }
+    .card__header-full {
+      height: 150px; }
   .card__price {
     padding-top: 10px; }
     .card__price:after {

@@ -136,6 +136,22 @@
     padding-bottom: $padding-md;
 }
 
+.search-inpage {
+    @extend .search;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-bottom: $padding-sm;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: $page-color-darker;
+
+    input {
+        color: $text-no-color;
+    }
+
+}
+
 .place-result {
     position: relative;
     padding-bottom: $search-height;

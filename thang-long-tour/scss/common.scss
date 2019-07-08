@@ -129,6 +129,11 @@
         border: none;
 
     }
+
+    &-result {
+        background-color: $text-color;
+        color: $text-no-color;
+    }
 }
 
 
@@ -261,7 +266,7 @@
 
 .col {
     @include d-flex-col-responsive;
-    flex: 1 1 0%;
+    flex: 1 0 0%;
 
     &_4 {
         @extend .col;
@@ -329,6 +334,13 @@
         padding-bottom: $padding-xs;
         height: 60px;
         overflow: hidden;
+        text-transform: capitalize;
+        font-size: 1.1rem;
+
+        &-full {
+            @extend .card__header;
+            height: 150px;
+        }
     }
 
     &__price {
