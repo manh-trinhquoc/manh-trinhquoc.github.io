@@ -102,59 +102,92 @@
             <form class="filter__form">
                 <h2>Bộ lọc khách sạn</h2>
                 <div class="filter__item">
-                    <p>Đất nước</p>
-                    <select name="" id="" class="input__select">
-                        <option value="null">Tất cả</option>
-                        <option value="Hà Nội">Việt Nam</option>
-                        <option value="Hồ Chí Minh">Thái Lan</option>
-                    </select>
-                </div>
-                <div class="filter__item">
                     <p>Thành phố</p>
-                    <select name="" id="" class="input__select">
+                    <select name="city" id="city" class="input__select">
                         <option value="null">Tất cả</option>
-                        <option value="Hà Nội">Hà Nội</option>
-                        <option value="Đà Nẵng">Đà Nẵng</option>
-                        <option value="Hồ Chí Minh">Hồ Chí Minh</option>
                     </select>
                 </div>
                 <div class="filter__item">
                     <p>Quận/huyện</p>
-                    <select name="" id="" class="input__select">
+                    <select name="ward" id="ward" class="input__select">
                         <option value="null">Tất cả</option>
-                        <option value="Hà Nội">Đống Đa</option>
-                        <option value="Hà Nội">Hoàn Kiếm</option>
                     </select>
                 </div>
                 <div class="filter__item">
                     <p>Đường phố</p>
-                    <select name="" id="" class="input__select">
+                    <select name="street" id="street" class="input__select">
                         <option value="null">Tất cả</option>
-                        <option value="Ngo quyen">Ngô Quyền</option>
-                        <option value="Tran hung dao">Trần Hưng Đạo</option>
                     </select>
                 </div>
                 <div class="filter__item">
                     <p>Loại hình</p>
-                    <select name="" id="" class="input__select">
-                        <option value="null">Tất cả</option>
-                        <option value="khach san">Khách sạn</option>
-                        <option value="homestay">Homestay</option>
-                    </select>
+                    <ul id="category">
+                        <li class="checkbox__wrapper">
+                            <input class="input__radio-checkbox" type="radio" name="category" value="" checked="" id="cate-all">
+                            <label class="checkbox__label" for="cate-all">Tất cả</label>
+                        </li>
+                        <li class="checkbox__wrapper">
+                            <input class="input__radio-checkbox" type="radio" name="category" value="Hotel" id="hotel">
+                            <label class="checkbox__label" for="hotel">Khách Sạn</label>
+                        </li>
+                        <li class="checkbox__wrapper">
+                            <input class="input__radio-checkbox" type="radio" name="category" value="Homestay" id="homestay">
+                            <label class="checkbox__label" for="homestay">Homestay</label>
+                        </li>
+                        <li class="checkbox__wrapper">
+                            <input class="input__radio-checkbox" type="radio" name="category" value="Resort" id="resort">
+                            <label class="checkbox__label" for="resort">Resort</label>
+                        </li>
+                    </ul>
                 </div>
                 <div class="filter__item">
                     <p>Hạng sao</p>
-                    <select name="" id="" class="input__select">
-                        <option value="null">Tất cả</option>
-                        <option value="1">1 sao</option>
-                        <option value="2">2 sao</option>
-                        <option value="3">3 sao</option>
-                        <option value="4">4 sao</option>
-                        <option value="5">5 sao</option>
-                    </select>
-                </div>
-                <div class="btn__wrapper filter__button">
-                    <button type="submit" class="btn_sm">Tìm kiếm</button>
+                    <ul id="stars">
+                        <li class="checkbox__wrapper">
+                            <input class="input__radio-checkbox" type="radio" name="stars" value="" checked="" id="star-all">
+                            <label class="checkbox__label" for="star-all">Tất cả</label>
+                        </li>
+                        <li class="checkbox__wrapper">
+                            <input class="input__radio-checkbox" type="radio" name="stars" value="1" id="star-1">
+                            <label class="checkbox__label" for="star-1">
+                                <i class="fas fa-star"></i>
+                            </label>
+                        </li>
+                        <li class="checkbox__wrapper">
+                            <input class="input__radio-checkbox" type="radio" name="stars" value="2" id="star-2">
+                            <label class="checkbox__label" for="star-2">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </label>
+                        </li>
+                        <li class="checkbox__wrapper">
+                            <input class="input__radio-checkbox" type="radio" name="stars" value="3" id="star-3">
+                            <label class="checkbox__label" for="star-3">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </label>
+                        </li>
+                        <li class="checkbox__wrapper">
+                            <input class="input__radio-checkbox" type="radio" name="stars" value="4" id="star-4">
+                            <label class="checkbox__label" for="star-4">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </label>
+                        </li>
+                        <li class="checkbox__wrapper">
+                            <input class="input__radio-checkbox" type="radio" name="stars" value="5" id="star-5">
+                            <label class="checkbox__label" for="star-5">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </label>
+                        </li>
+                    </ul>
                 </div>
             </form>
         </div>

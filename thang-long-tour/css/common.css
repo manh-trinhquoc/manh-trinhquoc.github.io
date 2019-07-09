@@ -486,6 +486,22 @@ ul {
     content: "\2714";
     text-align: center;
     color: white; }
+.input__radio-checkbox {
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  color: white; }
+  .input__radio-checkbox:after {
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    background: #806000;
+    content: "";
+    display: inline-block; }
+  .input__radio-checkbox:checked:after {
+    content: "\2714";
+    text-align: center;
+    color: white; }
 
 /*input[type="checkbox"] {
     cursor: pointer;
