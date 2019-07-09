@@ -1,0 +1,11 @@
+User-agent: *
+Disallow: /comp/
+Disallow: /css/
+Disallow: /html/
+Disallow: /img/
+Disallow: /js/
+Disallow: /json/
+Disallow: /scss/
+Disallow: /svg/
+Disallow: /personal.html
+Disallow: /to-do-list.html
