@@ -14,10 +14,6 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     <!-- custom -->
     <link rel="stylesheet" href="css/find.css">
-    <!-- custome -->
-    <script type="text/javascript" src="js/preload.js"></script>
-    <script defer="" type="text/javascript" src="js/lib.js"></script>
-    <script defer="" type="text/javascript" src="js/find-tours.js"></script>
 </head>
 
 <body>
@@ -239,6 +235,28 @@
             </div>
         </div>
     </footer>
+    <!-- custome -->
+    <script type="text/javascript" src="js/lib.js"></script>
+    <script type="text/javascript" src="js/find-tours.js"></script>
+    <!-- firebase auth -->
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-app.js"></script>
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#config-web-app -->
+    <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+        apiKey: "AIzaSyBLun8W025GfovROcAH9hiI3XaU8TVM0vY",
+        authDomain: "thang-long-tour.firebaseapp.com",
+        databaseURL: "https://thang-long-tour.firebaseio.com",
+        projectId: "thang-long-tour",
+        storageBucket: "",
+        messagingSenderId: "686130862617",
+        appId: "1:686130862617:web:705408b2e99ddd3d"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    </script>
     <!-- google street view -->
     <!-- <div class="map-marker" id="footer-map">
             <iframe src="https://www.google.com/maps/embed?pb=!4v1560766712311!6m8!1m7!1sCAoSLEFGMVFpcE12MU0teTc3MWFMNFBHdGltbUtGQzRSZTJlLUQxelRSamhWOWgt!2m2!1d20.99798364323391!2d105.7947524055053!3f52.166519230599775!4f0!5f0.7820865974627469" width="600" height="500" frameborder="0" style="border:0" allowfullscreen></iframe>
