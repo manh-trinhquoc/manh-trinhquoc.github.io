@@ -402,6 +402,19 @@
 
     }
 
+    &-show-pass {
+        font-size: $text-size-md + 5px;
+        width: $search-height;
+        height: $search-height;
+        position: absolute;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        right: 0;
+        top: $search-height/2;
+        transform: translateY(-50%);
+    }
+
 }
 
 .footer {

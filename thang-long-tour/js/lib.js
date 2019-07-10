@@ -42,18 +42,18 @@ function togglePopover(id) {
 }
 
 function hidePopover(id) {
-    console.group("hidePopover");
-    console.trace();
-    console.groupEnd();
+    // console.group("hidePopover");
+// console.trace();
+// console.groupEnd();
     let elePopover = document.getElementById(id);
     elePopover.setAttribute("hidden", "");
     event.stopPropagation()
 }
 
 function showPopover(id) {
-    console.group("showPopover");
-    console.trace();
-    console.groupEnd();
+    // console.group("showPopover");
+    // console.trace();
+    // console.groupEnd();
     let elePopover = document.getElementById(id);
     elePopover.removeAttribute("hidden");
     event.stopPropagation()
