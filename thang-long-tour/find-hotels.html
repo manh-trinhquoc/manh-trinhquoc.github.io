@@ -123,7 +123,7 @@
                     <p>Loại hình</p>
                     <ul id="category">
                         <li class="checkbox__wrapper">
-                            <input class="input__radio-checkbox" type="radio" name="category" value="" checked="" id="cate-all">
+                            <input class="input__radio-checkbox" type="radio" name="category" checked="" value="null" id="cate-all">
                             <label class="checkbox__label" for="cate-all">Tất cả</label>
                         </li>
                         <li class="checkbox__wrapper">
@@ -144,7 +144,7 @@
                     <p>Hạng sao</p>
                     <ul id="stars">
                         <li class="checkbox__wrapper">
-                            <input class="input__radio-checkbox" type="radio" name="stars" value="" checked="" id="star-all">
+                            <input class="input__radio-checkbox" type="radio" name="stars" checked="" value="null" id="star-all">
                             <label class="checkbox__label" for="star-all">Tất cả</label>
                         </li>
                         <li class="checkbox__wrapper">
@@ -191,100 +191,8 @@
                 </div>
             </form>
         </div>
-        <div class="col_9 filter-hotel__result">
-            <div class="row">
-                <div class="card-hotel">
-                    <a href="detail-hotel.html">
-                        <div class="card__img">
-                            <img src="img/hotel-sofitel.jpg" alt="demo image" class="img-responsive" />
-                        </div>
-                        <div class="row">
-                            <h4 class="card-hotel__category">Khách sạn</h4>
-                            <h4 class="card-hotel__star">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </h4>
-                        </div>
-                        <h3 class="card-hotel__name">Khách Sạn Sofitel Legend Metropole Hà Nội</h3>
-                        <h5 class="card-hotel__address"><i class="fas fa-map-marker"></i>
-                            Số 15, Phố Ngô Quyền, Quận Hoàn Kiếm, Hà Nội
-                        </h5>
-                    </a>
-                </div>
-                <div class="card-hotel">
-                    <a href="detail-hotel.html">
-                        <div class="card__img">
-                            <img src="img/hotel-sofitel.jpg" alt="demo image" class="img-responsive" />
-                        </div>
-                        <div class="row">
-                            <h4 class="card-hotel__category">Khách sạn</h4>
-                            <h4 class="card-hotel__star">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </h4>
-                        </div>
-                        <h3 class="card-hotel__name">Khách Sạn Sofitel Legend Metropole Hà Nội</h3>
-                        <h5 class="card-hotel__address"><i class="fas fa-map-marker"></i>
-                            Số 15, Phố Ngô Quyền, Quận Hoàn Kiếm, Hà Nội
-                        </h5>
-                    </a>
-                </div>
-                <div class="card-hotel">
-                    <a href="detail-hotel.html">
-                        <div class="card__img">
-                            <img src="img/hotel-sofitel.jpg" alt="demo image" class="img-responsive" />
-                        </div>
-                        <div class="row">
-                            <h4 class="card-hotel__category">Khách sạn</h4>
-                            <h4 class="card-hotel__star">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </h4>
-                        </div>
-                        <h3 class="card-hotel__name">Khách Sạn Sofitel Legend Metropole Hà Nội</h3>
-                        <h5 class="card-hotel__address"><i class="fas fa-map-marker"></i>
-                            Số 15, Phố Ngô Quyền, Quận Hoàn Kiếm, Hà Nội
-                        </h5>
-                    </a>
-                </div>
-                <div class="card-hotel">
-                    <a href="detail-hotel.html">
-                        <div class="card__img">
-                            <img src="img/hotel-sofitel.jpg" alt="demo image" class="img-responsive" />
-                        </div>
-                        <div class="row">
-                            <h4 class="card-hotel__category">Khách sạn</h4>
-                            <h4 class="card-hotel__star">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </h4>
-                        </div>
-                        <h3 class="card-hotel__name">Khách Sạn Sofitel Legend Metropole Hà Nội</h3>
-                        <h5 class="card-hotel__address"><i class="fas fa-map-marker"></i>
-                            Số 15, Phố Ngô Quyền, Quận Hoàn Kiếm, Hà Nội
-                        </h5>
-                    </a>
-                </div>
-            </div>
-            <nav class="pagination">
-                <a href="#" class="disable">&laquo;</a>
-                <a href="" class="active">1</a>
-                <a href="">2</a>
-                <a href="">&raquo;</a>
-            </nav>
-        </div>
+        <section class="col_9 filter-hotel__result" id="hotel-result">
+        </section>
     </div>
     <footer class="footer">
         <div class="row footer__inner-wrapper">
@@ -317,9 +225,8 @@
         </div>
     </footer>
     <!-- custome -->
-    <script type="text/javascript" src="js/lib.js">
-    <script type="text/javascript" src="js/find-hotels.js">
-    </script>
+    <script type="text/javascript" src="js/lib.js"></script>
+    <script type="text/javascript" src="js/find-hotels.js"></script>
     <!-- google street view -->
     <!-- <div class="map-marker" id="footer-map">
             <iframe src="https://www.google.com/maps/embed?pb=!4v1560766712311!6m8!1m7!1sCAoSLEFGMVFpcE12MU0teTc3MWFMNFBHdGltbUtGQzRSZTJlLUQxelRSamhWOWgt!2m2!1d20.99798364323391!2d105.7947524055053!3f52.166519230599775!4f0!5f0.7820865974627469" width="600" height="500" frameborder="0" style="border:0" allowfullscreen></iframe>
