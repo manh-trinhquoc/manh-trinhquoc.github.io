@@ -160,9 +160,9 @@ function createAccount(email, password) {
         // Handle Errors here.
         var errorCode = error.code;
         var errorMessage = error.message;
-        console.log(JSON.stringify(error));
-        console.log(JSON.stringify(errorCode));
-        console.log(JSON.stringify(errorMessage));
+        alert(JSON.stringify(error));
+        alert(JSON.stringify(errorCode));
+        alert(JSON.stringify(errorMessage));
         console.groupEnd();
     });
 
@@ -173,7 +173,7 @@ firebase.auth().onAuthStateChanged(function(user) {
     console.log(JSON.stringify(user));
     if (user) {
         // User is signed in.
-        console.log("user log in");
+        alert("user log in");
         var displayName = user.displayName;
         var email = user.email;
         var emailVerified = user.emailVerified;
@@ -184,7 +184,7 @@ firebase.auth().onAuthStateChanged(function(user) {
         // ...
     } else {
         // User is signed out.
-        console.log("user log out");
+        alert("user log out");
     }
     console.groupEnd();
 });

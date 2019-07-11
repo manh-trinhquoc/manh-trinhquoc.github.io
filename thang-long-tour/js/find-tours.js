@@ -343,7 +343,7 @@ function sortData(dataArrInput, property, option = "increment") {
 // console.log('sort date decre: ' + JSON.stringify(sortData(testArr, 'departure-date', 'decrement')));
 
 function sortTours(productData, sortCommand) {
-    console.log(sortCommand);
+    // console.log(sortCommand);
     if (!sortCommand) productData;
     // change productData object to array to sort
     let dataArr = convertDataObjToArr(productData);
