@@ -11,6 +11,73 @@ var firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
+/**
+ * initApp handles setting up UI event listeners and registering Firebase auth listeners:
+ *  - firebase.auth().onAuthStateChanged: This listener is called when the user is signed in or
+ *    out, and that is where we update the UI.
+ */
+function initApp() {
+    // Listening for auth state changes.
+
+    firebase.auth().onAuthStateChanged(function(user) {
+        // console.log(user);
+        // console.log(user.providerData);
+
+        if (user) {
+            // User is signed in.
+            currentUserObj.displayName = user.displayName;
+            currentUserObj.email = user.email;
+            currentUserObj.photoURL = user.photoURL;
+            console.log(currentUserObj);
+            // get user data from database
+            var docRef = db.collection("users").doc(currentUserObj.email);
+
+            docRef.get().then(function(doc) {
+                if (doc.exists) {
+                    let docData = doc.data()
+                    console.log("Document data:", docData);
+                    currentUserObj.historyViewed = docData.historyViewed;
+                    currentUserObj.tourbooked = docData.tourbooked;
+                    currentUserObj.oldTours = docData.oldTours;
+                } else {
+                    // doc.data() will be undefined in this case
+                    console.log("No such document!");
+                }
+            }).catch(function(error) {
+                console.log("Error getting document:", error);
+            });
+        } else {
+            // User is signed out.
+        }
+    });
+}
+
+window.onload = function() {
+    initApp();
+};
+// Initialize an instance of Cloud Firestore:
+var db = firebase.firestore();
+
+// Tạo object lưu thông tin về user
+let currentUserObj = {
+    isLoggedIn: false,
+    tourbooked: null,
+    historyViewed: [],
+    oldTours: []
+}
+
+// Lấy thông tin về lịch sử duyệt web từ localStorage
+if (localStorage.getItem('historyViewed')) {
+    currentUserObj.historyViewed = JSON.parse(localStorage.getItem('historyViewed'));
+    console.log(currentUserObj.historyViewed);
+}
+// Thêm data vào lịch sử nếu ko phải là reload trang
+if (currentUserObj.historyViewed[currentUserObj.historyViewed.length - 1] != window.location.pathname) {
+    currentUserObj.historyViewed.push(window.location.pathname);
+    localStorage.setItem('historyViewed', JSON.stringify(currentUserObj.historyViewed));
+}
+
+console.log(currentUserObj);
 
 function submitSignUp(event) {
     // Khi người dùng submit form đăng ký    
@@ -23,7 +90,7 @@ function submitSignUp(event) {
 
     elem = document.getElementById('sign-up-phone');
     if (!isValidated(['cannotEmpty', 'isPhoneNumber'], elem)) isAllValidated = false;
-    // let phone = elem.value;
+    let phone = elem.value;
 
     elem = document.getElementById('sign-up-email');
     if (!isValidated(['cannotEmpty', 'isEmail'], elem)) isAllValidated = false;
@@ -45,17 +112,18 @@ function submitSignUp(event) {
         console.group('createUserWithEmailAndPassword');
         user = firebase.auth().currentUser;
         console.log(user);
-        // update some user infomation
-        user.updateProfile({
-            displayName: fullName,
-        }).then(function() {
-            console.log('add fullName and phone successfully');
-            alert(`Bạn ${fullName} đã tạo tài khoản thành công với email: ${email}`);
-
-        }).catch(function(error) {
-            console.log('add fullName and phone get the following error:');
-            console.log(error);
-        });
+        currentUserObj.fullName = fullName;
+        currentUserObj.phone = phone;
+        currentUserObj.email = email;
+        currentUserObj.password = password;
+        // user infomation được lưu vào database của firebase
+        db.collection("users").doc(email).set(currentUserObj).then(function() {
+                alert(`Bạn ${fullName} đã tạo tài khoản thành công.\n Email: ${email}.\n Số điện thoại: ${phone}.\n Password: ${password}.`);
+                console.log('Tạo bản ghi thành công');
+            })
+            .catch(function(error) {
+                console.error("Error adding document: ", error);
+            });
 
         console.groupEnd();
     }).catch(function(error) {
@@ -146,57 +214,3 @@ let showPassWord = (function() {
         }
     };
 })();
-
-/**
- * initApp handles setting up UI event listeners and registering Firebase auth listeners:
- *  - firebase.auth().onAuthStateChanged: This listener is called when the user is signed in or
- *    out, and that is where we update the UI.
- */
-function initApp() {
-    // Listening for auth state changes.
-    // [START authstatelistener]
-    firebase.auth().onAuthStateChanged(function(user) {
-        console.log(user);
-        console.log(user.providerData);
-        // [START_EXCLUDE silent]
-        // document.getElementById('quickstart-verify-email').disabled = true;
-        // [END_EXCLUDE]
-        if (user) {
-            // User is signed in.
-            var displayName = user.displayName;
-            var email = user.email;
-            var emailVerified = user.emailVerified;
-            var photoURL = user.photoURL;
-            var isAnonymous = user.isAnonymous;
-            var uid = user.uid;
-            var providerData = user.providerData;
-
-            // [START_EXCLUDE]
-            // document.getElementById('quickstart-sign-in-status').textContent = 'Signed in';
-            // document.getElementById('quickstart-sign-in').textContent = 'Sign out';
-            // document.getElementById('quickstart-account-details').textContent = JSON.stringify(user, null, '  ');
-            // if (!emailVerified) {
-            //     document.getElementById('quickstart-verify-email').disabled = false;
-            // }
-            // [END_EXCLUDE]
-        } else {
-            // User is signed out.
-            // [START_EXCLUDE]
-            // document.getElementById('quickstart-sign-in-status').textContent = 'Signed out';
-            // document.getElementById('quickstart-sign-in').textContent = 'Sign in';
-            // document.getElementById('quickstart-account-details').textContent = 'null';
-            // [END_EXCLUDE]
-        }
-        // [START_EXCLUDE silent]
-        // document.getElementById('quickstart-sign-in').disabled = false;
-        // [END_EXCLUDE]
-    });
-    // [END authstatelistener]
-    // document.getElementById('quickstart-sign-in').addEventListener('click', toggleSignIn, false);
-    // document.getElementById('quickstart-sign-up').addEventListener('click', handleSignUp, false);
-    // document.getElementById('quickstart-verify-email').addEventListener('click', sendEmailVerification, false);
-    // document.getElementById('quickstart-password-reset').addEventListener('click', sendPasswordReset, false);
-}
-window.onload = function() {
-    initApp();
-};
