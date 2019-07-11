@@ -19,9 +19,11 @@ function submitSignUp(event) {
     let isAllValidated = true;
     let elem = document.getElementById('sign-up-name');
     if (!isValidated(['cannotEmpty'], elem)) isAllValidated = false;
+    let fullName = elem.value;
 
     elem = document.getElementById('sign-up-phone');
     if (!isValidated(['cannotEmpty', 'isPhoneNumber'], elem)) isAllValidated = false;
+    // let phone = elem.value;
 
     elem = document.getElementById('sign-up-email');
     if (!isValidated(['cannotEmpty', 'isEmail'], elem)) isAllValidated = false;
@@ -38,22 +40,42 @@ function submitSignUp(event) {
     if (!isAllValidated) return;
     // Sign in with email and pass.
     // [START createwithemail]
-    firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+    alert("Chúng tôi đang tạo tài khoản cho bạn");
+    firebase.auth().createUserWithEmailAndPassword(email, password).then(function(user) {
+        console.group('createUserWithEmailAndPassword');
+        user = firebase.auth().currentUser;
+        console.log(user);
+        // update some user infomation
+        user.updateProfile({
+            displayName: fullName,
+        }).then(function() {
+            console.log('add fullName and phone successfully');
+            alert(`Bạn ${fullName} đã tạo tài khoản thành công với email: ${email}`);
+
+        }).catch(function(error) {
+            console.log('add fullName and phone get the following error:');
+            console.log(error);
+        });
+
+        console.groupEnd();
+    }).catch(function(error) {
         console.group('createUserWithEmailAndPassword()');
         // Handle Errors here.
         let errorCode = error.code;
         let errorMessage = error.message;
         // [START_EXCLUDE]
         if (errorCode == 'auth/weak-password') {
-            alert('The password is too weak.');
+            alert('Mật khẩu của bạn quá ngắn');
+        } else if (errorCode == 'auth/email-already-in-use') {
+            alert('Địa chỉ email đã được sử dụng. Xin hãy chọn địa chỉ email khác');
         } else {
-            alert(errorMessage);
+            console.log(errorMessage);
         }
-        console.log(error);
         // [END_EXCLUDE]
         console.groupEnd();
     });
     // [END createwithemail]
+    hidePopover('register-popover');
 }
 
 function isValidated(conditionArr, ...elemArr) {
@@ -93,7 +115,7 @@ function isValidated(conditionArr, ...elemArr) {
     }
 
     function isPhoneNumber(elem) {
-        let result = /^[0-9+\- ]$/.test(elem.value);
+        let result = /^[0-9+\- ]+$/.test(elem.value);
         if (!result) {
             isAllValidated = false;
             elem.nextElementSibling.textContent = 'Số điện thoại chỉ có thể chứa các ký tự "0-9 + -" và dấu cách';
@@ -109,7 +131,7 @@ function isValidated(conditionArr, ...elemArr) {
 }
 
 let showPassWord = (function() {
-    let toggleShow = false;
+    let toggleShow = true;
     return function(elem) {
         if (toggleShow) {
             elem.innerHTML = `<i class="fas fa-eye"></i>`;
@@ -134,6 +156,8 @@ function initApp() {
     // Listening for auth state changes.
     // [START authstatelistener]
     firebase.auth().onAuthStateChanged(function(user) {
+        console.log(user);
+        console.log(user.providerData);
         // [START_EXCLUDE silent]
         // document.getElementById('quickstart-verify-email').disabled = true;
         // [END_EXCLUDE]
@@ -146,6 +170,7 @@ function initApp() {
             var isAnonymous = user.isAnonymous;
             var uid = user.uid;
             var providerData = user.providerData;
+
             // [START_EXCLUDE]
             // document.getElementById('quickstart-sign-in-status').textContent = 'Signed in';
             // document.getElementById('quickstart-sign-in').textContent = 'Sign out';

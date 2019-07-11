@@ -38,7 +38,7 @@ function setInputDateValue(queryString, variable) {
 function setInputChecked(queryString, variable) {
     let elems = document.querySelectorAll(queryString);
     if (elems.length == 0) {
-        // console.log("cannot match elems of " + queryString);
+        console.log("cannot match elems of " + queryString);
         return;
     }
     for (each of elems) {

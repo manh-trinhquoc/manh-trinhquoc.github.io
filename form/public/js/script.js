@@ -174,6 +174,7 @@ firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
         // User is signed in.
         alert("user log in");
+        document.write("user log in");
         var displayName = user.displayName;
         var email = user.email;
         var emailVerified = user.emailVerified;
@@ -185,6 +186,7 @@ firebase.auth().onAuthStateChanged(function(user) {
     } else {
         // User is signed out.
         alert("user log out");
+        document.write("user log out");
     }
     console.groupEnd();
 });

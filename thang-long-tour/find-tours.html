@@ -158,8 +158,8 @@
                             <label class="checkbox__label" for="viet-nam">Trong nước</label>
                         </li>
                         <li class="checkbox__wrapper">
-                            <input class="input__checkbox" type="checkbox" name="trip-type" value="global" id="global">
-                            <label class="checkbox__label" for="global">Quốc tế</label>
+                            <input class="input__checkbox" type="checkbox" name="trip-type" value="international" id="international">
+                            <label class="checkbox__label" for="international">Quốc tế</label>
                         </li>
                         <li class="checkbox__wrapper">
                             <input class="input__checkbox" type="checkbox" name="trip-type" value="tam-linh" id="tam-linh">
@@ -233,7 +233,6 @@
             <div class="footer__fb">
                 <!-- facebook like page -->
                 <div id="fb-root"></div>
-                <!-- <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.3"></script> -->
                 <div class="fb-page" data-href="https://www.facebook.com/Frontend-3-2448958151999364/" data-tabs="" data-width="310" data-height="200" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
                     <blockquote cite="https://www.facebook.com/Frontend-3-2448958151999364/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/Frontend-3-2448958151999364/">Frontend 3</a></blockquote>
                 </div>
@@ -247,22 +246,11 @@
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script defer src="https://www.gstatic.com/firebasejs/6.2.4/firebase-app.js"></script>
     <!-- Add Firebase products that you want to use -->
-    <script defer="" src="https://www.gstatic.com/firebasejs/6.2.4/firebase-auth.js"></script>
-    <script defer="" src="https://www.gstatic.com/firebasejs/6.2.4/firebase-firestore.js"></script>
+    <script defer src="https://www.gstatic.com/firebasejs/6.2.4/firebase-auth.js"></script>
+    <script defer src="https://www.gstatic.com/firebasejs/6.2.4/firebase-firestore.js"></script>
     <!-- custome -->
     <script defer type="text/javascript" src="js/firebase.js"></script>
-    <!-- google street view -->
-    <!-- <div class="map-marker" id="footer-map">
-            <iframe src="https://www.google.com/maps/embed?pb=!4v1560766712311!6m8!1m7!1sCAoSLEFGMVFpcE12MU0teTc3MWFMNFBHdGltbUtGQzRSZTJlLUQxelRSamhWOWgt!2m2!1d20.99798364323391!2d105.7947524055053!3f52.166519230599775!4f0!5f0.7820865974627469" width="600" height="500" frameborder="0" style="border:0" allowfullscreen></iframe>
-        </div> -->
     <!-- facebook chat -->
-    <!-- <a href="https://m.me/2448958151999364">
-    Message us on facebook bằng thẻ a
-</a> -->
-    <!-- facebook chat set 1 -->
-    <!-- <div class="fb-customerchat" page_id="2448958151999364">
-        </div> -->
-    <!-- face book chat set 2 -->
     <script>
     window.fbAsyncInit = function() {
         FB.init({

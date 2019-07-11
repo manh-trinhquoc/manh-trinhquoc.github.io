@@ -11,7 +11,7 @@
         "departure": "Hà Nội",
         "destination": "Hàn Quốc",
         "departure-date": "2019-04-01",
-        "trip-type": ["global", "bike"],
+        "trip-type": ["international", "bike"],
         "img": ["/thang-long-tour/img/korean-1.jpg"],
         "link": "html/T1904001.html"
     },
@@ -27,7 +27,7 @@
         "departure": "Hồ Chí Minh",
         "destination": "Hàn Quốc",
         "departure-date": "2019-04-01",
-        "trip-type": ["global", "bike"],
+        "trip-type": ["international", "bike"],
         "img": ["/thang-long-tour/img/korean-1.jpg"],
         "link": "html/T1904001.html"
     },
@@ -43,7 +43,7 @@
         "departure": "Hà Nội",
         "destination": "Pháp",
         "departure-date": "2019-04-11",
-        "trip-type": ["global", "picture"],
+        "trip-type": ["international", "picture"],
         "img": ["/thang-long-tour/img/france-1.jpg"],
         "link": "html/T1904011.html"
     },
@@ -59,7 +59,7 @@
         "departure": "Hà Nội",
         "destination": "Nhật Bản",
         "departure-date": "2019-04-21",
-        "trip-type": ["global", "bike"],
+        "trip-type": ["international", "bike"],
         "img": ["/thang-long-tour/img/japan-1.jpg"],
         "link": "html/T1904021.html"
     },
@@ -75,7 +75,7 @@
         "departure": "Hà Nội",
         "destination": "Úc",
         "departure-date": "2019-04-30",
-        "trip-type": ["global", "motor"],
+        "trip-type": ["international", "motor"],
         "img": ["/thang-long-tour/img/sydney-1.jpg"],
         "link": "html/T1904031.html"
     },
@@ -91,7 +91,7 @@
         "departure": "Hà Nội",
         "destination": "Hoa Kỳ",
         "departure-date": "2019-04-05",
-        "trip-type": ["global", "bike"],
+        "trip-type": ["international", "bike"],
         "img": ["/thang-long-tour/img/america-1.jpg"],
         "link": "html/T1904041.html"
     },
@@ -107,7 +107,7 @@
         "departure": "Hà Nội",
         "destination": "Tây Tạng",
         "departure-date": "2019-04-06",
-        "trip-type": ["global", "picture", "fishing"],
+        "trip-type": ["international", "picture", "fishing"],
         "img": ["/thang-long-tour/img/tibet-1.jpg"],
         "link": "html/T1904051.html"
     },
@@ -123,7 +123,7 @@
         "departure": "Hà Nội",
         "destination": "Ấn Độ",
         "departure-date": "2019-04-07",
-        "trip-type": ["global", "tam-linh"],
+        "trip-type": ["international", "tam-linh"],
         "img": ["/thang-long-tour/img/india-1.jpg"],
         "link": "html/T1904061.html"
     },
@@ -379,7 +379,7 @@
         "departure": "Hà Nội",
         "destination": "Hàn Quốc",
         "departure-date": "2019-04-01",
-        "trip-type": ["global", "bike"],
+        "trip-type": ["international", "bike"],
         "img": ["/thang-long-tour/img/korean-1.jpg"],
         "link": "html/T1904001.html"
     },
@@ -395,7 +395,7 @@
         "departure": "Hà Nội",
         "destination": "Pháp",
         "departure-date": "2019-04-11",
-        "trip-type": ["global", "picture"],
+        "trip-type": ["international", "picture"],
         "img": ["/thang-long-tour/img/france-1.jpg"],
         "link": "html/T1904011.html"
     },
@@ -411,7 +411,7 @@
         "departure": "Hà Nội",
         "destination": "Nhật Bản",
         "departure-date": "2019-04-21",
-        "trip-type": ["global", "bike"],
+        "trip-type": ["international", "bike"],
         "img": ["/thang-long-tour/img/japan-1.jpg"],
         "link": "html/T1904021.html"
     },
@@ -427,7 +427,7 @@
         "departure": "Hà Nội",
         "destination": "Úc",
         "departure-date": "2019-04-30",
-        "trip-type": ["global", "motor"],
+        "trip-type": ["international", "motor"],
         "img": ["/thang-long-tour/img/sydney-1.jpg"],
         "link": "html/T1904031.html"
     },
@@ -443,7 +443,7 @@
         "departure": "Hà Nội",
         "destination": "Hoa Kỳ",
         "departure-date": "2019-04-05",
-        "trip-type": ["global", "bike"],
+        "trip-type": ["international", "bike"],
         "img": ["/thang-long-tour/img/america-1.jpg"],
         "link": "html/T1904041.html"
     },
@@ -459,7 +459,7 @@
         "departure": "Hà Nội",
         "destination": "Tây Tạng",
         "departure-date": "2019-04-06",
-        "trip-type": ["global", "picture", "fishing"],
+        "trip-type": ["international", "picture", "fishing"],
         "img": ["/thang-long-tour/img/tibet-1.jpg"],
         "link": "html/T1904051.html"
     },
@@ -475,7 +475,7 @@
         "departure": "Hà Nội",
         "destination": "Ấn Độ",
         "departure-date": "2019-04-07",
-        "trip-type": ["global", "tam-linh"],
+        "trip-type": ["international", "tam-linh"],
         "img": ["/thang-long-tour/img/india-1.jpg"],
         "link": "html/T1904061.html"
     },
@@ -731,7 +731,7 @@
         "departure": "Hà Nội",
         "destination": "Hàn Quốc",
         "departure-date": "2019-04-01",
-        "trip-type": ["global", "bike"],
+        "trip-type": ["international", "bike"],
         "img": ["/thang-long-tour/img/korean-1.jpg"],
         "link": "html/T1904001.html"
     },
@@ -747,7 +747,7 @@
         "departure": "Hà Nội",
         "destination": "Pháp",
         "departure-date": "2019-04-11",
-        "trip-type": ["global", "picture"],
+        "trip-type": ["international", "picture"],
         "img": ["/thang-long-tour/img/france-1.jpg"],
         "link": "html/T1904011.html"
     },
@@ -763,7 +763,7 @@
         "departure": "Hà Nội",
         "destination": "Nhật Bản",
         "departure-date": "2019-04-21",
-        "trip-type": ["global", "bike"],
+        "trip-type": ["international", "bike"],
         "img": ["/thang-long-tour/img/japan-1.jpg"],
         "link": "html/T1904021.html"
     },
@@ -779,7 +779,7 @@
         "departure": "Hà Nội",
         "destination": "Úc",
         "departure-date": "2019-04-30",
-        "trip-type": ["global", "motor"],
+        "trip-type": ["international", "motor"],
         "img": ["/thang-long-tour/img/sydney-1.jpg"],
         "link": "html/T1904031.html"
     },
@@ -795,7 +795,7 @@
         "departure": "Hà Nội",
         "destination": "Hoa Kỳ",
         "departure-date": "2019-04-05",
-        "trip-type": ["global", "bike"],
+        "trip-type": ["international", "bike"],
         "img": ["/thang-long-tour/img/america-1.jpg"],
         "link": "html/T1904041.html"
     },
@@ -811,7 +811,7 @@
         "departure": "Hà Nội",
         "destination": "Tây Tạng",
         "departure-date": "2019-04-06",
-        "trip-type": ["global", "picture", "fishing"],
+        "trip-type": ["international", "picture", "fishing"],
         "img": ["/thang-long-tour/img/tibet-1.jpg"],
         "link": "html/T1904051.html"
     },
@@ -827,7 +827,7 @@
         "departure": "Hà Nội",
         "destination": "Ấn Độ",
         "departure-date": "2019-04-07",
-        "trip-type": ["global", "tam-linh"],
+        "trip-type": ["international", "tam-linh"],
         "img": ["/thang-long-tour/img/india-1.jpg"],
         "link": "html/T1904061.html"
     },
