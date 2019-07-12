@@ -34,60 +34,15 @@ function includeHTML() {
     }
 }
 
-// Add responsive top nav library
+// Add js library
 dynamicallyLoadScript('/thang-long-tour/comp/top-nav.js')
+dynamicallyLoadScript('/thang-long-tour/comp/header.js')
+dynamicallyLoadScript('/thang-long-tour/comp/register-popover.js')
+
 // add include html 
 includeHTML();
 
-// Các hàm bật/tắt popover
-let eleTopnavPopover = document.getElementById("topnav");
 
-function signIn() {
-    let eleSignUpForm = document.getElementById("sign-up");
-    let eleSignInForm = document.getElementById("sign-in");
-    if (eleSignInForm.hasAttribute("hidden")) {
-        eleSignInForm.removeAttribute("hidden");
-        eleSignUpForm.setAttribute("hidden", "");
-    }
-    document.getElementById("sign-in-btn").classList.remove("deactive");;
-    document.getElementById("sign-up-btn").classList.add("deactive");
-    event.stopPropagation()
-}
-
-function signUp() {
-    let eleSignUpForm = document.getElementById("sign-up");
-    let eleSignInForm = document.getElementById("sign-in");
-    if (eleSignUpForm.hasAttribute("hidden")) {
-        eleSignUpForm.removeAttribute("hidden");
-        eleSignInForm.setAttribute("hidden", "");
-    }
-    document.getElementById("sign-up-btn").classList.remove("deactive");;
-    document.getElementById("sign-in-btn").classList.add("deactive");
-    event.stopPropagation()
-}
-
-function togglePopover(id) {
-    let elePopover = document.getElementById(id);
-    elePopover.toggleAttribute("hidden");
-}
-
-function hidePopover(id) {
-    // console.group("hidePopover");
-    // console.trace();
-    // console.groupEnd();
-    let elePopover = document.getElementById(id);
-    elePopover.setAttribute("hidden", "");
-    event.stopPropagation()
-}
-
-function showPopover(id) {
-    // console.group("showPopover");
-    // console.trace();
-    // console.groupEnd();
-    let elePopover = document.getElementById(id);
-    elePopover.removeAttribute("hidden");
-    event.stopPropagation()
-}
 // Các hàm chung thông thường
 function convertDataObjToArr(dataObj) {
     let dataArr = [];
@@ -368,3 +323,17 @@ if (localStorage.getItem('historyViewed')) {
 }
 // console.log(currentUserObj);
 console.groupEnd();
+
+// Hàm quản lý view
+function manageView() {
+    console.group('manageView')
+    if (currentUserObj.isLoggedIn) {
+        document.getElementById('register-dropdown-wrapper').removeAttribute('style');
+        document.getElementById('topnav__register').style.display = 'none';
+    }
+    if (!currentUserObj.isLoggedIn) {
+        document.getElementById('register-dropdown-wrapper').style.display = 'none';
+        document.getElementById('topnav__register').removeAttribute('style');
+    }
+    console.groupEnd();
+}

@@ -13,7 +13,14 @@
         <input type="text" placeholder="Search.." name="search" class="input__text search__input-text">
         <button type="submit" class="search__button"><i class="fa fa-search"></i></button>
     </form>
-    <div class="a">
+    <div class="a" id="topnav__register">
         <button class="topnav__sign-in" onclick="togglePopover('register-popover')"><i class="fas fa-user"></i></button>
+    </div>
+    <div class="a dropdown-wrapper" id="register-dropdown-wrapper" style="display: none">
+        <button class="topnav__sign-in dropdown-control" onclick="toggleRegisterDropdown()"><i class="fas fa-user"></i></button>
+        <div class="dropdown" id="register-dropdown" hidden="">
+            <a href="/thang-long-tour/personal.html">Trang cá nhân</a>
+            <button onclick="signOut()">Thoát</button>
+        </div>
     </div>
 </div>

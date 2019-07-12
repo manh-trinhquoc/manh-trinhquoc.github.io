@@ -653,3 +653,45 @@
         height: 100%;
     }
 }
+
+.dropdown {
+    position: absolute;
+    right: 0;
+    top: $search-height + $padding-xs;
+    background-color: $page-color-darker_trans;
+    padding: 0 $padding-md;
+    width: 310px;
+
+    a {
+        @extend .topnav__sign-in;
+        width: 100%;
+    }
+
+    button {
+        @extend .topnav__sign-in;
+        width: 100%;
+        font-size: 1rem;
+        color: $text-no-color;
+    }
+
+    &:before {
+        content: '';
+        width: 0;
+        height: 0;
+        border-left: $padding-sm solid transparent;
+        border-right: $padding-sm solid transparent;
+        border-bottom: $padding-sm solid $page-color-darker_trans;
+        display: block;
+        position: absolute;
+        top: -$padding-sm;
+        right: $search-height/4;
+    }
+
+    &-control i {
+        color: $text-color;
+    }
+
+    &-wrapper {
+        position: relative;
+    }
+}
