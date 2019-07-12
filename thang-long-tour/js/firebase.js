@@ -17,52 +17,7 @@ firebase.initializeApp(firebaseConfig);
  *    out, and that is where we update the UI.
  */
 function initApp() {
-    // Listening for auth state changes.
 
-    firebase.auth().onAuthStateChanged(function(user) {
-        // console.log(user);
-        // console.log(user.providerData);
-
-        if (user) {
-            // User is signed in.
-            currentUserObj.isLoggedIn = true;
-            currentUserObj.displayName = user.displayName;
-            currentUserObj.email = user.email;
-            currentUserObj.photoURL = user.photoURL;
-            // get user data from database
-            let docRef = db.collection("users").doc(currentUserObj.email);
-
-            docRef.get().then(function(doc) {
-                if (doc.exists) {
-                    let docData = doc.data()
-                    // console.log("Document data:", docData);
-                    currentUserObj.historyViewed = docData.historyViewed;
-                    currentUserObj.tourbooked = docData.tourbooked;
-                    currentUserObj.oldTours = docData.oldTours;
-                } else {
-                    // doc.data() will be undefined in this case
-                    console.log("No such document!");
-                }
-            }).catch(function(error) {
-                console.log("Error getting document:", error);
-            });
-            console.log('user sign in');
-            console.log(JSON.stringify(currentUserObj));
-            manageView();
-        } else {
-            // User is signed out.
-            currentUserObj.isLoggedIn = false;
-            currentUserObj.email = '';
-            currentUserObj.photoURL = '';
-            currentUserObj.historyViewed = '';
-            currentUserObj.tourbooked = ''
-            currentUserObj.oldTours = '';
-            console.log('user sign out');
-            console.log(currentUserObj);
-            window.localStorage.clear();
-            manageView();
-        }
-    });
 }
 
 window.onload = function() {
@@ -70,3 +25,50 @@ window.onload = function() {
 };
 // Initialize an instance of Cloud Firestore:
 var db = firebase.firestore();
+
+// Listening for auth state changes.
+firebase.auth().onAuthStateChanged(function(user) {
+    console.group('firebas.auth.onAuthStateChanged');
+
+    if (user) {
+        // User is signed in.
+        currentUserObj.isLoggedIn = true;
+        currentUserObj.displayName = user.displayName;
+        currentUserObj.email = user.email;
+        currentUserObj.photoURL = user.photoURL;
+        // get user data from database
+        let docRef = db.collection("users").doc(currentUserObj.email);
+
+        docRef.get().then(function(doc) {
+            if (doc.exists) {
+                let docData = doc.data()
+                // console.log("Document data:", docData);
+                currentUserObj.historyViewed = docData.historyViewed;
+                currentUserObj.tourbooked = docData.tourbooked;
+                currentUserObj.oldTours = docData.oldTours;
+            } else {
+                // doc.data() will be undefined in this case
+                console.log("No such document!");
+            }
+        }).catch(function(error) {
+            console.log("Error getting document:", error);
+        });
+        console.log('user sign in');
+        console.log(JSON.stringify(currentUserObj));
+        manageView();
+    } else {
+        // User is signed out.
+        currentUserObj.isLoggedIn = false;
+        currentUserObj.email = '';
+        currentUserObj.photoURL = '';
+        currentUserObj.historyViewed = '';
+        currentUserObj.tourbooked = ''
+        currentUserObj.oldTours = '';
+        console.log('user sign out');
+        console.log(currentUserObj);
+        window.localStorage.clear();
+        manageView();
+    }
+
+    console.groupEnd();
+});
