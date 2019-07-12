@@ -6,8 +6,38 @@ function dynamicallyLoadScript(url, defer = true, async = false) {
     document.head.appendChild(script); //Add it to the end of the head section of the page
 }
 
+function includeHTML() {
+    var z, i, elmnt, file, xhttp;
+    /* Loop through a collection of all HTML elements: */
+    z = document.getElementsByTagName("*");
+    for (i = 0; i < z.length; i++) {
+        elmnt = z[i];
+        /*search for elements with a certain atrribute:*/
+        file = elmnt.getAttribute("include-html");
+        if (file) {
+            /* Make an HTTP request using the attribute value as the file name: */
+            xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4) {
+                    if (this.status == 200) { elmnt.innerHTML = this.responseText; }
+                    if (this.status == 404) { elmnt.innerHTML = "Page not found."; }
+                    /* Remove the attribute, and call this function once more: */
+                    elmnt.removeAttribute("include-html");
+                    includeHTML();
+                }
+            }
+            xhttp.open("GET", file, true);
+            xhttp.send();
+            /* Exit the function: */
+            return;
+        }
+    }
+}
+
 // Add responsive top nav library
 dynamicallyLoadScript('/thang-long-tour/comp/top-nav.js')
+// add include html 
+includeHTML();
 
 // Các hàm bật/tắt popover
 let eleTopnavPopover = document.getElementById("topnav");
@@ -43,8 +73,8 @@ function togglePopover(id) {
 
 function hidePopover(id) {
     // console.group("hidePopover");
-// console.trace();
-// console.groupEnd();
+    // console.trace();
+    // console.groupEnd();
     let elePopover = document.getElementById(id);
     elePopover.setAttribute("hidden", "");
     event.stopPropagation()
@@ -142,6 +172,102 @@ function displayTours(productData, page, elemID, maxItemPerRow = 3, maxRow = 4) 
     return numbOfPage;
 }
 
+function filterCondition(productData, conditionObj) {
+    // Lọc product với điều kiện tất cả condition phải thỏa mãn.
+    // Bỏ qua trường hợp condition không tồn tại.
+    console.group("filterCondition()");
+    let newProductData = {};
+    for (id in productData) {
+        // console.group("id: " + id);
+        let product = productData[id];
+        let isProductPass = true;
+        // console.log(JSON.stringify(newProductData));
+        for (key in conditionObj) {
+            // console.log("key: " + key);
+            // console.log("conditionObj[key]: " + conditionObj[key]);
+            // console.log("product[key]: " + product[key]);
+            // debugger;
+            if (!conditionObj[key] || conditionObj[key] == 'null') {
+                // console.log('conditionObj[key] is undefine or null');
+                continue;
+            }
+            if (!product[key]) {
+                // console.log('product[key] is undefine');
+                continue;
+            }
+            if (product[key] != conditionObj[key]) {
+                // console.log('delete product: ' + id);
+                isProductPass = false;
+                break;
+            }
+        }
+        if (!isProductPass) {
+            // console.log('item is not added to new productData');
+            // console.groupEnd();
+            continue;
+        }
+        // console.log('item is added to newProductData');
+        newProductData[id] = JSON.parse(JSON.stringify(productData[id]));
+        // console.groupEnd();
+    }
+
+    console.groupEnd();
+    return newProductData;
+}
+
+function filterConditionArr(productData, conditionArr) {
+    // Lọc data với điều kiện đầu vào là 1 array
+    // Tất cả các điều kiện trong condition array phải được thỏa mãn
+    console.group("filterConditionArr()");
+    let newProductData = {};
+    for (id in productData) {
+        // console.group("id: " + id);
+        let productTripTypeValues = productData[id]['trip-type'];
+        // console.log("product[trip-type]: " + productTripTypeValues);
+        // console.log('conditionArr: ' + conditionArr);
+        let isProductPass = true;
+        // console.log(JSON.stringify(newProductData));
+        if (productTripTypeValues) {
+            isProductPass = isArrContain(conditionArr, productTripTypeValues)
+        }
+
+        if (!isProductPass) {
+            // console.log('item is not added to new productData');
+            // console.groupEnd();
+            continue;
+        }
+
+        // console.log('item is added to newProductData');
+        newProductData[id] = JSON.parse(JSON.stringify(productData[id]));
+        // console.groupEnd();
+
+    }
+
+    console.groupEnd();
+    return newProductData;
+}
+
+function isArrContain(smallArr, bigArr) {
+    // Hàm check xem array lớn có chứa tất cả các phần tử của array nhỏ hay không
+    // console.group('isArrContain');
+    for (small of smallArr) {
+        let isContain = false;
+        for (big of bigArr) {
+            if (small == big) {
+                isContain = true;
+                break;
+            }
+        }
+        if (isContain == false) {
+            // console.groupEnd();
+            return false;
+        }
+
+    }
+    // console.groupEnd();
+    return true;
+}
+
 function displayPlaces(productData, elemID, maxItemPerRow = 3, maxRow = 4) {
     // Khai báo hiển thị dữ liệu từ data
     let maxItemPerPage = maxRow * maxItemPerRow;
@@ -225,3 +351,20 @@ function displayBlogs(productData, elemID, maxItemPerRow = 3, maxRow = 4) {
     elem += `</div>`
     document.getElementById(elemID).innerHTML = elem;
 }
+
+// Tạo object lưu thông tin về user
+let currentUserObj = {
+    isLoggedIn: false,
+    tourbooked: null,
+    historyViewed: [],
+    oldTours: []
+}
+
+// Lấy thông tin về lịch sử duyệt web từ localStorage
+console.group('Lấy thông tin về lịch sử duyệt web từ localStorage')
+if (localStorage.getItem('historyViewed')) {
+    currentUserObj.historyViewed = JSON.parse(localStorage.getItem('historyViewed'));
+    // console.log(currentUserObj.historyViewed);
+}
+// console.log(currentUserObj);
+console.groupEnd();

@@ -25,17 +25,17 @@ function initApp() {
 
         if (user) {
             // User is signed in.
+            currentUserObj.isLoggedIn = true;
             currentUserObj.displayName = user.displayName;
             currentUserObj.email = user.email;
             currentUserObj.photoURL = user.photoURL;
-            console.log(currentUserObj);
             // get user data from database
-            var docRef = db.collection("users").doc(currentUserObj.email);
+            let docRef = db.collection("users").doc(currentUserObj.email);
 
             docRef.get().then(function(doc) {
                 if (doc.exists) {
                     let docData = doc.data()
-                    console.log("Document data:", docData);
+                    // console.log("Document data:", docData);
                     currentUserObj.historyViewed = docData.historyViewed;
                     currentUserObj.tourbooked = docData.tourbooked;
                     currentUserObj.oldTours = docData.oldTours;
@@ -46,8 +46,19 @@ function initApp() {
             }).catch(function(error) {
                 console.log("Error getting document:", error);
             });
+            console.log('user sign in');
+            console.log(JSON.stringify(currentUserObj));
         } else {
             // User is signed out.
+            currentUserObj.isLoggedIn = false;
+            currentUserObj.email = '';
+            currentUserObj.photoURL = '';
+            currentUserObj.historyViewed = '';
+            currentUserObj.tourbooked = ''
+            currentUserObj.oldTours = '';
+            console.log('user sign out');
+            console.log(currentUserObj);
+            window.localStorage.clear();
         }
     });
 }
@@ -58,26 +69,7 @@ window.onload = function() {
 // Initialize an instance of Cloud Firestore:
 var db = firebase.firestore();
 
-// Tạo object lưu thông tin về user
-let currentUserObj = {
-    isLoggedIn: false,
-    tourbooked: null,
-    historyViewed: [],
-    oldTours: []
-}
 
-// Lấy thông tin về lịch sử duyệt web từ localStorage
-if (localStorage.getItem('historyViewed')) {
-    currentUserObj.historyViewed = JSON.parse(localStorage.getItem('historyViewed'));
-    console.log(currentUserObj.historyViewed);
-}
-// Thêm data vào lịch sử nếu ko phải là reload trang
-if (currentUserObj.historyViewed[currentUserObj.historyViewed.length - 1] != window.location.pathname) {
-    currentUserObj.historyViewed.push(window.location.pathname);
-    localStorage.setItem('historyViewed', JSON.stringify(currentUserObj.historyViewed));
-}
-
-console.log(currentUserObj);
 
 function submitSignUp(event) {
     // Khi người dùng submit form đăng ký    
