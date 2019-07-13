@@ -16,12 +16,11 @@
 /* Style the links inside the navigation bar */
 .topnav>a,
 .topnav>.a {
-    /* display: block; */
-    /* color: #f2f2f2; */
+    display: block;
+    color: #f2f2f2;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-    font-size: 17px;
 }
 
 /* Change the color of links on hover */
@@ -69,6 +68,10 @@
 
 /* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens (display the links vertically instead of horizontally) */
 @media screen and (max-width: 600px) {
+
+    .topnav.responsive {
+        background-color: rgba(0, 0, 0, 0.8);
+    }
 
     .topnav.responsive>a:not(:first-child),
     .topnav.responsive>.a:not(:first-child) {
