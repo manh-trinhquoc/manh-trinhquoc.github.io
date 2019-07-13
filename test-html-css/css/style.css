@@ -169,7 +169,8 @@ h3 {
   height: 970px;
   background-color: #313A5A;
   position: relative;
-  margin-top: 200px; }
+  margin-top: 200px;
+  overflow-x: hidden; }
   .testimonial .left {
     width: 40%;
     background-color: #F8F9FC;

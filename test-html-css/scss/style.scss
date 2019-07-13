@@ -274,6 +274,7 @@ h3 {
     background-color: $second-color;
     position: relative;
     margin-top: $padding-xl;
+    overflow-x: hidden;
 
     .left {
         width: 40%;
