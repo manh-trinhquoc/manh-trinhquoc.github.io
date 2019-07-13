@@ -223,12 +223,6 @@ h3 {
         }
     }
 
-    .active {
-        border-top: 2px solid blue;
-        background-color: white;
-
-    }
-
     .col {
 
         padding: $padding-md 0;
@@ -244,6 +238,16 @@ h3 {
         }
     }
 
+    .active {
+        border-top: 2px solid blue;
+        background-color: white;
+        -webkit-box-shadow: 0px 0px 15px 0px rgba(50, 50, 50, 0.75);
+        -moz-box-shadow: 0px 0px 15px 0px rgba(50, 50, 50, 0.75);
+        box-shadow: 0px 0px 15px 0px rgba(50, 50, 50, 0.75);
+        padding-bottom: $padding-md*2;
+
+    }
+
     .big-text {
         font-size: get-rem(72px);
         line-height: get-rem(64px);
@@ -254,7 +258,7 @@ h3 {
 
     .btn-wrapper {
         position: absolute;
-        bottom: 0;
+        bottom: $padding-md;
         width: 100%;
     }
 
@@ -308,13 +312,36 @@ h3 {
         margin: $padding-sm*2;
         padding: $padding-md;
 
+
+        p {
+            font-size: get-rem(18px);
+            line-height: get-rem(36px);
+
+            &:last-child {
+                padding-top: $padding-normal;
+            }
+        }
+
         &:first-child {
             background-color: $main-color;
+            -webkit-box-shadow: 0px 0px 15px 0px rgba(50, 50, 50, 0.75);
+            -moz-box-shadow: 0px 0px 15px 0px rgba(50, 50, 50, 0.75);
+            box-shadow: 0px 0px 15px 0px rgba(50, 50, 50, 0.75);
+            color: white;
+
+            span {
+                color: white !important;
+            }
         }
 
         img {
             width: 50px;
             height: 40px;
+        }
+
+        span:first-child {
+            color: $text-dark;
+            font-weight: 600;
         }
     }
 }

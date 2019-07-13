@@ -133,9 +133,6 @@ h3 {
       .pricing .monthly span:last-child {
         border-left: none;
         background-color: #AEFDD9; }
-  .pricing .active {
-    border-top: 2px solid blue;
-    background-color: white; }
   .pricing .col {
     padding: 60px 0;
     position: relative; }
@@ -144,6 +141,13 @@ h3 {
     .pricing .col .follow {
       padding-top: 0;
       padding-bottom: 60px; }
+  .pricing .active {
+    border-top: 2px solid blue;
+    background-color: white;
+    -webkit-box-shadow: 0px 0px 15px 0px rgba(50, 50, 50, 0.75);
+    -moz-box-shadow: 0px 0px 15px 0px rgba(50, 50, 50, 0.75);
+    box-shadow: 0px 0px 15px 0px rgba(50, 50, 50, 0.75);
+    padding-bottom: 120px; }
   .pricing .big-text {
     font-size: 4.5rem;
     line-height: 4rem;
@@ -152,7 +156,7 @@ h3 {
     margin-top: 0; }
   .pricing .btn-wrapper {
     position: absolute;
-    bottom: 0;
+    bottom: 60px;
     width: 100%; }
 
 .row {
@@ -198,11 +202,25 @@ h3 {
     background-color: #F8F9FC;
     margin: 20px;
     padding: 60px; }
+    .testimonial .card p {
+      font-size: 1.125rem;
+      line-height: 2.25rem; }
+      .testimonial .card p:last-child {
+        padding-top: 30px; }
     .testimonial .card:first-child {
-      background-color: #1FDB84; }
+      background-color: #1FDB84;
+      -webkit-box-shadow: 0px 0px 15px 0px rgba(50, 50, 50, 0.75);
+      -moz-box-shadow: 0px 0px 15px 0px rgba(50, 50, 50, 0.75);
+      box-shadow: 0px 0px 15px 0px rgba(50, 50, 50, 0.75);
+      color: white; }
+      .testimonial .card:first-child span {
+        color: white !important; }
     .testimonial .card img {
       width: 50px;
       height: 40px; }
+    .testimonial .card span:first-child {
+      color: #32325C;
+      font-weight: 600; }
 
 .circle {
   width: 20px;
