@@ -1,6 +1,6 @@
 // Tạo request lấy data từ file json sau đó hiển thị
 let xmlhttp = new XMLHttpRequest();
-let url = "/thang-long-tour/json/blogs.json";
+let url = "json/blogs.json";
 let allBlogsData = {};
 
 xmlhttp.open("GET", url, true);

@@ -11,8 +11,15 @@ function signOut() {
     console.group('signOut');
     firebase.auth().signOut().then(function() {
         // Sign-out successful.
-        console.log('Sign-out successful.')
-
+        console.log('Sign-out successful.');
+        currentUserObj.isLoggedIn = false;
+        currentUserObj.email = '';
+        currentUserObj.photoURL = '';
+        currentUserObj.historyViewed = '';
+        currentUserObj.tourbooked = ''
+        currentUserObj.oldTours = '';
+        // thay thế nút bấm
+        manageView();
     }).catch(function(error) {
         // An error happened.
         console.log('Sign-out error');
@@ -20,7 +27,17 @@ function signOut() {
     });
     console.groupEnd();
     toggleRegisterDropdown();
-
-    // thay thế nút bấm
-    manageView();
 }
+
+function executeQuery() {
+    var input = document.getElementById('cse-search-input-box-id');
+    var element = google.search.cse.element.getElement('searchresults-only0');
+    if (input.value == '') {
+        element.clearAllResults();
+    } else {
+        element.execute(input.value);
+    }
+    return false;
+}
+
+loadScript('https://cse.google.com/cse.js?cx=017304219906317488510:iiffvytem58', false, true);

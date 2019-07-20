@@ -1,6 +1,6 @@
 // Tạo request lấy data từ file json sau đó hiển thị
 let xmlhttp = new XMLHttpRequest();
-let url = "/thang-long-tour/json/tours.json";
+let url = "json/tours.json";
 xmlhttp.open("GET", url, true);
 xmlhttp.send();
 xmlhttp.onreadystatechange = function() {
@@ -15,23 +15,5 @@ xmlhttp.onreadystatechange = function() {
         // show tour đã xem gần đây
         visibleTours = getRecentlyViewedTours(allToursData, currentUserObj.historyViewed);
         displayTours(visibleTours, undefined, "filter-history", 4, 2);
-
     }
 };
-
-function getRecentlyViewedTours(productData, historyViewedArr) {
-    // Lọc tour với điều kiện product id nằm trong lịch sử xem tour
-    console.group('getRecentlyViewedTours()');
-
-    let newProductData = {};
-    for (tourID of historyViewedArr) {
-        for (id in productData) {
-            if (id == tourID) {
-                newProductData[id] = JSON.parse(JSON.stringify(productData[id]));
-            }
-        }
-    }
-
-    console.groupEnd();
-    return newProductData;
-}

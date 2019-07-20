@@ -274,7 +274,7 @@ function sortTours(productData, sortCommand) {
 
 // Tạo request lấy data từ file json sau đó hiển thị
 let xmlhttp = new XMLHttpRequest();
-let url = "/thang-long-tour/json/tours.json";
+let url = "json/tours.json";
 xmlhttp.open("GET", url, true);
 xmlhttp.send();
 xmlhttp.onreadystatechange = function() {

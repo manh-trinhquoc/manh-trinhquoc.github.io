@@ -5,8 +5,8 @@
         "name-full": "DU LỊCH NHẬT BẢN",
         "upload-date": "2018-08-01",
         "location-related": ["Nhật Bản"],
-        "img": ["/thang-long-tour/img/b001.jpg"],
-        "link": "b001.html"
+        "img": ["img/b001.jpg"],
+        "link": "html/b001.html"
     },
     "B002":
     {
@@ -14,8 +14,8 @@
         "name-full": "MUA SẮM Ở LHASA, TÂY TẠNG",
         "upload-date": "2018-08-01",
         "location-related": ["Tây Tạng"],
-        "img": ["/thang-long-tour/img/b002.jpg"],
-        "link": "b002.html"
+        "img": ["img/b002.jpg"],
+        "link": "html/b002.html"
     },
     "B003":
     {
@@ -23,8 +23,8 @@
         "name-full": "NHỮNG ĐIỀU CHÚ Ý KHI ĐI DU LỊCH CHÂU ÂU",
         "upload-date": "2018-08-01",
         "location-related": ["Pháp"],
-        "img": ["/thang-long-tour/img/b003.jpg"],
-        "link": "b003.html"
+        "img": ["img/b003.jpg"],
+        "link": "html/b003.html"
     },
     "B004":
     {
@@ -32,8 +32,8 @@
         "name-full": "Đến Huế uống bia “của Huế”",
         "upload-date": "2018-09-01",
         "location-related": ["Đà Nẵng"],
-        "img": ["/thang-long-tour/img/b004.jpg"],
-        "link": "b004.html"
+        "img": ["img/b004.jpg"],
+        "link": "html/b004.html"
     },
     "B005":
     {
@@ -41,8 +41,8 @@
         "name-full": "Rong ruổi miền Tây bằng xe máy có núi, có sông, có hồ, có biển.",
         "upload-date": "2019-09-01",
         "location-related": ["Sapa"],
-        "img": ["/thang-long-tour/img/b005.jpg"],
-        "link": "b005.html"
+        "img": ["img/b005.jpg"],
+        "link": "html/b005.html"
     },
     "B006":
     {
@@ -50,8 +50,8 @@
         "name-full": "Canon 80D thích hợp cho dân du lịch thich chụp hình và quay phim",
         "upload-date": "2019-09-01",
         "location-related": [],
-        "img": ["/thang-long-tour/img/b006.jpg"],
-        "link": "b006.html"
+        "img": ["img/b006.jpg"],
+        "link": "html/b006.html"
     },
     "B007":
     {
@@ -59,8 +59,8 @@
         "name-full": "Kinh nghiệm sử dụng thẻ an toàn khi đặt phòng online",
         "upload-date": "2019-09-21",
         "location-related": [],
-        "img": ["/thang-long-tour/img/b007.jpg"],
-        "link": "b007.html"
+        "img": ["img/b007.jpg"],
+        "link": "html/b007.html"
     },
     "B008":
     {
@@ -68,8 +68,8 @@
         "name-full": "8 lý do thuyết phục bạn nhất định phải đến Nhật Bản vào mùa xuân này",
         "upload-date": "2019-09-21",
         "location-related": ["Nhật Bản"],
-        "img": ["/thang-long-tour/img/b008.jpg"],
-        "link": "b008.html"
+        "img": ["img/b008.jpg"],
+        "link": "html/b008.html"
     },
     "B009":
     {
@@ -77,8 +77,8 @@
         "name-full": "BÍ KÍP CHO HỘI CHỊ EM DU LỊCH TỰ TÚC KUALA LUMPUR VỚI LỊCH TRÌNH 4N4Đ",
         "upload-date": "2019-09-22",
         "location-related": [],
-        "img": ["/thang-long-tour/img/b009.jpg"],
-        "link": "b009.html"
+        "img": ["img/b009.jpg"],
+        "link": "html/b009.html"
     },
     "B010":
     {
@@ -86,7 +86,7 @@
         "name-full": "TRẢI NGHIỆM ĐI HÁI CHERRY TẠI US",
         "upload-date": "2019-09-22",
         "location-related": ["Hoa Kỳ"],
-        "img": ["/thang-long-tour/img/b010.jpg"],
-        "link": "b010.html"
+        "img": ["img/b010.jpg"],
+        "link": "html/b010.html"
     }
 }
