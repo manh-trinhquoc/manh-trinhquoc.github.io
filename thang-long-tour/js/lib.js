@@ -157,7 +157,7 @@ function displayTours(productData, page, elemID, maxItemPerRow = 3, maxRow = 4) 
                             <div class="card__img">
                                 <img src="${product.img[0]}" alt="demo image" />`
         if (product['sale-off'] < 0) {
-            elem += `<div class="card__sale">${product['sale-off']}</div>`
+            elem += `<div class="card__sale">${convertNumbToString(product['sale-off'])}</div>`
         }
 
         elem += `</div>
