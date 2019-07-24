@@ -4,6 +4,8 @@
 .filter {
     @include container;
     position: relative;
+    color: $text-color-darker-1;
+    @include media(flex-wrap, nowrap, 760px);
 
     &__form {
         background-color: $page-color-darker;
@@ -37,7 +39,6 @@
 
         p {
             padding-left: $padding-sm;
-            color: $text-color;
         }
     }
 
@@ -77,9 +78,9 @@
     bottom: 0;
     @extend %d-flex_center;
     @include media(padding-right, $padding-md);
+    color: $text-color-darker-1;
 
     a {
-        color: $text-color;
         padding: $padding-sm;
         display: inline-block;
         min-width: $search-height;
@@ -127,7 +128,6 @@
     }
 
     &__address {
-        color: $text-color-darker;
         padding-top: $padding-sm;
     }
 }

@@ -1,4 +1,4 @@
 cd F:\manh-trinhquoc.github.io
 git add .
-git commit -m "thang-long-tour: v1.0 beta"
+git commit -m "thang-long-tour: release v1.0"
 git push

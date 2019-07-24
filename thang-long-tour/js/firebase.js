@@ -1,12 +1,3 @@
-function clearCurrentUserInfo() {
-    currentUserObj.isLoggedIn = false;
-    currentUserObj.email = '';
-    currentUserObj.photoURL = '';
-    currentUserObj.historyViewed = '';
-    currentUserObj.tourbooked = ''
-    currentUserObj.oldTours = '';
-}
-
 function autoFillInput() {
     console.group('autoFillInput');
     let elem = document.getElementById('js-user-name');
@@ -19,6 +10,7 @@ function autoFillInput() {
     elem.value = currentUserObj.phone;
     elem = document.getElementById('js-user-email');
     elem.value = currentUserObj.email;
+    // document.getElementById('js-user-pass').value = currentUserObj.password;
     console.groupEnd();
 }
 
@@ -33,24 +25,22 @@ function initApp() {
         console.group('firebas.auth.onAuthStateChanged');
         if (user) {
             // User is signed in.
-            currentUserObj.isAppInitialized = true;
+            currentUserObj.isAuthInitialized = true;
             currentUserObj.isLoggedIn = true;
             currentUserObj.email = user.email;
-            currentUserObj.photoURL = user.photoURL;
             // get user data from database
             let docRef = db.collection("users").doc(currentUserObj.email);
             // console.log(user);
             docRef.get().then(function(doc) {
                 if (doc.exists) {
                     let docData = doc.data();
-                    // console.log("Document data:", docData);
-                    currentUserObj.historyViewed = docData.historyViewed;
                     currentUserObj.tourbooked = docData.tourbooked;
-                    currentUserObj.oldTours = docData.oldTours;
                     currentUserObj.phone = docData.phone;
-                    currentUserObj.displayName = docData.fullName;
-                    console.log(JSON.stringify(currentUserObj));
-                    autoFillInput()
+                    currentUserObj.displayName = docData.displayName;
+                    currentUserObj.fetchedProfile = true;
+                    currentUserObj.password = docData.password;
+                    // console.log(JSON.stringify(currentUserObj));
+                    autoFillInput();
                 } else {
                     // doc.data() will be undefined in this case
                     console.log("No such document!");
@@ -60,21 +50,16 @@ function initApp() {
             });
             console.log('user sign in');
 
-            manageView();
+
         } else {
-            // User is signed out.
-            if (!currentUserObj.isAppInitialized) {
-                currentUserObj.isAppInitialized = true;
-                console.groupEnd();
-                return;
+            // User is not logged-in.
+            if (!currentUserObj.isAuthInitialized) {
+                currentUserObj.isAuthInitialized = true;
             }
             currentUserObj.isLoggedIn = false;
-            clearCurrentUserInfo();
-            console.log('user sign out');
-            console.log(currentUserObj);
-            window.localStorage.clear();
-            manageView();
+            console.log('user not login');
         }
+        manageView();
         console.groupEnd();
     });
 }

@@ -1,5 +1,5 @@
 // Thêm data vào lịch sử nếu ko phải là reload trang
-console.log('Thêm lịch sử xem tour');
+// console.log('Thêm lịch sử xem tour');
 let tourID = window.location.href.split("=")[1];
 let lastID = currentUserObj.historyViewed[0]
 if (tourID != lastID) {
@@ -13,6 +13,7 @@ if (tourID != lastID) {
     for (; currentUserObj.historyViewed.length > 8;) {
         currentUserObj.historyViewed.pop();
     }
+    // ghi ngược vào local storage
     localStorage.setItem('historyViewed', JSON.stringify(currentUserObj.historyViewed));
     console.group('add tourID to historyViewed');
     console.log(JSON.stringify(currentUserObj.historyViewed));
@@ -24,16 +25,19 @@ let xmlhttp = new XMLHttpRequest();
 let url = "json/tours.json";
 xmlhttp.open("GET", url, true);
 xmlhttp.send();
+let allToursData = {};
 xmlhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-        let allToursData = JSON.parse(this.responseText);
+        allToursData = JSON.parse(this.responseText);
         // show tour detail
         let id = document.location.href.split('=')[1];
         showBookInfo(allToursData[id]);
         showDetailTour(allToursData[id]);
+
         // show tour tương tự
         visibleTours = getSimilar(allToursData, id);
         displayTours(visibleTours, undefined, "filter-similar-tour", 4, 2);
+
         // show tour đã xem gần đây
         visibleTours = getRecentlyViewedTours(allToursData, currentUserObj.historyViewed);
         displayTours(visibleTours, undefined, "filter-history", 4, 2);
@@ -80,4 +84,32 @@ function showBookInfo(tourObj) {
 
     document.getElementById('book-info').innerHTML = elem;
     document.getElementById('tour-title').innerText = tourObj['name-full'];
+}
+
+function submitBookTour() {
+    console.group('submitBookTour');
+    hidePopover('book-tour-popover');
+    let tourID = document.location.href.split('=')[1];
+    for (let each of currentUserObj.tourbooked) {
+        // nếu tour đã có trong list thì sẽ không thêm vào nữa
+        if (each.id == tourID) {
+            alert('Bạn đã đặt tour này từ trước');
+            console.groupEnd();
+            return;
+        }
+    }
+
+    let tour = JSON.parse(JSON.stringify(allToursData[tourID]));
+    tour.id = tourID;
+    currentUserObj.tourbooked.push(tour);
+
+    // book tour infomation được lưu vào database của firebase
+    db.collection("users").doc(currentUserObj.email).set(currentUserObj).then(function() {
+        alert('Bạn đã đặt tour thành công. \nHãy đến trang cá nhân để xem chi tiết.');
+    }).catch(function(error) {
+        console.error("lưu thông tin đặt tour thất bại: ", error);
+        alert('Đã xảy ra lỗi trong quá trình đặt tour. \nMời bạn thử lại sau.');
+    });
+
+    console.groupEnd();
 }

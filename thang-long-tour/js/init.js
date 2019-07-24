@@ -16,6 +16,7 @@ includeHTML().then(() => {
     await loadScript("https://www.gstatic.com/firebasejs/6.2.4/firebase-firestore.js");
     // custome xài firebase SDK load cuối 
     await loadScript("js/firebase.js");
+    console.log('firebase sdk finish loading');
 })();
 
 <!-- face book chat-->
@@ -38,14 +39,12 @@ window.fbAsyncInit = function() {
 
 // Tạo object lưu thông tin về user
 let currentUserObj = {
-    isAppInitialized: false,
+    isAuthInitialized: false,
     isLoggedIn: false,
-    tourbooked: null,
+    tourbooked: [],
     historyViewed: [],
-    oldTours: [],
     displayName: ''
-}
-
+};
 // Lấy thông tin về lịch sử duyệt web từ localStorage
 console.group('Lấy thông tin về lịch sử duyệt web từ localStorage')
 if (localStorage.getItem('historyViewed')) {
