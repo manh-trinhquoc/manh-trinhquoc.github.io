@@ -1,1 +1,1167 @@
-!function(t){"function"==typeof define&&define.amd?define("home",t):t()}(function(){"use strict";var t=function(e,n){return(t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,e){t.__proto__=e}||function(t,e){for(var n in e)e.hasOwnProperty(n)&&(t[n]=e[n])})(e,n)};function e(e,n){function i(){this.constructor=e}t(e,n),e.prototype=null===n?Object.create(n):(i.prototype=n.prototype,new i)}var n=function(){return(n=Object.assign||function(t){for(var e,n=1,i=arguments.length;n<i;n++)for(var o in e=arguments[n])Object.prototype.hasOwnProperty.call(e,o)&&(t[o]=e[o]);return t}).apply(this,arguments)};function i(t,e){var n="function"==typeof Symbol&&t[Symbol.iterator];if(!n)return t;var i,o,s=n.call(t),r=[];try{for(;(void 0===e||e-- >0)&&!(i=s.next()).done;)r.push(i.value)}catch(t){o={error:t}}finally{try{i&&!i.done&&(n=s.return)&&n.call(s)}finally{if(o)throw o.error}}return r}var o=function(){function t(t){void 0===t&&(t={}),this.adapter_=t}return Object.defineProperty(t,"cssClasses",{get:function(){return{}},enumerable:!0,configurable:!0}),Object.defineProperty(t,"strings",{get:function(){return{}},enumerable:!0,configurable:!0}),Object.defineProperty(t,"numbers",{get:function(){return{}},enumerable:!0,configurable:!0}),Object.defineProperty(t,"defaultAdapter",{get:function(){return{}},enumerable:!0,configurable:!0}),t.prototype.init=function(){},t.prototype.destroy=function(){},t}(),s=function(){function t(t,e){for(var n=[],o=2;o<arguments.length;o++)n[o-2]=arguments[o];this.root_=t,this.initialize.apply(this,function(){for(var t=[],e=0;e<arguments.length;e++)t=t.concat(i(arguments[e]));return t}(n)),this.foundation_=void 0===e?this.getDefaultFoundation():e,this.foundation_.init(),this.initialSyncWithDOM()}return t.attachTo=function(e){return new t(e,new o({}))},t.prototype.initialize=function(){for(var t=[],e=0;e<arguments.length;e++)t[e]=arguments[e]},t.prototype.getDefaultFoundation=function(){throw new Error("Subclasses must override getDefaultFoundation to return a properly configured foundation class")},t.prototype.initialSyncWithDOM=function(){},t.prototype.destroy=function(){this.foundation_.destroy()},t.prototype.listen=function(t,e){this.root_.addEventListener(t,e)},t.prototype.unlisten=function(t,e){this.root_.removeEventListener(t,e)},t.prototype.emit=function(t,e,n){var i;void 0===n&&(n=!1),"function"==typeof CustomEvent?i=new CustomEvent(t,{bubbles:n,detail:e}):(i=document.createEvent("CustomEvent")).initCustomEvent(t,n,!1,e),this.root_.dispatchEvent(i)},t}();function r(t,e){return(t.matches||t.webkitMatchesSelector||t.msMatchesSelector).call(t,e)}var c={LIST_ITEM_ACTIVATED_CLASS:"mdc-list-item--activated",LIST_ITEM_CLASS:"mdc-list-item",LIST_ITEM_SELECTED_CLASS:"mdc-list-item--selected",ROOT:"mdc-list"},a={ACTION_EVENT:"MDCList:action",ARIA_CHECKED:"aria-checked",ARIA_CHECKED_CHECKBOX_SELECTOR:'[role="checkbox"][aria-checked="true"]',ARIA_CHECKED_RADIO_SELECTOR:'[role="radio"][aria-checked="true"]',ARIA_ORIENTATION:"aria-orientation",ARIA_ORIENTATION_HORIZONTAL:"horizontal",ARIA_ROLE_CHECKBOX_SELECTOR:'[role="checkbox"]',ARIA_SELECTED:"aria-selected",CHECKBOX_RADIO_SELECTOR:'input[type="checkbox"]:not(:disabled), input[type="radio"]:not(:disabled)',CHECKBOX_SELECTOR:'input[type="checkbox"]:not(:disabled)',CHILD_ELEMENTS_TO_TOGGLE_TABINDEX:"\n    ."+c.LIST_ITEM_CLASS+" button:not(:disabled),\n    ."+c.LIST_ITEM_CLASS+" a\n  ",ENABLED_ITEMS_SELECTOR:".mdc-list-item:not(.mdc-list-item--disabled)",FOCUSABLE_CHILD_ELEMENTS:"\n    ."+c.LIST_ITEM_CLASS+" button:not(:disabled),\n    ."+c.LIST_ITEM_CLASS+" a,\n    ."+c.LIST_ITEM_CLASS+' input[type="radio"]:not(:disabled),\n    .'+c.LIST_ITEM_CLASS+' input[type="checkbox"]:not(:disabled)\n  ',RADIO_SELECTOR:'input[type="radio"]:not(:disabled)'},d=["input","button","textarea","select"];var u=function(t){function i(e){var o=t.call(this,n({},i.defaultAdapter,e))||this;return o.wrapFocus_=!1,o.isVertical_=!0,o.isSingleSelectionList_=!1,o.selectedIndex_=-1,o.focusedItemIndex_=-1,o.useActivatedClass_=!1,o.isCheckboxList_=!1,o.isRadioList_=!1,o}return e(i,t),Object.defineProperty(i,"strings",{get:function(){return a},enumerable:!0,configurable:!0}),Object.defineProperty(i,"cssClasses",{get:function(){return c},enumerable:!0,configurable:!0}),Object.defineProperty(i,"defaultAdapter",{get:function(){return{addClassForElementIndex:function(){},focusItemAtIndex:function(){},getFocusedElementIndex:function(){return 0},getListItemCount:function(){return 0},hasCheckboxAtIndex:function(){return!1},hasRadioAtIndex:function(){return!1},isCheckboxCheckedAtIndex:function(){return!1},isFocusInsideList:function(){return!1},notifyAction:function(){},removeClassForElementIndex:function(){},setAttributeForElementIndex:function(){},setCheckedCheckboxOrRadioAtIndex:function(){},setTabIndexForListItemChildren:function(){}}},enumerable:!0,configurable:!0}),i.prototype.layout=function(){0!==this.adapter_.getListItemCount()&&(this.adapter_.hasCheckboxAtIndex(0)?this.isCheckboxList_=!0:this.adapter_.hasRadioAtIndex(0)&&(this.isRadioList_=!0))},i.prototype.setWrapFocus=function(t){this.wrapFocus_=t},i.prototype.setVerticalOrientation=function(t){this.isVertical_=t},i.prototype.setSingleSelection=function(t){this.isSingleSelectionList_=t},i.prototype.setUseActivatedClass=function(t){this.useActivatedClass_=t},i.prototype.getSelectedIndex=function(){return this.selectedIndex_},i.prototype.setSelectedIndex=function(t){this.isIndexValid_(t)&&(this.isCheckboxList_?this.setCheckboxAtIndex_(t):this.isRadioList_?this.setRadioAtIndex_(t):this.setSingleSelectionAtIndex_(t))},i.prototype.handleFocusIn=function(t,e){e>=0&&this.adapter_.setTabIndexForListItemChildren(e,"0")},i.prototype.handleFocusOut=function(t,e){var n=this;e>=0&&this.adapter_.setTabIndexForListItemChildren(e,"-1"),setTimeout(function(){n.adapter_.isFocusInsideList()||n.setTabindexToFirstSelectedItem_()},0)},i.prototype.handleKeydown=function(t,e,n){var i="ArrowLeft"===t.key||37===t.keyCode,o="ArrowUp"===t.key||38===t.keyCode,s="ArrowRight"===t.key||39===t.keyCode,r="ArrowDown"===t.key||40===t.keyCode,c="Home"===t.key||36===t.keyCode,a="End"===t.key||35===t.keyCode,d="Enter"===t.key||13===t.keyCode,u="Space"===t.key||32===t.keyCode,l=this.adapter_.getFocusedElementIndex(),h=-1;if(!(-1===l&&(l=n)<0)){if(this.isVertical_&&r||!this.isVertical_&&s)this.preventDefaultEvent_(t),h=this.focusNextElement(l);else if(this.isVertical_&&o||!this.isVertical_&&i)this.preventDefaultEvent_(t),h=this.focusPrevElement(l);else if(c)this.preventDefaultEvent_(t),h=this.focusFirstElement();else if(a)this.preventDefaultEvent_(t),h=this.focusLastElement();else if((d||u)&&e){var _=t.target;if(_&&"A"===_.tagName&&d)return;this.preventDefaultEvent_(t),this.isSelectableList_()&&this.setSelectedIndexOnAction_(l),this.adapter_.notifyAction(l)}this.focusedItemIndex_=l,h>=0&&(this.setTabindexAtIndex_(h),this.focusedItemIndex_=h)}},i.prototype.handleClick=function(t,e){-1!==t&&(this.isSelectableList_()&&this.setSelectedIndexOnAction_(t,e),this.adapter_.notifyAction(t),this.setTabindexAtIndex_(t),this.focusedItemIndex_=t)},i.prototype.focusNextElement=function(t){var e=t+1;if(e>=this.adapter_.getListItemCount()){if(!this.wrapFocus_)return t;e=0}return this.adapter_.focusItemAtIndex(e),e},i.prototype.focusPrevElement=function(t){var e=t-1;if(e<0){if(!this.wrapFocus_)return t;e=this.adapter_.getListItemCount()-1}return this.adapter_.focusItemAtIndex(e),e},i.prototype.focusFirstElement=function(){return this.adapter_.focusItemAtIndex(0),0},i.prototype.focusLastElement=function(){var t=this.adapter_.getListItemCount()-1;return this.adapter_.focusItemAtIndex(t),t},i.prototype.preventDefaultEvent_=function(t){var e=(""+t.target.tagName).toLowerCase();-1===d.indexOf(e)&&t.preventDefault()},i.prototype.setSingleSelectionAtIndex_=function(t){var e=c.LIST_ITEM_SELECTED_CLASS;this.useActivatedClass_&&(e=c.LIST_ITEM_ACTIVATED_CLASS),this.selectedIndex_>=0&&this.selectedIndex_!==t&&(this.adapter_.removeClassForElementIndex(this.selectedIndex_,e),this.adapter_.setAttributeForElementIndex(this.selectedIndex_,a.ARIA_SELECTED,"false")),this.adapter_.addClassForElementIndex(t,e),this.adapter_.setAttributeForElementIndex(t,a.ARIA_SELECTED,"true"),this.selectedIndex_=t},i.prototype.setRadioAtIndex_=function(t){this.adapter_.setCheckedCheckboxOrRadioAtIndex(t,!0),this.selectedIndex_>=0&&this.adapter_.setAttributeForElementIndex(this.selectedIndex_,a.ARIA_CHECKED,"false"),this.adapter_.setAttributeForElementIndex(t,a.ARIA_CHECKED,"true"),this.selectedIndex_=t},i.prototype.setCheckboxAtIndex_=function(t){for(var e=0;e<this.adapter_.getListItemCount();e++){var n=!1;t.indexOf(e)>=0&&(n=!0),this.adapter_.setCheckedCheckboxOrRadioAtIndex(e,n),this.adapter_.setAttributeForElementIndex(e,a.ARIA_CHECKED,n?"true":"false")}this.selectedIndex_=t},i.prototype.setTabindexAtIndex_=function(t){-1===this.focusedItemIndex_&&0!==t?this.adapter_.setAttributeForElementIndex(0,"tabindex","-1"):this.focusedItemIndex_>=0&&this.focusedItemIndex_!==t&&this.adapter_.setAttributeForElementIndex(this.focusedItemIndex_,"tabindex","-1"),this.adapter_.setAttributeForElementIndex(t,"tabindex","0")},i.prototype.isSelectableList_=function(){return this.isSingleSelectionList_||this.isCheckboxList_||this.isRadioList_},i.prototype.setTabindexToFirstSelectedItem_=function(){var t=0;this.isSelectableList_()&&("number"==typeof this.selectedIndex_&&-1!==this.selectedIndex_?t=this.selectedIndex_:this.selectedIndex_ instanceof Array&&this.selectedIndex_.length>0&&(t=this.selectedIndex_.reduce(function(t,e){return Math.min(t,e)}))),this.setTabindexAtIndex_(t)},i.prototype.isIndexValid_=function(t){var e=this;if(t instanceof Array){if(!this.isCheckboxList_)throw new Error("MDCListFoundation: Array of index is only supported for checkbox based list");return 0===t.length||t.some(function(t){return e.isIndexInRange_(t)})}if("number"==typeof t){if(this.isCheckboxList_)throw new Error("MDCListFoundation: Expected array of index for checkbox based list but got number: "+t);return this.isIndexInRange_(t)}return!1},i.prototype.isIndexInRange_=function(t){var e=this.adapter_.getListItemCount();return t>=0&&t<e},i.prototype.setSelectedIndexOnAction_=function(t,e){void 0===e&&(e=!0),this.isCheckboxList_?this.toggleCheckboxAtIndex_(t,e):this.setSelectedIndex(t)},i.prototype.toggleCheckboxAtIndex_=function(t,e){var n=this.adapter_.isCheckboxCheckedAtIndex(t);e&&(n=!n,this.adapter_.setCheckedCheckboxOrRadioAtIndex(t,n)),this.adapter_.setAttributeForElementIndex(t,a.ARIA_CHECKED,n?"true":"false");var i=-1===this.selectedIndex_?[]:this.selectedIndex_.slice();n?i.push(t):i=i.filter(function(e){return e!==t}),this.selectedIndex_=i},i}(o);new(function(t){function n(){return null!==t&&t.apply(this,arguments)||this}return e(n,t),Object.defineProperty(n.prototype,"vertical",{set:function(t){this.foundation_.setVerticalOrientation(t)},enumerable:!0,configurable:!0}),Object.defineProperty(n.prototype,"listElements",{get:function(){return[].slice.call(this.root_.querySelectorAll(a.ENABLED_ITEMS_SELECTOR))},enumerable:!0,configurable:!0}),Object.defineProperty(n.prototype,"wrapFocus",{set:function(t){this.foundation_.setWrapFocus(t)},enumerable:!0,configurable:!0}),Object.defineProperty(n.prototype,"singleSelection",{set:function(t){this.foundation_.setSingleSelection(t)},enumerable:!0,configurable:!0}),Object.defineProperty(n.prototype,"selectedIndex",{get:function(){return this.foundation_.getSelectedIndex()},set:function(t){this.foundation_.setSelectedIndex(t)},enumerable:!0,configurable:!0}),n.attachTo=function(t){return new n(t)},n.prototype.initialSyncWithDOM=function(){this.handleClick_=this.handleClickEvent_.bind(this),this.handleKeydown_=this.handleKeydownEvent_.bind(this),this.focusInEventListener_=this.handleFocusInEvent_.bind(this),this.focusOutEventListener_=this.handleFocusOutEvent_.bind(this),this.listen("keydown",this.handleKeydown_),this.listen("click",this.handleClick_),this.listen("focusin",this.focusInEventListener_),this.listen("focusout",this.focusOutEventListener_),this.layout(),this.initializeListType()},n.prototype.destroy=function(){this.unlisten("keydown",this.handleKeydown_),this.unlisten("click",this.handleClick_),this.unlisten("focusin",this.focusInEventListener_),this.unlisten("focusout",this.focusOutEventListener_)},n.prototype.layout=function(){var t=this.root_.getAttribute(a.ARIA_ORIENTATION);this.vertical=t!==a.ARIA_ORIENTATION_HORIZONTAL,[].slice.call(this.root_.querySelectorAll(".mdc-list-item:not([tabindex])")).forEach(function(t){t.setAttribute("tabindex","-1")}),[].slice.call(this.root_.querySelectorAll(a.FOCUSABLE_CHILD_ELEMENTS)).forEach(function(t){return t.setAttribute("tabindex","-1")}),this.foundation_.layout()},n.prototype.initializeListType=function(){var t=this,e=this.root_.querySelectorAll(a.ARIA_ROLE_CHECKBOX_SELECTOR),n=this.root_.querySelector("\n      ."+c.LIST_ITEM_ACTIVATED_CLASS+",\n      ."+c.LIST_ITEM_SELECTED_CLASS+"\n    "),i=this.root_.querySelector(a.ARIA_CHECKED_RADIO_SELECTOR);if(e.length){var o=this.root_.querySelectorAll(a.ARIA_CHECKED_CHECKBOX_SELECTOR);this.selectedIndex=[].map.call(o,function(e){return t.listElements.indexOf(e)})}else n?(n.classList.contains(c.LIST_ITEM_ACTIVATED_CLASS)&&this.foundation_.setUseActivatedClass(!0),this.singleSelection=!0,this.selectedIndex=this.listElements.indexOf(n)):i&&(this.selectedIndex=this.listElements.indexOf(i))},n.prototype.getDefaultFoundation=function(){var t=this;return new u({addClassForElementIndex:function(e,n){var i=t.listElements[e];i&&i.classList.add(n)},focusItemAtIndex:function(e){var n=t.listElements[e];n&&n.focus()},getFocusedElementIndex:function(){return t.listElements.indexOf(document.activeElement)},getListItemCount:function(){return t.listElements.length},hasCheckboxAtIndex:function(e){return!!t.listElements[e].querySelector(a.CHECKBOX_SELECTOR)},hasRadioAtIndex:function(e){return!!t.listElements[e].querySelector(a.RADIO_SELECTOR)},isCheckboxCheckedAtIndex:function(e){return t.listElements[e].querySelector(a.CHECKBOX_SELECTOR).checked},isFocusInsideList:function(){return t.root_.contains(document.activeElement)},notifyAction:function(e){t.emit(a.ACTION_EVENT,{index:e},!0)},removeClassForElementIndex:function(e,n){var i=t.listElements[e];i&&i.classList.remove(n)},setAttributeForElementIndex:function(e,n,i){var o=t.listElements[e];o&&o.setAttribute(n,i)},setCheckedCheckboxOrRadioAtIndex:function(e,n){var i=t.listElements[e].querySelector(a.CHECKBOX_RADIO_SELECTOR);i.checked=n;var o=document.createEvent("Event");o.initEvent("change",!0,!0),i.dispatchEvent(o)},setTabIndexForListItemChildren:function(e,n){var i=t.listElements[e];[].slice.call(i.querySelectorAll(a.CHILD_ELEMENTS_TO_TOGGLE_TABINDEX)).forEach(function(t){return t.setAttribute("tabindex",n)})}})},n.prototype.getListItemIndex_=function(t){var e=function(t,e){if(t.closest)return t.closest(e);for(var n=t;n;){if(r(n,e))return n;n=n.parentElement}return null}(t.target,"."+c.LIST_ITEM_CLASS+", ."+c.ROOT);return e&&r(e,"."+c.LIST_ITEM_CLASS)?this.listElements.indexOf(e):-1},n.prototype.handleFocusInEvent_=function(t){var e=this.getListItemIndex_(t);this.foundation_.handleFocusIn(t,e)},n.prototype.handleFocusOutEvent_=function(t){var e=this.getListItemIndex_(t);this.foundation_.handleFocusOut(t,e)},n.prototype.handleKeydownEvent_=function(t){var e=this.getListItemIndex_(t),n=t.target;e>=0&&this.foundation_.handleKeydown(t,n.classList.contains(c.LIST_ITEM_CLASS),e)},n.prototype.handleClickEvent_=function(t){var e=this.getListItemIndex_(t),n=!r(t.target,a.CHECKBOX_RADIO_SELECTOR);this.foundation_.handleClick(e,n)},n}(s))(document.querySelector(".mdc-list"))});
+(function (factory) {
+    typeof define === 'function' && define.amd ? define('home', factory) :
+    factory();
+}(function () { 'use strict';
+
+    /*! *****************************************************************************
+    Copyright (c) Microsoft Corporation. All rights reserved.
+    Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+    this file except in compliance with the License. You may obtain a copy of the
+    License at http://www.apache.org/licenses/LICENSE-2.0
+
+    THIS CODE IS PROVIDED ON AN *AS IS* BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+    KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION ANY IMPLIED
+    WARRANTIES OR CONDITIONS OF TITLE, FITNESS FOR A PARTICULAR PURPOSE,
+    MERCHANTABLITY OR NON-INFRINGEMENT.
+
+    See the Apache Version 2.0 License for specific language governing permissions
+    and limitations under the License.
+    ***************************************************************************** */
+
+    /* global Reflect, Promise */
+    var extendStatics = function (d, b) {
+      extendStatics = Object.setPrototypeOf || {
+        __proto__: []
+      } instanceof Array && function (d, b) {
+        d.__proto__ = b;
+      } || function (d, b) {
+        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+      };
+
+      return extendStatics(d, b);
+    };
+
+    function __extends(d, b) {
+      extendStatics(d, b);
+
+      function __() {
+        this.constructor = d;
+      }
+
+      d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    }
+    var __assign = function () {
+      __assign = Object.assign || function __assign(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+          s = arguments[i];
+
+          for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
+        }
+
+        return t;
+      };
+
+      return __assign.apply(this, arguments);
+    };
+    function __read(o, n) {
+      var m = typeof Symbol === "function" && o[Symbol.iterator];
+      if (!m) return o;
+      var i = m.call(o),
+          r,
+          ar = [],
+          e;
+
+      try {
+        while ((n === void 0 || n-- > 0) && !(r = i.next()).done) ar.push(r.value);
+      } catch (error) {
+        e = {
+          error: error
+        };
+      } finally {
+        try {
+          if (r && !r.done && (m = i["return"])) m.call(i);
+        } finally {
+          if (e) throw e.error;
+        }
+      }
+
+      return ar;
+    }
+    function __spread() {
+      for (var ar = [], i = 0; i < arguments.length; i++) ar = ar.concat(__read(arguments[i]));
+
+      return ar;
+    }
+
+    /**
+     * @license
+     * Copyright 2016 Google Inc.
+     *
+     * Permission is hereby granted, free of charge, to any person obtaining a copy
+     * of this software and associated documentation files (the "Software"), to deal
+     * in the Software without restriction, including without limitation the rights
+     * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+     * copies of the Software, and to permit persons to whom the Software is
+     * furnished to do so, subject to the following conditions:
+     *
+     * The above copyright notice and this permission notice shall be included in
+     * all copies or substantial portions of the Software.
+     *
+     * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+     * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+     * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+     * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+     * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+     * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+     * THE SOFTWARE.
+     */
+    var MDCFoundation =
+    /** @class */
+    function () {
+      function MDCFoundation(adapter) {
+        if (adapter === void 0) {
+          adapter = {};
+        }
+
+        this.adapter_ = adapter;
+      }
+
+      Object.defineProperty(MDCFoundation, "cssClasses", {
+        get: function () {
+          // Classes extending MDCFoundation should implement this method to return an object which exports every
+          // CSS class the foundation class needs as a property. e.g. {ACTIVE: 'mdc-component--active'}
+          return {};
+        },
+        enumerable: true,
+        configurable: true
+      });
+      Object.defineProperty(MDCFoundation, "strings", {
+        get: function () {
+          // Classes extending MDCFoundation should implement this method to return an object which exports all
+          // semantic strings as constants. e.g. {ARIA_ROLE: 'tablist'}
+          return {};
+        },
+        enumerable: true,
+        configurable: true
+      });
+      Object.defineProperty(MDCFoundation, "numbers", {
+        get: function () {
+          // Classes extending MDCFoundation should implement this method to return an object which exports all
+          // of its semantic numbers as constants. e.g. {ANIMATION_DELAY_MS: 350}
+          return {};
+        },
+        enumerable: true,
+        configurable: true
+      });
+      Object.defineProperty(MDCFoundation, "defaultAdapter", {
+        get: function () {
+          // Classes extending MDCFoundation may choose to implement this getter in order to provide a convenient
+          // way of viewing the necessary methods of an adapter. In the future, this could also be used for adapter
+          // validation.
+          return {};
+        },
+        enumerable: true,
+        configurable: true
+      });
+
+      MDCFoundation.prototype.init = function () {// Subclasses should override this method to perform initialization routines (registering events, etc.)
+      };
+
+      MDCFoundation.prototype.destroy = function () {// Subclasses should override this method to perform de-initialization routines (de-registering events, etc.)
+      };
+
+      return MDCFoundation;
+    }();
+
+    /**
+     * @license
+     * Copyright 2016 Google Inc.
+     *
+     * Permission is hereby granted, free of charge, to any person obtaining a copy
+     * of this software and associated documentation files (the "Software"), to deal
+     * in the Software without restriction, including without limitation the rights
+     * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+     * copies of the Software, and to permit persons to whom the Software is
+     * furnished to do so, subject to the following conditions:
+     *
+     * The above copyright notice and this permission notice shall be included in
+     * all copies or substantial portions of the Software.
+     *
+     * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+     * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+     * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+     * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+     * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+     * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+     * THE SOFTWARE.
+     */
+
+    var MDCComponent =
+    /** @class */
+    function () {
+      function MDCComponent(root, foundation) {
+        var args = [];
+
+        for (var _i = 2; _i < arguments.length; _i++) {
+          args[_i - 2] = arguments[_i];
+        }
+
+        this.root_ = root;
+        this.initialize.apply(this, __spread(args)); // Note that we initialize foundation here and not within the constructor's default param so that
+        // this.root_ is defined and can be used within the foundation class.
+
+        this.foundation_ = foundation === undefined ? this.getDefaultFoundation() : foundation;
+        this.foundation_.init();
+        this.initialSyncWithDOM();
+      }
+
+      MDCComponent.attachTo = function (root) {
+        // Subclasses which extend MDCBase should provide an attachTo() method that takes a root element and
+        // returns an instantiated component with its root set to that element. Also note that in the cases of
+        // subclasses, an explicit foundation class will not have to be passed in; it will simply be initialized
+        // from getDefaultFoundation().
+        return new MDCComponent(root, new MDCFoundation({}));
+      };
+      /* istanbul ignore next: method param only exists for typing purposes; it does not need to be unit tested */
+
+
+      MDCComponent.prototype.initialize = function () {
+        var _args = [];
+
+        for (var _i = 0; _i < arguments.length; _i++) {
+          _args[_i] = arguments[_i];
+        } // Subclasses can override this to do any additional setup work that would be considered part of a
+        // "constructor". Essentially, it is a hook into the parent constructor before the foundation is
+        // initialized. Any additional arguments besides root and foundation will be passed in here.
+
+      };
+
+      MDCComponent.prototype.getDefaultFoundation = function () {
+        // Subclasses must override this method to return a properly configured foundation class for the
+        // component.
+        throw new Error('Subclasses must override getDefaultFoundation to return a properly configured ' + 'foundation class');
+      };
+
+      MDCComponent.prototype.initialSyncWithDOM = function () {// Subclasses should override this method if they need to perform work to synchronize with a host DOM
+        // object. An example of this would be a form control wrapper that needs to synchronize its internal state
+        // to some property or attribute of the host DOM. Please note: this is *not* the place to perform DOM
+        // reads/writes that would cause layout / paint, as this is called synchronously from within the constructor.
+      };
+
+      MDCComponent.prototype.destroy = function () {
+        // Subclasses may implement this method to release any resources / deregister any listeners they have
+        // attached. An example of this might be deregistering a resize event from the window object.
+        this.foundation_.destroy();
+      };
+
+      MDCComponent.prototype.listen = function (evtType, handler) {
+        this.root_.addEventListener(evtType, handler);
+      };
+
+      MDCComponent.prototype.unlisten = function (evtType, handler) {
+        this.root_.removeEventListener(evtType, handler);
+      };
+      /**
+       * Fires a cross-browser-compatible custom event from the component root of the given type, with the given data.
+       */
+
+
+      MDCComponent.prototype.emit = function (evtType, evtData, shouldBubble) {
+        if (shouldBubble === void 0) {
+          shouldBubble = false;
+        }
+
+        var evt;
+
+        if (typeof CustomEvent === 'function') {
+          evt = new CustomEvent(evtType, {
+            bubbles: shouldBubble,
+            detail: evtData
+          });
+        } else {
+          evt = document.createEvent('CustomEvent');
+          evt.initCustomEvent(evtType, shouldBubble, false, evtData);
+        }
+
+        this.root_.dispatchEvent(evt);
+      };
+
+      return MDCComponent;
+    }();
+
+    /**
+     * @license
+     * Copyright 2018 Google Inc.
+     *
+     * Permission is hereby granted, free of charge, to any person obtaining a copy
+     * of this software and associated documentation files (the "Software"), to deal
+     * in the Software without restriction, including without limitation the rights
+     * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+     * copies of the Software, and to permit persons to whom the Software is
+     * furnished to do so, subject to the following conditions:
+     *
+     * The above copyright notice and this permission notice shall be included in
+     * all copies or substantial portions of the Software.
+     *
+     * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+     * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+     * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+     * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+     * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+     * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+     * THE SOFTWARE.
+     */
+
+    /**
+     * @fileoverview A "ponyfill" is a polyfill that doesn't modify the global prototype chain.
+     * This makes ponyfills safer than traditional polyfills, especially for libraries like MDC.
+     */
+    function closest(element, selector) {
+      if (element.closest) {
+        return element.closest(selector);
+      }
+
+      var el = element;
+
+      while (el) {
+        if (matches(el, selector)) {
+          return el;
+        }
+
+        el = el.parentElement;
+      }
+
+      return null;
+    }
+    function matches(element, selector) {
+      var nativeMatches = element.matches || element.webkitMatchesSelector || element.msMatchesSelector;
+      return nativeMatches.call(element, selector);
+    }
+
+    /**
+     * @license
+     * Copyright 2018 Google Inc.
+     *
+     * Permission is hereby granted, free of charge, to any person obtaining a copy
+     * of this software and associated documentation files (the "Software"), to deal
+     * in the Software without restriction, including without limitation the rights
+     * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+     * copies of the Software, and to permit persons to whom the Software is
+     * furnished to do so, subject to the following conditions:
+     *
+     * The above copyright notice and this permission notice shall be included in
+     * all copies or substantial portions of the Software.
+     *
+     * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+     * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+     * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+     * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+     * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+     * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+     * THE SOFTWARE.
+     */
+    var cssClasses = {
+      LIST_ITEM_ACTIVATED_CLASS: 'mdc-list-item--activated',
+      LIST_ITEM_CLASS: 'mdc-list-item',
+      LIST_ITEM_SELECTED_CLASS: 'mdc-list-item--selected',
+      ROOT: 'mdc-list'
+    };
+    var strings = {
+      ACTION_EVENT: 'MDCList:action',
+      ARIA_CHECKED: 'aria-checked',
+      ARIA_CHECKED_CHECKBOX_SELECTOR: '[role="checkbox"][aria-checked="true"]',
+      ARIA_CHECKED_RADIO_SELECTOR: '[role="radio"][aria-checked="true"]',
+      ARIA_ORIENTATION: 'aria-orientation',
+      ARIA_ORIENTATION_HORIZONTAL: 'horizontal',
+      ARIA_ROLE_CHECKBOX_SELECTOR: '[role="checkbox"]',
+      ARIA_SELECTED: 'aria-selected',
+      CHECKBOX_RADIO_SELECTOR: 'input[type="checkbox"]:not(:disabled), input[type="radio"]:not(:disabled)',
+      CHECKBOX_SELECTOR: 'input[type="checkbox"]:not(:disabled)',
+      CHILD_ELEMENTS_TO_TOGGLE_TABINDEX: "\n    ." + cssClasses.LIST_ITEM_CLASS + " button:not(:disabled),\n    ." + cssClasses.LIST_ITEM_CLASS + " a\n  ",
+      ENABLED_ITEMS_SELECTOR: '.mdc-list-item:not(.mdc-list-item--disabled)',
+      FOCUSABLE_CHILD_ELEMENTS: "\n    ." + cssClasses.LIST_ITEM_CLASS + " button:not(:disabled),\n    ." + cssClasses.LIST_ITEM_CLASS + " a,\n    ." + cssClasses.LIST_ITEM_CLASS + " input[type=\"radio\"]:not(:disabled),\n    ." + cssClasses.LIST_ITEM_CLASS + " input[type=\"checkbox\"]:not(:disabled)\n  ",
+      RADIO_SELECTOR: 'input[type="radio"]:not(:disabled)'
+    };
+
+    /**
+     * @license
+     * Copyright 2018 Google Inc.
+     *
+     * Permission is hereby granted, free of charge, to any person obtaining a copy
+     * of this software and associated documentation files (the "Software"), to deal
+     * in the Software without restriction, including without limitation the rights
+     * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+     * copies of the Software, and to permit persons to whom the Software is
+     * furnished to do so, subject to the following conditions:
+     *
+     * The above copyright notice and this permission notice shall be included in
+     * all copies or substantial portions of the Software.
+     *
+     * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+     * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+     * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+     * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+     * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+     * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+     * THE SOFTWARE.
+     */
+    var ELEMENTS_KEY_ALLOWED_IN = ['input', 'button', 'textarea', 'select'];
+
+    function isNumberArray(selectedIndex) {
+      return selectedIndex instanceof Array;
+    }
+
+    var MDCListFoundation =
+    /** @class */
+    function (_super) {
+      __extends(MDCListFoundation, _super);
+
+      function MDCListFoundation(adapter) {
+        var _this = _super.call(this, __assign({}, MDCListFoundation.defaultAdapter, adapter)) || this;
+
+        _this.wrapFocus_ = false;
+        _this.isVertical_ = true;
+        _this.isSingleSelectionList_ = false;
+        _this.selectedIndex_ = -1;
+        _this.focusedItemIndex_ = -1;
+        _this.useActivatedClass_ = false;
+        _this.isCheckboxList_ = false;
+        _this.isRadioList_ = false;
+        return _this;
+      }
+
+      Object.defineProperty(MDCListFoundation, "strings", {
+        get: function () {
+          return strings;
+        },
+        enumerable: true,
+        configurable: true
+      });
+      Object.defineProperty(MDCListFoundation, "cssClasses", {
+        get: function () {
+          return cssClasses;
+        },
+        enumerable: true,
+        configurable: true
+      });
+      Object.defineProperty(MDCListFoundation, "defaultAdapter", {
+        get: function () {
+          return {
+            addClassForElementIndex: function () {
+              return undefined;
+            },
+            focusItemAtIndex: function () {
+              return undefined;
+            },
+            getFocusedElementIndex: function () {
+              return 0;
+            },
+            getListItemCount: function () {
+              return 0;
+            },
+            hasCheckboxAtIndex: function () {
+              return false;
+            },
+            hasRadioAtIndex: function () {
+              return false;
+            },
+            isCheckboxCheckedAtIndex: function () {
+              return false;
+            },
+            isFocusInsideList: function () {
+              return false;
+            },
+            notifyAction: function () {
+              return undefined;
+            },
+            removeClassForElementIndex: function () {
+              return undefined;
+            },
+            setAttributeForElementIndex: function () {
+              return undefined;
+            },
+            setCheckedCheckboxOrRadioAtIndex: function () {
+              return undefined;
+            },
+            setTabIndexForListItemChildren: function () {
+              return undefined;
+            }
+          };
+        },
+        enumerable: true,
+        configurable: true
+      });
+
+      MDCListFoundation.prototype.layout = function () {
+        if (this.adapter_.getListItemCount() === 0) {
+          return;
+        }
+
+        if (this.adapter_.hasCheckboxAtIndex(0)) {
+          this.isCheckboxList_ = true;
+        } else if (this.adapter_.hasRadioAtIndex(0)) {
+          this.isRadioList_ = true;
+        }
+      };
+      /**
+       * Sets the private wrapFocus_ variable.
+       */
+
+
+      MDCListFoundation.prototype.setWrapFocus = function (value) {
+        this.wrapFocus_ = value;
+      };
+      /**
+       * Sets the isVertical_ private variable.
+       */
+
+
+      MDCListFoundation.prototype.setVerticalOrientation = function (value) {
+        this.isVertical_ = value;
+      };
+      /**
+       * Sets the isSingleSelectionList_ private variable.
+       */
+
+
+      MDCListFoundation.prototype.setSingleSelection = function (value) {
+        this.isSingleSelectionList_ = value;
+      };
+      /**
+       * Sets the useActivatedClass_ private variable.
+       */
+
+
+      MDCListFoundation.prototype.setUseActivatedClass = function (useActivated) {
+        this.useActivatedClass_ = useActivated;
+      };
+
+      MDCListFoundation.prototype.getSelectedIndex = function () {
+        return this.selectedIndex_;
+      };
+
+      MDCListFoundation.prototype.setSelectedIndex = function (index) {
+        if (!this.isIndexValid_(index)) {
+          return;
+        }
+
+        if (this.isCheckboxList_) {
+          this.setCheckboxAtIndex_(index);
+        } else if (this.isRadioList_) {
+          this.setRadioAtIndex_(index);
+        } else {
+          this.setSingleSelectionAtIndex_(index);
+        }
+      };
+      /**
+       * Focus in handler for the list items.
+       */
+
+
+      MDCListFoundation.prototype.handleFocusIn = function (_, listItemIndex) {
+        if (listItemIndex >= 0) {
+          this.adapter_.setTabIndexForListItemChildren(listItemIndex, '0');
+        }
+      };
+      /**
+       * Focus out handler for the list items.
+       */
+
+
+      MDCListFoundation.prototype.handleFocusOut = function (_, listItemIndex) {
+        var _this = this;
+
+        if (listItemIndex >= 0) {
+          this.adapter_.setTabIndexForListItemChildren(listItemIndex, '-1');
+        }
+        /**
+         * Between Focusout & Focusin some browsers do not have focus on any element. Setting a delay to wait till the focus
+         * is moved to next element.
+         */
+
+
+        setTimeout(function () {
+          if (!_this.adapter_.isFocusInsideList()) {
+            _this.setTabindexToFirstSelectedItem_();
+          }
+        }, 0);
+      };
+      /**
+       * Key handler for the list.
+       */
+
+
+      MDCListFoundation.prototype.handleKeydown = function (evt, isRootListItem, listItemIndex) {
+        var arrowLeft = evt.key === 'ArrowLeft' || evt.keyCode === 37;
+        var arrowUp = evt.key === 'ArrowUp' || evt.keyCode === 38;
+        var arrowRight = evt.key === 'ArrowRight' || evt.keyCode === 39;
+        var arrowDown = evt.key === 'ArrowDown' || evt.keyCode === 40;
+        var isHome = evt.key === 'Home' || evt.keyCode === 36;
+        var isEnd = evt.key === 'End' || evt.keyCode === 35;
+        var isEnter = evt.key === 'Enter' || evt.keyCode === 13;
+        var isSpace = evt.key === 'Space' || evt.keyCode === 32;
+        var currentIndex = this.adapter_.getFocusedElementIndex();
+        var nextIndex = -1;
+
+        if (currentIndex === -1) {
+          currentIndex = listItemIndex;
+
+          if (currentIndex < 0) {
+            // If this event doesn't have a mdc-list-item ancestor from the
+            // current list (not from a sublist), return early.
+            return;
+          }
+        }
+
+        if (this.isVertical_ && arrowDown || !this.isVertical_ && arrowRight) {
+          this.preventDefaultEvent_(evt);
+          nextIndex = this.focusNextElement(currentIndex);
+        } else if (this.isVertical_ && arrowUp || !this.isVertical_ && arrowLeft) {
+          this.preventDefaultEvent_(evt);
+          nextIndex = this.focusPrevElement(currentIndex);
+        } else if (isHome) {
+          this.preventDefaultEvent_(evt);
+          nextIndex = this.focusFirstElement();
+        } else if (isEnd) {
+          this.preventDefaultEvent_(evt);
+          nextIndex = this.focusLastElement();
+        } else if (isEnter || isSpace) {
+          if (isRootListItem) {
+            // Return early if enter key is pressed on anchor element which triggers synthetic MouseEvent event.
+            var target = evt.target;
+
+            if (target && target.tagName === 'A' && isEnter) {
+              return;
+            }
+
+            this.preventDefaultEvent_(evt);
+
+            if (this.isSelectableList_()) {
+              this.setSelectedIndexOnAction_(currentIndex);
+            }
+
+            this.adapter_.notifyAction(currentIndex);
+          }
+        }
+
+        this.focusedItemIndex_ = currentIndex;
+
+        if (nextIndex >= 0) {
+          this.setTabindexAtIndex_(nextIndex);
+          this.focusedItemIndex_ = nextIndex;
+        }
+      };
+      /**
+       * Click handler for the list.
+       */
+
+
+      MDCListFoundation.prototype.handleClick = function (index, toggleCheckbox) {
+        if (index === -1) {
+          return;
+        }
+
+        if (this.isSelectableList_()) {
+          this.setSelectedIndexOnAction_(index, toggleCheckbox);
+        }
+
+        this.adapter_.notifyAction(index);
+        this.setTabindexAtIndex_(index);
+        this.focusedItemIndex_ = index;
+      };
+      /**
+       * Focuses the next element on the list.
+       */
+
+
+      MDCListFoundation.prototype.focusNextElement = function (index) {
+        var count = this.adapter_.getListItemCount();
+        var nextIndex = index + 1;
+
+        if (nextIndex >= count) {
+          if (this.wrapFocus_) {
+            nextIndex = 0;
+          } else {
+            // Return early because last item is already focused.
+            return index;
+          }
+        }
+
+        this.adapter_.focusItemAtIndex(nextIndex);
+        return nextIndex;
+      };
+      /**
+       * Focuses the previous element on the list.
+       */
+
+
+      MDCListFoundation.prototype.focusPrevElement = function (index) {
+        var prevIndex = index - 1;
+
+        if (prevIndex < 0) {
+          if (this.wrapFocus_) {
+            prevIndex = this.adapter_.getListItemCount() - 1;
+          } else {
+            // Return early because first item is already focused.
+            return index;
+          }
+        }
+
+        this.adapter_.focusItemAtIndex(prevIndex);
+        return prevIndex;
+      };
+
+      MDCListFoundation.prototype.focusFirstElement = function () {
+        this.adapter_.focusItemAtIndex(0);
+        return 0;
+      };
+
+      MDCListFoundation.prototype.focusLastElement = function () {
+        var lastIndex = this.adapter_.getListItemCount() - 1;
+        this.adapter_.focusItemAtIndex(lastIndex);
+        return lastIndex;
+      };
+      /**
+       * Ensures that preventDefault is only called if the containing element doesn't
+       * consume the event, and it will cause an unintended scroll.
+       */
+
+
+      MDCListFoundation.prototype.preventDefaultEvent_ = function (evt) {
+        var target = evt.target;
+        var tagName = ("" + target.tagName).toLowerCase();
+
+        if (ELEMENTS_KEY_ALLOWED_IN.indexOf(tagName) === -1) {
+          evt.preventDefault();
+        }
+      };
+
+      MDCListFoundation.prototype.setSingleSelectionAtIndex_ = function (index) {
+        var selectedClassName = cssClasses.LIST_ITEM_SELECTED_CLASS;
+
+        if (this.useActivatedClass_) {
+          selectedClassName = cssClasses.LIST_ITEM_ACTIVATED_CLASS;
+        }
+
+        if (this.selectedIndex_ >= 0 && this.selectedIndex_ !== index) {
+          this.adapter_.removeClassForElementIndex(this.selectedIndex_, selectedClassName);
+          this.adapter_.setAttributeForElementIndex(this.selectedIndex_, strings.ARIA_SELECTED, 'false');
+        }
+
+        this.adapter_.addClassForElementIndex(index, selectedClassName);
+        this.adapter_.setAttributeForElementIndex(index, strings.ARIA_SELECTED, 'true');
+        this.selectedIndex_ = index;
+      };
+      /**
+       * Toggles radio at give index. Radio doesn't change the checked state if it is already checked.
+       */
+
+
+      MDCListFoundation.prototype.setRadioAtIndex_ = function (index) {
+        this.adapter_.setCheckedCheckboxOrRadioAtIndex(index, true);
+
+        if (this.selectedIndex_ >= 0) {
+          this.adapter_.setAttributeForElementIndex(this.selectedIndex_, strings.ARIA_CHECKED, 'false');
+        }
+
+        this.adapter_.setAttributeForElementIndex(index, strings.ARIA_CHECKED, 'true');
+        this.selectedIndex_ = index;
+      };
+
+      MDCListFoundation.prototype.setCheckboxAtIndex_ = function (index) {
+        for (var i = 0; i < this.adapter_.getListItemCount(); i++) {
+          var isChecked = false;
+
+          if (index.indexOf(i) >= 0) {
+            isChecked = true;
+          }
+
+          this.adapter_.setCheckedCheckboxOrRadioAtIndex(i, isChecked);
+          this.adapter_.setAttributeForElementIndex(i, strings.ARIA_CHECKED, isChecked ? 'true' : 'false');
+        }
+
+        this.selectedIndex_ = index;
+      };
+
+      MDCListFoundation.prototype.setTabindexAtIndex_ = function (index) {
+        if (this.focusedItemIndex_ === -1 && index !== 0) {
+          // If no list item was selected set first list item's tabindex to -1.
+          // Generally, tabindex is set to 0 on first list item of list that has no preselected items.
+          this.adapter_.setAttributeForElementIndex(0, 'tabindex', '-1');
+        } else if (this.focusedItemIndex_ >= 0 && this.focusedItemIndex_ !== index) {
+          this.adapter_.setAttributeForElementIndex(this.focusedItemIndex_, 'tabindex', '-1');
+        }
+
+        this.adapter_.setAttributeForElementIndex(index, 'tabindex', '0');
+      };
+      /**
+       * @return Return true if it is single selectin list, checkbox list or radio list.
+       */
+
+
+      MDCListFoundation.prototype.isSelectableList_ = function () {
+        return this.isSingleSelectionList_ || this.isCheckboxList_ || this.isRadioList_;
+      };
+
+      MDCListFoundation.prototype.setTabindexToFirstSelectedItem_ = function () {
+        var targetIndex = 0;
+
+        if (this.isSelectableList_()) {
+          if (typeof this.selectedIndex_ === 'number' && this.selectedIndex_ !== -1) {
+            targetIndex = this.selectedIndex_;
+          } else if (isNumberArray(this.selectedIndex_) && this.selectedIndex_.length > 0) {
+            targetIndex = this.selectedIndex_.reduce(function (currentIndex, minIndex) {
+              return Math.min(currentIndex, minIndex);
+            });
+          }
+        }
+
+        this.setTabindexAtIndex_(targetIndex);
+      };
+
+      MDCListFoundation.prototype.isIndexValid_ = function (index) {
+        var _this = this;
+
+        if (index instanceof Array) {
+          if (!this.isCheckboxList_) {
+            throw new Error('MDCListFoundation: Array of index is only supported for checkbox based list');
+          }
+
+          if (index.length === 0) {
+            return true;
+          } else {
+            return index.some(function (i) {
+              return _this.isIndexInRange_(i);
+            });
+          }
+        } else if (typeof index === 'number') {
+          if (this.isCheckboxList_) {
+            throw new Error('MDCListFoundation: Expected array of index for checkbox based list but got number: ' + index);
+          }
+
+          return this.isIndexInRange_(index);
+        } else {
+          return false;
+        }
+      };
+
+      MDCListFoundation.prototype.isIndexInRange_ = function (index) {
+        var listSize = this.adapter_.getListItemCount();
+        return index >= 0 && index < listSize;
+      };
+
+      MDCListFoundation.prototype.setSelectedIndexOnAction_ = function (index, toggleCheckbox) {
+        if (toggleCheckbox === void 0) {
+          toggleCheckbox = true;
+        }
+
+        if (this.isCheckboxList_) {
+          this.toggleCheckboxAtIndex_(index, toggleCheckbox);
+        } else {
+          this.setSelectedIndex(index);
+        }
+      };
+
+      MDCListFoundation.prototype.toggleCheckboxAtIndex_ = function (index, toggleCheckbox) {
+        var isChecked = this.adapter_.isCheckboxCheckedAtIndex(index);
+
+        if (toggleCheckbox) {
+          isChecked = !isChecked;
+          this.adapter_.setCheckedCheckboxOrRadioAtIndex(index, isChecked);
+        }
+
+        this.adapter_.setAttributeForElementIndex(index, strings.ARIA_CHECKED, isChecked ? 'true' : 'false'); // If none of the checkbox items are selected and selectedIndex is not initialized then provide a default value.
+
+        var selectedIndexes = this.selectedIndex_ === -1 ? [] : this.selectedIndex_.slice();
+
+        if (isChecked) {
+          selectedIndexes.push(index);
+        } else {
+          selectedIndexes = selectedIndexes.filter(function (i) {
+            return i !== index;
+          });
+        }
+
+        this.selectedIndex_ = selectedIndexes;
+      };
+
+      return MDCListFoundation;
+    }(MDCFoundation);
+
+    /**
+     * @license
+     * Copyright 2018 Google Inc.
+     *
+     * Permission is hereby granted, free of charge, to any person obtaining a copy
+     * of this software and associated documentation files (the "Software"), to deal
+     * in the Software without restriction, including without limitation the rights
+     * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+     * copies of the Software, and to permit persons to whom the Software is
+     * furnished to do so, subject to the following conditions:
+     *
+     * The above copyright notice and this permission notice shall be included in
+     * all copies or substantial portions of the Software.
+     *
+     * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+     * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+     * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+     * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+     * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+     * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+     * THE SOFTWARE.
+     */
+
+    var MDCList =
+    /** @class */
+    function (_super) {
+      __extends(MDCList, _super);
+
+      function MDCList() {
+        return _super !== null && _super.apply(this, arguments) || this;
+      }
+
+      Object.defineProperty(MDCList.prototype, "vertical", {
+        set: function (value) {
+          this.foundation_.setVerticalOrientation(value);
+        },
+        enumerable: true,
+        configurable: true
+      });
+      Object.defineProperty(MDCList.prototype, "listElements", {
+        get: function () {
+          return [].slice.call(this.root_.querySelectorAll(strings.ENABLED_ITEMS_SELECTOR));
+        },
+        enumerable: true,
+        configurable: true
+      });
+      Object.defineProperty(MDCList.prototype, "wrapFocus", {
+        set: function (value) {
+          this.foundation_.setWrapFocus(value);
+        },
+        enumerable: true,
+        configurable: true
+      });
+      Object.defineProperty(MDCList.prototype, "singleSelection", {
+        set: function (isSingleSelectionList) {
+          this.foundation_.setSingleSelection(isSingleSelectionList);
+        },
+        enumerable: true,
+        configurable: true
+      });
+      Object.defineProperty(MDCList.prototype, "selectedIndex", {
+        get: function () {
+          return this.foundation_.getSelectedIndex();
+        },
+        set: function (index) {
+          this.foundation_.setSelectedIndex(index);
+        },
+        enumerable: true,
+        configurable: true
+      });
+
+      MDCList.attachTo = function (root) {
+        return new MDCList(root);
+      };
+
+      MDCList.prototype.initialSyncWithDOM = function () {
+        this.handleClick_ = this.handleClickEvent_.bind(this);
+        this.handleKeydown_ = this.handleKeydownEvent_.bind(this);
+        this.focusInEventListener_ = this.handleFocusInEvent_.bind(this);
+        this.focusOutEventListener_ = this.handleFocusOutEvent_.bind(this);
+        this.listen('keydown', this.handleKeydown_);
+        this.listen('click', this.handleClick_);
+        this.listen('focusin', this.focusInEventListener_);
+        this.listen('focusout', this.focusOutEventListener_);
+        this.layout();
+        this.initializeListType();
+      };
+
+      MDCList.prototype.destroy = function () {
+        this.unlisten('keydown', this.handleKeydown_);
+        this.unlisten('click', this.handleClick_);
+        this.unlisten('focusin', this.focusInEventListener_);
+        this.unlisten('focusout', this.focusOutEventListener_);
+      };
+
+      MDCList.prototype.layout = function () {
+        var direction = this.root_.getAttribute(strings.ARIA_ORIENTATION);
+        this.vertical = direction !== strings.ARIA_ORIENTATION_HORIZONTAL; // List items need to have at least tabindex=-1 to be focusable.
+
+        [].slice.call(this.root_.querySelectorAll('.mdc-list-item:not([tabindex])')).forEach(function (el) {
+          el.setAttribute('tabindex', '-1');
+        }); // Child button/a elements are not tabbable until the list item is focused.
+
+        [].slice.call(this.root_.querySelectorAll(strings.FOCUSABLE_CHILD_ELEMENTS)).forEach(function (el) {
+          return el.setAttribute('tabindex', '-1');
+        });
+        this.foundation_.layout();
+      };
+      /**
+       * Initialize selectedIndex value based on pre-selected checkbox list items, single selection or radio.
+       */
+
+
+      MDCList.prototype.initializeListType = function () {
+        var _this = this;
+
+        var checkboxListItems = this.root_.querySelectorAll(strings.ARIA_ROLE_CHECKBOX_SELECTOR);
+        var singleSelectedListItem = this.root_.querySelector("\n      ." + cssClasses.LIST_ITEM_ACTIVATED_CLASS + ",\n      ." + cssClasses.LIST_ITEM_SELECTED_CLASS + "\n    ");
+        var radioSelectedListItem = this.root_.querySelector(strings.ARIA_CHECKED_RADIO_SELECTOR);
+
+        if (checkboxListItems.length) {
+          var preselectedItems = this.root_.querySelectorAll(strings.ARIA_CHECKED_CHECKBOX_SELECTOR);
+          this.selectedIndex = [].map.call(preselectedItems, function (listItem) {
+            return _this.listElements.indexOf(listItem);
+          });
+        } else if (singleSelectedListItem) {
+          if (singleSelectedListItem.classList.contains(cssClasses.LIST_ITEM_ACTIVATED_CLASS)) {
+            this.foundation_.setUseActivatedClass(true);
+          }
+
+          this.singleSelection = true;
+          this.selectedIndex = this.listElements.indexOf(singleSelectedListItem);
+        } else if (radioSelectedListItem) {
+          this.selectedIndex = this.listElements.indexOf(radioSelectedListItem);
+        }
+      };
+
+      MDCList.prototype.getDefaultFoundation = function () {
+        var _this = this; // DO NOT INLINE this variable. For backward compatibility, foundations take a Partial<MDCFooAdapter>.
+        // To ensure we don't accidentally omit any methods, we need a separate, strongly typed adapter variable.
+
+
+        var adapter = {
+          addClassForElementIndex: function (index, className) {
+            var element = _this.listElements[index];
+
+            if (element) {
+              element.classList.add(className);
+            }
+          },
+          focusItemAtIndex: function (index) {
+            var element = _this.listElements[index];
+
+            if (element) {
+              element.focus();
+            }
+          },
+          getFocusedElementIndex: function () {
+            return _this.listElements.indexOf(document.activeElement);
+          },
+          getListItemCount: function () {
+            return _this.listElements.length;
+          },
+          hasCheckboxAtIndex: function (index) {
+            var listItem = _this.listElements[index];
+            return !!listItem.querySelector(strings.CHECKBOX_SELECTOR);
+          },
+          hasRadioAtIndex: function (index) {
+            var listItem = _this.listElements[index];
+            return !!listItem.querySelector(strings.RADIO_SELECTOR);
+          },
+          isCheckboxCheckedAtIndex: function (index) {
+            var listItem = _this.listElements[index];
+            var toggleEl = listItem.querySelector(strings.CHECKBOX_SELECTOR);
+            return toggleEl.checked;
+          },
+          isFocusInsideList: function () {
+            return _this.root_.contains(document.activeElement);
+          },
+          notifyAction: function (index) {
+            _this.emit(strings.ACTION_EVENT, {
+              index: index
+            },
+            /** shouldBubble */
+            true);
+          },
+          removeClassForElementIndex: function (index, className) {
+            var element = _this.listElements[index];
+
+            if (element) {
+              element.classList.remove(className);
+            }
+          },
+          setAttributeForElementIndex: function (index, attr, value) {
+            var element = _this.listElements[index];
+
+            if (element) {
+              element.setAttribute(attr, value);
+            }
+          },
+          setCheckedCheckboxOrRadioAtIndex: function (index, isChecked) {
+            var listItem = _this.listElements[index];
+            var toggleEl = listItem.querySelector(strings.CHECKBOX_RADIO_SELECTOR);
+            toggleEl.checked = isChecked;
+            var event = document.createEvent('Event');
+            event.initEvent('change', true, true);
+            toggleEl.dispatchEvent(event);
+          },
+          setTabIndexForListItemChildren: function (listItemIndex, tabIndexValue) {
+            var element = _this.listElements[listItemIndex];
+            var listItemChildren = [].slice.call(element.querySelectorAll(strings.CHILD_ELEMENTS_TO_TOGGLE_TABINDEX));
+            listItemChildren.forEach(function (el) {
+              return el.setAttribute('tabindex', tabIndexValue);
+            });
+          }
+        };
+        return new MDCListFoundation(adapter);
+      };
+      /**
+       * Used to figure out which list item this event is targetting. Or returns -1 if
+       * there is no list item
+       */
+
+
+      MDCList.prototype.getListItemIndex_ = function (evt) {
+        var eventTarget = evt.target;
+        var nearestParent = closest(eventTarget, "." + cssClasses.LIST_ITEM_CLASS + ", ." + cssClasses.ROOT); // Get the index of the element if it is a list item.
+
+        if (nearestParent && matches(nearestParent, "." + cssClasses.LIST_ITEM_CLASS)) {
+          return this.listElements.indexOf(nearestParent);
+        }
+
+        return -1;
+      };
+      /**
+       * Used to figure out which element was clicked before sending the event to the foundation.
+       */
+
+
+      MDCList.prototype.handleFocusInEvent_ = function (evt) {
+        var index = this.getListItemIndex_(evt);
+        this.foundation_.handleFocusIn(evt, index);
+      };
+      /**
+       * Used to figure out which element was clicked before sending the event to the foundation.
+       */
+
+
+      MDCList.prototype.handleFocusOutEvent_ = function (evt) {
+        var index = this.getListItemIndex_(evt);
+        this.foundation_.handleFocusOut(evt, index);
+      };
+      /**
+       * Used to figure out which element was focused when keydown event occurred before sending the event to the
+       * foundation.
+       */
+
+
+      MDCList.prototype.handleKeydownEvent_ = function (evt) {
+        var index = this.getListItemIndex_(evt);
+        var target = evt.target;
+
+        if (index >= 0) {
+          this.foundation_.handleKeydown(evt, target.classList.contains(cssClasses.LIST_ITEM_CLASS), index);
+        }
+      };
+      /**
+       * Used to figure out which element was clicked before sending the event to the foundation.
+       */
+
+
+      MDCList.prototype.handleClickEvent_ = function (evt) {
+        var index = this.getListItemIndex_(evt);
+        var target = evt.target; // Toggle the checkbox only if it's not the target of the event, or the checkbox will have 2 change events.
+
+        var toggleCheckbox = !matches(target, strings.CHECKBOX_RADIO_SELECTOR);
+        this.foundation_.handleClick(index, toggleCheckbox);
+      };
+
+      return MDCList;
+    }(MDCComponent);
+
+    new MDCList(document.querySelector(".mdc-list"));
+
+}));
+
+//# sourceMappingURL=../maps/js/home.js.map
