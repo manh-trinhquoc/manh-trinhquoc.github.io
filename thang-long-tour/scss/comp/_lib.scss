@@ -1,22 +1,23 @@
 /*Cac mau sac chinh*/
-$page-color: #F4D7E7;
+$page-color: #f4d7e7;
 $page-color-darker: #687672;
 $page-color-darker_trans: rgba(64, 48, 0, 0.9);
 $page-color-darker_trans-more: rgba(104, 118, 114, 0.8);
 /*$text-color: #FFBF00;*/
-$text-color: #D1A827;
+$text-color: #d1a827;
 $text-color-darker-1: #987a1c;
-$text-color-filter: invert(80%) sepia(65%) saturate(2893%) hue-rotate(359deg) brightness(102%) contrast(105%);
-$text-color-darker: #3F4234;
+$text-color-filter: invert(80%) sepia(65%) saturate(2893%) hue-rotate(359deg)
+  brightness(102%) contrast(105%);
+$text-color-darker: #3f4234;
 $text-no-color: black;
 /*font size*/
 $text-size-xs: 10px;
 $text-size-sm: 13px;
 $text-size-md: 18px;
 $text-size-lg: 35px;
-$text-size-banner-sm: $text-size-sm+10;
-$text-size-banner-md: $text-size-md+15;
-$text-size-banner-lg: $text-size-lg+20;
+$text-size-banner-sm: $text-size-sm + 10;
+$text-size-banner-md: $text-size-md + 15;
+$text-size-banner-lg: $text-size-lg + 20;
 $icon-color: $text-color;
 $icon-size: 33px;
 /*tag size*/
@@ -31,66 +32,68 @@ $btn-padding: $padding-sm;
 $btn-bg-color: $text-color-darker;
 
 %responsive-max-width {
-    margin-left: auto;
-    margin-right: auto;
+  margin-left: auto;
+  margin-right: auto;
 
-    @media (min-width: 576px) {
-        max-width: 540px;
-    }
+  @media (min-width: 576px) {
+    max-width: 540px;
+  }
 
-    @media (min-width: 768px) {
-        max-width: 720px;
-    }
+  @media (min-width: 768px) {
+    max-width: 720px;
+  }
 
-    @media (min-width: 992px) {
-        max-width: 960px;
-    }
+  @media (min-width: 992px) {
+    max-width: 960px;
+  }
 
-    @media (min-width: 1200px) {
-        max-width: 1140px;
-    }
+  @media (min-width: 1200px) {
+    max-width: 1140px;
+  }
 }
 
 @mixin d-flex {
-    display: -webkit-flex;
-    display: -moz-flex;
-    display: -ms-flex;
-    display: -o-flex;
-    display: flex;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
 }
 
 %d-flex_responsive {
-    @include d-flex;
-    flex-wrap: nowrap;
+  @include d-flex;
+  flex-wrap: nowrap;
+  //   flex-wrap: wrap;
 
-    @media (max-width: 576px) {
-        flex-flow: column;
-    }
+  @media (max-width: 576px) {
+    flex-flow: column;
+    // flex-flow: row;
+  }
 }
 
 %d-flex_center {
-    @include d-flex;
-    justify-content: center;
-    -ms-align-items: center;
-    align-items: center;
+  @include d-flex;
+  justify-content: center;
+  -ms-align-items: center;
+  align-items: center;
 }
 
 @mixin d-flex-col-responsive {
-    @media (max-width: 576px) {
-        align-self: stretch;
-    }
+  @media (max-width: 576px) {
+    align-self: stretch;
+  }
 }
 
 @mixin container {
-    padding-top: $padding-lg;
-    @extend %responsive-max-width;
-    padding-bottom: $padding-lg;
-    padding-left: $padding-xs;
-    padding-right: $padding-xs;
+  padding-top: $padding-lg;
+  @extend %responsive-max-width;
+  padding-bottom: $padding-lg;
+  padding-left: $padding-xs;
+  padding-right: $padding-xs;
 }
 
 @mixin media($property, $value, $min-width: 576px) {
-    @media (min-width: $min-width) {
-        #{$property}: $value;
-    }
+  @media (min-width: $min-width) {
+    #{$property}: $value;
+  }
 }
