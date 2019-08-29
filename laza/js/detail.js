@@ -4,7 +4,7 @@ var url = "/laza/data/products.json";
 xmlhttp.open("GET", url, true);
 xmlhttp.send();
 
-xmlhttp.onreadystatechange = function() {
+xmlhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
         let productData = JSON.parse(this.responseText);
         // console.log(JSON.stringify(productData));
@@ -64,7 +64,7 @@ function displayDescription(link) {
     xmlhttp.open("GET", url, true);
     xmlhttp.send();
 
-    xmlhttp.onreadystatechange = function() {
+    xmlhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
             console.log(this.responseText);
             $(".product-description").append(this.responseText);
